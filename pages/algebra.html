@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Algebra — MathExplorer</title>
   <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/category.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -38,31 +39,153 @@
     </ul>
   </div>
 
-  <section class="category-hero">
-    <div class="category-hero-icon card-algebra" style="border:1px solid rgba(79,142,247,0.2);">𝑥²</div>
-    <h1>Algebra</h1>
-    <p>Master the language of variables — from solving equations to exploring functions, matrices, and beyond.</p>
+  <section class="cat-hero cat-hero--algebra">
+    <div class="cat-hero-bg"></div>
+    <div class="cat-hero-content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>›</span>
+        <span>Algebra</span>
+      </nav>
+      <div class="cat-hero-icon">𝑥²</div>
+      <h1>Algebra</h1>
+      <p>Master the language of variables — equations, functions, polynomials, and more.</p>
+      <div class="cat-meta">
+        <span class="cat-meta-pill">8 Topics</span>
+        <span class="cat-meta-pill">2 Interactive</span>
+        <span class="cat-meta-pill available">Available Now</span>
+      </div>
+    </div>
   </section>
 
-  <section class="coming-soon-section">
-    <div class="coming-soon-card" style="border-color: rgba(79, 142, 247, 0.2);">
-      <div class="coming-soon-icon">🔧</div>
-      <h2>Content Coming Soon</h2>
-      <p>
-        We're building out interactive concept pages, worked examples, and graph visualisations for Algebra.
-        Check back once we're past the roadmap phase!
-      </p>
-      <ul class="topic-list">
-        <li>Linear Equations</li>
-        <li>Quadratic Equations</li>
-        <li>Polynomials</li>
-        <li>Factoring</li>
-        <li>Inequalities</li>
-        <li>Functions & Graphs</li>
-        <li>Systems of Equations</li>
-        <li>Matrices</li>
-      </ul>
-      <a href="../index.html#roadmap" class="btn btn-ghost">View Roadmap</a>
+  <!-- Topics Grid -->
+  <section class="topics-section">
+    <div class="container">
+      <div class="topics-grid">
+
+        <!-- Linear Equations -->
+        <a href="algebra/linear-equations.html" class="topic-card topic-available">
+          <div class="topic-number">01</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Linear Equations</h3>
+              <span class="topic-badge available">Interactive</span>
+            </div>
+            <p>Solve equations of the form <em>ax + b = 0</em>. Graph lines using slope-intercept form with a live plotter.</p>
+            <div class="topic-tags">
+              <span>ax + b = 0</span><span>y = mx + b</span><span>Slope</span>
+            </div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <!-- Quadratic Equations -->
+        <a href="algebra/quadratic-equations.html" class="topic-card topic-available">
+          <div class="topic-number">02</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Quadratic Equations</h3>
+              <span class="topic-badge available">Interactive</span>
+            </div>
+            <p>Explore parabolas and the quadratic formula. Visualise roots, vertex, and discriminant in real time.</p>
+            <div class="topic-tags">
+              <span>ax² + bx + c</span><span>Quadratic Formula</span><span>Discriminant</span>
+            </div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <!-- Polynomials -->
+        <div class="topic-card topic-soon">
+          <div class="topic-number">03</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Polynomials</h3>
+              <span class="topic-badge soon">Coming Soon</span>
+            </div>
+            <p>Work with expressions of multiple degrees. Plot polynomial curves and explore end behaviour.</p>
+            <div class="topic-tags">
+              <span>Degree</span><span>Coefficients</span><span>Roots</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Factoring -->
+        <div class="topic-card topic-soon">
+          <div class="topic-number">04</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Factoring</h3>
+              <span class="topic-badge soon">Coming Soon</span>
+            </div>
+            <p>Break down expressions into their factors with step-by-step guidance for trinomials and special forms.</p>
+            <div class="topic-tags">
+              <span>GCF</span><span>Trinomials</span><span>Difference of Squares</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Functions & Graphs -->
+        <div class="topic-card topic-soon">
+          <div class="topic-number">05</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Functions &amp; Graphs</h3>
+              <span class="topic-badge soon">Coming Soon</span>
+            </div>
+            <p>Understand domain, range, and transformations. Type any function and see it plotted instantly.</p>
+            <div class="topic-tags">
+              <span>Domain & Range</span><span>Transformations</span><span>Composition</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Systems of Equations -->
+        <div class="topic-card topic-soon">
+          <div class="topic-number">06</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Systems of Equations</h3>
+              <span class="topic-badge soon">Coming Soon</span>
+            </div>
+            <p>Solve two equations simultaneously. Visualise intersection points on a two-line graph.</p>
+            <div class="topic-tags">
+              <span>Substitution</span><span>Elimination</span><span>Intersection</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Inequalities -->
+        <div class="topic-card topic-soon">
+          <div class="topic-number">07</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Inequalities</h3>
+              <span class="topic-badge soon">Coming Soon</span>
+            </div>
+            <p>Explore solution sets on number lines and shaded regions on coordinate planes.</p>
+            <div class="topic-tags">
+              <span>Number Line</span><span>Interval Notation</span><span>Shading</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Matrices -->
+        <div class="topic-card topic-soon">
+          <div class="topic-number">08</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Matrices</h3>
+              <span class="topic-badge soon">Coming Soon</span>
+            </div>
+            <p>Add, multiply, and transform with matrices. See how matrix multiplication transforms 2D space.</p>
+            <div class="topic-tags">
+              <span>Multiplication</span><span>Determinant</span><span>Transformations</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 

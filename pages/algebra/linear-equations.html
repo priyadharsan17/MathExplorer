@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linear Equations — Algebra | MathExplorer</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- MathJax for formula rendering -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body class="topic-page">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html" class="active">Algebra</a></li>
+        <li><a href="../calculus.html">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a><span>›</span>
+      <a href="../algebra.html">Algebra</a><span>›</span>
+      <span>Linear Equations</span>
+    </nav>
+    <div class="topic-hero-top">
+      <div class="topic-symbol">𝑥</div>
+      <h1>Linear Equations</h1>
+    </div>
+    <p class="subtitle">
+      A linear equation is any equation that forms a straight line when graphed.
+      Understanding them is the gateway to all of algebra — and to calculus, statistics, and beyond.
+    </p>
+  </div>
+
+  <!-- Concept -->
+  <section class="content-section">
+    <h2>What is a Linear Equation?</h2>
+    <p>
+      A <strong>linear equation</strong> in one variable has the form \( ax + b = 0 \), where \(a \ne 0\).
+      The solution is the single value of \(x\) that makes the equation true.
+    </p>
+    <p>
+      In two variables, a linear equation takes the form \( y = mx + b \) — the
+      <strong>slope-intercept form</strong>. Here \(m\) is the <em>slope</em> (steepness and direction)
+      and \(b\) is the <em>y-intercept</em> (where the line crosses the y-axis).
+    </p>
+    <p>
+      The defining feature of a linear equation is that neither variable is raised to a power other than 1,
+      and no two variables are multiplied together. This is what guarantees a straight line.
+    </p>
+  </section>
+
+  <!-- Key Formulas -->
+  <section class="content-section">
+    <h2>Key Formulas</h2>
+    <div class="formula-grid">
+
+      <div class="formula-card">
+        <span class="formula-label">Standard Form</span>
+        <div>
+          <div class="formula-math">\[ ax + b = 0 \]</div>
+          <div class="formula-note">Solve by isolating \(x\): \(\displaystyle x = -\frac{b}{a}\)</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Slope-Intercept</span>
+        <div>
+          <div class="formula-math">\[ y = mx + b \]</div>
+          <div class="formula-note">\(m\) = slope, \(b\) = y-intercept</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Slope Formula</span>
+        <div>
+          <div class="formula-math">\[ m = \frac{y_2 - y_1}{x_2 - x_1} \]</div>
+          <div class="formula-note">Rise over run between any two points on the line</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Point-Slope</span>
+        <div>
+          <div class="formula-math">\[ y - y_1 = m(x - x_1) \]</div>
+          <div class="formula-note">Use when you know a point \((x_1, y_1)\) and the slope \(m\)</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Worked Examples -->
+  <section class="content-section">
+    <h2>Worked Examples</h2>
+    <div class="example-list">
+
+      <div class="example-card">
+        <div class="example-title">Example 1 — Solving a one-variable equation</div>
+        <div class="example-problem">Solve: \(3x - 9 = 0\)</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">Add 9 to both sides: <code>3x = 9</code></div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">Divide both sides by 3: <code>x = 3</code></div>
+          </div>
+          <div class="step">
+            <div class="step-num">✓</div>
+            <div class="step-text">Check: \(3(3) - 9 = 0\) ✓</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 2 — Finding slope between two points</div>
+        <div class="example-problem">Find the slope through \((1, 2)\) and \((4, 8)\)</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">Apply the slope formula: \(\displaystyle m = \frac{8 - 2}{4 - 1}\)</div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">Simplify: \(\displaystyle m = \frac{6}{3} = 2\)</div>
+          </div>
+          <div class="step">
+            <div class="step-num">✓</div>
+            <div class="step-text">The line rises 2 units for every 1 unit moved right.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 3 — Writing the equation from a point and slope</div>
+        <div class="example-problem">Write the equation of a line through \((2, 5)\) with slope \(m = 3\)</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">Use point-slope form: <code>y − 5 = 3(x − 2)</code></div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">Expand: <code>y − 5 = 3x − 6</code></div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-text">Rearrange to slope-intercept: <code>y = 3x − 1</code></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Visualiser -->
+  <section class="visualiser-section">
+    <h2>Interactive Graph — y = mx + b</h2>
+    <div class="visualiser-card">
+      <div class="visualiser-canvas-wrap">
+        <canvas id="lineCanvas" width="860" height="420"></canvas>
+        <div class="equation-display" id="equationDisplay">y = x + 0</div>
+      </div>
+
+      <div class="visualiser-controls">
+        <div class="control-group">
+          <div class="control-label">
+            <span>Slope (m)</span>
+            <span class="control-value" id="mVal">1</span>
+          </div>
+          <input type="range" id="slopeSlider" min="-5" max="5" step="0.5" value="1" />
+        </div>
+        <div class="control-group">
+          <div class="control-label">
+            <span>Y-Intercept (b)</span>
+            <span class="control-value" id="bVal">0</span>
+          </div>
+          <input type="range" id="interceptSlider" min="-8" max="8" step="0.5" value="0" />
+        </div>
+      </div>
+
+      <div class="visualiser-info">
+        <div class="info-item">
+          <span class="info-label">Slope</span>
+          <span class="info-value" id="infoSlope">m = 1</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Y-Intercept</span>
+          <span class="info-value" id="infoIntercept">b = 0</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">X-Intercept</span>
+          <span class="info-value" id="infoXIntercept">x = 0</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Direction</span>
+          <span class="info-value" id="infoDirection">Increasing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <div class="takeaways-list">
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>A linear equation always produces a straight line — the variable's highest power is 1.</p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>Slope \(m\) describes direction and steepness. Positive \(m\) → line rises; negative \(m\) → line falls.</p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>The y-intercept \(b\) is the value of \(y\) when \(x = 0\) — where the line crosses the y-axis.</p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>Two lines are parallel when they have the same slope, and perpendicular when their slopes are negative reciprocals.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="quadratic-equations.html" class="related-card">Quadratic Equations <span>→</span></a>
+      <a href="../algebra.html" class="related-card">All Algebra Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-symbol">∑</span>
+          <span class="logo-text">MathExplorer</span>
+        </div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    // ── Linear equation graph plotter ──
+    const canvas = document.getElementById('lineCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const slopeSlider     = document.getElementById('slopeSlider');
+    const interceptSlider = document.getElementById('interceptSlider');
+    const mValEl          = document.getElementById('mVal');
+    const bValEl          = document.getElementById('bVal');
+    const eqDisplay       = document.getElementById('equationDisplay');
+    const infoSlope       = document.getElementById('infoSlope');
+    const infoIntercept   = document.getElementById('infoIntercept');
+    const infoXIntercept  = document.getElementById('infoXIntercept');
+    const infoDirection   = document.getElementById('infoDirection');
+
+    const RANGE = 10; // axis range: -10 to +10
+
+    function resizeCanvas() {
+      const wrap = canvas.parentElement;
+      const w = wrap.clientWidth;
+      canvas.width  = w;
+      canvas.height = Math.round(w * 0.48);
+      draw();
+    }
+
+    function toCanvas(x, y) {
+      const W = canvas.width, H = canvas.height;
+      const cx = W / 2 + (x / RANGE) * (W / 2);
+      const cy = H / 2 - (y / RANGE) * (H / 2);
+      return [cx, cy];
+    }
+
+    function draw() {
+      const W = canvas.width, H = canvas.height;
+      const m = parseFloat(slopeSlider.value);
+      const b = parseFloat(interceptSlider.value);
+
+      ctx.clearRect(0, 0, W, H);
+
+      // Background
+      ctx.fillStyle = '#0d0d14';
+      ctx.fillRect(0, 0, W, H);
+
+      // Grid
+      ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+      ctx.lineWidth = 1;
+      for (let i = -RANGE; i <= RANGE; i++) {
+        const [gx] = toCanvas(i, 0);
+        const [, gy] = toCanvas(0, i);
+        ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, H); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(W, gy); ctx.stroke();
+      }
+
+      // Axes
+      const [ax] = toCanvas(0, 0);
+      const [, ay] = toCanvas(0, 0);
+      ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(ax, 0); ctx.lineTo(ax, H); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0, ay); ctx.lineTo(W, ay); ctx.stroke();
+
+      // Axis labels
+      ctx.fillStyle = 'rgba(255,255,255,0.3)';
+      ctx.font = `${Math.max(10, W * 0.012)}px Inter, sans-serif`;
+      ctx.textAlign = 'center';
+      for (let i = -RANGE + 2; i <= RANGE - 2; i += 2) {
+        if (i === 0) continue;
+        const [lx] = toCanvas(i, 0);
+        ctx.fillText(i, lx, ay + 16);
+        const [, ly] = toCanvas(0, i);
+        ctx.textAlign = 'right';
+        ctx.fillText(i, ax - 6, ly + 4);
+        ctx.textAlign = 'center';
+      }
+
+      // Line: y = mx + b
+      const x1 = -RANGE - 1, y1 = m * x1 + b;
+      const x2 =  RANGE + 1, y2 = m * x2 + b;
+      const [cx1, cy1] = toCanvas(x1, y1);
+      const [cx2, cy2] = toCanvas(x2, y2);
+
+      ctx.strokeStyle = '#4f8ef7';
+      ctx.lineWidth = 2.5;
+      ctx.shadowColor = 'rgba(79,142,247,0.4)';
+      ctx.shadowBlur = 10;
+      ctx.beginPath();
+      ctx.moveTo(cx1, cy1);
+      ctx.lineTo(cx2, cy2);
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      // Y-intercept dot
+      const [bx, by] = toCanvas(0, b);
+      ctx.fillStyle = '#4f8ef7';
+      ctx.beginPath(); ctx.arc(bx, by, 5, 0, Math.PI * 2); ctx.fill();
+
+      // X-intercept dot (if m != 0)
+      if (m !== 0) {
+        const xInt = -b / m;
+        if (Math.abs(xInt) <= RANGE) {
+          const [ix, iy] = toCanvas(xInt, 0);
+          ctx.fillStyle = '#9b6df8';
+          ctx.beginPath(); ctx.arc(ix, iy, 5, 0, Math.PI * 2); ctx.fill();
+        }
+      }
+
+      // Update UI
+      const mStr = m === 1 ? '' : m === -1 ? '-' : m;
+      const bStr = b >= 0 ? `+ ${b}` : `− ${Math.abs(b)}`;
+      eqDisplay.textContent = `y = ${mStr}x ${bStr}`;
+      mValEl.textContent = m;
+      bValEl.textContent = b;
+      infoSlope.textContent     = `m = ${m}`;
+      infoIntercept.textContent = `b = ${b}`;
+      infoDirection.textContent = m > 0 ? 'Increasing' : m < 0 ? 'Decreasing' : 'Horizontal';
+
+      if (m !== 0) {
+        const xInt = (-b / m).toFixed(2);
+        infoXIntercept.textContent = `x = ${xInt}`;
+      } else {
+        infoXIntercept.textContent = b === 0 ? 'All x' : 'None';
+      }
+    }
+
+    slopeSlider.addEventListener('input', draw);
+    interceptSlider.addEventListener('input', draw);
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+  </script>
+</body>
+</html>

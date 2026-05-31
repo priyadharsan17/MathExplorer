@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quadratic Equations — Algebra | MathExplorer</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    /* Quadratic-specific overrides */
+    .topic-symbol { font-size: 1.2rem; }
+    .disc-positive  { color: var(--accent-teal); }
+    .disc-zero      { color: var(--accent-blue); }
+    .disc-negative  { color: var(--accent-orange); }
+    .step-num.purple { background: rgba(155,109,248,0.12); color: var(--calculus-color); }
+    .visualiser-controls { grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 600px) { .visualiser-controls { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body class="topic-page">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html" class="active">Algebra</a></li>
+        <li><a href="../calculus.html">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a><span>›</span>
+      <a href="../algebra.html">Algebra</a><span>›</span>
+      <span>Quadratic Equations</span>
+    </nav>
+    <div class="topic-hero-top">
+      <div class="topic-symbol">𝑥²</div>
+      <h1>Quadratic Equations</h1>
+    </div>
+    <p class="subtitle">
+      Quadratic equations introduce curves — the parabola. They model everything from
+      projectile motion to the shape of satellite dishes, and are solved by factoring,
+      completing the square, or the quadratic formula.
+    </p>
+  </div>
+
+  <!-- Concept -->
+  <section class="content-section">
+    <h2>What is a Quadratic Equation?</h2>
+    <p>
+      A <strong>quadratic equation</strong> has the standard form \( ax^2 + bx + c = 0 \), where \( a \ne 0 \).
+      The graph of \( y = ax^2 + bx + c \) is always a <strong>parabola</strong> — a symmetric U-shaped curve.
+    </p>
+    <p>
+      The solutions (also called <em>roots</em> or <em>zeros</em>) are the x-values where the parabola crosses the x-axis.
+      A quadratic can have <strong>two real roots</strong>, <strong>one repeated root</strong>, or
+      <strong>no real roots</strong> — determined entirely by the <em>discriminant</em> \( \Delta = b^2 - 4ac \).
+    </p>
+    <p>
+      The coefficient \(a\) controls the <strong>direction</strong> (up when \(a > 0\), down when \(a < 0\))
+      and the <strong>width</strong> of the parabola. The <strong>vertex</strong> — the highest or lowest point —
+      is located at \( x = -\dfrac{b}{2a} \).
+    </p>
+  </section>
+
+  <!-- Key Formulas -->
+  <section class="content-section">
+    <h2>Key Formulas</h2>
+    <div class="formula-grid">
+
+      <div class="formula-card">
+        <span class="formula-label">Standard Form</span>
+        <div>
+          <div class="formula-math">\[ ax^2 + bx + c = 0 \quad (a \ne 0) \]</div>
+          <div class="formula-note">The canonical form used to apply the quadratic formula</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Quadratic Formula</span>
+        <div>
+          <div class="formula-math">\[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]</div>
+          <div class="formula-note">Works for every quadratic — always reliable when factoring is hard</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Discriminant</span>
+        <div>
+          <div class="formula-math">\[ \Delta = b^2 - 4ac \]</div>
+          <div class="formula-note">
+            \(\Delta > 0\): two real roots &nbsp;|&nbsp;
+            \(\Delta = 0\): one root &nbsp;|&nbsp;
+            \(\Delta < 0\): no real roots
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Vertex</span>
+        <div>
+          <div class="formula-math">\[ x_v = -\frac{b}{2a}, \quad y_v = c - \frac{b^2}{4a} \]</div>
+          <div class="formula-note">The turning point of the parabola — minimum if \(a>0\), maximum if \(a&lt;0\)</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Vertex Form</span>
+        <div>
+          <div class="formula-math">\[ y = a(x - h)^2 + k \]</div>
+          <div class="formula-note">Vertex at \((h, k)\) — easy to read off the turning point directly</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Worked Examples -->
+  <section class="content-section">
+    <h2>Worked Examples</h2>
+    <div class="example-list">
+
+      <div class="example-card">
+        <div class="example-title">Example 1 — Solving by factoring</div>
+        <div class="example-problem">Solve: \(x^2 - 5x + 6 = 0\)</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">Find two numbers that multiply to <code>6</code> and add to <code>−5</code>: they are <code>−2</code> and <code>−3</code>.</div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">Factor: <code>(x − 2)(x − 3) = 0</code></div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-text">Apply zero-product property: <code>x = 2</code> or <code>x = 3</code></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 2 — Using the quadratic formula</div>
+        <div class="example-problem">Solve: \(2x^2 - 4x - 6 = 0\)</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">Identify: \(a = 2,\; b = -4,\; c = -6\). Compute discriminant: \(\Delta = (-4)^2 - 4(2)(-6) = 16 + 48 = 64\)</div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">Apply formula: \(\displaystyle x = \frac{4 \pm \sqrt{64}}{4} = \frac{4 \pm 8}{4}\)</div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-text">Two solutions: <code>x = (4 + 8)/4 = 3</code> and <code>x = (4 − 8)/4 = −1</code></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 3 — No real roots (negative discriminant)</div>
+        <div class="example-problem">Solve: \(x^2 + x + 1 = 0\)</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">Compute discriminant: \(\Delta = 1^2 - 4(1)(1) = 1 - 4 = -3\)</div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">Since \(\Delta &lt; 0\), there are <strong>no real solutions</strong>. The parabola never touches the x-axis.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Visualiser -->
+  <section class="visualiser-section">
+    <h2>Interactive Graph — y = ax² + bx + c</h2>
+    <div class="visualiser-card">
+      <div class="visualiser-canvas-wrap">
+        <canvas id="quadCanvas" width="860" height="420"></canvas>
+        <div class="equation-display" id="equationDisplay">y = x²</div>
+      </div>
+
+      <div class="visualiser-controls">
+        <div class="control-group">
+          <div class="control-label">
+            <span>a (shape &amp; direction)</span>
+            <span class="control-value" id="aVal">1</span>
+          </div>
+          <input type="range" id="sliderA" min="-3" max="3" step="0.5" value="1" />
+        </div>
+        <div class="control-group">
+          <div class="control-label">
+            <span>b (shift left/right)</span>
+            <span class="control-value" id="bVal">0</span>
+          </div>
+          <input type="range" id="sliderB" min="-6" max="6" step="0.5" value="0" />
+        </div>
+        <div class="control-group">
+          <div class="control-label">
+            <span>c (vertical shift)</span>
+            <span class="control-value" id="cVal">0</span>
+          </div>
+          <input type="range" id="sliderC" min="-8" max="8" step="0.5" value="0" />
+        </div>
+      </div>
+
+      <div class="visualiser-info">
+        <div class="info-item">
+          <span class="info-label">Vertex</span>
+          <span class="info-value" id="infoVertex">( 0, 0 )</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Discriminant (Δ)</span>
+          <span class="info-value" id="infoDisc">0</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Roots</span>
+          <span class="info-value" id="infoRoots">x = 0</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Opens</span>
+          <span class="info-value" id="infoOpens">Upward</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <div class="takeaways-list">
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>The discriminant \(\Delta = b^2 - 4ac\) tells you how many real roots exist — without solving the equation.</p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>When \(a > 0\) the parabola opens upward (has a minimum); when \(a &lt; 0\) it opens downward (has a maximum).</p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>The vertex \(\left(-\dfrac{b}{2a},\; c - \dfrac{b^2}{4a}\right)\) is the axis of symmetry — the parabola is a mirror image around it.</p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>Always check for factoring first — it's faster. Use the quadratic formula as a guaranteed fallback.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="linear-equations.html" class="related-card">Linear Equations <span>→</span></a>
+      <a href="../algebra.html" class="related-card">All Algebra Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-symbol">∑</span>
+          <span class="logo-text">MathExplorer</span>
+        </div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    // ── Quadratic parabola plotter ──
+    const canvas = document.getElementById('quadCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const sliderA = document.getElementById('sliderA');
+    const sliderB = document.getElementById('sliderB');
+    const sliderC = document.getElementById('sliderC');
+    const aValEl  = document.getElementById('aVal');
+    const bValEl  = document.getElementById('bVal');
+    const cValEl  = document.getElementById('cVal');
+    const eqDisp  = document.getElementById('equationDisplay');
+    const infoVertex  = document.getElementById('infoVertex');
+    const infoDisc    = document.getElementById('infoDisc');
+    const infoRoots   = document.getElementById('infoRoots');
+    const infoOpens   = document.getElementById('infoOpens');
+
+    const RANGE = 10;
+
+    function resizeCanvas() {
+      const w = canvas.parentElement.clientWidth;
+      canvas.width  = w;
+      canvas.height = Math.round(w * 0.48);
+      draw();
+    }
+
+    function toCanvas(x, y) {
+      const W = canvas.width, H = canvas.height;
+      return [
+        W / 2 + (x / RANGE) * (W / 2),
+        H / 2 - (y / RANGE) * (H / 2)
+      ];
+    }
+
+    function fmtNum(n, digits = 2) {
+      const r = parseFloat(n.toFixed(digits));
+      return r === 0 ? '0' : String(r);
+    }
+
+    function buildEqStr(a, b, c) {
+      let s = 'y = ';
+      if (a === 1) s += 'x²';
+      else if (a === -1) s += '−x²';
+      else s += `${a}x²`;
+
+      if (b > 0) s += ` + ${b}x`;
+      else if (b < 0) s += ` − ${Math.abs(b)}x`;
+
+      if (c > 0) s += ` + ${c}`;
+      else if (c < 0) s += ` − ${Math.abs(c)}`;
+
+      return s;
+    }
+
+    function draw() {
+      const W = canvas.width, H = canvas.height;
+      const a = parseFloat(sliderA.value);
+      const b = parseFloat(sliderB.value);
+      const c = parseFloat(sliderC.value);
+
+      ctx.clearRect(0, 0, W, H);
+      ctx.fillStyle = '#0d0d14';
+      ctx.fillRect(0, 0, W, H);
+
+      // Grid
+      ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+      ctx.lineWidth = 1;
+      for (let i = -RANGE; i <= RANGE; i++) {
+        const [gx] = toCanvas(i, 0);
+        const [, gy] = toCanvas(0, i);
+        ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, H); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(W, gy); ctx.stroke();
+      }
+
+      // Axes
+      const [axX] = toCanvas(0, 0);
+      const [, axY] = toCanvas(0, 0);
+      ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(axX, 0); ctx.lineTo(axX, H); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0, axY); ctx.lineTo(W, axY); ctx.stroke();
+
+      // Axis labels
+      ctx.fillStyle = 'rgba(255,255,255,0.3)';
+      ctx.font = `${Math.max(10, W * 0.012)}px Inter, sans-serif`;
+      ctx.textAlign = 'center';
+      for (let i = -RANGE + 2; i <= RANGE - 2; i += 2) {
+        if (i === 0) continue;
+        const [lx] = toCanvas(i, 0);
+        ctx.fillText(i, lx, axY + 16);
+        const [, ly] = toCanvas(0, i);
+        ctx.textAlign = 'right';
+        ctx.fillText(i, axX - 6, ly + 4);
+        ctx.textAlign = 'center';
+      }
+
+      // Parabola (a != 0 guard)
+      if (a !== 0) {
+        const steps = 400;
+        const xStart = -RANGE - 1, xEnd = RANGE + 1;
+        const dx = (xEnd - xStart) / steps;
+
+        ctx.strokeStyle = '#9b6df8';
+        ctx.lineWidth = 2.5;
+        ctx.shadowColor = 'rgba(155,109,248,0.4)';
+        ctx.shadowBlur = 10;
+        ctx.beginPath();
+        let started = false;
+        for (let i = 0; i <= steps; i++) {
+          const xv = xStart + i * dx;
+          const yv = a * xv * xv + b * xv + c;
+          const [px, py] = toCanvas(xv, yv);
+          if (py < -H || py > 2 * H) { started = false; continue; }
+          if (!started) { ctx.moveTo(px, py); started = true; }
+          else ctx.lineTo(px, py);
+        }
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+      }
+
+      // Discriminant & roots
+      const disc = b * b - 4 * a * c;
+      const vx = a !== 0 ? -b / (2 * a) : 0;
+      const vy = a !== 0 ? c - (b * b) / (4 * a) : c;
+
+      // Vertex dot
+      if (a !== 0) {
+        const [vxC, vyC] = toCanvas(vx, vy);
+        ctx.fillStyle = '#f97b40';
+        ctx.shadowColor = 'rgba(249,123,64,0.5)';
+        ctx.shadowBlur = 8;
+        ctx.beginPath(); ctx.arc(vxC, vyC, 5, 0, Math.PI * 2); ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+
+      // Root dots
+      if (a !== 0 && disc >= 0) {
+        const r1 = (-b + Math.sqrt(disc)) / (2 * a);
+        const r2 = (-b - Math.sqrt(disc)) / (2 * a);
+        [r1, r2].forEach(rx => {
+          if (Math.abs(rx) <= RANGE + 1) {
+            const [px, py] = toCanvas(rx, 0);
+            ctx.fillStyle = '#34d4c8';
+            ctx.shadowColor = 'rgba(52,212,200,0.5)';
+            ctx.shadowBlur = 8;
+            ctx.beginPath(); ctx.arc(px, py, 5, 0, Math.PI * 2); ctx.fill();
+            ctx.shadowBlur = 0;
+          }
+        });
+      }
+
+      // Update UI labels
+      aValEl.textContent = a;
+      bValEl.textContent = b;
+      cValEl.textContent = c;
+      eqDisp.textContent = buildEqStr(a, b, c);
+
+      if (a !== 0) {
+        infoVertex.textContent  = `( ${fmtNum(vx)}, ${fmtNum(vy)} )`;
+        infoDisc.textContent    = fmtNum(disc);
+        infoOpens.textContent   = a > 0 ? 'Upward ↑' : 'Downward ↓';
+
+        if (disc > 0) {
+          const r1 = fmtNum((-b + Math.sqrt(disc)) / (2 * a));
+          const r2 = fmtNum((-b - Math.sqrt(disc)) / (2 * a));
+          infoRoots.textContent = `x = ${r1}, ${r2}`;
+          infoDisc.className    = 'info-value disc-positive';
+        } else if (disc === 0) {
+          infoRoots.textContent = `x = ${fmtNum(vx)} (double)`;
+          infoDisc.className    = 'info-value disc-zero';
+        } else {
+          infoRoots.textContent = 'No real roots';
+          infoDisc.className    = 'info-value disc-negative';
+        }
+      } else {
+        infoVertex.textContent  = '—';
+        infoDisc.textContent    = '—';
+        infoRoots.textContent   = '—';
+        infoOpens.textContent   = '—';
+      }
+    }
+
+    [sliderA, sliderB, sliderC].forEach(s => s.addEventListener('input', draw));
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+  </script>
+</body>
+</html>
