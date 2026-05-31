@@ -25,6 +25,8 @@
   --calculus-glow: rgba(155, 109, 248, 0.15);
   --trig-color: #34d4c8;
   --trig-glow: rgba(52, 212, 200, 0.15);
+  --history-color: #f0b429;
+  --history-glow: rgba(240, 180, 41, 0.15);
 
   --radius-sm: 8px;
   --radius-md: 14px;
@@ -390,6 +392,11 @@ img { max-width: 100%; display: block; }
 .card-trig:hover { border-color: rgba(52, 212, 200, 0.35); }
 .card-trig .card-glow { background: radial-gradient(circle, var(--trig-glow) 0%, transparent 70%); }
 .card-trig .card-icon { background: rgba(52, 212, 200, 0.1); color: var(--trig-color); }
+
+.card-history { border-color: rgba(240, 180, 41, 0.12); }
+.card-history:hover { border-color: rgba(240, 180, 41, 0.35); }
+.card-history .card-glow { background: radial-gradient(circle, var(--history-glow) 0%, transparent 70%); }
+.card-history .card-icon { background: rgba(240, 180, 41, 0.1); color: var(--history-color); }
 
 .card-icon {
   width: 56px;

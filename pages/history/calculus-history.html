@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculus — Newton vs Leibniz | History of Mathematics</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="stylesheet" href="../../css/history.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-page">
+    <div class="topic-hero">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span>›</span>
+        <a href="../history.html">History</a>
+        <span>›</span>
+        <span>Calculus</span>
+      </nav>
+      <div class="topic-hero-top">
+        <div class="topic-symbol topic-symbol--history">∫</div>
+        <div>
+          <span class="era-badge">1665 – 1684 CE</span>
+          <h1 style="margin-top:8px;">Calculus — Newton vs Leibniz</h1>
+        </div>
+      </div>
+      <p class="subtitle">Two of history's greatest minds independently invented the same mathematics in the same decade — then spent the rest of their lives in one of science's most bitter priority disputes.</p>
+    </div>
+  </div>
+
+  <!-- The Problem -->
+  <section class="content-section">
+    <h2>The Problem</h2>
+    <div class="problem-card">
+      <div class="problem-label">What forced this invention?</div>
+      <p>In 1665, Isaac Newton was a 22-year-old student at Cambridge when the bubonic plague closed the university. Sent home to Woolsthorpe Manor in Lincolnshire, he had eighteen months of uninterrupted thinking time — and he used it to break physics.</p>
+      <p>Newton needed to answer a question no one had fully solved: <strong>how fast is something moving at a single instant?</strong> Average speed over a journey was easy. But the speed of a cannonball at the precise moment it left the barrel — before any time had elapsed — seemed to require dividing zero by zero. Classical geometry had no answer.</p>
+      <p>Meanwhile in Paris, Gottfried Wilhelm Leibniz was attacking a different but related question: <strong>how do you find the exact area under an arbitrary curved line?</strong> Approximating with rectangles worked, but the finer you made the rectangles, the more rectangles you needed — infinitely many rectangles of infinitely small width. How do you add up infinitely many infinitely small things?</p>
+      <p>Both problems — instantaneous rates and infinite sums — were two faces of the same mathematical coin. The tool to solve both of them became calculus.</p>
+    </div>
+  </section>
+
+  <!-- The People -->
+  <section class="content-section">
+    <h2>The People</h2>
+    <div class="person-grid">
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">🍎</div>
+        <div class="portrait-name">Isaac Newton</div>
+        <div class="portrait-dates">1643 – 1727</div>
+        <div class="portrait-title">Natural Philosopher, Mathematician, Theologian — England</div>
+        <p class="portrait-body">Newton invented what he called <em>the method of fluxions</em> during 1665–1666, the so-called "annus mirabilis" (miracle year). In eighteen months of isolation he also derived his law of universal gravitation, decomposed white light into its spectrum, and laid the foundation for classical mechanics. He did not publish his calculus until 1687, buried inside the <em>Principia Mathematica</em>.</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">🖋️</div>
+        <div class="portrait-name">Gottfried Wilhelm Leibniz</div>
+        <div class="portrait-dates">1646 – 1716</div>
+        <div class="portrait-title">Mathematician, Philosopher, Diplomat — Germany</div>
+        <p class="portrait-body">Leibniz independently developed calculus between 1673 and 1676, working in Paris as a diplomat. Where Newton thought geometrically, Leibniz thought symbolically — he was obsessed with finding the perfect notation. His paper of 1684 was the first <em>published</em> account of differential calculus, using the notation \(\frac{dy}{dx}\) and \(\int\) that every student uses today.</p>
+      </div>
+
+    </div>
+
+    <div class="fact-strip" style="margin-top:16px;">
+      <div class="fact-item"><div class="fact-label">Newton's calculus notes</div><div class="fact-value">October 1666</div></div>
+      <div class="fact-item"><div class="fact-label">Leibniz's first calculus paper</div><div class="fact-value">1684</div></div>
+      <div class="fact-item"><div class="fact-label">Newton's Principia</div><div class="fact-value">1687</div></div>
+      <div class="fact-item"><div class="fact-label">Priority dispute begins</div><div class="fact-value">1699</div></div>
+      <div class="fact-item"><div class="fact-label">Leibniz dies (disputed, isolated)</div><div class="fact-value">1716</div></div>
+    </div>
+  </section>
+
+  <!-- The Breakthrough -->
+  <section class="content-section">
+    <h2>The Breakthrough</h2>
+
+    <p style="color:var(--text-secondary);line-height:1.75;font-size:0.95rem;margin-bottom:20px;">Both men made the same core discovery, expressed differently. The key insight was that <strong>finding the slope of a curve at a point</strong> (differentiation) and <strong>finding the area under a curve</strong> (integration) are exact inverses of one another. This connection — the Fundamental Theorem of Calculus — is arguably the most important theorem in mathematics.</p>
+
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula-label">The Derivative (instantaneous rate of change)</div>
+        <div class="formula-math">\[ f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \]</div>
+        <div class="formula-note">The slope of the curve \(f\) at any point \(x\). Newton's "fluxion" expressed the same idea using dot notation: \(\dot{x}\).</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">The Integral (area under a curve)</div>
+        <div class="formula-math">\[ \int_a^b f(x)\,dx = \lim_{n \to \infty} \sum_{k=1}^{n} f(x_k)\,\Delta x \]</div>
+        <div class="formula-note">The exact area as the width \(\Delta x\) of each rectangle shrinks to zero and their count grows to infinity.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">The Fundamental Theorem of Calculus</div>
+        <div class="formula-math">\[ \int_a^b f'(x)\,dx = f(b) - f(a) \]</div>
+        <div class="formula-note">Differentiation and integration are inverse operations. To integrate \(f'\) over \([a, b]\), just evaluate the original function \(f\) at the endpoints.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notation Battle -->
+  <section class="content-section">
+    <h2>The Notation Battle</h2>
+    <p style="color:var(--text-secondary);line-height:1.75;font-size:0.9rem;margin-bottom:20px;">Newton and Leibniz expressed identical mathematics in completely different notation. The priority dispute turned political — Britain loyally used Newton's notation for a century while continental Europe used Leibniz's. British mathematics fell behind as a result. Leibniz's notation ultimately won, because it is more flexible and reveals the structure of calculations more clearly.</p>
+
+    <div class="notation-compare">
+      <div class="notation-panel p-newton">
+        <div class="notation-header">Newton's Notation (Fluxions)</div>
+        <div class="notation-row"><span class="notation-concept">Derivative of x w.r.t. time</span><span class="notation-symbol">\(\dot{x}\)</span></div>
+        <div class="notation-row"><span class="notation-concept">Second derivative</span><span class="notation-symbol">\(\ddot{x}\)</span></div>
+        <div class="notation-row"><span class="notation-concept">Integral</span><span class="notation-symbol">\(\square x\) (boxed)</span></div>
+        <div class="notation-row"><span class="notation-concept">Infinitesimal</span><span class="notation-symbol">o (small letter)</span></div>
+        <div class="notation-row"><span class="notation-concept">Style</span><span class="notation-symbol">Geometric, physical</span></div>
+      </div>
+      <div class="notation-panel p-leibniz">
+        <div class="notation-header">Leibniz's Notation (Still used today)</div>
+        <div class="notation-row"><span class="notation-concept">Derivative of y w.r.t. x</span><span class="notation-symbol">\(\dfrac{dy}{dx}\)</span></div>
+        <div class="notation-row"><span class="notation-concept">Second derivative</span><span class="notation-symbol">\(\dfrac{d^2y}{dx^2}\)</span></div>
+        <div class="notation-row"><span class="notation-concept">Integral</span><span class="notation-symbol">\(\int f(x)\,dx\)</span></div>
+        <div class="notation-row"><span class="notation-concept">Infinitesimal</span><span class="notation-symbol">\(dx\) (differential)</span></div>
+        <div class="notation-row"><span class="notation-concept">Style</span><span class="notation-symbol">Symbolic, algebraic</span></div>
+      </div>
+    </div>
+
+    <div class="hist-callout" style="margin-top:18px;">
+      <strong>Why Leibniz won:</strong> His notation \(\frac{dy}{dx}\) makes the chain rule intuitive — fractions "cancel" symbolically: \(\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}\). Newton's dot notation has no such visual aid. Today, Newton's dot notation survives only in physics for time derivatives (e.g. \(\dot{x}\) for velocity).
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="content-section">
+    <h2>Timeline</h2>
+    <div class="ht-timeline">
+      <div class="ht-event">
+        <div class="ht-event-year">~250 BCE</div>
+        <div class="ht-event-title">Archimedes — Method of Exhaustion</div>
+        <div class="ht-event-text">Archimedes computes the area of a parabola and the volume of a sphere by exhausting them with polygons — the earliest known forerunner of integration.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1609</div>
+        <div class="ht-event-title">Kepler's Area Law</div>
+        <div class="ht-event-text">Johannes Kepler discovers that planets sweep equal areas in equal times — requiring ideas about instantaneous change that prefigure calculus.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1629–1637</div>
+        <div class="ht-event-title">Fermat's Method of Maxima</div>
+        <div class="ht-event-text">Pierre de Fermat develops a technique to find the maxima of curves by setting a "nearly zero" quantity to zero — an informal version of differentiation.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1665 – 1666</div>
+        <div class="ht-event-title">Newton's "Annus Mirabilis"</div>
+        <div class="ht-event-text">During the plague years at Woolsthorpe Manor, Newton invents the method of fluxions, the law of gravitation, and discovers the spectrum of light. His calculus notes circulate privately among a small group but are not published.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1673 – 1676</div>
+        <div class="ht-event-title">Leibniz Develops His Calculus Independently</div>
+        <div class="ht-event-text">Working in Paris, Leibniz independently discovers differential and integral calculus. He chooses his notation deliberately: \(\int\) is a long "S" for <em>summa</em> (sum); \(d\) stands for <em>differentia</em>.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1684</div>
+        <div class="ht-event-title">Leibniz Publishes First</div>
+        <div class="ht-event-text">Leibniz publishes <em>Nova Methodus</em> — the first published account of differential calculus. Newton has still not published his work publicly.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1687</div>
+        <div class="ht-event-title">Newton's Principia Mathematica</div>
+        <div class="ht-event-text">Newton finally publishes his <em>Principia</em> — the laws of motion and universal gravitation. The calculus underpinning it is buried in geometric form; he uses fluxion notation sparingly.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1699 – 1716</div>
+        <div class="ht-event-title">The Priority Dispute</div>
+        <div class="ht-event-text">The Royal Society investigates the priority question. Newton (who investigates himself) is declared the sole inventor. Continental mathematicians side with Leibniz. The feud fractures European mathematics for a generation. Leibniz dies in 1716, largely forgotten by the scientific establishment, with only his secretary at his funeral.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">18th–19th Century</div>
+        <div class="ht-event-title">The Aftermath</div>
+        <div class="ht-event-text">The Bernoulli brothers, Euler, Lagrange, and Laplace develop calculus into analysis using Leibniz's notation. British mathematicians, loyal to Newton's notation, fall a generation behind. Cauchy and Weierstrass eventually provide the rigorous foundation (limits) that both Newton and Leibniz had relied on informally.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">Today</div>
+        <div class="ht-event-title">The Verdict of History</div>
+        <div class="ht-event-text">The modern consensus: <strong>both invented calculus independently</strong>. Newton invented it first (~1666) but Leibniz published first (1684) and gave us the notation. Both deserve full credit.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why It Still Matters -->
+  <section class="content-section">
+    <h2>Why It Still Matters</h2>
+    <div class="matters-card">
+      <div class="matters-label">Modern Impact</div>
+      <p>It is almost impossible to overstate the importance of calculus. Every branch of physics, engineering, economics, and computer science is built on it. Without calculus:</p>
+      <ul>
+        <li><strong>No aerospace engineering</strong> — aircraft wings, rocket trajectories, and orbital mechanics all require differential equations.</li>
+        <li><strong>No electrical engineering</strong> — AC circuits, signal processing, and antenna design are described by calculus.</li>
+        <li><strong>No medical imaging</strong> — MRI and CT scans use integral transforms (Fourier analysis) to reconstruct images from raw signals.</li>
+        <li><strong>No machine learning</strong> — training neural networks is an optimisation problem solved by gradient descent, which is pure calculus.</li>
+        <li><strong>No financial markets</strong> — the Black-Scholes formula for option pricing is a partial differential equation.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="content-section">
+    <h2>In Their Own Words</h2>
+    <div class="quote-block">
+      <p class="quote-text">If I have seen further it is by standing on the shoulders of Giants.</p>
+      <div class="quote-attribution">— Isaac Newton, in a letter to Robert Hooke, 1675</div>
+    </div>
+    <div class="quote-block" style="margin-top:16px;">
+      <p class="quote-text">It is unworthy of excellent men to lose hours like slaves in the labour of calculation which could safely be relegated to anyone else if machines were used.</p>
+      <div class="quote-attribution">— Gottfried Wilhelm Leibniz, 1685 (in a letter advocating mechanical calculators)</div>
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <ul class="takeaways-list">
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Newton invented calculus first (~1666) but Leibniz published first (1684) and independently. Both deserve full credit.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>The core discovery is the <strong>Fundamental Theorem of Calculus</strong> — differentiation and integration are inverse operations.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Leibniz's notation \(\frac{dy}{dx}\) and \(\int\) is used universally today because it reveals structure that Newton's dot notation hides.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Britain's century-long loyalty to Newton's notation caused it to fall behind continental mathematics — a lesson in how notation shapes thought.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="../calculus.html" class="related-card">Calculus (Maths) <span>→</span></a>
+      <a href="algebra-history.html" class="related-card">History of Algebra <span>→</span></a>
+      <a href="zero.html" class="related-card">The Birth of Zero <span>→</span></a>
+      <a href="../history.html" class="related-card">All History Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-symbol">∑</span>
+          <span class="logo-text">MathExplorer</span>
+        </div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script src="../../js/progress.js"></script>
+  <script>Progress.markVisited('calculus-history');</script>
+</body>
+</html>

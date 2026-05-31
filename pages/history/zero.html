@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Birth of Zero | History of Mathematics</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="stylesheet" href="../../css/history.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-page">
+    <div class="topic-hero">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span>›</span>
+        <a href="../history.html">History</a>
+        <span>›</span>
+        <span>Zero</span>
+      </nav>
+      <div class="topic-hero-top">
+        <div class="topic-symbol topic-symbol--history">0</div>
+        <div>
+          <span class="era-badge">628 CE</span>
+          <h1 style="margin-top:8px;">The Birth of Zero</h1>
+        </div>
+      </div>
+      <p class="subtitle">The most powerful number in mathematics wasn't discovered — it had to be <em>invented</em>. And when it was, medieval Europe tried to ban it.</p>
+    </div>
+  </div>
+
+  <!-- The Problem -->
+  <section class="content-section">
+    <h2>The Problem</h2>
+    <div class="problem-card">
+      <div class="problem-label">What forced this invention?</div>
+      <p>Before zero existed as a number, ancient civilisations still managed to count, trade, and build monuments. They simply never wrote anything for "nothing." The number 204 was written as 2 4 — you were supposed to know the middle column was empty.</p>
+      <p>The first need for zero was purely practical: <strong>positional number systems break down without a placeholder.</strong> The Babylonians used a base-60 system as early as 3000 BCE. When a column was empty, they initially left a gap — then invented a special marker. But this placeholder was not a number. You couldn't add it, subtract it, or multiply by it. It was purely notational.</p>
+      <p>The deeper problem was philosophical: <strong>can "nothing" be a number?</strong> Can you operate on emptiness the same way you operate on one, two, or a hundred? Greek mathematicians — who believed numbers represented quantities of real things — found the idea absurd. How can you have a heap of zero apples? What does it mean to subtract three from three and get a <em>number</em>?</p>
+      <p>It took Indian mathematicians in the 7th century CE to make the conceptual leap: zero is not the absence of a number. It <em>is</em> a number, with defined arithmetic rules, and negative numbers are a natural consequence of it.</p>
+    </div>
+  </section>
+
+  <!-- The People -->
+  <section class="content-section">
+    <h2>The People</h2>
+    <div class="person-grid">
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">🌟</div>
+        <div class="portrait-name">Brahmagupta</div>
+        <div class="portrait-dates">598 – 668 CE</div>
+        <div class="portrait-title">Mathematician, Astronomer — Ujjain Observatory, India</div>
+        <p class="portrait-body">Head of the astronomical observatory at Ujjain, Brahmagupta wrote <em>Brāhmasphuṭasiddhānta</em> (The Correctly Established Doctrine of Brahma) in 628 CE — the first text to treat zero as a number and define its arithmetic. He introduced rules for addition, subtraction, and multiplication with zero, and for the first time gave rules for operating with negative numbers (which he called "debts").</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">🐚</div>
+        <div class="portrait-name">The Maya</div>
+        <div class="portrait-dates">~350 CE (independently)</div>
+        <div class="portrait-title">Mesoamerican Civilisation — Mexico/Central America</div>
+        <p class="portrait-body">Independently of India, the Maya developed a zero symbol (a stylised shell) for use in their vigesimal (base-20) calendar system. It was likely the first written zero symbol in history. However, Mayan zero was primarily a calendar device — it was not used for general arithmetic in the way Brahmagupta's zero was.</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">📖</div>
+        <div class="portrait-name">Leonardo of Pisa (Fibonacci)</div>
+        <div class="portrait-dates">~1170 – ~1250 CE</div>
+        <div class="portrait-title">Mathematician — Pisa, Italy</div>
+        <p class="portrait-body">Fibonacci brought zero to Europe. Educated in North Africa, he encountered Hindu-Arabic numerals (including zero) from Islamic scholars. His 1202 book <em>Liber Abaci</em> championed the Hindu-Arabic system and zero, arguing it was far superior for calculation than Roman numerals. Merchants gradually adopted it over the next century despite active resistance.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- The Breakthrough -->
+  <section class="content-section">
+    <h2>The Breakthrough — Brahmagupta's Rules</h2>
+    <p style="color:var(--text-secondary);line-height:1.75;font-size:0.95rem;margin-bottom:20px;">In 628 CE, Brahmagupta wrote down the first complete arithmetic of zero. Most of his rules were exactly right — one was famously wrong, and that mistake would take over a thousand years to fully resolve.</p>
+
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula-label">Addition and Subtraction</div>
+        <div class="formula-math">\[ a + 0 = a \qquad a - 0 = a \]</div>
+        <div class="formula-note">Zero added to or subtracted from any number leaves it unchanged. First correctly stated by Brahmagupta in 628 CE.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">Multiplication</div>
+        <div class="formula-math">\[ a \times 0 = 0 \]</div>
+        <div class="formula-note">Any number multiplied by zero is zero. This seems obvious now, but required a formal proof when zero first became a number.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">Brahmagupta's Error</div>
+        <div class="formula-math">\[ \frac{0}{0} = 0 \qquad \text{(WRONG)} \]</div>
+        <div class="formula-note">Brahmagupta claimed zero divided by zero equals zero. This is undefined. It took until the 12th century (Bhāskara II) to recognise the problem, and rigorous limits theory (Cauchy, 19th century) to handle it fully.</div>
+      </div>
+    </div>
+
+    <div class="hist-callout" style="margin-top:20px;">
+      <strong>Negative numbers too:</strong> Brahmagupta defined negative numbers as "debts" and positive numbers as "fortunes." He correctly stated rules like: <em>the sum of two debts is a debt; the sum of a fortune and a debt is their difference.</em> This is \((-a) + (-b) = -(a+b)\) and \(a + (-b) = a - b\). Six centuries before Europe accepted negative numbers.
+    </div>
+  </section>
+
+  <!-- The Paradox -->
+  <section class="content-section">
+    <h2>The Paradox — Why Can't You Divide by Zero?</h2>
+    <div class="problem-card">
+      <div class="problem-label">Division by zero is undefined — here's why</div>
+      <p>Brahmagupta got \(0/0 = 0\) wrong. Understanding why division by zero is undefined is one of the most important ideas in all of mathematics.</p>
+      <p>Division means: <em>how many times does the divisor fit into the dividend?</em> So \(6 \div 2 = 3\) because 2 fits into 6 exactly three times. But how many times does 0 fit into 6? There's no answer — you can pack zero into 6 an unlimited number of times, and you still have 6 left over. The answer would have to be infinity, but infinity is not a number in ordinary arithmetic.</p>
+
+      <div class="formula-grid" style="margin:16px 0;">
+        <div class="formula-card">
+          <div class="formula-label">What happens as the denominator approaches zero?</div>
+          <div class="formula-math">\[ \lim_{x \to 0^+} \frac{1}{x} = +\infty \]</div>
+          <div class="formula-note">Approaching from the positive side, \(1/x\) grows without bound.</div>
+        </div>
+        <div class="formula-card">
+          <div class="formula-label">From the negative side:</div>
+          <div class="formula-math">\[ \lim_{x \to 0^-} \frac{1}{x} = -\infty \]</div>
+          <div class="formula-note">Approaching from the negative side, \(1/x\) plunges toward negative infinity.</div>
+        </div>
+      </div>
+
+      <p style="color:var(--text-secondary);">Because the left and right limits disagree, \(\lim_{x \to 0} \frac{1}{x}\) does not exist. Division by zero is not infinity — it is simply <strong>undefined</strong>. The limit depends on direction, and there is no consistent answer.</p>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="content-section">
+    <h2>Timeline — The Long Road to Zero</h2>
+    <div class="ht-timeline">
+      <div class="ht-event">
+        <div class="ht-event-year">~3000 BCE</div>
+        <div class="ht-event-title">Babylonian Gap</div>
+        <div class="ht-event-text">Babylonian scribes using base-60 notation leave a gap in their clay tablets to represent an empty column. This is a placeholder, not a number. There are no arithmetic rules for the gap.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">~300 BCE</div>
+        <div class="ht-event-title">Babylonian Symbol</div>
+        <div class="ht-event-text">Later Babylonian scribes begin using a two-wedge symbol to mark empty columns more clearly. Still purely a placeholder — never used at the end of a number (so 20 and 200 were still ambiguous without context).</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">~350 CE</div>
+        <div class="ht-event-title">Mayan Zero</div>
+        <div class="ht-event-text">The Maya independently invent a zero symbol — a stylised shell or eye — for their Long Count calendar. This is the earliest <em>written</em> zero symbol. But it serves mainly calendar arithmetic, not general mathematics.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">628 CE</div>
+        <div class="ht-event-title">Brahmagupta — Zero Becomes a Number</div>
+        <div class="ht-event-text">In <em>Brāhmasphuṭasiddhānta</em>, Brahmagupta defines zero as the result of subtracting a number from itself (\(n - n = 0\)), then states complete arithmetic rules: \(a + 0 = a\), \(a \times 0 = 0\), with the error \(0/0 = 0\). First treatment of zero as a genuine number, not a placeholder.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">~825 CE</div>
+        <div class="ht-event-title">Al-Khwārizmī Carries Zero West</div>
+        <div class="ht-event-text">Al-Khwārizmī writes <em>On the Calculation with Hindu Numerals</em>, describing the Indian numeral system including zero. This book, translated into Latin, introduces Hindu-Arabic numerals — and zero — to the Islamic world and eventually Europe.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1150 CE</div>
+        <div class="ht-event-title">Bhāskara II — Division by Zero Revisited</div>
+        <div class="ht-event-text">Indian mathematician Bhāskara II states that a quantity divided by zero has an infinite result — closer to correct than Brahmagupta, but still not the modern "undefined." He writes \(n/0 = \infty\).</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1202</div>
+        <div class="ht-event-title">Fibonacci Brings Zero to Europe</div>
+        <div class="ht-event-text"><em>Liber Abaci</em> introduces zero and the Hindu-Arabic numeral system to European merchants and scholars. Fibonacci calls the symbol "zephirum" (from Arabic <em>ṣifr</em> — empty) — the origin of the words <em>zero</em> and <em>cipher</em>.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1299</div>
+        <div class="ht-event-title">Florence Bans Zero</div>
+        <div class="ht-event-text">The city of Florence bans Hindu-Arabic numerals (including zero) in commercial accounts. Officials believe the new numerals are too easy to forge — a 0 can be turned into a 6 or 9. Roman numerals continue in official documents for another century.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">17th Century</div>
+        <div class="ht-event-title">Zero in Calculus</div>
+        <div class="ht-event-text">Newton and Leibniz both grapple with limits — expressions that approach zero without quite reaching it. The concept of the limit is informally understood but not rigorously defined; zero's paradoxical properties (what is \(0/0\) in the context of a derivative?) remain unsettled.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">19th Century</div>
+        <div class="ht-event-title">Rigorous Limits — Cauchy and Weierstrass</div>
+        <div class="ht-event-text">Cauchy and Weierstrass give the rigorous epsilon-delta definition of limits, finally resolving how to handle expressions that approach zero. Division by zero remains undefined, but the behaviour of functions near zero is precisely described.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">Today</div>
+        <div class="ht-event-title">Zero in the Digital Age</div>
+        <div class="ht-event-text">Binary — the foundation of all computing — is built on zero and one. Every image, message, and program is ultimately a sequence of 0s and 1s. Every programming language has a concept of null, nil, or 0 — the echoes of Brahmagupta's idea in every device on the planet.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Word Origins -->
+  <section class="content-section">
+    <h2>Where the Word Came From</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;">
+      <div class="word-origin">
+        <div class="word">Zero</div>
+        <div class="word-lang">Arabic → Italian → English</div>
+        <div class="word-meaning">From Arabic <em>ṣifr</em> (empty, cipher). Fibonacci called it <em>zephirum</em>. Later shortened to <em>zero</em> in Italian. The Arabic root <em>ṣifr</em> also gives us the English word <em>cipher</em>.</div>
+      </div>
+      <div class="word-origin">
+        <div class="word">Cipher</div>
+        <div class="word-lang">Arabic: <em>ṣifr</em></div>
+        <div class="word-meaning">Same root as zero. Originally meant "zero" then "any digit" then "secret code" (because early cryptography used number substitutions). Today both meanings survive: a cipher is zero in archaic English, and a secret code in modern usage.</div>
+      </div>
+      <div class="word-origin">
+        <div class="word">Null</div>
+        <div class="word-lang">Latin: <em>nullus</em> — none</div>
+        <div class="word-meaning">Used in programming to represent the absence of a value — an empty pointer, an unknown quantity. Every modern programming language has null (JavaScript), nil (Ruby/Lua), None (Python) or similar — encoding Brahmagupta's philosophical question in code.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why It Still Matters -->
+  <section class="content-section">
+    <h2>Why It Still Matters</h2>
+    <div class="matters-card">
+      <div class="matters-label">Modern Impact</div>
+      <p>Zero is arguably the single most important invention in the history of mathematics. Without it:</p>
+      <ul>
+        <li><strong>No digital computing</strong> — binary (0 and 1) is the foundation of every circuit, processor, and program ever made.</li>
+        <li><strong>No calculus</strong> — limits, derivatives, and integrals all depend on the formal treatment of quantities approaching zero.</li>
+        <li><strong>No modern algebra</strong> — the additive identity (zero in addition, one in multiplication) is fundamental to group theory and the algebra underlying cryptography.</li>
+        <li><strong>No coordinates</strong> — Cartesian coordinates need an origin: the point (0, 0). GPS, maps, and computer graphics all depend on zero as a reference point.</li>
+        <li><strong>No floating point arithmetic</strong> — every number your computer stores uses a sign bit, an exponent, and a mantissa, and the number zero requires special handling in every floating-point standard (IEEE 754 has both +0 and −0).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="content-section">
+    <h2>In His Own Words</h2>
+    <div class="quote-block">
+      <p class="quote-text">When zero is added to a number or subtracted from a number, the number remains unchanged; and a number multiplied by zero becomes zero.</p>
+      <div class="quote-attribution">— Brahmagupta, <em>Brāhmasphuṭasiddhānta</em>, 628 CE</div>
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <ul class="takeaways-list">
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Zero was invented <em>multiple times</em> independently — Babylonians (placeholder), Maya (~350 CE, calendar), Indians (628 CE, full number). Only Brahmagupta gave it complete arithmetic rules.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Brahmagupta's rules for zero (\(a + 0 = a\), \(a \times 0 = 0\)) were correct; his rule for \(0/0 = 0\) was wrong — division by zero is <strong>undefined</strong>.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Europe actively resisted zero for centuries. Florence banned it in 1299. It took Fibonacci and centuries of trade before decimal arithmetic — with zero — replaced Roman numerals.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>The words <strong>zero</strong> and <strong>cipher</strong> both come from Arabic <em>ṣifr</em> (empty), the word al-Khwārizmī used for the Indian numeral.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Binary (0 and 1) means every calculation performed by every computer in history is built on the concept Brahmagupta formalised in 628 CE.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="algebra-history.html" class="related-card">History of Algebra <span>→</span></a>
+      <a href="calculus-history.html" class="related-card">History of Calculus <span>→</span></a>
+      <a href="../algebra.html" class="related-card">Algebra (Maths) <span>→</span></a>
+      <a href="../history.html" class="related-card">All History Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-symbol">∑</span>
+          <span class="logo-text">MathExplorer</span>
+        </div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script src="../../js/progress.js"></script>
+  <script>Progress.markVisited('zero');</script>
+</body>
+</html>

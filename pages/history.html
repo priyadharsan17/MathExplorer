@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>History of Mathematics — MathExplorer</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/category.css" />
+  <link rel="stylesheet" href="../css/history.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body class="history-page">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="algebra.html">Algebra</a></li>
+        <li><a href="calculus.html">Calculus</a></li>
+        <li><a href="trigonometry.html">Trigonometry</a></li>
+        <li><a href="history.html" class="active">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <section class="cat-hero cat-hero--history">
+    <div class="cat-hero-bg"></div>
+    <div class="cat-hero-content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>›</span>
+        <span>History of Mathematics</span>
+      </nav>
+      <div class="cat-hero-icon">📜</div>
+      <h1>History of Mathematics</h1>
+      <p>Every equation has an origin story. Discover who invented each branch of mathematics, the real problem that forced the invention, and how that idea changed the world.</p>
+      <div class="cat-meta">
+        <span class="cat-meta-pill">12 Topics</span>
+        <span class="cat-meta-pill">3 Available Now</span>
+        <span class="cat-meta-pill available">Story-First</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Topics Grid -->
+  <section class="topics-section">
+    <div class="container">
+      <div class="topics-grid">
+
+        <!-- 01 — Origin of Numbers -->
+        <a href="history/counting.html" class="topic-card topic-soon" data-topic="counting">
+          <div class="topic-number">01</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>The Origin of Numbers</h3>
+              <span class="topic-badge soon">Coming Soon</span>
+            </div>
+            <p>From tally bones to Hindu-Arabic digits — how humans invented counting and the numeral systems we still use.</p>
+            <div class="topic-tags">
+              <span>Babylonians</span><span>Egyptians</span><span>Base-60</span>
+            </div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <!-- 02 — Euclidean Geometry -->
+        <a href="history/euclidean-geometry.html" class="topic-card topic-soon" data-topic="euclidean-geometry">
+          <div class="topic-number">02</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Euclidean Geometry</h3>
+              <span class="topic-badge soon">Coming Soon</span>
+            </div>
+            <p>How five simple postulates written in ~300 BCE became the foundation of geometry for two thousand years.</p>
+            <div class="topic-tags">
+              <span>Euclid</span><span>Postulates</span><span>Elements</span>
+            </div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <!-- 03 — Algebra -->
+        <a href="history/algebra-history.html" class="topic-card topic-available" data-topic="algebra-history">
+          <div class="topic-number">03</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Algebra — The Art of Solving</h3>
+              <span class="topic-badge available">Story</span>
+            </div>
+            <p>How an Islamic scholar's book on inheritance law gave mathematics a new name — and the word <em>algorithm</em> to the world.</p>
+            <div class="topic-tags">
+              <span>Al-Khwārizmī</span><span>Al-jabr</span><span>House of Wisdom</span>
+            </div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <!-- 04 — Trigonometry -->
+        <a href="history/trigonometry-history.html" class="topic-card topic-soon" data-topic="trigonometry-history">
+          <div class="topic-number">04</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Trigonometry — Mapping the Heavens</h3>
+              <span class="topic-badge soon">Coming Soon</span>
+            </div>
+            <p>Astronomers who needed to predict the stars invented the relationships between angles and distances.</p>
+            <div class="topic-tags">
+              <span>Hipparchus</span><span>Aryabhata</span><span>Al-Battānī</span>
+            </div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <!-- 05 — Zero -->
+        <a href="history/zero.html" class="topic-card topic-available" data-topic="zero">
+          <div class="topic-number">05</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>The Birth of Zero</h3>
+              <span class="topic-badge available">Story</span>
+            </div>
+            <p>The most revolutionary number in mathematics wasn't invented once — it was invented multiple times, and then Europe tried to ban it.</p>
+            <div class="topic-tags">
+              <span>Brahmagupta</span><span>Fibonacci</span><span>628 CE</span>
+            </div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <!-- 06 — Calculus -->
+        <a href="history/calculus-history.html" class="topic-card topic-available" data-topic="calculus-history">
+          <div class="topic-number">06</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Calculus — Newton vs Leibniz</h3>
+              <span class="topic-badge available">Story</span>
+            </div>
+            <p>Two of history's greatest minds independently invented calculus — then spent decades arguing about who did it first.</p>
+            <div class="topic-tags">
+              <span>Newton</span><span>Leibniz</span><span>1665–1684</span>
+            </div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <!-- 07 — Probability -->
+        <a href="history/probability-history.html" class="topic-card topic-soon" data-topic="probability-history">
+          <div class="topic-number">07</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Probability &amp; Statistics</h3>
+              <span class="topic-badge soon">Coming Soon</span>
+            </div>
+            <p>A nobleman's dice problem sparked a letter exchange between Pascal and Fermat that founded probability theory.</p>
+            <div class="topic-tags">
+              <span>Pascal</span><span>Fermat</span><span>Gauss</span>
+            </div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <!-- 08 — Non-Euclidean -->
+        <a href="history/non-euclidean.html" class="topic-card topic-soon" data-topic="non-euclidean">
+          <div class="topic-number">08</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Non-Euclidean Geometry</h3>
+              <span class="topic-badge soon">Coming Soon</span>
+            </div>
+            <p>Two thousand years of failed proofs led to the discovery that parallel lines don't have to stay parallel.</p>
+            <div class="topic-tags">
+              <span>Gauss</span><span>Riemann</span><span>Einstein</span>
+            </div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <!-- 09 — Complex Numbers -->
+        <a href="history/complex-numbers-history.html" class="topic-card topic-soon" data-topic="complex-numbers-history">
+          <div class="topic-number">09</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Complex Numbers</h3>
+              <span class="topic-badge soon">Coming Soon</span>
+            </div>
+            <p>Solving cubic equations forced mathematicians to use numbers they considered "impossible" — and those numbers turned out to be essential.</p>
+            <div class="topic-tags">
+              <span>Cardano</span><span>Euler</span><span>i = √−1</span>
+            </div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <!-- 10 — Graph Theory -->
+        <a href="history/graph-theory-history.html" class="topic-card topic-soon" data-topic="graph-theory-history">
+          <div class="topic-number">10</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Graph Theory</h3>
+              <span class="topic-badge soon">Coming Soon</span>
+            </div>
+            <p>A city's bridge puzzle — can you cross all seven without repeating any? Euler's answer founded an entire branch of mathematics.</p>
+            <div class="topic-tags">
+              <span>Euler</span><span>Königsberg</span><span>1736</span>
+            </div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <!-- 11 — Foundations & Logic -->
+        <a href="history/logic-foundations.html" class="topic-card topic-soon" data-topic="logic-foundations">
+          <div class="topic-number">11</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>The Foundations Crisis</h3>
+              <span class="topic-badge soon">Coming Soon</span>
+            </div>
+            <p>Cantor proved some infinities are bigger than others. Russell found a paradox at the heart of logic. Then Gödel proved mathematics can never fully know itself.</p>
+            <div class="topic-tags">
+              <span>Cantor</span><span>Gödel</span><span>Hilbert</span>
+            </div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <!-- 12 — Computers & Cryptography -->
+        <a href="history/modern-math.html" class="topic-card topic-soon" data-topic="modern-math">
+          <div class="topic-number">12</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Computers &amp; Cryptography</h3>
+              <span class="topic-badge soon">Coming Soon</span>
+            </div>
+            <p>From Lovelace's first algorithm to Turing's codebreaking machine — how abstract mathematics built the digital world.</p>
+            <div class="topic-tags">
+              <span>Turing</span><span>Lovelace</span><span>Shannon</span>
+            </div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-symbol">∑</span>
+          <span class="logo-text">MathExplorer</span>
+        </div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/progress.js"></script>
+  <script>Progress.applyBadges();</script>
+</body>
+</html>

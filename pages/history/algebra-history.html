@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Algebra — Al-Khwārizmī & the Art of Solving | History of Mathematics</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="stylesheet" href="../../css/history.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-page">
+    <div class="topic-hero">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span>›</span>
+        <a href="../history.html">History</a>
+        <span>›</span>
+        <span>Algebra</span>
+      </nav>
+      <div class="topic-hero-top">
+        <div class="topic-symbol topic-symbol--history">𝑥</div>
+        <div>
+          <span class="era-badge">820 CE</span>
+          <h1 style="margin-top:8px;">Algebra — The Art of Solving</h1>
+        </div>
+      </div>
+      <p class="subtitle">A 9th-century Islamic scholar's practical guide to dividing inheritances gave mathematics a new name, a systematic method — and the English language the word <em>algorithm</em>.</p>
+    </div>
+  </div>
+
+  <!-- The Problem -->
+  <section class="content-section">
+    <h2>The Problem</h2>
+    <div class="problem-card">
+      <div class="problem-label">What forced this invention?</div>
+      <p>In 9th-century Baghdad, Islamic law was precise about inheritance: a deceased man's estate must be divided among his heirs according to detailed rules in the Quran — widow receives one-eighth, daughters receive half of a son's share, and so on. The problem was purely mathematical: <strong>given an estate's value, how do you calculate each heir's exact share?</strong></p>
+      <p>These weren't abstract puzzles. Judges and merchants needed reliable methods they could apply step by step, without expert mathematicians at hand. Worse, existing Greek mathematics — Euclid's geometry — offered theorems and proofs but no practical computational procedures. You couldn't hand a judge a copy of <em>Elements</em> and expect results.</p>
+      <p>What was needed was a <em>systematic method</em> for reducing an unknown quantity in an equation — moving terms from one side to the other, keeping both sides balanced — until the unknown stood alone. That method had no name, no dedicated book, and no single inventor. Until 820 CE.</p>
+    </div>
+  </section>
+
+  <!-- The People -->
+  <section class="content-section">
+    <h2>The People</h2>
+    <div class="person-grid">
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">📚</div>
+        <div class="portrait-name">Muḥammad ibn Mūsā al-Khwārizmī</div>
+        <div class="portrait-dates">~780 – ~850 CE</div>
+        <div class="portrait-title">Mathematician, Astronomer — House of Wisdom, Baghdad</div>
+        <p class="portrait-body">Al-Khwārizmī was a scholar at the famous House of Wisdom (Bayt al-Ḥikma) in Baghdad — the greatest intellectual centre of the medieval world. He wrote the first systematic treatise on solving equations. His name, Latinised as <em>Algoritmi</em>, gave us the word <strong>algorithm</strong>. The title of his book gave us the word <strong>algebra</strong>.</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">🏛️</div>
+        <div class="portrait-name">Diophantus of Alexandria</div>
+        <div class="portrait-dates">~210 – ~290 CE</div>
+        <div class="portrait-title">Mathematician — Alexandria, Egypt</div>
+        <p class="portrait-body">Five centuries before al-Khwārizmī, Diophantus wrote <em>Arithmetica</em> — a collection of 130 problems involving equations. He introduced syncopated notation (abbreviations for common operations) and was the first to treat fractions as numbers. He is often called the "father of algebra" for this work, though his approach was unsystematic compared to al-Khwārizmī's.</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">🔢</div>
+        <div class="portrait-name">Leonardo of Pisa (Fibonacci)</div>
+        <div class="portrait-dates">~1170 – ~1250 CE</div>
+        <div class="portrait-title">Mathematician — Pisa, Italy</div>
+        <p class="portrait-body">Fibonacci studied in North Africa where he encountered Islamic mathematics. His 1202 book <em>Liber Abaci</em> ("Book of Calculation") introduced al-Khwārizmī's methods and the Hindu-Arabic numeral system to Europe. Without Fibonacci, algebra — and decimal numbers — might have taken another century to reach the West.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- The Words We Use -->
+  <section class="content-section">
+    <h2>Words We Use Every Day</h2>
+    <p style="color:var(--text-secondary);line-height:1.75;font-size:0.9rem;margin-bottom:18px;">Two everyday words in science and computing trace directly to one man and one book written in 820 CE.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;">
+      <div class="word-origin">
+        <div class="word">Algebra</div>
+        <div class="word-lang">From Arabic: <em>al-jabr</em></div>
+        <div class="word-meaning">Title of al-Khwārizmī's book: <em>Kitāb al-mukhtaṣar fī ḥisāb al-jabr wal-muqābala</em> ("The Compendious Book on Calculation by Completion and Balancing"). <em>Al-jabr</em> means "restoration" — moving a subtracted term to the other side of an equation.</div>
+      </div>
+      <div class="word-origin">
+        <div class="word">Algorithm</div>
+        <div class="word-lang">From Latin: <em>Algoritmi</em></div>
+        <div class="word-meaning">Medieval European scholars translated al-Khwārizmī's name as <em>Algoritmi</em>. Books on Hindu-Arabic arithmetic were titled <em>"Algoritmi de numero Indorum"</em> — "Algoritmi on the Indian numbers." The author's name became the method.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Breakthrough -->
+  <section class="content-section">
+    <h2>The Breakthrough</h2>
+    <p style="color:var(--text-secondary);line-height:1.75;font-size:0.95rem;margin-bottom:20px;">Al-Khwārizmī's great contribution was not a new theorem — it was a <em>systematic procedure</em>. He described two complementary operations that could reduce any linear or quadratic equation to a standard form:</p>
+
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula-label">Al-Jabr — "Restoration"</div>
+        <div class="formula-math">\[ x^2 = 40x - 4x^2 \quad\Rightarrow\quad 5x^2 = 40x \]</div>
+        <div class="formula-note">Moving a subtracted quantity from one side to the other — adding it to both sides to restore the equation's balance.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">Al-Muqābala — "Balancing"</div>
+        <div class="formula-math">\[ 50 + x^2 = 29 + 10x \quad\Rightarrow\quad 21 + x^2 = 10x \]</div>
+        <div class="formula-note">Reducing like terms on both sides simultaneously — cancelling equal quantities from each side to simplify.</div>
+      </div>
+    </div>
+
+    <div class="hist-callout" style="margin-top:20px;">
+      <strong>Geometric proofs:</strong> Al-Khwārizmī proved his quadratic solutions geometrically — completing the square was a literal operation: he drew a square, added rectangular pieces to it, then completed it into a larger square. The algebraic formula \(x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\) came later; his was a visual, physical argument that anyone could verify with a ruler.
+    </div>
+
+    <div class="formula-grid" style="margin-top:20px;">
+      <div class="formula-card">
+        <div class="formula-label">Completing the Square — Al-Khwārizmī's method</div>
+        <div class="formula-math">\[ x^2 + 10x = 39 \]</div>
+        <div class="formula-note">Add \(\left(\frac{10}{2}\right)^2 = 25\) to both sides: \(x^2 + 10x + 25 = 64\), so \((x+5)^2 = 64\), giving \(x = 3\). He proved this by literally drawing a square of side \(x\), attaching four rectangles of width \(\frac{10}{4}\), and completing the corners.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="content-section">
+    <h2>Timeline — From Ancient Equations to Modern Algebra</h2>
+    <div class="ht-timeline">
+      <div class="ht-event">
+        <div class="ht-event-year">~1650 BCE</div>
+        <div class="ht-event-title">Rhind Papyrus — Egyptian Equations</div>
+        <div class="ht-event-text">Egyptian scribes solve linear problems of the type "a heap and its seventh makes 19" using the method of false position. No symbols — everything is written in words.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">~250 CE</div>
+        <div class="ht-event-title">Diophantus — Arithmetica</div>
+        <div class="ht-event-text">Diophantus writes 13 books of algebraic problems using shorthand symbols. He studies whole-number solutions to polynomial equations (Diophantine equations). He names the unknown <em>arithmos</em> (number).</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">628 CE</div>
+        <div class="ht-event-title">Brahmagupta — Indian Algebra</div>
+        <div class="ht-event-text">The Indian mathematician Brahmagupta systematically solves linear and quadratic equations and gives the first rules for arithmetic with zero and negative numbers. His work reaches Baghdad within two centuries.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">~820 CE</div>
+        <div class="ht-event-title">Al-Khwārizmī — The Founding Book</div>
+        <div class="ht-event-text">Al-Khwārizmī writes <em>Kitāb al-mukhtaṣar fī ḥisāb al-jabr wal-muqābala</em> in Baghdad — the systematic method of al-jabr and al-muqābala for solving all linear and quadratic equations. This is the book that names algebra.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1202</div>
+        <div class="ht-event-title">Fibonacci — Liber Abaci</div>
+        <div class="ht-event-text">Leonardo of Pisa publishes <em>Liber Abaci</em>, introducing Islamic algebra and Hindu-Arabic numerals to Europe. Merchants gradually abandon Roman numerals, which cannot represent fractions cleanly.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1545</div>
+        <div class="ht-event-title">Cardano — Ars Magna</div>
+        <div class="ht-event-text">Gerolamo Cardano publishes the cubic and quartic formulas in <em>Ars Magna</em> — solving equations of degree 3 and 4 for the first time. This forces mathematicians to confront the square roots of negative numbers (imaginary numbers).</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1591</div>
+        <div class="ht-event-title">Viète — Symbolic Algebra</div>
+        <div class="ht-event-text">François Viète introduces the practice of using letters for both known and unknown quantities — the first step toward modern symbolic algebra. He uses vowels for unknowns and consonants for known values.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1637</div>
+        <div class="ht-event-title">Descartes — Modern Notation</div>
+        <div class="ht-event-text">René Descartes in <em>La Géométrie</em> standardises using \(x\), \(y\), \(z\) for unknowns and \(a\), \(b\), \(c\) for known quantities. He also introduces the superscript for exponents: \(x^2\) instead of <em>xx</em>. This is the notation used today.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">19th Century</div>
+        <div class="ht-event-title">Abstract Algebra</div>
+        <div class="ht-event-text">Galois, Cauchy, and later Cayley transform algebra from a science of equations into a study of abstract structures — groups, rings, and fields. The question shifts from "solve this equation" to "what is the structure of all equations of this type?"</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Spread -->
+  <section class="content-section">
+    <h2>How It Spread</h2>
+    <p style="color:var(--text-secondary);line-height:1.75;font-size:0.9rem;margin-bottom:18px;">Al-Khwārizmī's work reached Europe through a remarkable chain of translation and transmission — a story that spans three continents and five centuries.</p>
+    <div class="ht-timeline">
+      <div class="ht-event">
+        <div class="ht-event-year">9th–10th Century</div>
+        <div class="ht-event-title">Baghdad → Spain</div>
+        <div class="ht-event-text">Islamic scholars carry al-Khwārizmī's work westward into al-Andalus (Islamic Spain). Toledo and Córdoba become centres of learning where Islamic, Jewish, and Christian scholars work side by side.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">12th Century</div>
+        <div class="ht-event-title">Translation Movement</div>
+        <div class="ht-event-text">The great translation movement in Toledo converts Arabic texts into Latin. Robert of Chester translates al-Khwārizmī's algebra book into Latin around 1145, making it accessible to European scholars for the first time.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">13th–15th Century</div>
+        <div class="ht-event-title">Universities Adopt Algebra</div>
+        <div class="ht-event-text">European universities — Bologna, Oxford, Paris — begin teaching algebra based on al-Khwārizmī's methods. Italian merchants become the most advanced practical algebraists, devising shorthand for commercial calculations.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">16th–17th Century</div>
+        <div class="ht-event-title">Symbolic Revolution</div>
+        <div class="ht-event-text">Viète, Descartes, and others transform rhetorical algebra (written in words) into symbolic algebra (written in letters and signs). This makes algebra vastly more powerful — you can manipulate symbols without thinking about what they represent.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why It Still Matters -->
+  <section class="content-section">
+    <h2>Why It Still Matters</h2>
+    <div class="matters-card">
+      <div class="matters-label">Modern Impact</div>
+      <p>Every time you solve for an unknown — in engineering, finance, science, or programming — you are using al-Khwārizmī's methods. But the impact goes far deeper:</p>
+      <ul>
+        <li><strong>Computer algebra systems</strong> (Wolfram Alpha, SymPy, MATLAB's Symbolic Toolbox) are direct descendants: they apply systematic reduction procedures to symbolic expressions.</li>
+        <li><strong>Cryptography</strong> relies on abstract algebra — groups, rings, and fields. RSA encryption, which secures every HTTPS connection, is modular arithmetic applied to large numbers.</li>
+        <li><strong>Coding theory</strong> uses polynomial algebra to detect and correct errors in data transmissions.</li>
+        <li><strong>Machine learning</strong> expresses almost everything as linear algebra: matrices, vector spaces, eigenvectors — all extensions of al-Khwārizmī's "systematic solving."</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="content-section">
+    <h2>In His Own Words</h2>
+    <div class="quote-block">
+      <p class="quote-text">I have established, in my work on the restoration and balancing of equations, a concise method for solving all that is easiest and most useful in arithmetic — such as men constantly require in cases of inheritance, legacies, partition, lawsuits, and trade.</p>
+      <div class="quote-attribution">— Al-Khwārizmī, preface to <em>Kitāb al-mukhtaṣar fī ḥisāb al-jabr wal-muqābala</em>, ~820 CE</div>
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <ul class="takeaways-list">
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>The word <strong>algebra</strong> comes from <em>al-jabr</em> — "restoration" — one of the two operations in al-Khwārizmī's systematic method for solving equations.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>The word <strong>algorithm</strong> is a Latinisation of al-Khwārizmī's own name, showing how completely his work defined arithmetic procedure for medieval Europe.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Al-Khwārizmī's original goal was practical — dividing inheritances and measuring land — not abstract. The most powerful mathematics often emerges from concrete, urgent needs.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Modern symbolic notation (\(x\), \(y\), superscripts) came 800 years after al-Khwārizmī; his proofs were geometric, not symbolic. The notation changed everything.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="../algebra.html" class="related-card">Algebra (Maths) <span>→</span></a>
+      <a href="zero.html" class="related-card">The Birth of Zero <span>→</span></a>
+      <a href="calculus-history.html" class="related-card">History of Calculus <span>→</span></a>
+      <a href="../history.html" class="related-card">All History Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-symbol">∑</span>
+          <span class="logo-text">MathExplorer</span>
+        </div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script src="../../js/progress.js"></script>
+  <script>Progress.markVisited('algebra-history');</script>
+</body>
+</html>

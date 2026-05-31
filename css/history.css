@@ -1,0 +1,368 @@
+/* =============================================
+   history.css — History of Mathematics styles
+   Amber/gold accent: #f0b429
+   ============================================= */
+
+/* ---- Category hero (History) ---- */
+.cat-hero--history {
+  background: radial-gradient(ellipse 60% 50% at 50% -10%, rgba(240,180,41,0.1) 0%, transparent 70%), var(--bg-base);
+}
+.cat-hero--history .cat-hero-icon {
+  background: rgba(240,180,41,0.1);
+  color: var(--history-color);
+  border: 1px solid rgba(240,180,41,0.2);
+}
+
+/* ---- History topic card hover ---- */
+.history-page .topic-available:hover {
+  border-color: rgba(240,180,41,0.3);
+}
+.history-page .topic-available:hover .topic-arrow { color: var(--history-color); }
+
+/* ---- Era badge ---- */
+.era-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 4px 13px;
+  border-radius: 99px;
+  background: rgba(240,180,41,0.1);
+  color: var(--history-color);
+  border: 1px solid rgba(240,180,41,0.25);
+  font-family: var(--font-mono);
+}
+
+/* ---- Topic hero symbol (history) ---- */
+.topic-symbol--history {
+  background: rgba(240,180,41,0.1) !important;
+  color: var(--history-color) !important;
+  border-color: rgba(240,180,41,0.2) !important;
+}
+
+/* ---- "The Problem" callout card ---- */
+.problem-card {
+  padding: 24px 28px;
+  border-radius: var(--radius-lg);
+  background: rgba(240,180,41,0.05);
+  border: 1px solid rgba(240,180,41,0.18);
+  border-left: 4px solid var(--history-color);
+}
+.problem-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--history-color);
+  margin-bottom: 12px;
+}
+.problem-card p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+.problem-card p + p { margin-top: 10px; }
+
+/* ---- Portrait (person) cards ---- */
+.person-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.portrait-card {
+  padding: 22px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color var(--transition), background var(--transition);
+}
+.portrait-card:hover {
+  border-color: rgba(240,180,41,0.25);
+  background: var(--bg-card-hover);
+}
+.portrait-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: rgba(240,180,41,0.08);
+  border: 1px solid rgba(240,180,41,0.2);
+  flex-shrink: 0;
+  margin-bottom: 4px;
+}
+.portrait-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.portrait-dates {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--history-color);
+}
+.portrait-title {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+.portrait-body {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-top: 6px;
+}
+
+/* ---- Quote block ---- */
+.quote-block {
+  position: relative;
+  padding: 28px 32px 24px;
+  border-radius: var(--radius-lg);
+  background: rgba(240,180,41,0.04);
+  border: 1px solid rgba(240,180,41,0.12);
+  overflow: hidden;
+}
+.quote-block::before {
+  content: '\201C';
+  position: absolute;
+  top: -20px;
+  left: 18px;
+  font-size: 9rem;
+  line-height: 1;
+  color: rgba(240,180,41,0.07);
+  font-family: Georgia, serif;
+  pointer-events: none;
+  user-select: none;
+}
+.quote-text {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  position: relative;
+  z-index: 1;
+}
+.quote-attribution {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--history-color);
+  margin-top: 14px;
+  letter-spacing: 0.04em;
+}
+
+/* ---- Vertical timeline ---- */
+.ht-timeline {
+  position: relative;
+  padding-left: 28px;
+  display: flex;
+  flex-direction: column;
+}
+.ht-timeline::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--history-color), transparent);
+  opacity: 0.3;
+}
+.ht-event {
+  position: relative;
+  padding: 0 0 26px 20px;
+}
+.ht-event:last-child { padding-bottom: 0; }
+.ht-event::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--history-color);
+  opacity: 0.65;
+  box-shadow: 0 0 8px rgba(240,180,41,0.35);
+}
+.ht-event-year {
+  font-size: 0.7rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--history-color);
+  letter-spacing: 0.06em;
+  margin-bottom: 3px;
+}
+.ht-event-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+}
+.ht-event-text {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* ---- "Why It Still Matters" callout ---- */
+.matters-card {
+  padding: 24px 28px;
+  border-radius: var(--radius-lg);
+  background: rgba(52,212,200,0.04);
+  border: 1px solid rgba(52,212,200,0.14);
+  border-left: 4px solid var(--accent-teal);
+}
+.matters-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-teal);
+  margin-bottom: 12px;
+}
+.matters-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+.matters-card p + p { margin-top: 10px; }
+.matters-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+.matters-card ul li {
+  font-size: 0.87rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding-left: 18px;
+  position: relative;
+}
+.matters-card ul li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent-teal);
+  font-weight: 700;
+}
+
+/* ---- Notation compare (two-column) ---- */
+.notation-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 640px) { .notation-compare { grid-template-columns: 1fr; } }
+
+.notation-panel {
+  padding: 20px 22px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+}
+.notation-panel.p-newton  { border-top: 3px solid var(--accent-blue); }
+.notation-panel.p-leibniz { border-top: 3px solid var(--accent-purple); }
+.notation-header {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+.p-newton  .notation-header { color: var(--accent-blue); }
+.p-leibniz .notation-header { color: var(--accent-purple); }
+.notation-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.82rem;
+}
+.notation-row:last-child { border-bottom: none; }
+.notation-concept { color: var(--text-muted); font-size: 0.78rem; }
+.notation-symbol {
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* ---- Fact strip ---- */
+.fact-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 18px 22px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.fact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.fact-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+.fact-value {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+}
+
+/* ---- History section divider ---- */
+.history-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(240,180,41,0.12), transparent);
+  margin: 8px 0;
+}
+
+/* ---- Section callout (amber highlight) ---- */
+.hist-callout {
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  background: rgba(240,180,41,0.05);
+  border: 1px solid rgba(240,180,41,0.12);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.hist-callout strong { color: var(--history-color); }
+
+/* ---- Word origin box ---- */
+.word-origin {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.word-origin .word { font-size: 1.1rem; font-weight: 800; color: var(--history-color); }
+.word-origin .word-lang { font-size: 0.72rem; color: var(--text-muted); font-style: italic; }
+.word-origin .word-meaning { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-top: 4px; }
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+  .person-grid { grid-template-columns: 1fr; }
+  .notation-compare { grid-template-columns: 1fr; }
+}
