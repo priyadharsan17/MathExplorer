@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Polynomials — Algebra | MathExplorer</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    .degree-selector { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+    .deg-btn {
+      padding: 8px 22px; border-radius: var(--radius-md); border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04); color: var(--text-secondary);
+      font-size: 0.875rem; font-weight: 600; cursor: pointer;
+      transition: var(--transition); font-family: var(--font-mono);
+    }
+    .deg-btn:hover { border-color: var(--border-hover); color: var(--text-primary); }
+    .deg-btn.active {
+      background: rgba(79,142,247,0.12); border-color: rgba(79,142,247,0.4);
+      color: var(--accent-blue);
+    }
+    .coeff-row { display: none; }
+    .coeff-row.visible { display: contents; }
+    .end-behavior-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 99px; font-size: 0.82rem; font-weight: 600;
+      font-family: var(--font-mono);
+    }
+    .eb-up   { background: rgba(52,212,200,0.1);  color: var(--accent-teal); border: 1px solid rgba(52,212,200,0.25); }
+    .eb-down { background: rgba(249,123,64,0.1); color: var(--accent-orange); border: 1px solid rgba(249,123,64,0.25); }
+    .eb-odd  { background: rgba(155,109,248,0.1); color: var(--calculus-color); border: 1px solid rgba(155,109,248,0.25); }
+  </style>
+</head>
+<body class="topic-page">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html" class="active">Algebra</a></li>
+        <li><a href="../calculus.html">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a><span>›</span>
+      <a href="../algebra.html">Algebra</a><span>›</span>
+      <span>Polynomials</span>
+    </nav>
+    <div class="topic-hero-top">
+      <div class="topic-symbol">pₙ</div>
+      <h1>Polynomials</h1>
+    </div>
+    <p class="subtitle">
+      Polynomials are expressions built from variables and coefficients using only
+      addition, subtraction, multiplication, and non-negative integer exponents.
+      They form the building block of nearly all algebraic functions.
+    </p>
+  </div>
+
+  <!-- Concept -->
+  <section class="content-section">
+    <h2>What is a Polynomial?</h2>
+    <p>
+      A <strong>polynomial</strong> in one variable \(x\) is any expression of the form
+      \[ a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0 \]
+      where the coefficients \(a_i\) are real numbers and \(n\) is a non-negative integer called the <strong>degree</strong>.
+    </p>
+    <p>
+      The <strong>degree</strong> is the highest power with a non-zero coefficient.
+      The <strong>leading coefficient</strong> \(a_n\) determines the overall shape — specifically the <em>end behaviour</em>,
+      which describes what the graph does as \(x \to \pm\infty\).
+    </p>
+    <p>
+      A polynomial of degree 2 is a <em>quadratic</em>, degree 3 is a <em>cubic</em>,
+      degree 4 is a <em>quartic</em>. Each degree adds one more possible turning point (up to \(n-1\) of them).
+    </p>
+  </section>
+
+  <!-- Key Formulas -->
+  <section class="content-section">
+    <h2>Key Formulas</h2>
+    <div class="formula-grid">
+
+      <div class="formula-card">
+        <span class="formula-label">General Form</span>
+        <div>
+          <div class="formula-math">\[ P(x) = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0 \]</div>
+          <div class="formula-note">Written in descending order of degree</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">End Behaviour</span>
+        <div>
+          <div class="formula-math">\[ \text{Determined by } a_n x^n \text{ as } x \to \pm\infty \]</div>
+          <div class="formula-note">
+            Even degree: both ends go the same direction &nbsp;|&nbsp;
+            Odd degree: ends go opposite directions
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Y-Intercept</span>
+        <div>
+          <div class="formula-math">\[ P(0) = a_0 \]</div>
+          <div class="formula-note">Always equal to the constant term</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Vieta's Formulas (degree 2)</span>
+        <div>
+          <div class="formula-math">\[ r_1 + r_2 = -\frac{b}{a}, \quad r_1 \cdot r_2 = \frac{c}{a} \]</div>
+          <div class="formula-note">Relationship between roots and coefficients</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Worked Examples -->
+  <section class="content-section">
+    <h2>Worked Examples</h2>
+    <div class="example-list">
+
+      <div class="example-card">
+        <div class="example-title">Example 1 — Evaluating a polynomial</div>
+        <div class="example-problem">Evaluate \(P(x) = 2x^3 - 3x + 1\) at \(x = 2\)</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">Substitute: <code>P(2) = 2(2)³ − 3(2) + 1</code></div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">Compute powers: <code>2(8) − 6 + 1</code></div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-text">Simplify: <code>16 − 6 + 1 = 11</code></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 2 — Describing end behaviour</div>
+        <div class="example-problem">Describe the end behaviour of \(P(x) = -3x^4 + 2x^2 - 1\)</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">Degree = 4 (even), leading coefficient \(a_n = -3\) (negative)</div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">Even degree + negative leading coeff: both ends point <strong>downward</strong></div>
+          </div>
+          <div class="step">
+            <div class="step-num">✓</div>
+            <div class="step-text">As \(x \to +\infty\), \(P(x) \to -\infty\) &nbsp;|&nbsp; As \(x \to -\infty\), \(P(x) \to -\infty\)</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Visualiser -->
+  <section class="visualiser-section">
+    <h2>Interactive Graph — Polynomial Plotter</h2>
+    <div class="visualiser-card">
+      <div class="visualiser-canvas-wrap">
+        <canvas id="polyCanvas"></canvas>
+        <div class="equation-display" id="eqDisplay">y = x²</div>
+      </div>
+
+      <div style="padding: 20px 24px 0;">
+        <div class="degree-selector">
+          <button class="deg-btn active" data-deg="2">Degree 2</button>
+          <button class="deg-btn" data-deg="3">Degree 3</button>
+          <button class="deg-btn" data-deg="4">Degree 4</button>
+        </div>
+      </div>
+
+      <div class="visualiser-controls" id="coeffControls">
+        <!-- Degree 4 -->
+        <div class="control-group coeff-row" id="row-a4">
+          <div class="control-label">
+            <span>a₄ (x⁴)</span>
+            <span class="control-value" id="v-a4">0</span>
+          </div>
+          <input type="range" id="s-a4" min="-2" max="2" step="0.5" value="0" />
+        </div>
+        <!-- Degree 3 -->
+        <div class="control-group coeff-row" id="row-a3">
+          <div class="control-label">
+            <span>a₃ (x³)</span>
+            <span class="control-value" id="v-a3">0</span>
+          </div>
+          <input type="range" id="s-a3" min="-3" max="3" step="0.5" value="0" />
+        </div>
+        <!-- Degree 2 (always shown) -->
+        <div class="control-group coeff-row visible" id="row-a2">
+          <div class="control-label">
+            <span>a₂ (x²)</span>
+            <span class="control-value" id="v-a2">1</span>
+          </div>
+          <input type="range" id="s-a2" min="-3" max="3" step="0.5" value="1" />
+        </div>
+        <!-- Linear term (always shown) -->
+        <div class="control-group coeff-row visible" id="row-a1">
+          <div class="control-label">
+            <span>a₁ (x)</span>
+            <span class="control-value" id="v-a1">0</span>
+          </div>
+          <input type="range" id="s-a1" min="-5" max="5" step="0.5" value="0" />
+        </div>
+        <!-- Constant term (always shown) -->
+        <div class="control-group coeff-row visible" id="row-a0">
+          <div class="control-label">
+            <span>a₀ (constant)</span>
+            <span class="control-value" id="v-a0">0</span>
+          </div>
+          <input type="range" id="s-a0" min="-8" max="8" step="0.5" value="0" />
+        </div>
+      </div>
+
+      <div class="visualiser-info">
+        <div class="info-item">
+          <span class="info-label">Degree</span>
+          <span class="info-value" id="infoDeg">2</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Leading Coeff.</span>
+          <span class="info-value" id="infoLead">1</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Y-Intercept</span>
+          <span class="info-value" id="infoYInt">0</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">End Behaviour</span>
+          <span class="info-value" id="infoEB">↑ ↑</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <div class="takeaways-list">
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>The degree determines the maximum number of roots (zeros) and turning points the polynomial can have.</p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>End behaviour is governed entirely by the leading term \(a_n x^n\) — all other terms become negligible as \(x \to \pm\infty\).</p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>A polynomial of even degree with a positive leading coefficient goes to \(+\infty\) on both ends (U-shape); negative leading coefficient → both ends go to \(-\infty\) (∩-shape).</p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>The y-intercept is always \(P(0) = a_0\) — the constant term.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="quadratic-equations.html" class="related-card">Quadratic Equations <span>→</span></a>
+      <a href="factoring.html" class="related-card">Factoring <span>→</span></a>
+      <a href="functions.html" class="related-card">Functions &amp; Graphs <span>→</span></a>
+      <a href="../algebra.html" class="related-card">All Algebra Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-symbol">∑</span>
+          <span class="logo-text">MathExplorer</span>
+        </div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script src="../../js/graph.js"></script>
+  <script>
+    const canvas = document.getElementById('polyCanvas');
+    const ctx    = canvas.getContext('2d');
+    const RANGE  = 10;
+
+    let currentDeg = 2;
+
+    // Coefficient values
+    const C = { a4: 0, a3: 0, a2: 1, a1: 0, a0: 0 };
+
+    // Slider references
+    const sliders = { a4: 's-a4', a3: 's-a3', a2: 's-a2', a1: 's-a1', a0: 's-a0' };
+
+    Object.entries(sliders).forEach(([key, id]) => {
+      const el = document.getElementById(id);
+      el.addEventListener('input', () => {
+        C[key] = parseFloat(el.value);
+        document.getElementById('v-' + key.replace('a', 'v-').replace('v-', '')).textContent = C[key];
+        draw();
+      });
+      // Fix: direct value display element ids
+    });
+
+    // Re-wire: value display ids are v-a4, v-a3 etc.
+    ['a4','a3','a2','a1','a0'].forEach(k => {
+      document.getElementById('s-' + k).addEventListener('input', function() {
+        C[k] = parseFloat(this.value);
+        document.getElementById('v-' + k).textContent = C[k];
+        draw();
+      });
+    });
+
+    // Degree buttons
+    document.querySelectorAll('.deg-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentDeg = parseInt(btn.dataset.deg);
+        document.querySelectorAll('.deg-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        updateVisibleRows();
+        draw();
+      });
+    });
+
+    function updateVisibleRows() {
+      // Always visible: a2, a1, a0
+      document.getElementById('row-a3').classList.toggle('visible', currentDeg >= 3);
+      document.getElementById('row-a4').classList.toggle('visible', currentDeg >= 4);
+      // Reset hidden coefficients to 0
+      if (currentDeg < 4) { C.a4 = 0; document.getElementById('s-a4').value = 0; document.getElementById('v-a4').textContent = 0; }
+      if (currentDeg < 3) { C.a3 = 0; document.getElementById('s-a3').value = 0; document.getElementById('v-a3').textContent = 0; }
+    }
+
+    function getLeadingCoeff() {
+      if (currentDeg === 4 && C.a4 !== 0) return { coeff: C.a4, deg: 4 };
+      if (currentDeg >= 3 && C.a3 !== 0) return { coeff: C.a3, deg: 3 };
+      if (C.a2 !== 0) return { coeff: C.a2, deg: 2 };
+      if (C.a1 !== 0) return { coeff: C.a1, deg: 1 };
+      return { coeff: C.a0, deg: 0 };
+    }
+
+    function endBehaviour(leadCoeff, deg) {
+      if (deg === 0) return 'Constant';
+      if (deg % 2 === 0) return leadCoeff > 0 ? '↑ ↑  (both up)' : '↓ ↓  (both down)';
+      return leadCoeff > 0 ? '↓ ↑  (left↓, right↑)' : '↑ ↓  (left↑, right↓)';
+    }
+
+    function buildEqStr() {
+      const coeffs = [
+        { c: C.a4, d: 4, sup: '⁴' }, { c: C.a3, d: 3, sup: '³' },
+        { c: C.a2, d: 2, sup: '²' }, { c: C.a1, d: 1, sup: '' },
+        { c: C.a0, d: 0, sup: '' }
+      ].filter(t => (currentDeg >= t.d) && t.c !== 0);
+
+      if (coeffs.length === 0) return 'y = 0';
+      let s = 'y = ';
+      coeffs.forEach((t, i) => {
+        const sign = t.c < 0 ? (i === 0 ? '−' : ' − ') : (i === 0 ? '' : ' + ');
+        const abs  = Math.abs(t.c);
+        const coefStr = (abs === 1 && t.d > 0) ? '' : String(abs);
+        const varStr  = t.d === 0 ? '' : t.d === 1 ? 'x' : `x${t.sup}`;
+        s += sign + coefStr + varStr;
+      });
+      return s;
+    }
+
+    function evalPoly(x) {
+      return (currentDeg >= 4 ? C.a4 * x**4 : 0)
+           + (currentDeg >= 3 ? C.a3 * x**3 : 0)
+           + C.a2 * x**2
+           + C.a1 * x
+           + C.a0;
+    }
+
+    function draw() {
+      const W = canvas.width, H = canvas.height;
+      Graph.drawBackground(ctx, W, H, RANGE);
+      Graph.drawAxes(ctx, W, H, RANGE);
+      Graph.plot(ctx, evalPoly, W, H, RANGE, '#4f8ef7', 'rgba(79,142,247,0.35)');
+
+      // Y-intercept dot
+      Graph.dot(ctx, 0, C.a0, W, H, RANGE, '#9b6df8', 5, 'rgba(155,109,248,0.5)');
+
+      // UI updates
+      const { coeff, deg } = getLeadingCoeff();
+      document.getElementById('eqDisplay').textContent = buildEqStr();
+      document.getElementById('infoDeg').textContent   = deg;
+      document.getElementById('infoLead').textContent  = `aₙ = ${coeff}`;
+      document.getElementById('infoYInt').textContent  = `(0, ${C.a0})`;
+      document.getElementById('infoEB').textContent    = endBehaviour(coeff, deg);
+    }
+
+    Graph.init(canvas, draw);
+  </script>
+</body>
+</html>

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Functions &amp; Graphs — Algebra | MathExplorer</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    /* Function type selector */
+    .fn-type-selector { display: flex; flex-wrap: wrap; gap: 8px; padding: 20px 24px 0; }
+    .fn-btn {
+      padding: 7px 18px; border-radius: var(--radius-md); border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04); color: var(--text-secondary);
+      font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: var(--transition);
+      font-family: var(--font-mono);
+    }
+    .fn-btn:hover { color: var(--text-primary); border-color: var(--border-hover); }
+    .fn-btn.active { background: rgba(79,142,247,0.12); border-color: rgba(79,142,247,0.4); color: var(--accent-blue); }
+
+    /* Info panel inside card */
+    .fn-info-panel {
+      padding: 16px 24px;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+    }
+    .fn-info-item { display: flex; flex-direction: column; gap: 2px; }
+    .fn-info-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); font-weight: 600; }
+    .fn-info-value { font-size: 0.88rem; font-weight: 600; font-family: var(--font-mono); color: var(--text-primary); word-break: break-word; }
+
+    /* Family overview table */
+    .fn-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+    .fn-table th { text-align: left; padding: 10px 16px; color: var(--text-muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.07em; border-bottom: 1px solid var(--border); font-weight: 600; }
+    .fn-table td { padding: 10px 16px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--text-secondary); }
+    .fn-table td:first-child { font-weight: 600; color: var(--text-primary); }
+    .fn-table td code { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-blue); }
+    .fn-table tr:last-child td { border-bottom: none; }
+
+    .asymptote-legend {
+      display: flex; gap: 16px; align-items: center;
+      padding: 10px 16px; font-size: 0.78rem; color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+    .legend-line { width: 24px; height: 2px; display: inline-block; vertical-align: middle; }
+    .legend-dashed { border-top: 2px dashed rgba(249,123,64,0.7); }
+    .legend-solid  { background: var(--accent-blue); }
+  </style>
+</head>
+<body class="topic-page">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html" class="active">Algebra</a></li>
+        <li><a href="../calculus.html">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a><span>›</span>
+      <a href="../algebra.html">Algebra</a><span>›</span>
+      <span>Functions &amp; Graphs</span>
+    </nav>
+    <div class="topic-hero-top">
+      <div class="topic-symbol">f(x)</div>
+      <h1>Functions &amp; Graphs</h1>
+    </div>
+    <p class="subtitle">
+      A function maps every input to exactly one output. Understanding the common
+      function families — and how transformations shift, stretch, and reflect their graphs —
+      is central to all of mathematics.
+    </p>
+  </div>
+
+  <!-- Concept -->
+  <section class="content-section">
+    <h2>What is a Function?</h2>
+    <p>
+      A <strong>function</strong> \(f\) is a rule that assigns to each input \(x\) in its <strong>domain</strong>
+      exactly one output \(f(x)\) in its <strong>range</strong>. The key test: for any \(x\)-value,
+      there is only one \(y\)-value (the <em>vertical line test</em> — a vertical line should cross the graph at most once).
+    </p>
+    <p>
+      <strong>Transformations</strong> let you build complex functions from simple ones.
+      Given a base function \(f(x)\), the general transformed form
+      \(g(x) = a \cdot f(x - h) + k\) applies: vertical stretch/flip (\(a\)),
+      horizontal shift (\(h\)), and vertical shift (\(k\)).
+    </p>
+  </section>
+
+  <!-- Function Families Table -->
+  <section class="content-section">
+    <h2>Common Function Families</h2>
+    <div style="overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-md);">
+      <table class="fn-table">
+        <thead>
+          <tr>
+            <th>Family</th>
+            <th>General Form</th>
+            <th>Domain</th>
+            <th>Range</th>
+            <th>Shape</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Linear</td><td><code>ax + b</code></td><td>All reals</td><td>All reals (if a≠0)</td><td>Straight line</td></tr>
+          <tr><td>Quadratic</td><td><code>a(x−h)² + k</code></td><td>All reals</td><td>[k, ∞) or (−∞, k]</td><td>Parabola</td></tr>
+          <tr><td>Absolute Value</td><td><code>a|x−h| + k</code></td><td>All reals</td><td>[k, ∞) or (−∞, k]</td><td>V-shape</td></tr>
+          <tr><td>Square Root</td><td><code>a√(x−h) + k</code></td><td>[h, ∞)</td><td>[k, ∞) if a&gt;0</td><td>Half-curve</td></tr>
+          <tr><td>Cubic</td><td><code>ax³ + bx</code></td><td>All reals</td><td>All reals</td><td>S-curve</td></tr>
+          <tr><td>Reciprocal</td><td><code>a/(x−h) + k</code></td><td>x ≠ h</td><td>y ≠ k</td><td>Hyperbola</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Key Formulas -->
+  <section class="content-section">
+    <h2>Transformations</h2>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <span class="formula-label">General Form</span>
+        <div>
+          <div class="formula-math">\[ g(x) = a \cdot f(x - h) + k \]</div>
+          <div class="formula-note">\(a\): vertical stretch/compress/flip &nbsp;|&nbsp; \(h\): horizontal shift &nbsp;|&nbsp; \(k\): vertical shift</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Reflections</span>
+        <div>
+          <div class="formula-math">\[ -f(x) \text{ reflects over x-axis}, \quad f(-x) \text{ reflects over y-axis} \]</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Composition</span>
+        <div>
+          <div class="formula-math">\[ (f \circ g)(x) = f(g(x)) \]</div>
+          <div class="formula-note">Apply g first, then f — order matters!</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Worked Examples -->
+  <section class="content-section">
+    <h2>Worked Examples</h2>
+    <div class="example-list">
+
+      <div class="example-card">
+        <div class="example-title">Example 1 — Evaluating and finding domain</div>
+        <div class="example-problem">For \(f(x) = \sqrt{x - 3}\), find \(f(7)\) and state the domain.</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">Evaluate: <code>f(7) = √(7 − 3) = √4 = 2</code></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Domain: need <code>x − 3 ≥ 0</code>, so <code>x ≥ 3</code> → Domain: \([3, \infty)\)</div></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 2 — Describing a transformation</div>
+        <div class="example-problem">Describe how \(g(x) = -2(x - 1)^2 + 3\) relates to \(f(x) = x^2\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text"><code>a = −2</code>: vertical stretch by 2, reflected over x-axis (opens downward)</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text"><code>h = 1</code>: shifted right 1 unit</div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text"><code>k = 3</code>: shifted up 3 units. Vertex at \((1, 3)\)</div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Visualiser -->
+  <section class="visualiser-section">
+    <h2>Interactive Graph — Function Explorer</h2>
+    <div class="visualiser-card">
+
+      <div class="fn-type-selector">
+        <button class="fn-btn active" data-type="linear">Linear</button>
+        <button class="fn-btn" data-type="quadratic">Quadratic</button>
+        <button class="fn-btn" data-type="absolute">Absolute Value</button>
+        <button class="fn-btn" data-type="sqrt">Square Root</button>
+        <button class="fn-btn" data-type="cubic">Cubic</button>
+        <button class="fn-btn" data-type="reciprocal">Reciprocal</button>
+      </div>
+
+      <div class="visualiser-canvas-wrap">
+        <canvas id="fnCanvas"></canvas>
+        <div class="equation-display" id="fnEqDisplay">f(x) = x</div>
+      </div>
+
+      <div class="visualiser-controls" id="fnControls">
+        <!-- 3 parameter sliders, labels change per type -->
+        <div class="control-group" id="p1-group">
+          <div class="control-label"><span id="p1-label">a</span><span class="control-value" id="p1-val">1</span></div>
+          <input type="range" id="p1" min="-4" max="4" step="0.5" value="1" />
+        </div>
+        <div class="control-group" id="p2-group">
+          <div class="control-label"><span id="p2-label">b</span><span class="control-value" id="p2-val">0</span></div>
+          <input type="range" id="p2" min="-8" max="8" step="0.5" value="0" />
+        </div>
+        <div class="control-group" id="p3-group" style="display:none;">
+          <div class="control-label"><span id="p3-label">k</span><span class="control-value" id="p3-val">0</span></div>
+          <input type="range" id="p3" min="-8" max="8" step="0.5" value="0" />
+        </div>
+      </div>
+
+      <div class="asymptote-legend" id="asymLegend" style="display:none;">
+        <span class="legend-line legend-dashed"></span>
+        <span>Asymptote</span>
+      </div>
+
+      <div class="fn-info-panel">
+        <div class="fn-info-item"><span class="fn-info-label">Domain</span><span class="fn-info-value" id="infoDomain">All reals</span></div>
+        <div class="fn-info-item"><span class="fn-info-label">Range</span><span class="fn-info-value" id="infoRange">All reals</span></div>
+        <div class="fn-info-item"><span class="fn-info-label">Y-Intercept</span><span class="fn-info-value" id="infoYInt">(0, 0)</span></div>
+        <div class="fn-info-item"><span class="fn-info-label">Feature</span><span class="fn-info-value" id="infoFeature">—</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <div class="takeaways-list">
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>A function passes the vertical line test: every \(x\)-value maps to exactly one \(y\)-value.</p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>The transformation \(g(x) = a \cdot f(x - h) + k\) encodes stretch, flip, and shift — in that order.</p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>Domain restrictions arise from square roots (need argument ≥ 0) and reciprocals (denominator ≠ 0).</p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>Horizontal shifts move <em>opposite</em> to the sign: \(f(x - 3)\) shifts <strong>right</strong> 3 units.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="linear-equations.html" class="related-card">Linear Equations <span>→</span></a>
+      <a href="quadratic-equations.html" class="related-card">Quadratic Equations <span>→</span></a>
+      <a href="polynomials.html" class="related-card">Polynomials <span>→</span></a>
+      <a href="../algebra.html" class="related-card">All Algebra Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-symbol">∑</span>
+          <span class="logo-text">MathExplorer</span>
+        </div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script src="../../js/graph.js"></script>
+  <script>
+    const canvas = document.getElementById('fnCanvas');
+    const ctx    = canvas.getContext('2d');
+    const RANGE  = 10;
+
+    // ─── Function type configurations ───────────────────────────────────────
+    const TYPES = {
+      linear: {
+        label: 'Linear',
+        p1: { label: 'a  (slope)',       min: -4,  max: 4,  step: 0.5, def: 1 },
+        p2: { label: 'b  (y-intercept)', min: -8,  max: 8,  step: 0.5, def: 0 },
+        p3: null,
+        fn:  (a, b)    => x => a * x + b,
+        eq:  (a, b)    => `f(x) = ${a === 1 ? '' : a === -1 ? '-' : a}x ${b >= 0 ? '+ ' + b : '− ' + Math.abs(b)}`,
+        domain:  ()        => 'All reals (−∞, +∞)',
+        range:   (a, b)    => a !== 0 ? 'All reals (−∞, +∞)' : `y = ${b}`,
+        yInt:    (a, b)    => `(0, ${b})`,
+        feature: (a)       => a > 0 ? 'Slope: increasing ↑' : a < 0 ? 'Slope: decreasing ↓' : 'Horizontal line',
+        hasAsymptote: false,
+      },
+      quadratic: {
+        label: 'Quadratic',
+        p1: { label: 'a  (shape)',    min: -3, max: 3, step: 0.5, def: 1 },
+        p2: { label: 'h  (horiz. shift)', min: -6, max: 6, step: 0.5, def: 0 },
+        p3: { label: 'k  (vert. shift)',  min: -6, max: 6, step: 0.5, def: 0 },
+        fn:  (a, h, k) => x => a * (x - h) ** 2 + k,
+        eq:  (a, h, k) => {
+          const aS = a === 1 ? '' : a === -1 ? '-' : a;
+          const hS = h === 0 ? 'x' : h > 0 ? `(x − ${h})` : `(x + ${Math.abs(h)})`;
+          const kS = k === 0 ? '' : k > 0 ? ` + ${k}` : ` − ${Math.abs(k)}`;
+          return `f(x) = ${aS}${hS}²${kS}`;
+        },
+        domain:  ()        => 'All reals (−∞, +∞)',
+        range:   (a, h, k) => a > 0 ? `[${k}, +∞)` : `(−∞, ${k}]`,
+        yInt:    (a, h, k) => `(0, ${a * h * h + k})`,
+        feature: (a, h, k) => `Vertex: (${h}, ${k}) — opens ${a > 0 ? 'up ↑' : 'down ↓'}`,
+        hasAsymptote: false,
+      },
+      absolute: {
+        label: 'Absolute Value',
+        p1: { label: 'a  (stretch/flip)', min: -3, max: 3, step: 0.5, def: 1 },
+        p2: { label: 'h  (horiz. shift)', min: -6, max: 6, step: 0.5, def: 0 },
+        p3: { label: 'k  (vert. shift)',  min: -6, max: 6, step: 0.5, def: 0 },
+        fn:  (a, h, k) => x => a * Math.abs(x - h) + k,
+        eq:  (a, h, k) => {
+          const aS = a === 1 ? '' : a === -1 ? '-' : a;
+          const hS = h === 0 ? 'x' : h > 0 ? `(x − ${h})` : `(x + ${Math.abs(h)})`;
+          const kS = k === 0 ? '' : k > 0 ? ` + ${k}` : ` − ${Math.abs(k)}`;
+          return `f(x) = ${aS}|${hS}|${kS}`;
+        },
+        domain:  ()        => 'All reals (−∞, +∞)',
+        range:   (a, h, k) => a > 0 ? `[${k}, +∞)` : `(−∞, ${k}]`,
+        yInt:    (a, h, k) => `(0, ${a * Math.abs(-h) + k})`,
+        feature: (a, h, k) => `Vertex: (${h}, ${k}) — V-shape ${a > 0 ? 'opens up ↑' : 'opens down ↓'}`,
+        hasAsymptote: false,
+      },
+      sqrt: {
+        label: 'Square Root',
+        p1: { label: 'a  (stretch/flip)', min: -3, max: 3, step: 0.5, def: 1 },
+        p2: { label: 'h  (start point)',  min: -8, max: 8, step: 0.5, def: 0 },
+        p3: { label: 'k  (vert. shift)',  min: -6, max: 6, step: 0.5, def: 0 },
+        fn:  (a, h, k) => x => x >= h ? a * Math.sqrt(x - h) + k : NaN,
+        eq:  (a, h, k) => {
+          const aS = a === 1 ? '' : a === -1 ? '-' : a;
+          const hS = h === 0 ? 'x' : h > 0 ? `(x − ${h})` : `(x + ${Math.abs(h)})`;
+          const kS = k === 0 ? '' : k > 0 ? ` + ${k}` : ` − ${Math.abs(k)}`;
+          return `f(x) = ${aS}√${hS}${kS}`;
+        },
+        domain:  (a, h, k) => `[${h}, +∞)`,
+        range:   (a, h, k) => a > 0 ? `[${k}, +∞)` : `(−∞, ${k}]`,
+        yInt:    (a, h, k) => h <= 0 ? `(0, ${(a * Math.sqrt(-h) + k).toFixed(2)})` : 'None (domain starts at x = ' + h + ')',
+        feature: (a, h, k) => `Start point: (${h}, ${k})`,
+        hasAsymptote: false,
+      },
+      cubic: {
+        label: 'Cubic',
+        p1: { label: 'a  (leading coeff.)', min: -2, max: 2, step: 0.5, def: 1 },
+        p2: { label: 'b  (linear coeff.)',  min: -5, max: 5, step: 0.5, def: 0 },
+        p3: { label: 'c  (constant)',       min: -6, max: 6, step: 0.5, def: 0 },
+        fn:  (a, b, c) => x => a * x ** 3 + b * x + c,
+        eq:  (a, b, c) => {
+          const aS = a === 1 ? '' : a === -1 ? '-' : a;
+          const bP = b === 0 ? '' : b > 0 ? ` + ${b}x` : ` − ${Math.abs(b)}x`;
+          const cP = c === 0 ? '' : c > 0 ? ` + ${c}` : ` − ${Math.abs(c)}`;
+          return `f(x) = ${aS}x³${bP}${cP}`;
+        },
+        domain:  ()        => 'All reals (−∞, +∞)',
+        range:   ()        => 'All reals (−∞, +∞)',
+        yInt:    (a, b, c) => `(0, ${c})`,
+        feature: (a)       => a > 0 ? 'Odd degree: ↓ left, ↑ right' : 'Odd degree: ↑ left, ↓ right',
+        hasAsymptote: false,
+      },
+      reciprocal: {
+        label: 'Reciprocal',
+        p1: { label: 'a  (scale)',        min: -5, max: 5, step: 0.5, def: 1 },
+        p2: { label: 'h  (vert. asympt.)',min: -6, max: 6, step: 0.5, def: 0 },
+        p3: { label: 'k  (horiz. asympt.)',min: -6, max: 6, step: 0.5, def: 0 },
+        fn:  (a, h, k) => x => x !== h ? a / (x - h) + k : NaN,
+        eq:  (a, h, k) => {
+          const hS = h === 0 ? 'x' : h > 0 ? `(x − ${h})` : `(x + ${Math.abs(h)})`;
+          const kS = k === 0 ? '' : k > 0 ? ` + ${k}` : ` − ${Math.abs(k)}`;
+          return `f(x) = ${a}/${hS}${kS}`;
+        },
+        domain:  (a, h)    => `x ≠ ${h}`,
+        range:   (a, h, k) => `y ≠ ${k}`,
+        yInt:    (a, h, k) => h !== 0 ? `(0, ${(a / (0 - h) + k).toFixed(2)})` : 'Undefined (x = 0 is asymptote)',
+        feature: (a, h, k) => `V. asymptote: x = ${h}  |  H. asymptote: y = ${k}`,
+        hasAsymptote: true,
+      },
+    };
+
+    let current = 'linear';
+    let p1 = 1, p2 = 0, p3 = 0;
+
+    function applyType(type) {
+      const cfg = TYPES[type];
+      current = type;
+
+      // Update slider configs
+      ['p1','p2'].forEach((pid, i) => {
+        const key = pid;
+        const pcfg = i === 0 ? cfg.p1 : cfg.p2;
+        const slider = document.getElementById(pid);
+        slider.min   = pcfg.min;
+        slider.max   = pcfg.max;
+        slider.step  = pcfg.step;
+        slider.value = pcfg.def;
+        document.getElementById(pid + '-label').textContent = pcfg.label;
+        document.getElementById(pid + '-val').textContent   = pcfg.def;
+      });
+      p1 = cfg.p1.def; p2 = cfg.p2.def;
+
+      const p3group = document.getElementById('p3-group');
+      if (cfg.p3) {
+        p3group.style.display = '';
+        const slider3 = document.getElementById('p3');
+        slider3.min   = cfg.p3.min;
+        slider3.max   = cfg.p3.max;
+        slider3.step  = cfg.p3.step;
+        slider3.value = cfg.p3.def;
+        document.getElementById('p3-label').textContent = cfg.p3.label;
+        document.getElementById('p3-val').textContent   = cfg.p3.def;
+        p3 = cfg.p3.def;
+      } else {
+        p3group.style.display = 'none';
+        p3 = 0;
+      }
+
+      document.getElementById('asymLegend').style.display = cfg.hasAsymptote ? '' : 'none';
+      draw();
+    }
+
+    function draw() {
+      const W = canvas.width, H = canvas.height;
+      const cfg = TYPES[current];
+      const fn  = cfg.fn(p1, p2, p3);
+
+      Graph.drawBackground(ctx, W, H, RANGE);
+      Graph.drawAxes(ctx, W, H, RANGE);
+
+      // Asymptotes first (behind the curve)
+      if (current === 'reciprocal') {
+        Graph.dashedVLine(ctx, p2, W, H, RANGE);
+        Graph.dashedHLine(ctx, p3, W, H, RANGE);
+      }
+
+      Graph.plot(ctx, fn, W, H, RANGE, '#4f8ef7', 'rgba(79,142,247,0.35)');
+
+      // Y-intercept dot
+      try {
+        const yi = fn(0);
+        if (isFinite(yi) && Math.abs(yi) <= RANGE)
+          Graph.dot(ctx, 0, yi, W, H, RANGE, '#9b6df8', 5, 'rgba(155,109,248,0.4)');
+      } catch (e) { /* no y-intercept */ }
+
+      // Square root start point
+      if (current === 'sqrt') {
+        Graph.dot(ctx, p2, p3, W, H, RANGE, '#34d4c8', 5, 'rgba(52,212,200,0.4)');
+      }
+
+      // Update displays
+      document.getElementById('fnEqDisplay').textContent = cfg.eq(p1, p2, p3);
+      document.getElementById('infoDomain').textContent  = cfg.domain(p1, p2, p3);
+      document.getElementById('infoRange').textContent   = cfg.range(p1, p2, p3);
+      document.getElementById('infoYInt').textContent    = cfg.yInt(p1, p2, p3);
+      document.getElementById('infoFeature').textContent = cfg.feature(p1, p2, p3);
+    }
+
+    // Type buttons
+    document.querySelectorAll('.fn-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.fn-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        applyType(btn.dataset.type);
+      });
+    });
+
+    // Sliders
+    document.getElementById('p1').addEventListener('input', function() {
+      p1 = parseFloat(this.value);
+      document.getElementById('p1-val').textContent = p1;
+      draw();
+    });
+    document.getElementById('p2').addEventListener('input', function() {
+      p2 = parseFloat(this.value);
+      document.getElementById('p2-val').textContent = p2;
+      draw();
+    });
+    document.getElementById('p3').addEventListener('input', function() {
+      p3 = parseFloat(this.value);
+      document.getElementById('p3-val').textContent = p3;
+      draw();
+    });
+
+    Graph.init(canvas, draw);
+  </script>
+</body>
+</html>

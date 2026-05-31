@@ -22,9 +22,9 @@ The Algebra section covers the foundational language of mathematics: variables, 
 |---|---|---|---|---|
 | 1 | Linear Equations | `pages/algebra/linear-equations.html` | ✅ Done | Line plotter — sliders for slope (m) & intercept (b) |
 | 2 | Quadratic Equations | `pages/algebra/quadratic-equations.html` | ✅ Done | Parabola plotter — sliders for a, b, c; shows roots & discriminant |
-| 3 | Polynomials | `pages/algebra/polynomials.html` | 🔲 Planned | Polynomial curve plotter with degree selector |
-| 4 | Factoring | `pages/algebra/factoring.html` | 🔲 Planned | Step-by-step factoring of ax² + bx + c |
-| 5 | Functions & Graphs | `pages/algebra/functions.html` | 🔲 Planned | Custom function input with live graph |
+| 3 | Polynomials | `pages/algebra/polynomials.html` | ✅ Done | Polynomial curve plotter with degree selector (2/3/4) |
+| 4 | Factoring | `pages/algebra/factoring.html` | ✅ Done | Step-by-step factoring of ax² + bx + c (AC method, special forms) |
+| 5 | Functions & Graphs | `pages/algebra/functions.html` | ✅ Done | 6 function families with param sliders, domain/range info |
 | 6 | Systems of Equations | `pages/algebra/systems.html` | 🔲 Planned | Two-line plotter showing intersection point |
 | 7 | Inequalities | `pages/algebra/inequalities.html` | 🔲 Planned | Number line & region shading visualiser |
 | 8 | Matrices | `pages/algebra/matrices.html` | 🔲 Planned | Matrix multiplication calculator + transformation visualiser |
@@ -69,9 +69,11 @@ All graphs share a common canvas helper (`js/graph.js`, Phase 2):
 - [x] Linear Equations page — full content + Canvas line plotter
 - [x] Quadratic Equations page — full content + Canvas parabola plotter
 
-### Phase 2 — Core Topics
-- [ ] Shared Canvas graph helper (`js/graph.js`)
-- [ ] Polynomials, Factoring, Functions & Graphs pages
+### Phase 2 — Core Topics ✅ Complete
+- [x] Shared Canvas graph helper (`js/graph.js`)
+- [x] Polynomials page — degree 2/3/4 selector, coefficient sliders, end behaviour
+- [x] Factoring page — step-by-step GCF / simple / AC method / special forms + mini graph
+- [x] Functions & Graphs page — Linear, Quadratic, Absolute Value, Square Root, Cubic, Reciprocal families
 
 ### Phase 3 — Advanced Topics
 - [ ] Systems of Equations (two-line visualiser)

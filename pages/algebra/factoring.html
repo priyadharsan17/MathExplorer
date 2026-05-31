@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Factoring — Algebra | MathExplorer</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    /* Two-column layout: steps | graph */
+    .factor-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      padding: 24px;
+    }
+    @media (max-width: 700px) { .factor-layout { grid-template-columns: 1fr; } }
+
+    /* Step-by-step display */
+    .steps-panel { display: flex; flex-direction: column; gap: 0; }
+    .factor-step {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 12px 0; border-bottom: 1px solid var(--border);
+    }
+    .factor-step:last-child { border-bottom: none; }
+    .fs-num {
+      width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 700; margin-top: 1px;
+    }
+    .fs-num.info    { background: rgba(79,142,247,0.12);  color: var(--accent-blue); }
+    .fs-num.formula { background: rgba(155,109,248,0.12); color: var(--calculus-color); }
+    .fs-num.success { background: rgba(52,212,200,0.12);  color: var(--accent-teal); }
+    .fs-num.fail    { background: rgba(249,123,64,0.12);  color: var(--accent-orange); }
+    .fs-body { flex: 1; }
+    .fs-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-bottom: 4px; }
+    .fs-content { font-size: 0.9rem; font-family: var(--font-mono); color: var(--text-primary); line-height: 1.5; }
+    .fs-content.success { color: var(--accent-teal); font-size: 1rem; font-weight: 600; }
+    .fs-content.fail    { color: var(--accent-orange); }
+
+    /* Mini graph inside the card */
+    .mini-graph-wrap { background: #0d0d14; border-radius: var(--radius-md); overflow: hidden; }
+    .mini-graph-wrap canvas { display: block; width: 100%; height: auto; }
+
+    /* Controls under the layout */
+    .factor-controls {
+      padding: 20px 24px;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 600px) { .factor-controls { grid-template-columns: 1fr; } }
+
+    .strategy-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+    .strategy-card {
+      padding: 18px 20px; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: var(--radius-md);
+    }
+    .strategy-card h4 { font-size: 0.875rem; font-weight: 700; margin-bottom: 6px; color: var(--text-primary); }
+    .strategy-card p  { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; }
+    .strategy-tag {
+      display: inline-block; font-size: 0.68rem; font-weight: 700;
+      padding: 2px 8px; border-radius: 99px; margin-bottom: 8px;
+      background: rgba(79,142,247,0.1); color: var(--accent-blue);
+      border: 1px solid rgba(79,142,247,0.2);
+    }
+  </style>
+</head>
+<body class="topic-page">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html" class="active">Algebra</a></li>
+        <li><a href="../calculus.html">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a><span>›</span>
+      <a href="../algebra.html">Algebra</a><span>›</span>
+      <span>Factoring</span>
+    </nav>
+    <div class="topic-hero-top">
+      <div class="topic-symbol">(x)</div>
+      <h1>Factoring</h1>
+    </div>
+    <p class="subtitle">
+      Factoring reverses multiplication — it breaks an expression into a product of simpler pieces.
+      Mastering factoring unlocks faster equation solving and reveals the roots of polynomials directly.
+    </p>
+  </div>
+
+  <!-- Concept -->
+  <section class="content-section">
+    <h2>What is Factoring?</h2>
+    <p>
+      To <strong>factor</strong> an expression means to rewrite it as a product. For example,
+      \(x^2 - 5x + 6 = (x - 2)(x - 3)\). The values \(x = 2\) and \(x = 3\) are immediately visible as the roots.
+    </p>
+    <p>
+      The key insight: a quadratic \(ax^2 + bx + c\) can be factored over the reals only when its
+      discriminant \(\Delta = b^2 - 4ac \geq 0\). When \(\Delta < 0\), the parabola never touches
+      the x-axis — no real factors exist.
+    </p>
+  </section>
+
+  <!-- Strategies -->
+  <section class="content-section">
+    <h2>Factoring Strategies</h2>
+    <div class="strategy-grid">
+      <div class="strategy-card">
+        <div class="strategy-tag">Step 1 — Always</div>
+        <h4>Greatest Common Factor (GCF)</h4>
+        <p>Factor out the largest factor shared by all terms. \(6x^2 + 9x = 3x(2x + 3)\)</p>
+      </div>
+      <div class="strategy-card">
+        <div class="strategy-tag">a = 1</div>
+        <h4>Simple Trinomial</h4>
+        <p>Find p, q: \(p \cdot q = c\) and \(p + q = b\). Then \(x^2 + bx + c = (x+p)(x+q)\).</p>
+      </div>
+      <div class="strategy-card">
+        <div class="strategy-tag">a ≠ 1</div>
+        <h4>AC Method</h4>
+        <p>Find p, q: \(p \cdot q = ac\) and \(p + q = b\). Rewrite \(bx = px + qx\), then factor by grouping.</p>
+      </div>
+      <div class="strategy-card">
+        <div class="strategy-tag">Special</div>
+        <h4>Difference of Squares</h4>
+        <p>\(a^2 - b^2 = (a+b)(a-b)\). Example: \(x^2 - 9 = (x+3)(x-3)\).</p>
+      </div>
+      <div class="strategy-card">
+        <div class="strategy-tag">Special</div>
+        <h4>Perfect Square Trinomial</h4>
+        <p>\(a^2 \pm 2ab + b^2 = (a \pm b)^2\). Example: \(x^2 + 6x + 9 = (x+3)^2\).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Formulas -->
+  <section class="content-section">
+    <h2>Key Formulas</h2>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <span class="formula-label">Simple (a = 1)</span>
+        <div>
+          <div class="formula-math">\[ x^2 + bx + c = (x + p)(x + q) \quad \text{where } p+q=b,\ pq=c \]</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Diff. of Squares</span>
+        <div>
+          <div class="formula-math">\[ a^2 - b^2 = (a + b)(a - b) \]</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Perfect Square</span>
+        <div>
+          <div class="formula-math">\[ a^2 \pm 2ab + b^2 = (a \pm b)^2 \]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Worked Examples -->
+  <section class="content-section">
+    <h2>Worked Examples</h2>
+    <div class="example-list">
+
+      <div class="example-card">
+        <div class="example-title">Example 1 — Simple trinomial (a = 1)</div>
+        <div class="example-problem">Factor: \(x^2 - 5x + 6\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">Need p, q where <code>p × q = 6</code> and <code>p + q = −5</code></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Try pairs of 6: (1,6), (2,3), (−2,−3)… Found: <code>p = −2, q = −3</code> since (−2)(−3) = 6 and (−2)+(−3) = −5 ✓</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">Factored: <code>(x − 2)(x − 3)</code></div></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 2 — AC Method (a ≠ 1)</div>
+        <div class="example-problem">Factor: \(2x^2 + 5x + 3\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">Compute <code>a × c = 2 × 3 = 6</code>. Find p, q: <code>p × q = 6, p + q = 5</code> → <code>p = 2, q = 3</code></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Rewrite: <code>2x² + 2x + 3x + 3</code></div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">Group: <code>(2x² + 2x) + (3x + 3)</code></div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-text">Factor each group: <code>2x(x + 1) + 3(x + 1)</code></div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">Collect: <code>(x + 1)(2x + 3)</code></div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Factoring Tool -->
+  <section class="visualiser-section">
+    <h2>Interactive Factoring Tool — ax² + bx + c</h2>
+    <div class="visualiser-card">
+
+      <div class="factor-layout">
+        <!-- Step-by-step panel -->
+        <div>
+          <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:14px;">Step-by-Step</div>
+          <div class="steps-panel" id="stepsPanel"></div>
+        </div>
+        <!-- Mini parabola graph -->
+        <div>
+          <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:14px;">Graph</div>
+          <div class="mini-graph-wrap">
+            <canvas id="factorCanvas"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="factor-controls">
+        <div class="control-group">
+          <div class="control-label"><span>a (x²)</span><span class="control-value" id="fv-a">1</span></div>
+          <input type="range" id="fs-a" min="1" max="6" step="1" value="1" />
+        </div>
+        <div class="control-group">
+          <div class="control-label"><span>b (x)</span><span class="control-value" id="fv-b">-5</span></div>
+          <input type="range" id="fs-b" min="-10" max="10" step="1" value="-5" />
+        </div>
+        <div class="control-group">
+          <div class="control-label"><span>c (constant)</span><span class="control-value" id="fv-c">6</span></div>
+          <input type="range" id="fs-c" min="-12" max="12" step="1" value="6" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <div class="takeaways-list">
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>Always check for a GCF first — it simplifies every method that follows.</p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>The discriminant \(\Delta = b^2 - 4ac\) tells you whether integer factoring is possible before you start searching.</p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>The AC method works for any \(a\) — finding the factor pair is the hardest step, everything else follows mechanically.</p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>Factored form immediately reveals the roots: if \((x - r_1)(x - r_2) = 0\) then \(x = r_1\) or \(x = r_2\).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="quadratic-equations.html" class="related-card">Quadratic Equations <span>→</span></a>
+      <a href="polynomials.html" class="related-card">Polynomials <span>→</span></a>
+      <a href="../algebra.html" class="related-card">All Algebra Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-symbol">∑</span>
+          <span class="logo-text">MathExplorer</span>
+        </div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script src="../../js/graph.js"></script>
+  <script>
+    const canvas = document.getElementById('factorCanvas');
+    const ctx    = canvas.getContext('2d');
+    const RANGE  = 8;
+
+    const fsA = document.getElementById('fs-a');
+    const fsB = document.getElementById('fs-b');
+    const fsC = document.getElementById('fs-c');
+
+    function gcd(a, b) {
+      a = Math.abs(a); b = Math.abs(b);
+      while (b) { [a, b] = [b, a % b]; }
+      return a || 1;
+    }
+
+    function fmtFrac(num, den) {
+      // Reduce and display fraction if not integer
+      if (den === 0) return '?';
+      const g = gcd(Math.abs(num), Math.abs(den));
+      const n = num / g, d = den / g;
+      if (d === 1) return String(n);
+      if (d === -1) return String(-n);
+      return `${d < 0 ? -n : n}/${Math.abs(d)}`;
+    }
+
+    function signedNum(n) {
+      // Format for display inside a factored bracket: (x + 3) or (x − 3)
+      if (n === 0) return '';
+      return n > 0 ? ` + ${n}` : ` − ${Math.abs(n)}`;
+    }
+
+    function computeSteps(a, b, c) {
+      const steps = [];
+      const disc  = b * b - 4 * a * c;
+      const sqrtD = Math.sqrt(Math.abs(disc));
+      const intSqrtD = disc >= 0 && Math.abs(sqrtD - Math.round(sqrtD)) < 1e-9;
+
+      // Step 1: standard form
+      const aTerm = a === 1 ? 'x²' : `${a}x²`;
+      const bPart = b === 0 ? '' : b > 0 ? ` + ${b}x` : ` − ${Math.abs(b)}x`;
+      const cPart = c === 0 ? '' : c > 0 ? ` + ${c}` : ` − ${Math.abs(c)}`;
+      steps.push({ type: 'info', label: 'Standard form', text: `${aTerm}${bPart}${cPart} = 0` });
+
+      // Step 2: discriminant
+      steps.push({ type: 'formula', label: 'Discriminant', text: `Δ = b² − 4ac = (${b})² − 4(${a})(${c}) = ${disc}` });
+
+      if (disc < 0) {
+        steps.push({ type: 'fail', label: 'No real factors', text: 'Δ < 0 → Cannot be factored over the real numbers.' });
+        return steps;
+      }
+
+      // Check b = 0 → Difference of squares
+      if (b === 0 && a > 0 && c < 0) {
+        const sqA = Math.sqrt(a), sqC = Math.sqrt(-c);
+        if (Number.isInteger(sqA) && Number.isInteger(sqC)) {
+          steps.push({ type: 'info', label: 'Difference of squares', text: `b = 0 and c < 0 → pattern: (√a · x)² − (√|c|)²` });
+          const ap = sqA === 1 ? '' : String(sqA);
+          steps.push({ type: 'success', label: 'Factored form', text: `(${ap}x + ${sqC})(${ap}x − ${sqC})` });
+          return steps;
+        }
+      }
+
+      // Perfect square: disc = 0
+      if (disc === 0) {
+        const root = -b / (2 * a);
+        steps.push({ type: 'info', label: 'Perfect square trinomial', text: `Δ = 0 → double root at x = ${fmtFrac(-b, 2 * a)}` });
+        const g = gcd(Math.abs(b), 2 * Math.abs(a));
+        const aStr = a === 1 ? '' : String(a);
+        steps.push({ type: 'success', label: 'Factored form', text: `${aStr}(x${signedNum(-root)})²` });
+        return steps;
+      }
+
+      // Integer / rational factoring
+      if (intSqrtD) {
+        const sqrtVal = Math.round(sqrtD);
+        const r1num = -b + sqrtVal, r2num = -b - sqrtVal;
+        const den = 2 * a;
+
+        if (a === 1) {
+          // Simple: find p, q where pq = c and p + q = b
+          let pair = null;
+          for (let p = -Math.abs(c) - 1; p <= Math.abs(c) + 1; p++) {
+            const q = b - p;
+            if (p * q === c) { pair = [p, q]; break; }
+          }
+          if (pair) {
+            const [p, q] = pair;
+            steps.push({ type: 'info', label: 'Simple factoring (a = 1)', text: `Find p, q: p × q = ${c}, p + q = ${b}` });
+            steps.push({ type: 'info', label: 'Factor pair', text: `p = ${p}, q = ${q}  ✓` });
+            steps.push({ type: 'success', label: 'Factored form', text: `(x${signedNum(p)})(x${signedNum(q)})` });
+            return steps;
+          }
+        }
+
+        // AC method for a > 1
+        const ac = a * c;
+        let pair = null;
+        const limit = Math.abs(ac) + 1;
+        for (let p = -limit; p <= limit; p++) {
+          if (p === 0) continue;
+          if (Number.isInteger(ac / p) && (ac / p) + p === b) { pair = [p, ac / p]; break; }
+        }
+
+        if (pair) {
+          const [p, q] = pair;
+          const bpPart = p > 0 ? ` + ${p}x` : ` − ${Math.abs(p)}x`;
+          const qPart  = q > 0 ? ` + ${q}x` : ` − ${Math.abs(q)}x`;
+          const cPart2 = c > 0 ? ` + ${c}` : ` − ${Math.abs(c)}`;
+          steps.push({ type: 'info', label: 'AC Method', text: `a × c = ${a} × ${c} = ${ac}. Find p, q: p × q = ${ac}, p + q = ${b}` });
+          steps.push({ type: 'info', label: 'Factor pair', text: `p = ${p}, q = ${q}  ✓` });
+          steps.push({ type: 'info', label: 'Rewrite bx', text: `${a === 1 ? '' : a}x²${bpPart}${qPart}${cPart2}` });
+          steps.push({ type: 'info', label: 'Group', text: `(${a === 1 ? '' : a}x²${bpPart}) + (${q}x${cPart2})` });
+
+          const g1 = gcd(a, Math.abs(p));
+          const g2 = gcd(Math.abs(q), Math.abs(c));
+          const bk1a = a / g1, bk1b = p / g1;
+          const outerFactor = `${g1 === 1 ? '' : g1}x${signedNum(g2 * Math.sign(q))}`;
+          const bracket = `${bk1a === 1 ? '' : bk1a}x${signedNum(bk1b)}`;
+          steps.push({ type: 'info', label: 'Factor each group', text: `${g1}x(${bracket}) + ${g2}(${bracket})` });
+          steps.push({ type: 'success', label: 'Factored form', text: `(${bracket})(${outerFactor})` });
+          return steps;
+        }
+      }
+
+      // Fallback: quadratic formula (irrational or fractional roots)
+      const r1 = ((-b + sqrtD) / (2 * a)).toFixed(3);
+      const r2 = ((-b - sqrtD) / (2 * a)).toFixed(3);
+      steps.push({ type: 'info', label: 'Irrational roots', text: `√Δ = √${disc} ≈ ${sqrtD.toFixed(3)}` });
+      steps.push({ type: 'info', label: 'Roots', text: `x₁ ≈ ${r1},  x₂ ≈ ${r2}` });
+      const aStr = a === 1 ? '' : `${a}`;
+      steps.push({ type: 'success', label: 'Factored form (approx.)', text: `${aStr}(x − ${r1})(x − ${r2})` });
+      return steps;
+    }
+
+    function renderSteps(steps) {
+      const panel = document.getElementById('stepsPanel');
+      panel.innerHTML = '';
+      const icons = { info: '→', formula: 'Δ', success: '✓', fail: '✕' };
+      steps.forEach(s => {
+        const div = document.createElement('div');
+        div.className = 'factor-step';
+        div.innerHTML = `
+          <div class="fs-num ${s.type}">${icons[s.type]}</div>
+          <div class="fs-body">
+            <div class="fs-label">${s.label}</div>
+            <div class="fs-content ${s.type === 'success' ? 'success' : s.type === 'fail' ? 'fail' : ''}">${s.text}</div>
+          </div>`;
+        panel.appendChild(div);
+      });
+    }
+
+    function draw() {
+      const a = parseInt(fsA.value);
+      const b = parseInt(fsB.value);
+      const c = parseInt(fsC.value);
+      const W = canvas.width, H = canvas.height;
+
+      Graph.drawBackground(ctx, W, H, RANGE);
+      Graph.drawAxes(ctx, W, H, RANGE);
+      Graph.plot(ctx, x => a * x * x + b * x + c, W, H, RANGE, '#9b6df8', 'rgba(155,109,248,0.35)');
+
+      const disc = b * b - 4 * a * c;
+      if (disc >= 0) {
+        const sqrtD = Math.sqrt(disc);
+        const r1 = (-b + sqrtD) / (2 * a);
+        const r2 = (-b - sqrtD) / (2 * a);
+        [r1, r2].forEach(rx => {
+          if (Math.abs(rx) <= RANGE) Graph.dot(ctx, rx, 0, W, H, RANGE, '#34d4c8', 5, 'rgba(52,212,200,0.5)');
+        });
+      }
+      const vx = -b / (2 * a), vy = c - (b * b) / (4 * a);
+      if (Math.abs(vx) <= RANGE && Math.abs(vy) <= RANGE)
+        Graph.dot(ctx, vx, vy, W, H, RANGE, '#f97b40', 5, 'rgba(249,123,64,0.5)');
+
+      renderSteps(computeSteps(a, b, c));
+    }
+
+    ['fs-a','fs-b','fs-c'].forEach(id => {
+      document.getElementById(id).addEventListener('input', function() {
+        document.getElementById('fv-' + id.slice(3)).textContent = this.value;
+        draw();
+      });
+    });
+
+    Graph.init(canvas, draw, 0.6);
+  </script>
+</body>
+</html>
