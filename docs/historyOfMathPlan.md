@@ -358,9 +358,9 @@ Every topic page follows this narrative structure:
 - [x] Topic 9: Complex Numbers (`pages/history/complex-numbers-history.html`)
 - [x] Topic 10: Graph Theory (`pages/history/graph-theory-history.html`)
 
-### Phase 4 — Foundations & Computing
-- [ ] Topic 11: The Foundations Crisis (`pages/history/logic-foundations.html`)
-- [ ] Topic 12: Computers, Cryptography & Modern Math (`pages/history/modern-math.html`)
+### Phase 4 — Foundations & Computing ✅ COMPLETE
+- [x] Topic 11: The Foundations Crisis (`pages/history/logic-foundations.html`)
+- [x] Topic 12: Computers, Cryptography & Modern Math (`pages/history/modern-math.html`)
 
 ### Phase 5 — Polish
 - [ ] Practice questions via `practice.js` on all 12 history pages

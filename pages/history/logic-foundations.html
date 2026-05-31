@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Foundations Crisis &amp; Mathematical Logic | History of Mathematics</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="stylesheet" href="../../css/history.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-page">
+    <div class="topic-hero">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span>›</span>
+        <a href="../history.html">History</a>
+        <span>›</span>
+        <span>Foundations of Mathematics</span>
+      </nav>
+      <div class="topic-hero-top">
+        <div class="topic-symbol topic-symbol--history">∅</div>
+        <div>
+          <span class="era-badge">1870 – 1931 CE</span>
+          <h1 style="margin-top:8px;">The Foundations Crisis &amp; Mathematical Logic</h1>
+        </div>
+      </div>
+      <p class="subtitle">In the late 19th century, mathematicians tried to rebuild all of mathematics on unshakeable logical foundations — and discovered, to their horror, that mathematics contains statements that are true but unprovable. The attempt to certify mathematics ended with the proof that such a certificate is impossible.</p>
+    </div>
+  </div>
+
+  <!-- The Problem -->
+  <section class="content-section">
+    <h2>The Problem</h2>
+    <div class="problem-card">
+      <div class="problem-label">What triggered the crisis?</div>
+      <p>By the 1880s, mathematics was expanding rapidly — non-Euclidean geometries, abstract algebra, set theory, and the rigorous calculus of Cauchy and Weierstrass had all arrived within a generation. Each field seemed solid on its own, but mathematicians were uneasy: what were they <em>actually</em> talking about? What is a number? What is a set? What is a proof?</p>
+      <p>Georg Cantor's new theory of infinite sets — developed between 1874 and 1884 — was the spark. Cantor showed that some infinities are larger than others: the infinity of real numbers is strictly greater than the infinity of counting numbers. This was beautiful and shocking. But it also led to paradoxes.</p>
+      <p>In 1901, Bertrand Russell found a fatal contradiction in naive set theory: <strong>consider the set of all sets that do not contain themselves. Does this set contain itself?</strong> If yes, it shouldn't. If no, it should. This is Russell's Paradox — a logical contradiction at the heart of a mathematical framework that seemed obviously sensible.</p>
+      <p>The crisis was real. David Hilbert — the most influential mathematician of his era — responded with a programme: formalise all of mathematics using a finite set of axioms, prove that the system is complete (every true statement is provable), and prove that it is consistent (no contradictions can be derived). He called this the <em>Hilbert Programme</em>.</p>
+      <p>In 1931, Kurt Gödel, a 25-year-old Austrian logician, destroyed Hilbert's programme with two theorems that are among the most profound results in the history of human thought.</p>
+    </div>
+  </section>
+
+  <!-- The People -->
+  <section class="content-section">
+    <h2>The People</h2>
+    <div class="person-grid">
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">∞</div>
+        <div class="portrait-name">Georg Cantor</div>
+        <div class="portrait-dates">1845 – 1918</div>
+        <div class="portrait-title">Mathematician — Germany</div>
+        <p class="portrait-body">Cantor founded set theory and the rigorous study of infinity. He proved that the real numbers are uncountable — there are more of them than there are whole numbers — by his famous <em>diagonal argument</em>. He introduced transfinite numbers and the ordinal/cardinal arithmetic of infinite sets. His work was attacked viciously by Kronecker ("God made the integers; all else is the work of man") and he suffered multiple breakdowns. Today he is recognised as one of the most original mathematical thinkers who ever lived.</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">🔷</div>
+        <div class="portrait-name">Bertrand Russell</div>
+        <div class="portrait-dates">1872 – 1970</div>
+        <div class="portrait-title">Mathematician / Philosopher — England</div>
+        <p class="portrait-body">Russell discovered the paradox bearing his name in 1901 and spent the next decade with Alfred North Whitehead writing <em>Principia Mathematica</em> (1910–1913) — a monumental attempt to derive all of mathematics from pure logic. The work fills three large volumes; the proof that 1 + 1 = 2 appears on page 379 of volume 2. <em>Principia Mathematica</em> was exactly the sort of formal system Gödel would later show was inherently incomplete.</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">📐</div>
+        <div class="portrait-name">David Hilbert</div>
+        <div class="portrait-dates">1862 – 1943</div>
+        <div class="portrait-title">Mathematician — Germany (Göttingen)</div>
+        <p class="portrait-body">Hilbert dominated mathematics for fifty years. In 1900 he presented 23 unsolved problems that set the agenda for 20th-century mathematics. His Hilbert Programme sought a complete and consistent axiomatisation of all mathematics. His famous declaration — "We must know, we will know" — became mathematics' rallying cry. Gödel's incompleteness theorems showed the programme was impossible. Hilbert reportedly refused to accept it at first.</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">⊬</div>
+        <div class="portrait-name">Kurt Gödel</div>
+        <div class="portrait-dates">1906 – 1978</div>
+        <div class="portrait-title">Logician / Mathematician — Austria / Princeton</div>
+        <p class="portrait-body">Gödel published his incompleteness theorems in 1931 at age 25. He showed, using a breathtaking act of self-reference, that in any sufficiently powerful formal system, there are true statements that cannot be proved within the system, and that the system cannot prove its own consistency. He later made important contributions to set theory (proving the consistency of the Axiom of Choice and the Continuum Hypothesis with ZF set theory). In his later years at Princeton's Institute for Advanced Study — where he became close friends with Einstein — he became increasingly paranoid, afraid of being poisoned, and eventually starved to death.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- The Breakthrough -->
+  <section class="content-section">
+    <h2>The Breakthrough — Gödel's Incompleteness Theorems</h2>
+    <p style="color:var(--text-secondary);line-height:1.75;font-size:0.95rem;margin-bottom:20px;">Gödel's proof is one of the most astonishing in mathematics: he used the machinery of arithmetic to make arithmetic <em>talk about itself</em>. The technique — now called Gödel numbering — encodes every symbol, formula, and proof as a natural number, turning statements about mathematics into statements <em>in</em> mathematics.</p>
+
+    <div class="problem-card">
+      <div class="problem-label">Gödel's Key Idea: Self-Reference</div>
+      <p>Gödel assigned a unique number to every mathematical symbol, formula, and sequence of formulas. Under this encoding, every statement about arithmetic can be translated into a statement <em>of</em> arithmetic. The proof itself can be arithmetised.</p>
+      <p>He then constructed a statement — now called the <strong>Gödel sentence</strong> — that, under the encoding, says: <em>"This statement is not provable in this system."</em></p>
+      <p>If the system is consistent and the statement is provable, then the statement is false (it says it's not provable) — contradiction. So if the system is consistent, the statement is <strong>not provable</strong>. But then what it says is <strong>true</strong>. So the system contains a true statement that cannot be proved within the system. QED.</p>
+    </div>
+
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula-label">First Incompleteness Theorem</div>
+        <div class="formula-math">\[ \text{If } T \text{ is consistent and sufficiently powerful,} \]</div>
+        <div class="formula-math">\[ \text{then } T \text{ is incomplete.} \]</div>
+        <div class="formula-note">There exists a statement \(G\) such that neither \(G\) nor \(\neg G\) is provable in \(T\), yet \(G\) is true (in the standard model). No consistent, powerful formal system can be complete.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">Second Incompleteness Theorem</div>
+        <div class="formula-math">\[ T \not\vdash \text{Con}(T) \]</div>
+        <div class="formula-note">A consistent system \(T\) cannot prove its own consistency. "Con(T)" is the statement "T is consistent." The system can never certify its own reliability — not because it is unreliable, but because such self-certification is formally impossible.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">Cantor's Diagonal Argument</div>
+        <div class="formula-math">\[ |\mathbb{N}| < |\mathbb{R}| \]</div>
+        <div class="formula-note">The cardinality of the reals strictly exceeds the cardinality of the naturals. Proved by constructing a real number that differs from every number in any proposed enumeration at a diagonal position — so no enumeration can be complete. The technique of diagonalisation underlies Gödel's proof, the Halting Problem, and much of computability theory.</div>
+      </div>
+    </div>
+
+    <div class="hist-callout" style="margin-top:20px;">
+      <strong>What does "sufficiently powerful" mean?</strong> Gödel's theorems apply to any formal system that can express basic arithmetic — specifically, any system that includes the Peano axioms for the natural numbers. This includes Peano Arithmetic, ZF set theory, and <em>Principia Mathematica</em>. It does not apply to weaker systems like Euclidean geometry (which cannot express arithmetic) — those can be complete and consistent.
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="content-section">
+    <h2>Timeline — The Century of Foundations</h2>
+    <div class="ht-timeline">
+      <div class="ht-event">
+        <div class="ht-event-year">1874</div>
+        <div class="ht-event-title">Cantor — Uncountability of the Reals</div>
+        <div class="ht-event-text">Cantor's first paper on set theory proves that the real numbers cannot be put in a one-to-one correspondence with the natural numbers. The reals are uncountably infinite — a strictly larger infinity than the countable infinity of the natural numbers. This is the first proof that there are different sizes of infinity.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1884</div>
+        <div class="ht-event-title">Frege — Grundlagen der Arithmetik</div>
+        <div class="ht-event-text">Gottlob Frege publishes a rigorous logical foundation for arithmetic, attempting to derive all of mathematics from pure logic (logicism). His system is more precise than anything before it — and Russell's paradox will destroy it eighteen years later.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1900</div>
+        <div class="ht-event-title">Hilbert's 23 Problems</div>
+        <div class="ht-event-text">At the International Congress of Mathematicians in Paris, David Hilbert presents 23 open problems that will define the mathematical agenda for the 20th century. Problem 1 is the Continuum Hypothesis (Cantor); Problem 2 is the consistency of arithmetic. Both will be resolved in unexpected ways.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1901</div>
+        <div class="ht-event-title">Russell's Paradox</div>
+        <div class="ht-event-text">Bertrand Russell identifies a fatal contradiction in naive set theory: the set \(R = \{x : x \notin x\}\) leads to \(R \in R \Leftrightarrow R \notin R\). Russell writes to Frege with the finding; Frege immediately recognises his life's work is undermined. The paradox destroys Frege's programme and launches the search for a paradox-free set theory.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1908</div>
+        <div class="ht-event-title">Zermelo — Axiomatic Set Theory (ZF)</div>
+        <div class="ht-event-text">Ernst Zermelo publishes a set of axioms designed to avoid Russell's paradox. Later extended by Abraham Fraenkel, ZF (Zermelo-Fraenkel) set theory becomes the standard foundation for mathematics. With the Axiom of Choice added (ZFC), it is the system in which essentially all of modern mathematics can be formalised.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1910–1913</div>
+        <div class="ht-event-title">Russell &amp; Whitehead — Principia Mathematica</div>
+        <div class="ht-event-text">Three volumes attempting to derive all mathematical truths from pure logic using a formal symbol system. The most ambitious formal system ever constructed by hand. Page 379 of volume 2 proves \(1 + 1 = 2\). Exactly the kind of system Gödel's theorems would later show is inevitably incomplete.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1931</div>
+        <div class="ht-event-title">Gödel — Incompleteness Theorems</div>
+        <div class="ht-event-text">Kurt Gödel publishes "Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme" (On Formally Undecidable Propositions of Principia Mathematica and Related Systems). Both incompleteness theorems appear. Hilbert's programme is refuted. Mathematics will never have the certainty Hilbert sought.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1936</div>
+        <div class="ht-event-title">Turing — The Halting Problem</div>
+        <div class="ht-event-text">Alan Turing proves that no algorithm can determine, for an arbitrary program and input, whether the program will eventually halt or run forever. The proof uses diagonalisation — the same technique as Cantor and Gödel. The Halting Problem is computationally undecidable; Gödel's incompleteness theorem and Turing's halting problem are two faces of the same coin.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1963</div>
+        <div class="ht-event-title">Cohen — Independence of the Continuum Hypothesis</div>
+        <div class="ht-event-text">Paul Cohen proves that the Continuum Hypothesis (is there a set whose cardinality lies strictly between ℵ₀ and ℝ?) is independent of ZFC set theory — it can neither be proved nor disproved from the standard axioms. Combined with Gödel's earlier result (1940), this shows Cantor's central question is formally undecidable. The foundations of mathematics are plural.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What This Changed -->
+  <section class="content-section">
+    <h2>What Gödel Changed</h2>
+    <p style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:20px;">The incompleteness theorems did not make mathematics uncertain in practice — the vast majority of theorems mathematicians care about are provable. What they showed was something subtler and more profound:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;">
+      <div class="word-origin">
+        <div class="word">No Absolute Foundation</div>
+        <div class="word-lang">Philosophical Impact</div>
+        <div class="word-meaning">Mathematics cannot be given a self-certifying foundation. Every formal system rests on axioms that cannot be proved within the system. We choose axioms because they are useful and seem true, not because they are logically necessary.</div>
+      </div>
+      <div class="word-origin">
+        <div class="word">True ≠ Provable</div>
+        <div class="word-lang">Logical Impact</div>
+        <div class="word-meaning">Some mathematical statements are true but have no proof in a given system. Truth and provability are different concepts. Mathematical truth is not fully captured by any finite set of rules.</div>
+      </div>
+      <div class="word-origin">
+        <div class="word">Computability Theory</div>
+        <div class="word-lang">Computer Science Impact</div>
+        <div class="word-meaning">The undecidability results of Gödel and Turing set the theoretical limits of computation. The Halting Problem, Rice's Theorem, and the undecidability of many program properties all trace to this era. They tell us what computers can never do.</div>
+      </div>
+      <div class="word-origin">
+        <div class="word">Pluralism in Foundations</div>
+        <div class="word-lang">Mathematical Culture</div>
+        <div class="word-meaning">Because the Axiom of Choice and the Continuum Hypothesis are independent of ZF, there are multiple consistent set theories. Mathematicians can work in ZFC, or in ZF without Choice, or in alternative foundations — there is no single canonical mathematics.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why It Still Matters -->
+  <section class="content-section">
+    <h2>Why It Still Matters</h2>
+    <div class="matters-card">
+      <div class="matters-label">Modern Impact</div>
+      <p>The Foundations Crisis transformed mathematics from a discipline seeking certainty into one that understood the limits of certainty — and kept going anyway:</p>
+      <ul>
+        <li><strong>Computer science and computability</strong> — Gödel's incompleteness theorems are the mathematical twin of Turing's Halting Problem. Together they establish the theoretical limits of computation. Any programmer working on formal verification, type systems, or automated theorem proving is working in the shadow of 1931.</li>
+        <li><strong>Automated theorem proving</strong> — Systems like Lean, Coq, and Isabelle formalise mathematics in computer-checkable proofs. Gödel's theorems guarantee that any such system will have statements it cannot decide — but in practice, the system is powerful enough to formalise nearly all of current mathematics.</li>
+        <li><strong>Cryptography</strong> — Modern cryptographic security proofs are written in the language of computational complexity, which grew from computability theory, which grew from Turing's work on the Halting Problem, which grew from Gödel's diagonal argument.</li>
+        <li><strong>Philosophy of mathematics</strong> — Gödel's theorems ended the formalist programme and forced a reconsideration of what mathematics is. The debate between Platonism (mathematical objects exist independently) and formalism (mathematics is a game with symbols) is still alive, and Gödel's theorems are central to it.</li>
+        <li><strong>AI and the limits of reasoning</strong> — Gödel's theorems have been invoked (sometimes controversially) in arguments about the limits of artificial intelligence — whether any formal reasoning system can replicate human mathematical intuition.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="content-section">
+    <h2>In His Words</h2>
+    <div class="quote-block">
+      <p class="quote-text">The development of mathematics toward greater precision has led, as is well known, to the formalisation of large tracts of it, so that one can prove any theorem using nothing but a few mechanical rules. The most comprehensive current formal systems are the system of Principia Mathematica on the one hand, the Zermelo-Fraenkel axiom system of set theory on the other. Both these systems are so extensive that all methods of proof used in mathematics today can be formalised in them. It would seem plausible, therefore, that these axioms and rules of inference are sufficient to decide all mathematical questions which can at all be formally expressed in these systems. It will be shown below that this is not the case.</p>
+      <div class="quote-attribution">— Kurt Gödel, opening of "On Formally Undecidable Propositions of Principia Mathematica and Related Systems," 1931</div>
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <ul class="takeaways-list">
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Cantor's set theory (1874–1884) revealed that <strong>there are different sizes of infinity</strong> and provided the tools needed to reason rigorously about them — but also introduced paradoxes that shook the foundations of mathematics.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p><strong>Russell's Paradox</strong> (1901) destroyed naive set theory and motivated the search for a rigorous, paradox-free axiomatic foundation — leading to Zermelo-Fraenkel (ZF) set theory.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p><strong>Hilbert's Programme</strong> sought a complete and consistent axiomatisation of all mathematics. Gödel's incompleteness theorems (1931) proved this is impossible: any sufficiently powerful consistent system contains true but unprovable statements.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Gödel's <strong>Second Incompleteness Theorem</strong> shows a system cannot prove its own consistency — you always need a stronger system to verify a weaker one, without end.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Gödel's work directly inspired <strong>Alan Turing's Halting Problem</strong> (1936) — establishing the theoretical limits of computation before a single electronic computer had been built.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="modern-math.html" class="related-card">Computers, Cryptography &amp; Modern Math <span>→</span></a>
+      <a href="graph-theory-history.html" class="related-card">Graph Theory <span>→</span></a>
+      <a href="algebra-history.html" class="related-card">History of Algebra <span>→</span></a>
+      <a href="../history.html" class="related-card">All History Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-symbol">∑</span>
+          <span class="logo-text">MathExplorer</span>
+        </div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script src="../../js/progress.js"></script>
+  <script>Progress.markVisited('logic-foundations');</script>
+</body>
+</html>

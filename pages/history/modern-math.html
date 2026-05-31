@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computers, Cryptography &amp; Modern Mathematics | History of Mathematics</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="stylesheet" href="../../css/history.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-page">
+    <div class="topic-hero">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span>›</span>
+        <a href="../history.html">History</a>
+        <span>›</span>
+        <span>Modern Mathematics</span>
+      </nav>
+      <div class="topic-hero-top">
+        <div class="topic-symbol topic-symbol--history">⌨</div>
+        <div>
+          <span class="era-badge">1936 – Present</span>
+          <h1 style="margin-top:8px;">Computers, Cryptography &amp; Modern Mathematics</h1>
+        </div>
+      </div>
+      <p class="subtitle">The same abstract mathematics that Hilbert, Gödel, and Turing developed to understand the limits of formal reasoning became — almost immediately — the blueprint for building machines that could reason mechanically. The computer was not an engineering invention; it was a mathematical theorem made physical.</p>
+    </div>
+  </div>
+
+  <!-- The Problem -->
+  <section class="content-section">
+    <h2>The Problem</h2>
+    <div class="problem-card">
+      <div class="problem-label">How did abstract logic become a machine?</div>
+      <p>In 1936, Alan Turing published "On Computable Numbers, with an Application to the Entscheidungsproblem" — a paper that answered Hilbert's decision problem (is there an algorithm that can decide whether any given mathematical statement is provable?) with a resounding no. But in doing so, Turing invented an abstract model of computation — the <strong>Turing machine</strong> — that would become the theoretical foundation for every computer ever built.</p>
+      <p>A Turing machine is absurdly simple: an infinite tape of symbols, a read/write head, and a finite set of rules governing how the head moves and writes. Despite this simplicity, Turing proved that any computation that can be performed by any algorithm can be performed by such a machine. The Church-Turing thesis: <em>computability = Turing computability</em>.</p>
+      <p>Meanwhile, in the same decade, Claude Shannon showed that Boolean algebra — developed by George Boole in 1847 as an algebra of logic — maps perfectly onto electrical circuits with on/off switches. Every logical operation (AND, OR, NOT) corresponds to a circuit configuration. Shannon's 1937 master's thesis connected pure 19th-century logic to practical circuit design — and made the digital computer possible.</p>
+      <p>World War II accelerated everything. Code-breaking at Bletchley Park required machines. Turing's electromechanical Bombe cracked the Enigma cipher. The post-war race to build programmable computers drew on Shannon's information theory, von Neumann's architecture, and the mathematics of numerical analysis. Within a decade, abstract mathematics had become hardware.</p>
+    </div>
+  </section>
+
+  <!-- The People -->
+  <section class="content-section">
+    <h2>The People</h2>
+    <div class="person-grid">
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">💻</div>
+        <div class="portrait-name">Ada Lovelace</div>
+        <div class="portrait-dates">1815 – 1852</div>
+        <div class="portrait-title">Mathematician — England</div>
+        <p class="portrait-body">Lovelace translated an Italian article on Charles Babbage's Analytical Engine in 1843 and added her own notes — nearly three times longer than the original article. Her Note G contains an algorithm for computing Bernoulli numbers on the Analytical Engine: generally considered the first computer program. She understood that the Analytical Engine could manipulate any symbols, not just numbers — a vision of general-purpose computing a century before it was realised. The Ada programming language is named in her honour.</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">⚙️</div>
+        <div class="portrait-name">Charles Babbage</div>
+        <div class="portrait-dates">1791 – 1871</div>
+        <div class="portrait-title">Mathematician / Engineer — England</div>
+        <p class="portrait-body">Babbage designed the Difference Engine (1822) — a mechanical calculator for generating mathematical tables — and the more ambitious Analytical Engine (1837), which had a stored program, conditional branching, and loops: all the features of a modern computer. Neither was completed in his lifetime due to funding and manufacturing difficulties. A working Difference Engine No. 2 was finally built by the Science Museum London in 1991, 153 years after the design, and it worked correctly.</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">🔐</div>
+        <div class="portrait-name">Alan Turing</div>
+        <div class="portrait-dates">1912 – 1954</div>
+        <div class="portrait-title">Mathematician / Computer Scientist — England</div>
+        <p class="portrait-body">Turing invented the theoretical computer (1936), cracked the German Enigma cipher during WWII, helped design early electronic computers, defined the Turing test for machine intelligence, and pioneered mathematical biology. He was prosecuted by the British government in 1952 for "gross indecency" (homosexuality was then illegal in the UK) and subjected to chemical castration. He died in 1954 at age 41 — an apparent suicide. He was granted a royal pardon in 2013, 59 years after his death. The Turing Award — computer science's Nobel Prize — is named in his honour.</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">🔬</div>
+        <div class="portrait-name">John von Neumann</div>
+        <div class="portrait-dates">1903 – 1957</div>
+        <div class="portrait-title">Mathematician — Hungary / USA</div>
+        <p class="portrait-body">Von Neumann made foundational contributions to set theory, quantum mechanics, game theory, and computer architecture. His 1945 "First Draft of a Report on the EDVAC" describes the stored-program computer architecture — program and data in the same memory — that essentially every computer since has used. He also co-developed the Monte Carlo method (random sampling for numerical computation), created the mathematical framework for quantum mechanics, and proved the minimax theorem for zero-sum games.</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">📡</div>
+        <div class="portrait-name">Claude Shannon</div>
+        <div class="portrait-dates">1916 – 2001</div>
+        <div class="portrait-title">Mathematician / Electrical Engineer — USA</div>
+        <p class="portrait-body">Shannon's 1948 paper "A Mathematical Theory of Communication" founded information theory. He defined information entropy — \(H = -\sum p_i \log_2 p_i\) — as the fundamental measure of information content, and proved the channel capacity theorem: there is a maximum rate at which information can be reliably transmitted over any noisy channel. His 1937 master's thesis showed that Boolean algebra governs electrical circuits. These two contributions are the mathematical bedrock of all digital communication.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- The Breakthrough -->
+  <section class="content-section">
+    <h2>The Mathematics Behind the Machine</h2>
+    <p style="color:var(--text-secondary);line-height:1.75;font-size:0.95rem;margin-bottom:20px;">The digital revolution is built on three mathematical pillars: computability theory (what can be computed), information theory (how efficiently information can be transmitted), and cryptography (how information can be protected).</p>
+
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula-label">Shannon Entropy</div>
+        <div class="formula-math">\[ H(X) = -\sum_{i} p_i \log_2 p_i \]</div>
+        <div class="formula-note">The entropy \(H\) of a random variable \(X\) measures the average information content per symbol. Units: bits. A fair coin toss has entropy 1 bit; a fair die has entropy \(\log_2 6 \approx 2.58\) bits. Entropy is the minimum average number of bits needed to encode a message — the theoretical limit for lossless compression.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">Channel Capacity (Shannon)</div>
+        <div class="formula-math">\[ C = B \log_2\!\left(1 + \frac{S}{N}\right) \]</div>
+        <div class="formula-note">The Shannon-Hartley theorem: maximum reliable transmission rate \(C\) (bits/second) over a channel of bandwidth \(B\) Hz with signal-to-noise ratio \(S/N\). No matter how clever your encoding, you cannot exceed \(C\). This formula governs every wireless communication standard — WiFi, 4G, 5G.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">RSA Cryptography</div>
+        <div class="formula-math">\[ c = m^e \bmod n \]</div>
+        <div class="formula-note">RSA encryption (Rivest-Shamir-Adleman, 1977): message \(m\) is encrypted to ciphertext \(c\) using public key \((e, n)\). Decryption requires the private key \(d\) such that \(ed \equiv 1 \pmod{\phi(n)}\). Security rests on the fact that factoring large \(n = pq\) is computationally infeasible — no polynomial-time classical algorithm is known. Euler's theorem from 1763 guarantees the trapdoor works.</div>
+      </div>
+    </div>
+
+    <div class="hist-callout" style="margin-top:20px;">
+      <strong>The unexpected depth of number theory.</strong> For 200 years, number theory — the study of primes and integer arithmetic — was considered the purest and most useless branch of mathematics. G. H. Hardy famously boasted that number theory had no practical applications. RSA cryptography, published in 1977, made number theory the mathematical foundation of internet security. Every secure website connection (HTTPS) uses algorithms rooted in 19th-century number theory.
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="content-section">
+    <h2>Timeline — From Logic to the Internet Age</h2>
+    <div class="ht-timeline">
+      <div class="ht-event">
+        <div class="ht-event-year">1843</div>
+        <div class="ht-event-title">Lovelace — First Computer Program</div>
+        <div class="ht-event-text">Ada Lovelace publishes her annotated translation of Menabrea's article on Babbage's Analytical Engine. Note G contains an algorithm for computing Bernoulli numbers — the first published computer program. She articulates the principle that the engine can manipulate any symbols according to rules, not just perform arithmetic.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1936</div>
+        <div class="ht-event-title">Turing — Computable Numbers and the Turing Machine</div>
+        <div class="ht-event-text">Turing publishes "On Computable Numbers," answering Hilbert's Entscheidungsproblem (no, there is no algorithm that decides all mathematical statements). He defines the Turing machine, proves the universality of computation, and establishes the Halting Problem as undecidable. The universal Turing machine is the mathematical blueprint for every general-purpose computer.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1937</div>
+        <div class="ht-event-title">Shannon — Boolean Circuits</div>
+        <div class="ht-event-text">Claude Shannon's MIT master's thesis shows that Boolean algebra — and/or/not logic — directly models electrical relay circuits. Any logical function can be computed by a circuit of switches. This insight is the mathematical bridge between abstract logic and physical hardware.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1939–1945</div>
+        <div class="ht-event-title">Enigma and the Bombe — Mathematics at War</div>
+        <div class="ht-event-text">Turing leads the mathematical attack on the German Enigma cipher at Bletchley Park. His electromechanical Bombe machine (building on earlier Polish work) automates the search for Enigma settings. By 1943, Allied codebreakers are reading most German naval traffic. Historians estimate the work shortened WWII by two years. The Colossus computer — built for the even harder Lorenz cipher — is the first programmable electronic computer.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1945</div>
+        <div class="ht-event-title">Von Neumann Architecture</div>
+        <div class="ht-event-text">Von Neumann's "First Draft of a Report on the EDVAC" describes stored-program architecture: a single memory holds both the program instructions and the data they operate on. This elegance — program as data — is the key innovation that makes general-purpose computing possible and enables self-modifying programs, compilers, and operating systems.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1948</div>
+        <div class="ht-event-title">Shannon — A Mathematical Theory of Communication</div>
+        <div class="ht-event-text">Published in the Bell System Technical Journal, this paper founds information theory. Shannon defines entropy, channel capacity, and error-correcting codes. He proves that reliable communication over noisy channels is possible — by adding redundancy up to the channel capacity limit. Every modern communication system, from CDs to 5G to deep-space probes, uses coding theory that traces to this paper.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1977</div>
+        <div class="ht-event-title">RSA — Public-Key Cryptography</div>
+        <div class="ht-event-text">Rivest, Shamir, and Adleman publish the RSA algorithm — the first widely used public-key cryptosystem. Anyone can encrypt a message using a public key; only the holder of the private key can decrypt it. Security depends on the difficulty of factoring large integers. The mathematical tools are Euler's totient function and Fermat's Little Theorem — number theory from the 18th century.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1994</div>
+        <div class="ht-event-title">Shor's Algorithm — Quantum Threat to RSA</div>
+        <div class="ht-event-text">Peter Shor publishes a quantum algorithm that can factor integers in polynomial time — breaking RSA if a sufficiently large quantum computer is built. This motivates the field of post-quantum cryptography: designing encryption schemes secure against quantum computers, using mathematical problems (lattices, hash functions, error-correcting codes) that are hard even for quantum algorithms.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">2016–Today</div>
+        <div class="ht-event-title">AI, Machine Learning, and Deep Mathematics</div>
+        <div class="ht-event-text">Modern machine learning draws on linear algebra (matrix multiplication in neural networks), calculus (gradient descent, backpropagation), probability and statistics (Bayesian inference, regularisation), and optimisation theory. Large language models perform billions of matrix multiplications per inference. The mathematics of the 17th–19th centuries — calculus, linear algebra, probability — turned out to be exactly what was needed to teach machines to recognise patterns.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cryptography Deep Dive -->
+  <section class="content-section">
+    <h2>How RSA Works — Number Theory in Practice</h2>
+    <p style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:20px;">RSA is the most used cryptosystem in the world. Its security rests on a single mathematical asymmetry: multiplying two large primes is easy; factoring their product is (as far as we know) hard. Here is the complete key generation and encryption process:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;">
+      <div class="word-origin">
+        <div class="word">Step 1: Choose Primes</div>
+        <div class="word-lang">Key Generation</div>
+        <div class="word-meaning">Choose two large primes \(p\) and \(q\) (in practice, 2048 bits each — numbers with ~600 decimal digits). Compute \(n = pq\) (the modulus) and \(\phi(n) = (p-1)(q-1)\) (Euler's totient).</div>
+      </div>
+      <div class="word-origin">
+        <div class="word">Step 2: Public Key</div>
+        <div class="word-lang">Key Generation</div>
+        <div class="word-meaning">Choose \(e\) coprime to \(\phi(n)\) (typically \(e = 65537\)). Publish \((e, n)\) as the public key. Anyone can use this to encrypt a message.</div>
+      </div>
+      <div class="word-origin">
+        <div class="word">Step 3: Private Key</div>
+        <div class="word-lang">Key Generation</div>
+        <div class="word-meaning">Compute \(d\) such that \(ed \equiv 1 \pmod{\phi(n)}\) — i.e., \(d\) is the modular inverse of \(e\). Keep \(d\) secret. This requires knowing \(p\) and \(q\); an attacker who can factor \(n\) can compute \(d\).</div>
+      </div>
+      <div class="word-origin">
+        <div class="word">Step 4: Encrypt/Decrypt</div>
+        <div class="word-lang">Usage</div>
+        <div class="word-meaning">Encrypt: \(c = m^e \bmod n\). Decrypt: \(m = c^d \bmod n\). Correctness is guaranteed by Euler's theorem: \(m^{\phi(n)} \equiv 1 \pmod{n}\) for any \(m\) coprime to \(n\).</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why It Still Matters -->
+  <section class="content-section">
+    <h2>Why It Still Matters</h2>
+    <div class="matters-card">
+      <div class="matters-label">Modern Impact</div>
+      <p>The mathematics developed in the 20th century — computability, information theory, cryptography — is the infrastructure of modern civilisation:</p>
+      <ul>
+        <li><strong>Every secure website</strong> — HTTPS uses RSA or elliptic-curve cryptography (ECC) during the handshake, then AES for the session. The padlock in your browser represents 300 years of number theory working in real time.</li>
+        <li><strong>Every digital communication</strong> — Shannon's channel capacity theorem governs 5G wireless networks, satellite communications, and deep-space probes. Error-correcting codes based on finite field arithmetic protect data on your hard drive and in compact discs.</li>
+        <li><strong>Every software system</strong> — compilers, interpreters, and operating systems are implementations of computability theory. Turing's universal machine, abstracted into silicon, runs everything from smartphones to supercomputers.</li>
+        <li><strong>Artificial intelligence</strong> — the mathematical foundations of machine learning (linear algebra, calculus, probability) are entirely classical. Backpropagation is the chain rule from 17th-century calculus applied to 21st-century matrix multiplications.</li>
+        <li><strong>Post-quantum cryptography</strong> — as quantum computers advance, the world is transitioning to lattice-based and hash-based cryptography. The mathematical problem: the shortest vector in a high-dimensional lattice is believed to be hard even for quantum algorithms. Pure mathematics, once again, is the resource.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="content-section">
+    <h2>In His Words</h2>
+    <div class="quote-block">
+      <p class="quote-text">We may hope that machines will eventually compete with men in all purely intellectual fields. But which are the best ones to start with? Even this is a difficult decision. Many people think that a very abstract activity, like the playing of chess, would be best. It can also be maintained that it is best to provide the machine with the best sense organs that money can buy, and then teach it to understand and speak English. This process could follow the normal teaching of a child. Things would be pointed and named, etc. Again I do not know what the right answer is, but I think both approaches should be tried.</p>
+      <div class="quote-attribution">— Alan Turing, "Computing Machinery and Intelligence," Mind, 1950 — the paper that introduced the Turing Test</div>
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <ul class="takeaways-list">
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Ada Lovelace wrote the <strong>first computer program</strong> in 1843 — a century before electronic computers existed — for Babbage's Analytical Engine. She also articulated the principle of general-purpose computing.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Alan Turing's 1936 paper defined the <strong>Turing machine</strong> — the theoretical model that underlies all computation — while answering Hilbert's Entscheidungsproblem (no, not all mathematical questions can be algorithmically decided).</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Claude Shannon's <strong>information entropy</strong> formula \(H = -\sum p_i \log_2 p_i\) defines the fundamental limit on data compression. His channel capacity theorem governs how much information any communication channel can carry.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p><strong>RSA cryptography</strong> (1977) secures the internet using 18th-century number theory: the difficulty of factoring a large integer into its prime components is the mathematical lock protecting every online transaction.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>The mathematics invented from 300 BCE (Euclid) to 1931 (Gödel) was not superseded by the digital age — it <em>became</em> the digital age. Linear algebra, calculus, number theory, logic, and probability are the mathematics that machines run on.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="logic-foundations.html" class="related-card">The Foundations Crisis <span>→</span></a>
+      <a href="graph-theory-history.html" class="related-card">Graph Theory <span>→</span></a>
+      <a href="probability-history.html" class="related-card">Probability &amp; Statistics <span>→</span></a>
+      <a href="../history.html" class="related-card">All History Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-symbol">∑</span>
+          <span class="logo-text">MathExplorer</span>
+        </div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script src="../../js/progress.js"></script>
+  <script>Progress.markVisited('modern-math');</script>
+</body>
+</html>
