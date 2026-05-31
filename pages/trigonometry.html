@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trigonometry — MathExplorer</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="algebra.html">Algebra</a></li>
+        <li><a href="calculus.html">Calculus</a></li>
+        <li><a href="trigonometry.html" class="active">Trigonometry</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+    </ul>
+  </div>
+
+  <section class="category-hero">
+    <div class="category-hero-icon card-trig" style="border:1px solid rgba(52,212,200,0.2);">sin θ</div>
+    <h1>Trigonometry</h1>
+    <p>Unravel the relationships between angles, sides, and periodic waves — from the unit circle to complex identities.</p>
+  </section>
+
+  <section class="coming-soon-section">
+    <div class="coming-soon-card" style="border-color: rgba(52, 212, 200, 0.2);">
+      <div class="coming-soon-icon">🔧</div>
+      <h2>Content Coming Soon</h2>
+      <p>
+        We're designing an interactive unit circle, wave visualisations, and identity explorers for Trigonometry.
+        Check back once we're past the roadmap phase!
+      </p>
+      <ul class="topic-list">
+        <li>Angles & Radians</li>
+        <li>Unit Circle</li>
+        <li>Sine & Cosine</li>
+        <li>Tangent & Cotangent</li>
+        <li>Trig Identities</li>
+        <li>Inverse Functions</li>
+        <li>Graphs of Trig Functions</li>
+        <li>Law of Sines & Cosines</li>
+      </ul>
+      <a href="../index.html#roadmap" class="btn btn-ghost">View Roadmap</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-symbol">∑</span>
+          <span class="logo-text">MathExplorer</span>
+        </div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

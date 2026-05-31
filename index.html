@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MathExplorer</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="pages/algebra.html">Algebra</a></li>
+        <li><a href="pages/calculus.html">Calculus</a></li>
+        <li><a href="pages/trigonometry.html">Trigonometry</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="pages/algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="pages/calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="pages/trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="grid-overlay"></div>
+      <div class="floating-symbols">
+        <span>π</span><span>∫</span><span>√</span><span>∞</span>
+        <span>Δ</span><span>∑</span><span>θ</span><span>≈</span>
+      </div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">Interactive Math Learning</div>
+      <h1 class="hero-title">
+        Explore Mathematics<br />
+        <span class="gradient-text">Visually & Intuitively</span>
+      </h1>
+      <p class="hero-subtitle">
+        Dive into core math concepts through interactive visualisations,
+        step-by-step explanations, and graph explorations — all in one place.
+      </p>
+      <div class="hero-actions">
+        <a href="#categories" class="btn btn-primary">Start Exploring</a>
+        <a href="#roadmap" class="btn btn-ghost">View Roadmap</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Strip -->
+  <div class="stats-strip">
+    <div class="stat"><span class="stat-num">3</span><span class="stat-label">Categories</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><span class="stat-num">Coming Soon</span><span class="stat-label">Interactive Graphs</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Concepts to Explore</span></div>
+  </div>
+
+  <!-- Categories Section -->
+  <section class="categories-section" id="categories">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Explore by Topic</span>
+        <h2>Choose a Category</h2>
+        <p>Select a branch of mathematics to explore concepts, formulas, and interactive visualisations.</p>
+      </div>
+
+      <div class="category-grid">
+
+        <!-- Algebra -->
+        <a href="pages/algebra.html" class="category-card card-algebra">
+          <div class="card-glow"></div>
+          <div class="card-icon">
+            <span>𝑥²</span>
+          </div>
+          <div class="card-content">
+            <h3>Algebra</h3>
+            <p>Equations, polynomials, functions, and systems — understand the language of variables and relationships.</p>
+            <ul class="topic-pills">
+              <li>Linear Equations</li>
+              <li>Quadratics</li>
+              <li>Polynomials</li>
+              <li>Matrices</li>
+            </ul>
+          </div>
+          <div class="card-arrow">→</div>
+        </a>
+
+        <!-- Calculus -->
+        <a href="pages/calculus.html" class="category-card card-calculus">
+          <div class="card-glow"></div>
+          <div class="card-icon">
+            <span>∫</span>
+          </div>
+          <div class="card-content">
+            <h3>Calculus</h3>
+            <p>Limits, derivatives, and integrals — explore the mathematics of change and accumulation.</p>
+            <ul class="topic-pills">
+              <li>Limits</li>
+              <li>Derivatives</li>
+              <li>Integrals</li>
+              <li>Series</li>
+            </ul>
+          </div>
+          <div class="card-arrow">→</div>
+        </a>
+
+        <!-- Trigonometry -->
+        <a href="pages/trigonometry.html" class="category-card card-trig">
+          <div class="card-glow"></div>
+          <div class="card-icon">
+            <span>sin θ</span>
+          </div>
+          <div class="card-content">
+            <h3>Trigonometry</h3>
+            <p>Angles, waves, and periodic functions — master the relationships between sides and angles.</p>
+            <ul class="topic-pills">
+              <li>Unit Circle</li>
+              <li>Sine & Cosine</li>
+              <li>Identities</li>
+              <li>Waves</li>
+            </ul>
+          </div>
+          <div class="card-arrow">→</div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap Section -->
+  <section class="roadmap-section" id="roadmap">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What's Coming</span>
+        <h2>Roadmap</h2>
+        <p>Here's what we're planning to build for MathExplorer.</p>
+      </div>
+
+      <div class="roadmap-grid">
+        <div class="roadmap-phase phase-done">
+          <div class="phase-marker">✓</div>
+          <div class="phase-content">
+            <span class="phase-tag done">Completed</span>
+            <h4>Foundation</h4>
+            <ul>
+              <li>Project structure & design system</li>
+              <li>Home page with category navigation</li>
+              <li>Category placeholder pages</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="roadmap-phase phase-next">
+          <div class="phase-marker">1</div>
+          <div class="phase-content">
+            <span class="phase-tag next">Up Next</span>
+            <h4>Core Concepts</h4>
+            <ul>
+              <li>Concept pages with explanations</li>
+              <li>Worked examples and formulas</li>
+              <li>LaTeX formula rendering</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="roadmap-phase phase-planned">
+          <div class="phase-marker">2</div>
+          <div class="phase-content">
+            <span class="phase-tag planned">Planned</span>
+            <h4>Interactive Graphs</h4>
+            <ul>
+              <li>Function plotter (Desmos-style)</li>
+              <li>Derivative & integral visualiser</li>
+              <li>Unit circle explorer</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="roadmap-phase phase-planned">
+          <div class="phase-marker">3</div>
+          <div class="phase-content">
+            <span class="phase-tag planned">Planned</span>
+            <h4>Advanced Features</h4>
+            <ul>
+              <li>Practice problems & quizzes</li>
+              <li>Step-by-step solver</li>
+              <li>3D graph visualisations</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-symbol">∑</span>
+          <span class="logo-text">MathExplorer</span>
+        </div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">
+          View on GitHub →
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
