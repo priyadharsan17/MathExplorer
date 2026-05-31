@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matrices — Algebra | MathExplorer</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    /* Tab selector */
+    .mat-tabs { display: flex; gap: 0; border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; width: fit-content; margin-bottom: 0; }
+    .mat-tab { padding: 7px 20px; font-size: 0.8rem; font-weight: 600; background: transparent; border: none; cursor: pointer; color: var(--text-muted); transition: var(--transition); }
+    .mat-tab:not(:last-child) { border-right: 1px solid var(--border); }
+    .mat-tab.active { background: rgba(79,142,247,0.1); color: var(--accent-blue); }
+    .mat-panel { display: none; }
+    .mat-panel.active { display: block; }
+
+    /* Matrix input grid */
+    .mat-entry {
+      display: inline-grid;
+      grid-template-columns: repeat(2, 60px);
+      gap: 6px; padding: 0 12px; position: relative;
+    }
+    .mat-bracket-l, .mat-bracket-r {
+      display: flex; align-items: center; font-size: 2.2rem;
+      color: rgba(255,255,255,0.3); line-height: 1; user-select: none;
+    }
+    .mat-input-wrap { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .mat-cell {
+      width: 60px; padding: 6px 8px; text-align: center;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+      border-radius: 6px; color: var(--text-primary); font-family: var(--font-mono);
+      font-size: 0.9rem; outline: none; transition: var(--transition);
+    }
+    .mat-cell:focus { border-color: rgba(79,142,247,0.5); background: rgba(79,142,247,0.06); }
+    .mat-op-sign { font-size: 1.4rem; color: var(--text-muted); font-weight: 300; padding: 0 4px; }
+    .mat-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 8px; }
+
+    /* Result matrix display */
+    .mat-result-wrap { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding: 16px 24px; border-top: 1px solid var(--border); }
+    .mat-result-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
+    .mat-result-grid { display: inline-grid; grid-template-columns: repeat(2, 72px); gap: 4px; }
+    .mat-result-cell {
+      padding: 8px; text-align: center; border-radius: 6px;
+      background: rgba(79,142,247,0.08); border: 1px solid rgba(79,142,247,0.2);
+      font-family: var(--font-mono); font-size: 0.95rem; font-weight: 600; color: var(--accent-teal);
+    }
+    .mat-det-box {
+      padding: 8px 16px; border-radius: var(--radius-md);
+      background: rgba(79,142,247,0.08); border: 1px solid rgba(79,142,247,0.2);
+      font-family: var(--font-mono); font-size: 0.95rem; font-weight: 600;
+      color: var(--accent-teal);
+    }
+    .mat-error { color: var(--accent-orange); font-size: 0.85rem; padding: 8px 0; }
+
+    /* Transformation canvas */
+    .transform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 16px 24px; }
+    @media (max-width: 640px) { .transform-grid { grid-template-columns: 1fr; } }
+    .transform-canvas-wrap { background: #0d0d14; border-radius: var(--radius-md); overflow: hidden; position: relative; }
+    .transform-canvas-wrap canvas { display: block; width: 100%; height: auto; }
+    .transform-canvas-label {
+      position: absolute; top: 8px; left: 10px;
+      font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.4); pointer-events: none;
+    }
+
+    /* Preset buttons */
+    .preset-row { display: flex; gap: 8px; flex-wrap: wrap; padding: 0 24px 16px; }
+    .preset-btn {
+      padding: 5px 14px; border-radius: var(--radius-md); border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04); color: var(--text-secondary);
+      font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: var(--transition);
+    }
+    .preset-btn:hover { color: var(--text-primary); border-color: var(--border-hover); }
+    .preset-btn.active { background: rgba(79,142,247,0.1); border-color: rgba(79,142,247,0.4); color: var(--accent-blue); }
+
+    .det-info { font-size: 0.8rem; color: var(--text-muted); margin-top: 6px; }
+  </style>
+</head>
+<body class="topic-page">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html" class="active">Algebra</a></li>
+        <li><a href="../calculus.html">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a><span>›</span>
+      <a href="../algebra.html">Algebra</a><span>›</span>
+      <span>Matrices</span>
+    </nav>
+    <div class="topic-hero-top">
+      <div class="topic-symbol">[ ]</div>
+      <h1>Matrices</h1>
+    </div>
+    <p class="subtitle">
+      A matrix organises numbers into rows and columns, enabling compact notation for
+      systems of equations and linear transformations. Explore multiplication, determinants,
+      inverses, and how 2×2 matrices transform the plane.
+    </p>
+  </div>
+
+  <!-- Concept -->
+  <section class="content-section">
+    <h2>What is a Matrix?</h2>
+    <p>
+      A <strong>matrix</strong> is a rectangular array of numbers. A 2×2 matrix has 2 rows and 2 columns:
+      \[ A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} \]
+      Matrices represent linear transformations — they can rotate, scale, shear, and reflect 2D shapes.
+    </p>
+    <p>
+      The <strong>determinant</strong> \(\det(A) = ad - bc\) encodes how much the transformation
+      scales areas. If \(\det(A) = 0\), the matrix is <strong>singular</strong> (non-invertible) and collapses the plane.
+    </p>
+  </section>
+
+  <!-- Key Formulas -->
+  <section class="content-section">
+    <h2>Key Formulas — 2×2 Matrix</h2>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <span class="formula-label">Matrix Multiplication</span>
+        <div class="formula-math">\[ \begin{bmatrix}a&b\\c&d\end{bmatrix} \begin{bmatrix}e&f\\g&h\end{bmatrix} = \begin{bmatrix}ae+bg & af+bh \\ ce+dg & cf+dh\end{bmatrix} \]</div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Determinant</span>
+        <div class="formula-math">\[ \det(A) = ad - bc \]</div>
+        <div class="formula-note">Area scale factor of the transformation.</div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Inverse (if det ≠ 0)</span>
+        <div class="formula-math">\[ A^{-1} = \frac{1}{ad - bc} \begin{bmatrix} d & -b \\ -c & a \end{bmatrix} \]</div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Transpose</span>
+        <div class="formula-math">\[ A^T = \begin{bmatrix}a&c\\b&d\end{bmatrix} \]</div>
+        <div class="formula-note">Rows become columns.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Worked Examples -->
+  <section class="content-section">
+    <h2>Worked Examples</h2>
+    <div class="example-list">
+
+      <div class="example-card">
+        <div class="example-title">Example 1 — Matrix Multiplication</div>
+        <div class="example-problem">Compute \( \begin{bmatrix}1&2\\3&4\end{bmatrix} \begin{bmatrix}5&6\\7&8\end{bmatrix} \)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">Top-left: <code>1×5 + 2×7 = 5 + 14 = 19</code></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Top-right: <code>1×6 + 2×8 = 6 + 16 = 22</code></div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">Bottom-left: <code>3×5 + 4×7 = 15 + 28 = 43</code></div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-text">Bottom-right: <code>3×6 + 4×8 = 18 + 32 = 50</code></div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">Result: \( \begin{bmatrix}19&22\\43&50\end{bmatrix} \)</div></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 2 — Inverse Matrix</div>
+        <div class="example-problem">Find \( A^{-1} \) for \( A = \begin{bmatrix}3&1\\5&2\end{bmatrix} \)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">Determinant: <code>det = 3×2 − 1×5 = 6 − 5 = 1</code></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Swap a, d and negate b, c: <code>[2, -1; -5, 3]</code></div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">Multiply by 1/det = 1/1 = 1</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">\( A^{-1} = \begin{bmatrix}2&-1\\-5&3\end{bmatrix} \)</div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Tool -->
+  <section class="visualiser-section">
+    <h2>Interactive Matrix Calculator</h2>
+    <div class="visualiser-card">
+
+      <!-- Tab selector -->
+      <div style="padding: 16px 24px 0;">
+        <div class="mat-tabs">
+          <button class="mat-tab active" data-tab="mult">A × B</button>
+          <button class="mat-tab" data-tab="det">det(A)</button>
+          <button class="mat-tab" data-tab="inv">A⁻¹</button>
+          <button class="mat-tab" data-tab="transform">Transform</button>
+        </div>
+      </div>
+
+      <!-- ── Multiplication panel ── -->
+      <div id="tab-mult" class="mat-panel active" style="padding: 20px 24px;">
+        <div class="mat-input-wrap">
+          <div>
+            <div class="mat-label">Matrix A</div>
+            <div style="display:flex;align-items:center;">
+              <span class="mat-bracket-l">[</span>
+              <div class="mat-entry" id="matA-entry">
+                <input class="mat-cell" data-mat="A" data-r="0" data-c="0" value="1" />
+                <input class="mat-cell" data-mat="A" data-r="0" data-c="1" value="2" />
+                <input class="mat-cell" data-mat="A" data-r="1" data-c="0" value="3" />
+                <input class="mat-cell" data-mat="A" data-r="1" data-c="1" value="4" />
+              </div>
+              <span class="mat-bracket-r">]</span>
+            </div>
+          </div>
+          <span class="mat-op-sign">×</span>
+          <div>
+            <div class="mat-label">Matrix B</div>
+            <div style="display:flex;align-items:center;">
+              <span class="mat-bracket-l">[</span>
+              <div class="mat-entry">
+                <input class="mat-cell" data-mat="B" data-r="0" data-c="0" value="5" />
+                <input class="mat-cell" data-mat="B" data-r="0" data-c="1" value="6" />
+                <input class="mat-cell" data-mat="B" data-r="1" data-c="0" value="7" />
+                <input class="mat-cell" data-mat="B" data-r="1" data-c="1" value="8" />
+              </div>
+              <span class="mat-bracket-r">]</span>
+            </div>
+          </div>
+        </div>
+        <div class="mat-result-wrap">
+          <span class="mat-result-label">A × B =</span>
+          <span class="mat-bracket-l">[</span>
+          <div class="mat-result-grid" id="mult-result">
+            <div class="mat-result-cell" id="mr00">—</div>
+            <div class="mat-result-cell" id="mr01">—</div>
+            <div class="mat-result-cell" id="mr10">—</div>
+            <div class="mat-result-cell" id="mr11">—</div>
+          </div>
+          <span class="mat-bracket-r">]</span>
+        </div>
+      </div>
+
+      <!-- ── Determinant panel ── -->
+      <div id="tab-det" class="mat-panel" style="padding: 20px 24px;">
+        <div class="mat-input-wrap">
+          <div>
+            <div class="mat-label">Matrix A</div>
+            <div style="display:flex;align-items:center;">
+              <span class="mat-bracket-l">[</span>
+              <div class="mat-entry">
+                <input class="mat-cell" data-mat="DA" data-r="0" data-c="0" value="3" />
+                <input class="mat-cell" data-mat="DA" data-r="0" data-c="1" value="1" />
+                <input class="mat-cell" data-mat="DA" data-r="1" data-c="0" value="5" />
+                <input class="mat-cell" data-mat="DA" data-r="1" data-c="1" value="2" />
+              </div>
+              <span class="mat-bracket-r">]</span>
+            </div>
+          </div>
+        </div>
+        <div class="mat-result-wrap" style="flex-direction:column;align-items:flex-start;gap:6px;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span class="mat-result-label">det(A) =</span>
+            <span class="mat-det-box" id="det-result">—</span>
+          </div>
+          <div class="det-info" id="det-info">—</div>
+        </div>
+      </div>
+
+      <!-- ── Inverse panel ── -->
+      <div id="tab-inv" class="mat-panel" style="padding: 20px 24px;">
+        <div class="mat-input-wrap">
+          <div>
+            <div class="mat-label">Matrix A</div>
+            <div style="display:flex;align-items:center;">
+              <span class="mat-bracket-l">[</span>
+              <div class="mat-entry">
+                <input class="mat-cell" data-mat="IA" data-r="0" data-c="0" value="3" />
+                <input class="mat-cell" data-mat="IA" data-r="0" data-c="1" value="1" />
+                <input class="mat-cell" data-mat="IA" data-r="1" data-c="0" value="5" />
+                <input class="mat-cell" data-mat="IA" data-r="1" data-c="1" value="2" />
+              </div>
+              <span class="mat-bracket-r">]</span>
+            </div>
+          </div>
+        </div>
+        <div class="mat-result-wrap">
+          <span class="mat-result-label">A⁻¹ =</span>
+          <div id="inv-result">
+            <div style="display:flex;align-items:center;">
+              <span class="mat-bracket-l">[</span>
+              <div class="mat-result-grid">
+                <div class="mat-result-cell" id="ir00">—</div>
+                <div class="mat-result-cell" id="ir01">—</div>
+                <div class="mat-result-cell" id="ir10">—</div>
+                <div class="mat-result-cell" id="ir11">—</div>
+              </div>
+              <span class="mat-bracket-r">]</span>
+            </div>
+            <div class="mat-error" id="inv-error" style="display:none;">Matrix is singular (det = 0) — no inverse exists.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Transformation panel ── -->
+      <div id="tab-transform" class="mat-panel">
+        <div style="padding: 16px 24px 8px;">
+          <div class="mat-label">Transformation Matrix (applied to unit square)</div>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:8px;">
+            <span class="mat-bracket-l">[</span>
+            <div class="mat-entry">
+              <input class="mat-cell" id="ta" value="1" style="width:52px;" />
+              <input class="mat-cell" id="tb" value="0" style="width:52px;" />
+              <input class="mat-cell" id="tc" value="0" style="width:52px;" />
+              <input class="mat-cell" id="td" value="1" style="width:52px;" />
+            </div>
+            <span class="mat-bracket-r">]</span>
+          </div>
+          <div style="margin-top:8px;font-size:0.8rem;color:var(--text-muted);">
+            det = <span id="t-det" style="font-family:var(--font-mono);color:var(--accent-teal);">1</span>
+          </div>
+        </div>
+
+        <!-- Presets -->
+        <div class="preset-row">
+          <button class="preset-btn active" data-preset="identity">Identity</button>
+          <button class="preset-btn" data-preset="rotate90">Rotate 90°</button>
+          <button class="preset-btn" data-preset="scale2">Scale ×2</button>
+          <button class="preset-btn" data-preset="reflectX">Reflect X</button>
+          <button class="preset-btn" data-preset="reflectY">Reflect Y</button>
+          <button class="preset-btn" data-preset="shear">Shear</button>
+          <button class="preset-btn" data-preset="singular">Singular</button>
+        </div>
+
+        <div class="transform-grid">
+          <div class="transform-canvas-wrap">
+            <span class="transform-canvas-label">Original</span>
+            <canvas id="origCanvas"></canvas>
+          </div>
+          <div class="transform-canvas-wrap">
+            <span class="transform-canvas-label">Transformed</span>
+            <canvas id="transCanvas"></canvas>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <div class="takeaways-list">
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Matrix multiplication is <strong>not commutative</strong>: \(AB \neq BA\) in general.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>The determinant measures the area scale factor. \(\det = 0\) means the transformation collapses the plane.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>A negative determinant means the transformation includes a reflection (orientation is reversed).</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Every 2×2 linear transformation — rotation, scaling, shearing — is encoded in just 4 numbers.</p></div>
+    </div>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="systems.html" class="related-card">Systems of Equations <span>→</span></a>
+      <a href="functions.html" class="related-card">Functions &amp; Graphs <span>→</span></a>
+      <a href="../algebra.html" class="related-card">All Algebra Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand"><span class="logo-symbol">∑</span><span class="logo-text">MathExplorer</span></div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    // ─── Matrix state ────────────────────────────────────────────────────────
+    const mats = {
+      A:  [[1,2],[3,4]], B: [[5,6],[7,8]],
+      DA: [[3,1],[5,2]],
+      IA: [[3,1],[5,2]],
+    };
+
+    function getInputs(matKey) {
+      const cells = document.querySelectorAll(`[data-mat="${matKey}"]`);
+      const m = [[0,0],[0,0]];
+      cells.forEach(c => { m[+c.dataset.r][+c.dataset.c] = parseFloat(c.value) || 0; });
+      return m;
+    }
+
+    // ─── Compute operations ──────────────────────────────────────────────────
+    function matMul(A, B) {
+      return [
+        [A[0][0]*B[0][0]+A[0][1]*B[1][0], A[0][0]*B[0][1]+A[0][1]*B[1][1]],
+        [A[1][0]*B[0][0]+A[1][1]*B[1][0], A[1][0]*B[0][1]+A[1][1]*B[1][1]],
+      ];
+    }
+    function det2(M) { return M[0][0]*M[1][1] - M[0][1]*M[1][0]; }
+    function fmt(v)  { return Number.isInteger(v) ? String(v) : v.toFixed(3).replace(/\.?0+$/, ''); }
+
+    function updateMult() {
+      const A = getInputs('A'), B = getInputs('B');
+      const C = matMul(A, B);
+      document.getElementById('mr00').textContent = fmt(C[0][0]);
+      document.getElementById('mr01').textContent = fmt(C[0][1]);
+      document.getElementById('mr10').textContent = fmt(C[1][0]);
+      document.getElementById('mr11').textContent = fmt(C[1][1]);
+    }
+    function updateDet() {
+      const M = getInputs('DA');
+      const d = det2(M);
+      document.getElementById('det-result').textContent = fmt(d);
+      const info = d === 0 ? 'Singular matrix — not invertible. Transformation collapses the plane.'
+        : d > 0 ? `Area scale factor: ${fmt(Math.abs(d))}. Orientation preserved.`
+        : `Area scale factor: ${fmt(Math.abs(d))}. Orientation reversed (reflection).`;
+      document.getElementById('det-info').textContent = info;
+    }
+    function updateInv() {
+      const M = getInputs('IA');
+      const d = det2(M);
+      const errEl = document.getElementById('inv-error');
+      if (Math.abs(d) < 1e-12) {
+        errEl.style.display = '';
+        ['ir00','ir01','ir10','ir11'].forEach(id => document.getElementById(id).textContent = '—');
+        return;
+      }
+      errEl.style.display = 'none';
+      const inv = [
+        [ M[1][1]/d, -M[0][1]/d],
+        [-M[1][0]/d,  M[0][0]/d],
+      ];
+      document.getElementById('ir00').textContent = fmt(inv[0][0]);
+      document.getElementById('ir01').textContent = fmt(inv[0][1]);
+      document.getElementById('ir10').textContent = fmt(inv[1][0]);
+      document.getElementById('ir11').textContent = fmt(inv[1][1]);
+    }
+
+    // ─── Transformation visualiser ───────────────────────────────────────────
+    const PRESETS = {
+      identity: [1,0,0,1],
+      rotate90:  [0,-1,1,0],
+      scale2:    [2,0,0,2],
+      reflectX:  [1,0,0,-1],
+      reflectY:  [-1,0,0,1],
+      shear:     [1,1,0,1],
+      singular:  [1,2,0.5,1],
+    };
+
+    function drawTransform() {
+      const a = parseFloat(document.getElementById('ta').value) || 0;
+      const b = parseFloat(document.getElementById('tb').value) || 0;
+      const c = parseFloat(document.getElementById('tc').value) || 0;
+      const d = parseFloat(document.getElementById('td').value) || 0;
+      document.getElementById('t-det').textContent = fmt(a*d - b*c);
+
+      const origC  = document.getElementById('origCanvas');
+      const transC = document.getElementById('transCanvas');
+
+      [origC, transC].forEach(cvs => {
+        const W = cvs.width = cvs.offsetWidth || 280;
+        cvs.height = W;
+      });
+
+      const SIZE = origC.width;
+      const HALF = SIZE / 2;
+      const SCALE = SIZE * 0.22; // 1 unit = this many px
+
+      function toScreen(x, y, cvs) {
+        return [cvs.width / 2 + x * SCALE, cvs.height / 2 - y * SCALE];
+      }
+
+      // Draw helper
+      function drawScene(ctx, W, applyMatrix) {
+        ctx.fillStyle = '#0d0d14';
+        ctx.fillRect(0, 0, W, W);
+        // Grid
+        ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+        ctx.lineWidth = 1;
+        for (let i = -4; i <= 4; i++) {
+          const [gx] = toScreen(i, 0, {width: W, height: W});
+          const [, gy] = toScreen(0, i, {width: W, height: W});
+          ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, W); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(W, gy); ctx.stroke();
+        }
+        // Axes
+        ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+        ctx.lineWidth = 1.5;
+        const [ax] = toScreen(0, 0, {width: W, height: W});
+        const [, ay] = toScreen(0, 0, {width: W, height: W});
+        ctx.beginPath(); ctx.moveTo(ax, 0); ctx.lineTo(ax, W); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(0, ay); ctx.lineTo(W, ay); ctx.stroke();
+
+        // Unit square corners: (0,0), (1,0), (1,1), (0,1)
+        const sqPts = [[0,0],[1,0],[1,1],[0,1]];
+        const transformed = sqPts.map(([px, py]) =>
+          applyMatrix ? [a*px + b*py, c*px + d*py] : [px, py]
+        );
+        function pt(i) { return toScreen(transformed[i][0], transformed[i][1], {width: W, height: W}); }
+
+        // Fill
+        ctx.beginPath();
+        ctx.moveTo(...pt(0));
+        for (let i = 1; i < 4; i++) ctx.lineTo(...pt(i));
+        ctx.closePath();
+        ctx.fillStyle = 'rgba(79,142,247,0.18)';
+        ctx.fill();
+        ctx.strokeStyle = '#4f8ef7';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Basis vectors
+        const origin = toScreen(transformed[0][0], transformed[0][1], {width: W, height: W});
+        const ex = toScreen(transformed[1][0], transformed[1][1], {width: W, height: W});
+        const ey = toScreen(transformed[3][0], transformed[3][1], {width: W, height: W});
+
+        // e1 vector (red/orange)
+        ctx.strokeStyle = '#f97b40'; ctx.lineWidth = 2.5;
+        ctx.beginPath(); ctx.moveTo(...origin); ctx.lineTo(...ex); ctx.stroke();
+        // e2 vector (teal)
+        ctx.strokeStyle = '#34d4c8'; ctx.lineWidth = 2.5;
+        ctx.beginPath(); ctx.moveTo(...origin); ctx.lineTo(...ey); ctx.stroke();
+
+        // Origin dot
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath(); ctx.arc(...origin, 3, 0, Math.PI*2); ctx.fill();
+      }
+
+      drawScene(origC.getContext('2d'),  origC.width,  false);
+      drawScene(transC.getContext('2d'), transC.width, true);
+    }
+
+    // Preset buttons
+    document.querySelectorAll('.preset-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const [pa, pb, pc, pd] = PRESETS[btn.dataset.preset];
+        document.getElementById('ta').value = pa;
+        document.getElementById('tb').value = pb;
+        document.getElementById('tc').value = pc;
+        document.getElementById('td').value = pd;
+        drawTransform();
+      });
+    });
+
+    ['ta','tb','tc','td'].forEach(id => {
+      document.getElementById(id).addEventListener('input', () => {
+        document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+        drawTransform();
+      });
+    });
+
+    // ─── Tab switching ────────────────────────────────────────────────────────
+    document.querySelectorAll('.mat-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.mat-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.mat-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+        if (tab.dataset.tab === 'transform') drawTransform();
+      });
+    });
+
+    // ─── Input listeners ──────────────────────────────────────────────────────
+    document.querySelectorAll('.mat-cell[data-mat]').forEach(cell => {
+      cell.addEventListener('input', () => {
+        const matKey = cell.dataset.mat;
+        if (matKey === 'A' || matKey === 'B') updateMult();
+        if (matKey === 'DA') updateDet();
+        if (matKey === 'IA') updateInv();
+      });
+    });
+
+    // ─── Initial render ───────────────────────────────────────────────────────
+    updateMult();
+    updateDet();
+    updateInv();
+    // Transform drawn when tab is opened
+
+    // Resize transform canvases when window resizes
+    window.addEventListener('resize', () => {
+      if (document.getElementById('tab-transform').classList.contains('active')) drawTransform();
+    });
+  </script>
+</body>
+</html>

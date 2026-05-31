@@ -25,9 +25,9 @@ The Algebra section covers the foundational language of mathematics: variables, 
 | 3 | Polynomials | `pages/algebra/polynomials.html` | ✅ Done | Polynomial curve plotter with degree selector (2/3/4) |
 | 4 | Factoring | `pages/algebra/factoring.html` | ✅ Done | Step-by-step factoring of ax² + bx + c (AC method, special forms) |
 | 5 | Functions & Graphs | `pages/algebra/functions.html` | ✅ Done | 6 function families with param sliders, domain/range info |
-| 6 | Systems of Equations | `pages/algebra/systems.html` | 🔲 Planned | Two-line plotter showing intersection point |
-| 7 | Inequalities | `pages/algebra/inequalities.html` | 🔲 Planned | Number line & region shading visualiser |
-| 8 | Matrices | `pages/algebra/matrices.html` | 🔲 Planned | Matrix multiplication calculator + transformation visualiser |
+| 6 | Systems of Equations | `pages/algebra/systems.html` | ✅ Done | Two-line plotter with colour-coded unique/parallel/identical result |
+| 7 | Inequalities | `pages/algebra/inequalities.html` | ✅ Done | Region shading (linear & quadratic) + number line + interval notation |
+| 8 | Matrices | `pages/algebra/matrices.html` | ✅ Done | Multiplication, determinant, inverse calculators + transformation visualiser |
 
 ---
 
@@ -75,10 +75,10 @@ All graphs share a common canvas helper (`js/graph.js`, Phase 2):
 - [x] Factoring page — step-by-step GCF / simple / AC method / special forms + mini graph
 - [x] Functions & Graphs page — Linear, Quadratic, Absolute Value, Square Root, Cubic, Reciprocal families
 
-### Phase 3 — Advanced Topics
-- [ ] Systems of Equations (two-line visualiser)
-- [ ] Inequalities (region shading)
-- [ ] Matrices (transformation grid)
+### Phase 3 — Advanced Topics ✅ Complete
+- [x] Systems of Equations — two-line graph, intersection detection, result banner (unique/parallel/identical)
+- [x] Inequalities — linear & quadratic modes, region fill, number line, interval notation
+- [x] Matrices — A×B calculator, det(A), A⁻¹, transformation visualiser with presets (rotate/scale/reflect/shear)
 
 ### Phase 4 — Polish
 - [ ] Practice problems with answer reveal

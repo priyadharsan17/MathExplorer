@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inequalities — Algebra | MathExplorer</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    /* Inequality symbol selector */
+    .ineq-sym-row {
+      display: flex; gap: 8px; align-items: center; margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+    .ineq-sym-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-right: 4px; }
+    .sym-btn {
+      padding: 4px 14px; border-radius: var(--radius-md); border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04); color: var(--text-secondary);
+      font-size: 1rem; font-weight: 700; cursor: pointer; transition: var(--transition);
+      font-family: var(--font-mono); line-height: 1.5;
+    }
+    .sym-btn:hover { border-color: var(--border-hover); color: var(--text-primary); }
+    .sym-btn.active { background: rgba(79,142,247,0.12); border-color: rgba(79,142,247,0.4); color: var(--accent-blue); }
+
+    /* Mode tabs (linear / quadratic) */
+    .ineq-mode-tabs { display: flex; gap: 0; border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; width: fit-content; margin-bottom: 14px; }
+    .ineq-mode-tab { padding: 6px 18px; font-size: 0.8rem; font-weight: 600; background: transparent; border: none; cursor: pointer; color: var(--text-muted); transition: var(--transition); }
+    .ineq-mode-tab:not(:last-child) { border-right: 1px solid var(--border); }
+    .ineq-mode-tab.active { background: rgba(79,142,247,0.1); color: var(--accent-blue); }
+
+    /* Number-line strip */
+    .num-line-wrap {
+      padding: 16px 24px;
+      border-top: 1px solid var(--border);
+    }
+    .num-line-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 8px; }
+    #numLineCanvas { display: block; width: 100%; height: 60px; }
+
+    /* Solution display */
+    .ineq-solution {
+      padding: 12px 24px; border-top: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 0.9rem; font-weight: 600; color: var(--accent-teal);
+    }
+    .ineq-solution span { color: var(--text-muted); font-weight: 400; margin-right: 8px; font-family: var(--font-sans); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.07em; }
+
+    .shading-legend {
+      display: flex; gap: 18px; align-items: center;
+      padding: 8px 24px; font-size: 0.78rem; color: var(--text-muted); border-top: 1px solid var(--border);
+    }
+    .swatch { width: 18px; height: 18px; border-radius: 4px; display: inline-block; }
+  </style>
+</head>
+<body class="topic-page">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html" class="active">Algebra</a></li>
+        <li><a href="../calculus.html">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a><span>›</span>
+      <a href="../algebra.html">Algebra</a><span>›</span>
+      <span>Inequalities</span>
+    </nav>
+    <div class="topic-hero-top">
+      <div class="topic-symbol">&lt; &gt;</div>
+      <h1>Inequalities</h1>
+    </div>
+    <p class="subtitle">
+      An inequality compares two expressions and describes a <em>range</em> of solutions rather than a single value.
+      Understanding shaded regions on a number line and graph is central to optimisation and constraints.
+    </p>
+  </div>
+
+  <!-- Concept -->
+  <section class="content-section">
+    <h2>What is an Inequality?</h2>
+    <p>
+      An <strong>inequality</strong> uses \(&lt;\), \(&gt;\), \(\leq\), or \(\geq\) to relate two expressions.
+      The solution is the set of all values that make the inequality true.
+    </p>
+    <p>
+      <strong>Key rule:</strong> When you multiply or divide both sides by a <em>negative</em> number,
+      you must <strong>flip the inequality symbol</strong>.
+      For example, \(-2x &lt; 6\) becomes \(x &gt; -3\).
+    </p>
+    <p>
+      On a number line, strict inequalities (\(&lt;\), \(&gt;\)) use an <strong>open circle</strong>;
+      non-strict (\(\leq\), \(\geq\)) use a <strong>filled circle</strong>.
+    </p>
+  </section>
+
+  <!-- Rules -->
+  <section class="content-section">
+    <h2>Rules for Inequalities</h2>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <span class="formula-label">Addition / Subtraction</span>
+        <div class="formula-math">\[ a &lt; b \implies a + c &lt; b + c \]</div>
+        <div class="formula-note">Direction preserved for all c.</div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Multiply / Divide (positive)</span>
+        <div class="formula-math">\[ a &lt; b,\ c &gt; 0 \implies ac &lt; bc \]</div>
+        <div class="formula-note">Direction preserved.</div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Multiply / Divide (negative)</span>
+        <div class="formula-math">\[ a &lt; b,\ c &lt; 0 \implies ac &gt; bc \]</div>
+        <div class="formula-note">Direction <strong>reverses</strong>!</div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Interval Notation</span>
+        <div class="formula-math">\[ x \geq 3 \;\leftrightarrow\; x \in [3, +\infty) \]</div>
+        <div class="formula-note">[ ] = closed (included), ( ) = open (excluded).</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Worked Examples -->
+  <section class="content-section">
+    <h2>Worked Examples</h2>
+    <div class="example-list">
+
+      <div class="example-card">
+        <div class="example-title">Example 1 — Linear Inequality</div>
+        <div class="example-problem">Solve: \(3x - 4 &gt; 8\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">Add 4: <code>3x > 12</code></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Divide by 3 (positive, no flip): <code>x > 4</code></div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">Solution: \(x \in (4, +\infty)\). Open circle at 4, shade right.</div></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 2 — Flip the symbol</div>
+        <div class="example-problem">Solve: \(-5x + 2 \leq 17\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">Subtract 2: <code>−5x ≤ 15</code></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Divide by −5 (negative → <strong>flip</strong>): <code>x ≥ −3</code></div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">Solution: \(x \in [-3, +\infty)\). Closed circle at −3, shade right.</div></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 3 — Quadratic Inequality</div>
+        <div class="example-problem">Solve: \(x^2 - x - 6 &lt; 0\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">Factor: <code>(x − 3)(x + 2) = 0</code> → roots at <code>x = −2</code> and <code>x = 3</code></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Parabola opens upward. It is negative <em>between</em> the roots.</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">Solution: \(x \in (-2, 3)\)</div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Visualiser -->
+  <section class="visualiser-section">
+    <h2>Interactive Visualiser</h2>
+    <div class="visualiser-card">
+
+      <!-- Mode tabs -->
+      <div style="padding: 16px 24px 0;">
+        <div class="ineq-mode-tabs">
+          <button class="ineq-mode-tab active" data-mode="linear">Linear  f(x) = mx + b</button>
+          <button class="ineq-mode-tab" data-mode="quadratic">Quadratic  ax² + bx + c</button>
+        </div>
+      </div>
+
+      <!-- Canvas -->
+      <div class="visualiser-canvas-wrap">
+        <canvas id="ineqCanvas"></canvas>
+        <div class="equation-display" id="ineqEqDisplay">y = 2x + 1</div>
+      </div>
+
+      <!-- Number line -->
+      <div class="num-line-wrap">
+        <div class="num-line-label">Number line — solution set</div>
+        <canvas id="numLineCanvas" height="60"></canvas>
+      </div>
+
+      <!-- Solution text -->
+      <div class="ineq-solution">
+        <span>Solution</span><span id="ineqSolText">—</span>
+      </div>
+
+      <!-- Shading legend -->
+      <div class="shading-legend">
+        <span class="swatch" style="background:rgba(79,142,247,0.25);border:1px solid rgba(79,142,247,0.5);"></span> Shaded region satisfies the inequality
+        &nbsp;&nbsp;
+        <span style="font-size:0.8rem;">— solid boundary: ≤ or ≥ &nbsp;|&nbsp; dashed boundary: &lt; or &gt;</span>
+      </div>
+
+      <!-- Controls -->
+      <div class="visualiser-controls">
+        <!-- Symbol -->
+        <div class="control-group" style="grid-column: 1 / -1;">
+          <div class="ineq-sym-row">
+            <span class="ineq-sym-label">Symbol</span>
+            <button class="sym-btn" data-sym="<">&lt;</button>
+            <button class="sym-btn active" data-sym="<=">&le;</button>
+            <button class="sym-btn" data-sym=">">&gt;</button>
+            <button class="sym-btn" data-sym=">=">&ge;</button>
+          </div>
+        </div>
+        <!-- Linear params -->
+        <div class="control-group" id="lp-m">
+          <div class="control-label"><span>m (slope)</span><span class="control-value" id="iv-m">2</span></div>
+          <input type="range" id="is-m" min="-6" max="6" step="0.5" value="2" />
+        </div>
+        <div class="control-group" id="lp-b">
+          <div class="control-label"><span>b (intercept)</span><span class="control-value" id="iv-b">1</span></div>
+          <input type="range" id="is-b" min="-8" max="8" step="0.5" value="1" />
+        </div>
+        <!-- Quadratic params (hidden initially) -->
+        <div class="control-group" id="qp-a" style="display:none;">
+          <div class="control-label"><span>a</span><span class="control-value" id="iv-a">1</span></div>
+          <input type="range" id="is-a" min="-3" max="3" step="0.5" value="1" />
+        </div>
+        <div class="control-group" id="qp-bq" style="display:none;">
+          <div class="control-label"><span>b</span><span class="control-value" id="iv-bq">-1</span></div>
+          <input type="range" id="is-bq" min="-6" max="6" step="0.5" value="-1" />
+        </div>
+        <div class="control-group" id="qp-c" style="display:none;">
+          <div class="control-label"><span>c</span><span class="control-value" id="iv-c">-6</span></div>
+          <input type="range" id="is-c" min="-10" max="10" step="1" value="-6" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <div class="takeaways-list">
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Multiplying or dividing by a negative number <strong>reverses</strong> the inequality sign.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Open circle = strict (&lt;, &gt;). Closed circle = non-strict (≤, ≥).</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>For quadratic inequalities, find the roots first, then test which interval(s) satisfy the inequality.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>In 2D, the boundary line is solid for ≤ / ≥ and dashed for &lt; / &gt;; shade the side that satisfies the inequality.</p></div>
+    </div>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="linear-equations.html" class="related-card">Linear Equations <span>→</span></a>
+      <a href="quadratic-equations.html" class="related-card">Quadratic Equations <span>→</span></a>
+      <a href="systems.html" class="related-card">Systems of Equations <span>→</span></a>
+      <a href="../algebra.html" class="related-card">All Algebra Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand"><span class="logo-symbol">∑</span><span class="logo-text">MathExplorer</span></div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script src="../../js/graph.js"></script>
+  <script>
+    const canvas  = document.getElementById('ineqCanvas');
+    const ctx     = canvas.getContext('2d');
+    const nlCanvas = document.getElementById('numLineCanvas');
+    const nlCtx    = nlCanvas.getContext('2d');
+    const RANGE    = 10;
+
+    let mode = 'linear';  // 'linear' | 'quadratic'
+    let sym  = '<=';      // '<' '<=' '>' '>='
+    let m = 2, b = 1;     // linear params
+    let qa = 1, qb = -1, qc = -6; // quadratic params
+
+    const isStrict = () => sym === '<' || sym === '>';
+    const isLess   = () => sym === '<' || sym === '<=';
+
+    // ─── Region fill (2D) ───────────────────────────────────────────────────
+    function fillRegion(fn) {
+      const W = canvas.width, H = canvas.height;
+      // For each column of pixels, find the boundary y, then fill above or below
+      const imgData = ctx.getImageData(0, 0, W, H);
+      const data    = imgData.data;
+      const [r, g, bl, a] = [79, 142, 247, 45]; // accent-blue semi-transparent
+
+      for (let px = 0; px < W; px++) {
+        const mathX  = (px / W) * 2 * RANGE - RANGE;
+        const mathY  = fn(mathX);
+        const pyBoundary = H / 2 - (mathY / RANGE) * (H / 2);
+
+        for (let py = 0; py < H; py++) {
+          const shade = isLess() ? py > pyBoundary : py < pyBoundary;
+          if (shade) {
+            const idx = (py * W + px) * 4;
+            data[idx]     = Math.min(255, data[idx]     + r);
+            data[idx + 1] = Math.min(255, data[idx + 1] + g);
+            data[idx + 2] = Math.min(255, data[idx + 2] + bl);
+            data[idx + 3] = Math.min(255, data[idx + 3] + a);
+          }
+        }
+      }
+      ctx.putImageData(imgData, 0, 0);
+    }
+
+    // ─── Number line ────────────────────────────────────────────────────────
+    function drawNumLine(roots, intervals) {
+      const W  = nlCanvas.width  = nlCanvas.offsetWidth || 400;
+      const H  = 60;
+      nlCanvas.height = H;
+      nlCtx.clearRect(0, 0, W, H);
+
+      const NL_RANGE = 12;
+      const toNL = v => W / 2 + (v / NL_RANGE) * (W / 2);
+
+      // Base line
+      nlCtx.strokeStyle = 'rgba(255,255,255,0.25)';
+      nlCtx.lineWidth = 2;
+      nlCtx.beginPath(); nlCtx.moveTo(10, H / 2); nlCtx.lineTo(W - 10, H / 2); nlCtx.stroke();
+
+      // Tick marks + labels
+      nlCtx.fillStyle = 'rgba(255,255,255,0.3)';
+      nlCtx.font = '11px Inter, sans-serif';
+      nlCtx.textAlign = 'center';
+      for (let i = -10; i <= 10; i += 2) {
+        const px = toNL(i);
+        if (px < 10 || px > W - 10) continue;
+        nlCtx.fillRect(px, H / 2 - 4, 1, 8);
+        nlCtx.fillText(i, px, H / 2 + 18);
+      }
+
+      // Shade solution intervals
+      nlCtx.fillStyle = 'rgba(79,142,247,0.35)';
+      intervals.forEach(([lo, hi]) => {
+        const px1 = lo === -Infinity ? 10       : toNL(lo);
+        const px2 = hi ===  Infinity ? W - 10   : toNL(hi);
+        nlCtx.fillRect(Math.max(10, px1), H / 2 - 8, Math.min(W - 10, px2) - Math.max(10, px1), 16);
+      });
+
+      // Boundary circles for roots
+      roots.forEach(({ val, closed }) => {
+        const px = toNL(val);
+        if (px < 10 || px > W - 10) return;
+        nlCtx.beginPath();
+        nlCtx.arc(px, H / 2, 6, 0, Math.PI * 2);
+        if (closed) {
+          nlCtx.fillStyle = '#4f8ef7';
+          nlCtx.fill();
+        } else {
+          nlCtx.strokeStyle = '#4f8ef7';
+          nlCtx.lineWidth = 2;
+          nlCtx.fillStyle = '#0d0d14';
+          nlCtx.fill();
+          nlCtx.stroke();
+        }
+      });
+    }
+
+    // ─── Linear mode ────────────────────────────────────────────────────────
+    function computeLinear() {
+      // mx + b < 0 (for "y < 0", meaning below x-axis relative to boundary)
+      // Boundary at y = mx + b (on 2D graph this is the line, shading region where y < mx+b or y > mx+b)
+      // On number line, we solve mx + b [sym] 0
+      // b [sym] -mx  →  if m>0: x [sym] -b/m; if m<0: x [flip_sym] -b/m; if m=0: check sign of b
+      if (m === 0) {
+        // Degenerate: b [sym] 0
+        const sat = eval_sym(b, 0);
+        return sat
+          ? { intervals: [[-Infinity, Infinity]], roots: [], text: 'All real numbers' }
+          : { intervals: [], roots: [], text: 'No solution' };
+      }
+      const xBound = -b / m;
+      // Solve mx + b [sym] 0 → x [sym'] xBound where sym' may flip if m < 0
+      let effectiveSym = sym;
+      if (m < 0) {
+        const flip = { '<': '>', '>': '<', '<=': '>=', '>=': '<=' };
+        effectiveSym = flip[sym];
+      }
+      const closed = !isStrict();
+      let intervals, roots, text;
+      if (effectiveSym === '<' || effectiveSym === '<=') {
+        intervals = [[-Infinity, xBound]];
+        text = `x ${effectiveSym} ${xBound.toFixed(2)}  →  (-∞, ${xBound.toFixed(2)}${closed ? ']' : ')'}`; 
+      } else {
+        intervals = [[xBound, Infinity]];
+        text = `x ${effectiveSym} ${xBound.toFixed(2)}  →  (${closed ? '[' : '('}${xBound.toFixed(2)}, +∞)`;
+      }
+      roots = [{ val: xBound, closed }];
+      return { intervals, roots, text };
+    }
+
+    function eval_sym(a, b_val) {
+      if (sym === '<')  return a < b_val;
+      if (sym === '<=') return a <= b_val;
+      if (sym === '>')  return a > b_val;
+      return a >= b_val;
+    }
+
+    // ─── Quadratic mode ──────────────────────────────────────────────────────
+    function computeQuadratic() {
+      const disc = qb * qb - 4 * qa * qc;
+      if (disc < 0) {
+        // Always positive if qa > 0, always negative if qa < 0
+        const signPara = qa > 0 ? 1 : -1; // sign of parabola for large x
+        const sat = eval_sym(signPara, 0);
+        return sat
+          ? { intervals: [[-Infinity, Infinity]], roots: [], text: 'All real numbers' }
+          : { intervals: [], roots: [], text: 'No solution' };
+      }
+      const sqrtD = Math.sqrt(disc);
+      const r1 = (-qb - sqrtD) / (2 * qa);
+      const r2 = (-qb + sqrtD) / (2 * qa);
+      const lo = Math.min(r1, r2), hi = Math.max(r1, r2);
+      const closed = !isStrict();
+      let intervals, text;
+      // Parabola opens up (qa>0): negative BETWEEN roots, positive OUTSIDE
+      // Parabola opens down (qa<0): positive BETWEEN roots, negative OUTSIDE
+      const betweenNeg = qa > 0;
+      if (isLess()) {
+        if (betweenNeg) {
+          intervals = [[lo, hi]];
+          text = `x ∈ (${lo.toFixed(2)}, ${hi.toFixed(2)})${closed ? ' [endpoints included]' : ''}`;
+        } else {
+          intervals = [[-Infinity, lo], [hi, Infinity]];
+          text = `x ∈ (-∞, ${lo.toFixed(2)}) ∪ (${hi.toFixed(2)}, +∞)`;
+        }
+      } else {
+        if (betweenNeg) {
+          intervals = [[-Infinity, lo], [hi, Infinity]];
+          text = `x ∈ (-∞, ${lo.toFixed(2)}) ∪ (${hi.toFixed(2)}, +∞)`;
+        } else {
+          intervals = [[lo, hi]];
+          text = `x ∈ (${lo.toFixed(2)}, ${hi.toFixed(2)})`;
+        }
+      }
+      const roots = disc === 0
+        ? [{ val: lo, closed }]
+        : [{ val: lo, closed }, { val: hi, closed }];
+      return { intervals, roots, text };
+    }
+
+    // ─── Main draw ───────────────────────────────────────────────────────────
+    function draw() {
+      const W = canvas.width, H = canvas.height;
+      const fn = mode === 'linear'
+        ? x => m * x + b
+        : x => qa * x * x + qb * x + qc;
+
+      Graph.drawBackground(ctx, W, H, RANGE);
+      fillRegion(fn);
+      Graph.drawAxes(ctx, W, H, RANGE);
+
+      // Boundary line/curve
+      const dashed = isStrict();
+      if (dashed) {
+        ctx.save();
+        ctx.setLineDash([8, 6]);
+        Graph.plot(ctx, fn, W, H, RANGE, '#4f8ef7', 'rgba(79,142,247,0.3)', 2);
+        ctx.setLineDash([]);
+        ctx.restore();
+      } else {
+        Graph.plot(ctx, fn, W, H, RANGE, '#4f8ef7', 'rgba(79,142,247,0.3)', 2);
+      }
+
+      // Equation label
+      let eqText;
+      if (mode === 'linear') {
+        const mPart = m === 1 ? 'x' : m === -1 ? '-x' : `${m}x`;
+        const bPart = b === 0 ? '' : b > 0 ? ` + ${b}` : ` - ${Math.abs(b)}`;
+        eqText = `y ${sym} ${mPart}${bPart}`;
+      } else {
+        const aS = qa === 1 ? '' : qa === -1 ? '-' : qa;
+        const bP = qb === 0 ? '' : qb > 0 ? ` + ${qb}x` : ` - ${Math.abs(qb)}x`;
+        const cP = qc === 0 ? '' : qc > 0 ? ` + ${qc}` : ` - ${Math.abs(qc)}`;
+        eqText = `y ${sym} ${aS}x²${bP}${cP}`;
+      }
+      document.getElementById('ineqEqDisplay').textContent = eqText;
+
+      const result = mode === 'linear' ? computeLinear() : computeQuadratic();
+      drawNumLine(result.roots, result.intervals);
+      document.getElementById('ineqSolText').textContent = result.text;
+    }
+
+    // ─── Event wiring ────────────────────────────────────────────────────────
+    document.querySelectorAll('.sym-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.sym-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        sym = btn.dataset.sym;
+        draw();
+      });
+    });
+
+    document.querySelectorAll('.ineq-mode-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.ineq-mode-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        mode = tab.dataset.mode;
+        const isQ = mode === 'quadratic';
+        ['lp-m','lp-b'].forEach(id => document.getElementById(id).style.display = isQ ? 'none' : '');
+        ['qp-a','qp-bq','qp-c'].forEach(id => document.getElementById(id).style.display = isQ ? '' : 'none');
+        draw();
+      });
+    });
+
+    [['is-m','iv-m',v=>{ m=v; }], ['is-b','iv-b',v=>{ b=v; }],
+     ['is-a','iv-a',v=>{ qa=v; }], ['is-bq','iv-bq',v=>{ qb=v; }], ['is-c','iv-c',v=>{ qc=v; }]
+    ].forEach(([id, vid, setter]) => {
+      document.getElementById(id).addEventListener('input', function() {
+        setter(parseFloat(this.value));
+        document.getElementById(vid).textContent = this.value;
+        draw();
+      });
+    });
+
+    Graph.init(canvas, draw);
+  </script>
+</body>
+</html>
