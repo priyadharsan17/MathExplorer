@@ -61,6 +61,17 @@
     </div>
   </section>
 
+  <!-- Did You Know? Panel -->
+  <section class="dyk-section">
+    <div class="container">
+      <div class="dyk-inner">
+        <span class="dyk-label">Did you know?</span>
+        <p class="dyk-text" id="dykText"></p>
+        <button class="dyk-btn" id="dykBtn" aria-label="Next fact">Next fact →</button>
+      </div>
+    </div>
+  </section>
+
   <!-- Topics Grid -->
   <section class="topics-section">
     <div class="container">
@@ -277,6 +288,33 @@
 
   <script src="../js/main.js"></script>
   <script src="../js/progress.js"></script>
-  <script>Progress.applyBadges();</script>
+  <script>
+    Progress.applyBadges();
+
+    // "Did you know?" panel
+    (function () {
+      var facts = [
+        "Euler published nearly half of all his mathematical work after going completely blind.",
+        "The word \u201calgebra\u201d comes from the Arabic \u201cal-jabr\u201d — meaning the reunion of broken parts.",
+        "The K\u00f6nigsberg Bridge problem that founded graph theory was solved by Euler in a single paper in 1736.",
+        "Ada Lovelace wrote the first computer program in 1843 — a century before electronic computers existed.",
+        "G\u00f6del\u2019s incompleteness theorems were published when he was just 25 years old.",
+        "The concept of zero took roughly 3,000 years to evolve from a placeholder symbol to a full number.",
+        "Florence Nightingale invented the polar-area chart to visualise mortality data and save soldiers\u2019 lives.",
+        "The Four Colour Theorem was the first major mathematical result proved with the help of a computer.",
+        "Pascal and Fermat invented probability theory through a series of letters about gambling problems in 1654.",
+        "The number \u03c0 has been calculated to over 100 trillion decimal places — and it never repeats."
+      ];
+      var idx = Math.floor(Math.random() * facts.length);
+      var textEl = document.getElementById('dykText');
+      var btn = document.getElementById('dykBtn');
+      function showFact() { textEl.textContent = facts[idx]; }
+      showFact();
+      btn.addEventListener('click', function () {
+        idx = (idx + 1) % facts.length;
+        showFact();
+      });
+    }());
+  </script>
 </body>
 </html>

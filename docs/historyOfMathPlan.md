@@ -362,11 +362,11 @@ Every topic page follows this narrative structure:
 - [x] Topic 11: The Foundations Crisis (`pages/history/logic-foundations.html`)
 - [x] Topic 12: Computers, Cryptography & Modern Math (`pages/history/modern-math.html`)
 
-### Phase 5 — Polish
-- [ ] Practice questions via `practice.js` on all 12 history pages
-- [ ] Progress tracking via `progress.js` on history category page
-- [ ] "Did you know?" random-fact panel on the category index
-- [ ] Cross-links between history pages and the corresponding maths topic pages (e.g. history/calculus-history.html ↔ calculus/derivatives.html)
+### Phase 5 — Polish ✅ COMPLETE
+- [x] Practice questions via `practice.js` on all 12 history pages
+- [x] Progress tracking via `progress.js` on history category page
+- [x] "Did you know?" random-fact panel on the category index
+- [x] Cross-links between history pages and the corresponding maths topic pages (all 8 algebra topic pages link to algebra-history.html)
 
 ---
 
