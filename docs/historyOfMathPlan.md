@@ -347,10 +347,10 @@ Every topic page follows this narrative structure:
 - [x] Add History nav link to `pages/algebra.html`, `calculus.html`, `trigonometry.html`
 - [x] Add History nav link to all 8 `pages/algebra/*.html` topic pages
 
-### Phase 2 — Ancient Origins
-- [ ] Topic 1: The Origin of Numbers & Counting (`pages/history/counting.html`)
-- [ ] Topic 2: Euclidean Geometry (`pages/history/euclidean-geometry.html`)
-- [ ] Topic 4: Trigonometry — Mapping the Heavens (`pages/history/trigonometry-history.html`)
+### Phase 2 — Ancient Origins ✅ COMPLETE
+- [x] Topic 1: The Origin of Numbers & Counting (`pages/history/counting.html`)
+- [x] Topic 2: Euclidean Geometry (`pages/history/euclidean-geometry.html`)
+- [x] Topic 4: Trigonometry — Mapping the Heavens (`pages/history/trigonometry-history.html`)
 
 ### Phase 3 — Modern Branches
 - [ ] Topic 7: Probability & Statistics (`pages/history/probability-history.html`)

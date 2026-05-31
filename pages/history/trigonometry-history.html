@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trigonometry — Mapping the Heavens | History of Mathematics</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="stylesheet" href="../../css/history.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-page">
+    <div class="topic-hero">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span>›</span>
+        <a href="../history.html">History</a>
+        <span>›</span>
+        <span>Trigonometry</span>
+      </nav>
+      <div class="topic-hero-top">
+        <div class="topic-symbol topic-symbol--history">sin</div>
+        <div>
+          <span class="era-badge">~150 BCE – 600 CE</span>
+          <h1 style="margin-top:8px;">Trigonometry — Mapping the Heavens</h1>
+        </div>
+      </div>
+      <p class="subtitle">Astronomers who needed to predict where Jupiter would be in three months, or calculate the distance from the Earth to the Moon, invented a new branch of mathematics: the systematic study of the relationship between angles and distances.</p>
+    </div>
+  </div>
+
+  <!-- The Problem -->
+  <section class="content-section">
+    <h2>The Problem</h2>
+    <div class="problem-card">
+      <div class="problem-label">What forced this invention?</div>
+      <p>The night sky is an enormous triangle problem. You can observe the angle between two stars from Earth, and you can measure how those angles change as the Earth moves around the Sun. But you cannot physically travel to a star and measure the distance with a ruler. The only tool you have is angles — and you need to convert those angles into distances.</p>
+      <p>Ancient astronomers needed to answer questions like: <strong>How far is the Moon from Earth? What is the Earth's circumference? When will a solar eclipse occur, and where will it be visible?</strong> All of these reduce to the same mathematical challenge: given some angles and some distances in a triangle, find the rest.</p>
+      <p>The Babylonians had catalogued star positions for centuries before the Greeks. The Egyptians had built monuments aligned with astronomical precision. But neither culture had the mathematical framework to systematically relate angles to lengths. <strong>The missing tool was trigonometry — a table of how chord length (and later: sine, cosine, and tangent) changes with angle.</strong></p>
+      <p>Hipparchus of Nicaea (~150 BCE) was the first to build such a table systematically. He did not call the values "sines" — he computed <em>chords</em> of a circle — but the underlying idea was identical. Six centuries later, Indian mathematician Aryabhata made the conceptual leap to the half-chord (jyā), which became the modern sine.</p>
+    </div>
+  </section>
+
+  <!-- The People -->
+  <section class="content-section">
+    <h2>The People</h2>
+    <div class="person-grid">
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">🌟</div>
+        <div class="portrait-name">Hipparchus of Nicaea</div>
+        <div class="portrait-dates">~190 – ~120 BCE</div>
+        <div class="portrait-title">Astronomer, Mathematician — Nicaea &amp; Rhodes</div>
+        <p class="portrait-body">Often called the "father of trigonometry," Hipparchus compiled the first known trigonometric table: a table of chord lengths for a circle of fixed radius, at half-degree intervals from 0° to 180°. He used this table to calculate the distance to the Moon, estimate the length of the solar year to within six minutes of the modern value, and discover the precession of the equinoxes. None of his works survive directly — we know of them through Ptolemy's <em>Almagest</em>.</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">🔭</div>
+        <div class="portrait-name">Claudius Ptolemy</div>
+        <div class="portrait-dates">~100 – ~170 CE</div>
+        <div class="portrait-title">Astronomer, Mathematician — Alexandria, Egypt</div>
+        <p class="portrait-body">Ptolemy's <em>Almagest</em> (the "great treatise") is the most comprehensive surviving work of ancient astronomy. It contains a detailed chord table accurate to 0.5° intervals — far more precise than Hipparchus's. Ptolemy also proved what is now called Ptolemy's theorem relating the diagonals and sides of a cyclic quadrilateral, which he used to derive his chord values. The <em>Almagest</em> remained the authoritative astronomical text in Europe and the Islamic world for 1,400 years.</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">🇮🇳</div>
+        <div class="portrait-name">Aryabhata</div>
+        <div class="portrait-dates">476 – 550 CE</div>
+        <div class="portrait-title">Mathematician, Astronomer — Kusumapura (modern Patna), India</div>
+        <p class="portrait-body">Aryabhata's <em>Aryabhatiya</em> (499 CE) introduced the half-chord function — what we now call the sine — replacing Hipparchus's chord of the full arc. This conceptual simplification (using half the chord of twice the angle) makes all trigonometric identities cleaner. Aryabhata compiled a sine table for 24 values from 0° to 90° at 3.75° intervals, accurate to four decimal places. He also correctly calculated π ≈ 3.1416 and asserted the Earth rotates on its axis.</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">🌙</div>
+        <div class="portrait-name">Al-Battānī (Albategnius)</div>
+        <div class="portrait-dates">858 – 929 CE</div>
+        <div class="portrait-title">Astronomer, Mathematician — Raqqa (modern Syria)</div>
+        <p class="portrait-body">Al-Battānī improved on Ptolemy's measurements with new astronomical observations and introduced the tangent and cotangent functions. He expressed trigonometric relationships as ratios (the modern approach) rather than as chord lengths. His work was translated into Latin in the 12th century and directly influenced Copernicus, Tycho Brahe, and Galileo. Copernicus cited Al-Battānī in <em>De revolutionibus</em>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- The Breakthrough — Chord vs Sine -->
+  <section class="content-section">
+    <h2>The Breakthrough — From Chord to Sine</h2>
+    <p style="color:var(--text-secondary);line-height:1.75;font-size:0.95rem;margin-bottom:20px;">The most important conceptual step in the history of trigonometry was Aryabhata's shift from Hipparchus's <em>chord</em> to the modern <em>sine</em>. It seems like a small change — but it turned a table of measurements into an elegant mathematical function.</p>
+
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula-label">Hipparchus's Chord (Greek)</div>
+        <div class="formula-math">\[ \text{crd}(\theta) = 2R \sin\!\left(\frac{\theta}{2}\right) \]</div>
+        <div class="formula-note">The chord of angle θ is the length of the straight line across a circle of radius R that subtends angle θ at the centre. Hipparchus used R = 3,438 (chosen so that one arc-minute of chord ≈ 1 unit).</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">Aryabhata's Half-Chord (Sine)</div>
+        <div class="formula-math">\[ \sin(\theta) = \frac{\text{crd}(2\theta)}{2R} \]</div>
+        <div class="formula-note">Aryabhata used the half-chord of twice the angle. For a unit circle (R = 1), this becomes exactly the modern sine function. The Sanskrit word <em>jyā</em> (half-chord) was transliterated by Arabic scholars as <em>jiba</em>, then mis-read as <em>jaib</em> (bay/bosom), giving the Latin <em>sinus</em> — and the English word <em>sine</em>.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">The Fundamental Identities</div>
+        <div class="formula-math">\[ \sin^2\theta + \cos^2\theta = 1 \]</div>
+        <div class="formula-note">The Pythagorean identity — the most important identity in trigonometry. It follows directly from the definition of sine and cosine on the unit circle, and was implicit in Aryabhata's half-chord formulation.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">Al-Battānī's Tangent</div>
+        <div class="formula-math">\[ \tan\theta = \frac{\sin\theta}{\cos\theta} \]</div>
+        <div class="formula-note">Al-Battānī introduced the tangent as the ratio of sine to cosine — and computed the first known tangent table. This ratio form replaced earlier shadow-length definitions and made the relationship between trigonometric functions explicit.</div>
+      </div>
+    </div>
+
+    <div class="hist-callout" style="margin-top:20px;">
+      <strong>Where does the word "sine" come from?</strong> Aryabhata called the half-chord <em>jyā</em> in Sanskrit. Arabic translators heard this as <em>jiba</em> (جيب), which in Arabic also means <em>bay</em> or <em>bosom</em>. When European scholars translated from Arabic to Latin, they translated the meaning rather than the sound — choosing <em>sinus</em> (Latin: bay, curve). This is the direct origin of the English word <em>sine</em>.
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="content-section">
+    <h2>Timeline — Angles, Arcs, and Stars</h2>
+    <div class="ht-timeline">
+      <div class="ht-event">
+        <div class="ht-event-year">~1,800 BCE</div>
+        <div class="ht-event-title">Babylonian Angle Measurements</div>
+        <div class="ht-event-text">Babylonian astronomers divide the circle into 360 degrees (reflecting their base-60 number system and the approximate number of days in a year). They catalogue star positions using angle measurements. No trigonometric functions yet — only raw observations.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">~240 BCE</div>
+        <div class="ht-event-title">Eratosthenes Measures the Earth</div>
+        <div class="ht-event-text">Using shadow angles at two locations (Alexandria and Syene) and the geometry of parallel rays of sunlight, Eratosthenes calculates the Earth's circumference as approximately 39,375 km — within 2% of the correct value. A triumph of applied angle geometry before formal trig tables existed.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">~150 BCE</div>
+        <div class="ht-event-title">Hipparchus — First Trigonometric Table</div>
+        <div class="ht-event-text">Hipparchus compiles the first systematic table of chord values. He uses it to calculate the distance to the Moon (estimated at 59–67 Earth radii; modern value ≈ 60.3 ER) and discovers the precession of the equinoxes — the 26,000-year wobble of Earth's rotational axis.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">~100 – 170 CE</div>
+        <div class="ht-event-title">Ptolemy — Almagest</div>
+        <div class="ht-event-text">Ptolemy's <em>Almagest</em> contains a chord table for 360 values at 0.5° intervals, accurate to 7 significant figures. Ptolemy uses the table to construct his geocentric model of planetary motion — enormously complex, but accurate enough for navigation for 1,400 years.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">499 CE</div>
+        <div class="ht-event-title">Aryabhata — Sine Table and the Half-Chord</div>
+        <div class="ht-event-text">Aryabhata's <em>Aryabhatiya</em> introduces the sine (as jyā, half-chord) and provides a sine table for 24 angles. He also gives a recursive formula for computing sine differences — the first algorithm for building a trig table from scratch. His value of π ≈ 3.14159 is accurate to four decimal places.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">~628 CE</div>
+        <div class="ht-event-title">Brahmagupta — Interpolation</div>
+        <div class="ht-event-text">Brahmagupta provides an interpolation formula for computing sine values between the tabulated angles. This is an early form of numerical analysis — approximating a continuous function from discrete data points.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">858 – 929 CE</div>
+        <div class="ht-event-title">Al-Battānī — Tangent, Cotangent, New Observations</div>
+        <div class="ht-event-text">Al-Battānī introduces the tangent and cotangent, rewrites Ptolemy's results using the sine rather than the chord, and makes new precise measurements of the solar year and the obliquity of the ecliptic (Earth's axial tilt). His star catalogue improves on Ptolemy's by 700 years of new observations.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1464</div>
+        <div class="ht-event-title">Regiomontanus — First European Trig Textbook</div>
+        <div class="ht-event-text">Johannes Müller (Regiomontanus) writes <em>De triangulis omnimodis</em> — the first European treatise devoted entirely to trigonometry, treating it as an independent branch of mathematics rather than a tool of astronomy. The six trigonometric functions appear together for the first time.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1614</div>
+        <div class="ht-event-title">Napier's Logarithms</div>
+        <div class="ht-event-text">John Napier invents logarithms, transforming trigonometric computation. The product-to-sum identity \(\sin A \cdot \sin B = \frac{1}{2}[\cos(A-B) - \cos(A+B)]\) allowed astronomers to reduce multiplication to addition using log tables — the dominant calculation method for the next 350 years.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">18th Century</div>
+        <div class="ht-event-title">Euler — Functions on the Unit Circle</div>
+        <div class="ht-event-text">Leonhard Euler reformulates trigonometry in terms of the unit circle and introduces the notation sin(x), cos(x), tan(x) that we use today. His formula \(e^{i\theta} = \cos\theta + i\sin\theta\) unifies trigonometry with exponential functions and complex numbers — one of the deepest connections in all of mathematics.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Spread -->
+  <section class="content-section">
+    <h2>How It Spread</h2>
+    <p style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:20px;">Trigonometry's transmission from Greece to India to the Islamic world to Europe is one of the great stories of intellectual diffusion in history.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;">
+      <div class="word-origin">
+        <div class="word">Greece → India</div>
+        <div class="word-lang">~150 BCE → ~499 CE</div>
+        <div class="word-meaning">Greek astronomical texts (including Hipparchus's) were translated into Sanskrit. Indian mathematicians absorbed the chord-based approach and transformed it, replacing chords with half-chords (sines) and developing their own, more precise tables.</div>
+      </div>
+      <div class="word-origin">
+        <div class="word">India → Islamic World</div>
+        <div class="word-lang">~700–900 CE</div>
+        <div class="word-meaning">The Abbasid translation movement brought Aryabhata's and Brahmagupta's works to Baghdad. The word <em>jyā</em> became <em>jiba</em> (جيب) in Arabic. Al-Battānī and others extended the Indian approach, adding tangent and cotangent and improving tables.</div>
+      </div>
+      <div class="word-origin">
+        <div class="word">Islamic World → Europe</div>
+        <div class="word-lang">~1000–1400 CE</div>
+        <div class="word-meaning">Arabic trig texts reached Europe through two main routes: the translation schools of Toledo (Spain) and Sicily. The word <em>jiba</em> was mistranslated as <em>sinus</em> (Latin for bay), giving us the modern word <em>sine</em>. Al-Battānī's tables were used by Copernicus and Tycho Brahe.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why It Still Matters -->
+  <section class="content-section">
+    <h2>Why It Still Matters</h2>
+    <div class="matters-card">
+      <div class="matters-label">Modern Impact</div>
+      <p>Trigonometry is one of the most practically important branches of mathematics, embedded in technology we use every day:</p>
+      <ul>
+        <li><strong>Signal processing and audio</strong> — every sound wave is a sum of sine waves (Fourier series). MP3 compression, audio equalisation, and noise cancellation all depend on trigonometric decomposition of signals.</li>
+        <li><strong>GPS and satellite navigation</strong> — satellite triangulation uses the law of cosines and spherical trigonometry. Your phone's GPS position is a trigonometric calculation performed thousands of times per second.</li>
+        <li><strong>Computer graphics and games</strong> — 3D rotation, camera projection, and animation all use rotation matrices built from sine and cosine values.</li>
+        <li><strong>Electrical engineering</strong> — alternating current (AC) is described by sinusoidal functions. Power grids, transformers, and wireless communications are designed using trigonometric analysis.</li>
+        <li><strong>Quantum mechanics</strong> — wave functions in quantum mechanics are expressed as complex exponentials \(e^{i\theta}\). Euler's formula connects trig to quantum physics via \(e^{i\theta} = \cos\theta + i\sin\theta\).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="content-section">
+    <h2>In His Words</h2>
+    <div class="quote-block">
+      <p class="quote-text">The circle of the sky, measured by degrees, contains three hundred and sixty. The sines of each degree, calculated by me with great effort, I here set forth.</p>
+      <div class="quote-attribution">— Aryabhata, <em>Aryabhatiya</em>, 499 CE (paraphrased translation)</div>
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <ul class="takeaways-list">
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p><strong>Hipparchus (~150 BCE)</strong> compiled the first trig table — based on chord lengths — to predict astronomical positions and calculate the distance to the Moon.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p><strong>Aryabhata (499 CE)</strong> replaced the chord with the half-chord (jyā), producing the modern sine function. His sine table was accurate to four decimal places.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>The word <strong>sine</strong> comes from Sanskrit <em>jyā</em> → Arabic <em>jiba</em> (جيب) → mis-read as Arabic <em>jaib</em> (bay) → Latin <em>sinus</em> (bay). A translation accident that stuck for a thousand years.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p><strong>Al-Battānī (858–929 CE)</strong> introduced tangent and cotangent, rewrote Ptolemy using sines, and was cited by Copernicus. His observations improved on Ptolemy's by 700 years of new data.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Euler's formula \(e^{i\theta} = \cos\theta + i\sin\theta\) unifies trigonometry with complex numbers and exponentials — the deep foundation of signal processing, quantum mechanics, and electrical engineering.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="euclidean-geometry.html" class="related-card">Euclidean Geometry <span>→</span></a>
+      <a href="algebra-history.html" class="related-card">History of Algebra <span>→</span></a>
+      <a href="calculus-history.html" class="related-card">History of Calculus <span>→</span></a>
+      <a href="../trigonometry.html" class="related-card">Trigonometry (Maths) <span>→</span></a>
+      <a href="../history.html" class="related-card">All History Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-symbol">∑</span>
+          <span class="logo-text">MathExplorer</span>
+        </div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script src="../../js/progress.js"></script>
+  <script>Progress.markVisited('trigonometry-history');</script>
+</body>
+</html>

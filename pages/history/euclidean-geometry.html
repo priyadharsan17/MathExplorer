@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Euclidean Geometry | History of Mathematics</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="stylesheet" href="../../css/history.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-page">
+    <div class="topic-hero">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span>›</span>
+        <a href="../history.html">History</a>
+        <span>›</span>
+        <span>Euclidean Geometry</span>
+      </nav>
+      <div class="topic-hero-top">
+        <div class="topic-symbol topic-symbol--history">△</div>
+        <div>
+          <span class="era-badge">~300 BCE</span>
+          <h1 style="margin-top:8px;">Euclidean Geometry</h1>
+        </div>
+      </div>
+      <p class="subtitle">From five simple postulates, Euclid built an entire universe of shapes and proofs — a logical structure so solid it was treated as absolute truth for two thousand years, until someone asked what happens if you deny the fifth one.</p>
+    </div>
+  </div>
+
+  <!-- The Problem -->
+  <section class="content-section">
+    <h2>The Problem</h2>
+    <div class="problem-card">
+      <div class="problem-label">What forced this invention?</div>
+      <p>Ancient Egyptians were practical geometers. Every year the Nile flooded and erased the boundary marks between fields. When the waters receded, surveyors — called <em>harpedonaptai</em> (rope-stretchers) — had to re-measure and restore every farmer's land from scratch. They knew that a triangle with sides 3, 4, and 5 always produced a perfect right angle (because \(3^2 + 4^2 = 5^2\)), and they used ropes knotted at those intervals to guarantee square corners.</p>
+      <p>This worked beautifully as a <em>technique</em>. But Greek philosophers wanted to know <strong>why</strong> it worked. Was it a coincidence specific to 3-4-5? Did it apply to all right triangles? Could you <em>prove</em> it, rather than just measure it? Thales (~624 BCE) and Pythagoras (~570 BCE) began searching for logical arguments — not just rules of thumb.</p>
+      <p>By ~300 BCE, there was a large body of known geometric results but no coherent logical framework. Theorems had been proved, but each proof relied on different unstated assumptions. <strong>The problem was this: is there a minimal set of obviously-true starting points from which all of geometry can be logically derived?</strong> Euclid of Alexandria answered yes — and his answer shaped mathematics for the next two millennia.</p>
+    </div>
+  </section>
+
+  <!-- The Person -->
+  <section class="content-section">
+    <h2>The Person</h2>
+    <div class="person-grid">
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">📐</div>
+        <div class="portrait-name">Euclid of Alexandria</div>
+        <div class="portrait-dates">~325 – ~265 BCE</div>
+        <div class="portrait-title">Mathematician — Alexandria, Egypt (under Ptolemy I)</div>
+        <p class="portrait-body">Almost nothing is known about Euclid's personal life. He worked in Alexandria — then the intellectual capital of the Greek-speaking world — likely at the famous Library. His 13-volume work <em>Elements</em> is the most successful mathematics textbook ever written: used in schools for over 2,000 years, with more editions than any book except the Bible. Euclid's genius was not in inventing theorems — most were known before him — but in organising all of geometry into a single, airtight logical structure from five postulates.</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">🌊</div>
+        <div class="portrait-name">Thales of Miletus</div>
+        <div class="portrait-dates">~624 – ~546 BCE</div>
+        <div class="portrait-title">Mathematician, Philosopher — Miletus (modern Turkey)</div>
+        <p class="portrait-body">Often credited as the first mathematician to use logical proofs rather than empirical observation. Thales proved several geometric results including that the diameter of a circle bisects it, that base angles of an isosceles triangle are equal, and that the angle in a semicircle is always a right angle (Thales' theorem). He set the standard that mathematical claims require demonstration, not just measurement.</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">⭐</div>
+        <div class="portrait-name">Pythagoras of Samos</div>
+        <div class="portrait-dates">~570 – ~495 BCE</div>
+        <div class="portrait-title">Mathematician, Philosopher — Samos, then southern Italy</div>
+        <p class="portrait-body">Although the Pythagorean theorem was known in Babylon and India long before Pythagoras, he (or his school) is credited with the first formal proof that \(a^2 + b^2 = c^2\) for all right triangles — not just the 3-4-5 case. Pythagoras believed the universe was fundamentally mathematical: <em>all is number</em>. His school was dismayed to discover irrational numbers, which they reportedly tried to suppress.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- The Breakthrough -->
+  <section class="content-section">
+    <h2>The Breakthrough — Five Postulates</h2>
+    <p style="color:var(--text-secondary);line-height:1.75;font-size:0.95rem;margin-bottom:20px;">Euclid began <em>Elements</em> with five postulates — statements so obvious they require no proof. From these five assumptions alone, he derived every geometric theorem in his 13 books. The simplicity of the starting point and the power of what follows from it is one of the most remarkable intellectual achievements in history.</p>
+
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula-label">Postulate 1</div>
+        <div class="formula-math" style="font-size:0.95rem;font-style:italic;">"A straight line may be drawn from any point to any other point."</div>
+        <div class="formula-note">Two points determine exactly one line. Seems obvious — but stating it explicitly means every subsequent proof can use it without further justification.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">Postulate 2</div>
+        <div class="formula-math" style="font-size:0.95rem;font-style:italic;">"A finite straight line may be extended continuously in a straight line."</div>
+        <div class="formula-note">A line segment can always be made longer. Equivalent to saying lines are infinite and the plane is unbounded.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">Postulate 3</div>
+        <div class="formula-math" style="font-size:0.95rem;font-style:italic;">"A circle may be drawn with any centre and any radius."</div>
+        <div class="formula-note">You can always draw a circle around any point with any chosen distance as radius. This is what compass-and-straightedge constructions use.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">Postulate 4</div>
+        <div class="formula-math" style="font-size:0.95rem;font-style:italic;">"All right angles are equal to one another."</div>
+        <div class="formula-note">Every right angle is the same — 90°. Space is uniform; there are no special locations where a right angle measures differently.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">Postulate 5 — The Parallel Postulate</div>
+        <div class="formula-math" style="font-size:0.85rem;font-style:italic;">"If a line falls on two lines so that the interior angles on the same side sum to less than two right angles, those two lines, extended far enough, will meet on that side."</div>
+        <div class="formula-note">This is Euclid's most famous and controversial postulate. It is equivalent to: <em>through any point not on a given line, there is exactly one line parallel to the given line</em> (Playfair's axiom). Its complexity compared to the first four made mathematicians suspicious for 2,000 years.</div>
+      </div>
+    </div>
+
+    <div class="hist-callout" style="margin-top:20px;">
+      <strong>What makes the 5th postulate special?</strong> Mathematicians from Proclus (5th century CE) onward suspected that the parallel postulate could be <em>proved</em> from the first four — that it was not truly independent. Centuries of failed attempts finally led Gauss, Bolyai, and Lobachevsky (1830s) to try the opposite: assume the 5th postulate is <em>false</em>. They found a perfectly consistent geometry — non-Euclidean geometry — proving it is truly independent and cannot be derived from the others.
+    </div>
+  </section>
+
+  <!-- A Famous Proof -->
+  <section class="content-section">
+    <h2>A Famous Proof — The Infinitude of Primes</h2>
+    <p style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:20px;">Euclid proved far more than just shapes. In Book IX, Proposition 20, he proved that there are infinitely many prime numbers — a result with profound consequences for number theory and cryptography. The proof is a masterpiece of logic, using only the tools of <em>Elements</em>.</p>
+    <div class="problem-card">
+      <div class="problem-label">Euclid's Proof of Infinitely Many Primes (paraphrased)</div>
+      <p><strong>Suppose</strong> the set of all primes is finite: \(\{p_1, p_2, \ldots, p_n\}\).</p>
+      <p><strong>Construct</strong> the number \(N = p_1 \times p_2 \times \cdots \times p_n + 1\).</p>
+      <p><strong>N is either prime or composite.</strong> If prime, it is a new prime not in our list — contradiction.</p>
+      <p>If composite, it has a prime factor \(p\). But \(p\) must be one of \(p_1 \ldots p_n\). However, dividing \(N\) by any \(p_i\) leaves a remainder of 1 (since \(N = p_1 \cdots p_n + 1\)). So \(p\) divides \(N\) but \(p\) is not any \(p_i\) — another prime outside our list. Contradiction either way.</p>
+      <p><strong>Therefore</strong> the set of primes cannot be finite. \(\square\)</p>
+      <div class="formula-grid" style="margin-top:16px;">
+        <div class="formula-card">
+          <div class="formula-label">Example with the first 4 primes</div>
+          <div class="formula-math">\[ N = (2 \times 3 \times 5 \times 7) + 1 = 211 \]</div>
+          <div class="formula-note">211 is itself prime — a new prime not in our starting list of {2, 3, 5, 7}. Euclid's construction guarantees a new prime always exists, though it does not necessarily equal \(N\) itself.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="content-section">
+    <h2>Timeline — Two Thousand Years of Geometry</h2>
+    <div class="ht-timeline">
+      <div class="ht-event">
+        <div class="ht-event-year">~2,000 BCE</div>
+        <div class="ht-event-title">Egyptian Rope-Stretchers</div>
+        <div class="ht-event-text">Egyptian surveyors (harpedonaptai) use knotted ropes in 3-4-5 ratios to construct right angles after the annual Nile flood. Geometry as practical technique, with no proofs.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">~1,800 BCE</div>
+        <div class="ht-event-title">Babylonian Pythagorean Triples</div>
+        <div class="ht-event-text">The clay tablet Plimpton 322 lists Pythagorean triples (sets of integers satisfying \(a^2 + b^2 = c^2\)), including triples far beyond 3-4-5. Babylonians clearly knew the relationship — but left no proof.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">~624 – 546 BCE</div>
+        <div class="ht-event-title">Thales — First Proofs</div>
+        <div class="ht-event-text">Thales of Miletus proves several geometric theorems using logical argument. Introduces the idea that geometric truth requires demonstration, not just measurement.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">~570 – 495 BCE</div>
+        <div class="ht-event-title">Pythagoras — The Theorem Proved</div>
+        <div class="ht-event-text">Pythagoras or his school produces the first known proof that \(a^2 + b^2 = c^2\) for any right triangle. They also discover irrational numbers (such as \(\sqrt{2}\)), which cannot be expressed as ratios of integers — a philosophically disturbing finding.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">~300 BCE</div>
+        <div class="ht-event-title">Euclid — Elements Published</div>
+        <div class="ht-event-text">Euclid writes <em>Elements</em>: 13 books, 465 propositions, all derived from 5 postulates and 5 common notions. It organises all known Greek geometry — and number theory — into a single deductive system. The most influential mathematics textbook ever written.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">~250 BCE</div>
+        <div class="ht-event-title">Archimedes — Geometry Pushed Further</div>
+        <div class="ht-event-text">Working within Euclid's framework, Archimedes calculates the area of a circle (\(\pi r^2\)), the volume of a sphere (\(\frac{4}{3}\pi r^3\)), and develops the method of exhaustion — a precursor to integration. He shows that \(\pi\) lies between \(3\frac{10}{71}\) and \(3\frac{1}{7}\).</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">5th–15th century CE</div>
+        <div class="ht-event-title">Elements Preserved and Transmitted</div>
+        <div class="ht-event-text"><em>Elements</em> is translated into Arabic (~820 CE) by Islamic scholars at the House of Wisdom. It returns to Europe in Latin translations from the 12th century onward, becoming the standard geometry textbook in European universities.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">17th century</div>
+        <div class="ht-event-title">Descartes — Coordinates Join Algebra to Geometry</div>
+        <div class="ht-event-text">René Descartes introduces the Cartesian coordinate system, translating Euclid's geometric points into algebraic pairs \((x, y)\). For the first time, geometric curves can be described as equations. Euclidean geometry becomes analytic geometry.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1830s</div>
+        <div class="ht-event-title">Non-Euclidean Geometry — The 5th Postulate Falls</div>
+        <div class="ht-event-text">Gauss (privately), Bolyai, and Lobachevsky independently construct geometries in which the parallel postulate is false — and find them perfectly consistent. Euclid's geometry is not the only possible geometry; it describes flat space. Curved surfaces obey different rules.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1915</div>
+        <div class="ht-event-title">Einstein — Spacetime Is Not Euclidean</div>
+        <div class="ht-event-text">Einstein's General Relativity describes gravity as the curvature of a four-dimensional spacetime — a Riemannian manifold, not a Euclidean space. On the scale of stars and galaxies, Euclid's parallel postulate is not exactly true. The geometry of the cosmos is non-Euclidean.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why It Still Matters -->
+  <section class="content-section">
+    <h2>Why It Still Matters</h2>
+    <div class="matters-card">
+      <div class="matters-label">Modern Impact</div>
+      <p>Euclidean geometry shaped not just mathematics but the entire Western intellectual tradition:</p>
+      <ul>
+        <li><strong>The model for rigorous proof</strong> — Euclid's axiomatic method (start with assumptions, derive everything else by logic) became the template for all of mathematics. Every modern proof-based course in algebra, analysis, and logic follows this structure.</li>
+        <li><strong>Architecture and engineering</strong> — Euclidean geometry is the geometry of flat surfaces, and for human-scale construction it remains exactly correct. Every building, bridge, and circuit board is designed using Euclidean principles.</li>
+        <li><strong>Computer graphics and games</strong> — 3D rendering, collision detection, and spatial reasoning in software all depend on Euclidean vector geometry.</li>
+        <li><strong>Cryptography</strong> — Euclid's proof of the infinitude of primes and his algorithm for finding the greatest common divisor (the Euclidean algorithm) underpin RSA encryption, used to secure every HTTPS connection on the internet.</li>
+        <li><strong>GPS and navigation</strong> — While large-scale navigation requires spherical (non-Euclidean) geometry, local positioning and triangulation rely on Euclidean distance formulas.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="content-section">
+    <h2>In His Words — Almost</h2>
+    <div class="quote-block">
+      <p class="quote-text">There is no royal road to geometry.</p>
+      <div class="quote-attribution">— Euclid, as reported by Proclus, when asked by Ptolemy I if there was a shorter way to learn geometry than through <em>Elements</em></div>
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <ul class="takeaways-list">
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Euclid's <em>Elements</em> (~300 BCE) organised all known geometry into a deductive system built from <strong>five postulates</strong>. It is the second-most-printed book in history after the Bible.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>The <strong>fifth postulate (parallel postulate)</strong> was suspected of being provable from the other four for 2,000 years. It isn't — denying it yields non-Euclidean geometries.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Euclid proved <strong>there are infinitely many prime numbers</strong> using a proof by contradiction — a technique still considered one of the most elegant in all of mathematics.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Einstein's General Relativity (1915) showed that large-scale spacetime is <strong>non-Euclidean</strong> — gravity is the curvature of space, not a force acting across flat geometry.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>The <strong>Euclidean algorithm</strong> (greatest common divisor) from <em>Elements</em> is one of the oldest algorithms still in active use — it forms the mathematical basis of RSA encryption.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="trigonometry-history.html" class="related-card">History of Trigonometry <span>→</span></a>
+      <a href="algebra-history.html" class="related-card">History of Algebra <span>→</span></a>
+      <a href="counting.html" class="related-card">The Origin of Numbers <span>→</span></a>
+      <a href="../history.html" class="related-card">All History Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-symbol">∑</span>
+          <span class="logo-text">MathExplorer</span>
+        </div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script src="../../js/progress.js"></script>
+  <script>Progress.markVisited('euclidean-geometry');</script>
+</body>
+</html>
