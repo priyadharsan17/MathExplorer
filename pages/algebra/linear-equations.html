@@ -202,14 +202,14 @@
             <span>Slope (m)</span>
             <span class="control-value" id="mVal">1</span>
           </div>
-          <input type="range" id="slopeSlider" min="-5" max="5" step="0.5" value="1" />
+          <input type="range" id="slopeSlider" min="-5" max="5" step="0.5" value="1" aria-label="Slope (m)" />
         </div>
         <div class="control-group">
           <div class="control-label">
             <span>Y-Intercept (b)</span>
             <span class="control-value" id="bVal">0</span>
           </div>
-          <input type="range" id="interceptSlider" min="-8" max="8" step="0.5" value="0" />
+          <input type="range" id="interceptSlider" min="-8" max="8" step="0.5" value="0" aria-label="Y-intercept (b)" />
         </div>
       </div>
 
@@ -257,6 +257,9 @@
     </div>
   </section>
 
+  <!-- Practice Problems -->
+  <section class="content-section" id="practice-section"></section>
+
   <!-- Related Topics -->
   <section class="content-section">
     <h2>Related Topics</h2>
@@ -280,6 +283,8 @@
   </footer>
 
   <script src="../../js/main.js"></script>
+  <script src="../../js/practice.js"></script>
+  <script src="../../js/progress.js"></script>
   <script>
     // ── Linear equation graph plotter ──
     const canvas = document.getElementById('lineCanvas');
@@ -409,6 +414,10 @@
 
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
+
+    // Phase 4 — Practice & Progress
+    Practice.render('linear-equations', 'practice-section');
+    Progress.markVisited('linear-equations');
   </script>
 </body>
 </html>

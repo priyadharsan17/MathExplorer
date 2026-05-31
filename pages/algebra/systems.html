@@ -253,11 +253,11 @@
           </div>
           <div class="control-group">
             <div class="control-label"><span>m₁ (slope)</span><span class="control-value" id="v-m1">2</span></div>
-            <input type="range" id="s-m1" min="-6" max="6" step="0.5" value="2" />
+            <input type="range" id="s-m1" min="-6" max="6" step="0.5" value="2" aria-label="Slope of line 1 (m₁)" />
           </div>
           <div class="control-group" style="margin-top:10px;">
             <div class="control-label"><span>b₁ (intercept)</span><span class="control-value" id="v-b1">1</span></div>
-            <input type="range" id="s-b1" min="-8" max="8" step="0.5" value="1" />
+            <input type="range" id="s-b1" min="-8" max="8" step="0.5" value="1" aria-label="Y-intercept of line 1 (b₁)" />
           </div>
         </div>
         <div class="sys-eq-panel">
@@ -268,11 +268,11 @@
           </div>
           <div class="control-group">
             <div class="control-label"><span>m₂ (slope)</span><span class="control-value" id="v-m2">-1</span></div>
-            <input type="range" id="s-m2" min="-6" max="6" step="0.5" value="-1" />
+            <input type="range" id="s-m2" min="-6" max="6" step="0.5" value="-1" aria-label="Slope of line 2 (m₂)" />
           </div>
           <div class="control-group" style="margin-top:10px;">
             <div class="control-label"><span>b₂ (intercept)</span><span class="control-value" id="v-b2">4</span></div>
-            <input type="range" id="s-b2" min="-8" max="8" step="0.5" value="4" />
+            <input type="range" id="s-b2" min="-8" max="8" step="0.5" value="4" aria-label="Y-intercept of line 2 (b₂)" />
           </div>
         </div>
       </div>
@@ -322,6 +322,9 @@
     </div>
   </section>
 
+  <!-- Practice Problems -->
+  <section class="content-section" id="practice-section"></section>
+
   <!-- Related Topics -->
   <section class="content-section">
     <h2>Related Topics</h2>
@@ -344,6 +347,8 @@
   </footer>
 
   <script src="../../js/main.js"></script>
+  <script src="../../js/practice.js"></script>
+  <script src="../../js/progress.js"></script>
   <script src="../../js/graph.js"></script>
   <script>
     const canvas = document.getElementById('sysCanvas');
@@ -431,6 +436,10 @@
     });
 
     Graph.init(canvas, draw);
+
+    // Phase 4 — Practice & Progress
+    Practice.render('systems', 'practice-section');
+    Progress.markVisited('systems');
   </script>
 </body>
 </html>

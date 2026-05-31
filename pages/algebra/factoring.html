@@ -247,15 +247,15 @@
       <div class="factor-controls">
         <div class="control-group">
           <div class="control-label"><span>a (x²)</span><span class="control-value" id="fv-a">1</span></div>
-          <input type="range" id="fs-a" min="1" max="6" step="1" value="1" />
+          <input type="range" id="fs-a" min="1" max="6" step="1" value="1" aria-label="Coefficient a (x²)" />
         </div>
         <div class="control-group">
           <div class="control-label"><span>b (x)</span><span class="control-value" id="fv-b">-5</span></div>
-          <input type="range" id="fs-b" min="-10" max="10" step="1" value="-5" />
+          <input type="range" id="fs-b" min="-10" max="10" step="1" value="-5" aria-label="Coefficient b (x)" />
         </div>
         <div class="control-group">
           <div class="control-label"><span>c (constant)</span><span class="control-value" id="fv-c">6</span></div>
-          <input type="range" id="fs-c" min="-12" max="12" step="1" value="6" />
+          <input type="range" id="fs-c" min="-12" max="12" step="1" value="6" aria-label="Constant c" />
         </div>
       </div>
 
@@ -285,6 +285,9 @@
     </div>
   </section>
 
+  <!-- Practice Problems -->
+  <section class="content-section" id="practice-section"></section>
+
   <!-- Related Topics -->
   <section class="content-section">
     <h2>Related Topics</h2>
@@ -309,6 +312,8 @@
   </footer>
 
   <script src="../../js/main.js"></script>
+  <script src="../../js/practice.js"></script>
+  <script src="../../js/progress.js"></script>
   <script src="../../js/graph.js"></script>
   <script>
     const canvas = document.getElementById('factorCanvas');
@@ -495,6 +500,10 @@
     });
 
     Graph.init(canvas, draw, 0.6);
+
+    // Phase 4 — Practice & Progress
+    Practice.render('factoring', 'practice-section');
+    Progress.markVisited('factoring');
   </script>
 </body>
 </html>

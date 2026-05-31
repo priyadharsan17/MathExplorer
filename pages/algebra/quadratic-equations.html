@@ -221,21 +221,21 @@
             <span>a (shape &amp; direction)</span>
             <span class="control-value" id="aVal">1</span>
           </div>
-          <input type="range" id="sliderA" min="-3" max="3" step="0.5" value="1" />
+          <input type="range" id="sliderA" min="-3" max="3" step="0.5" value="1" aria-label="Coefficient a" />
         </div>
         <div class="control-group">
           <div class="control-label">
             <span>b (shift left/right)</span>
             <span class="control-value" id="bVal">0</span>
           </div>
-          <input type="range" id="sliderB" min="-6" max="6" step="0.5" value="0" />
+          <input type="range" id="sliderB" min="-6" max="6" step="0.5" value="0" aria-label="Coefficient b" />
         </div>
         <div class="control-group">
           <div class="control-label">
             <span>c (vertical shift)</span>
             <span class="control-value" id="cVal">0</span>
           </div>
-          <input type="range" id="sliderC" min="-8" max="8" step="0.5" value="0" />
+          <input type="range" id="sliderC" min="-8" max="8" step="0.5" value="0" aria-label="Constant c" />
         </div>
       </div>
 
@@ -283,6 +283,9 @@
     </div>
   </section>
 
+  <!-- Practice Problems -->
+  <section class="content-section" id="practice-section"></section>
+
   <!-- Related Topics -->
   <section class="content-section">
     <h2>Related Topics</h2>
@@ -306,6 +309,8 @@
   </footer>
 
   <script src="../../js/main.js"></script>
+  <script src="../../js/practice.js"></script>
+  <script src="../../js/progress.js"></script>
   <script>
     // ── Quadratic parabola plotter ──
     const canvas = document.getElementById('quadCanvas');
@@ -491,6 +496,10 @@
     [sliderA, sliderB, sliderC].forEach(s => s.addEventListener('input', draw));
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
+
+    // Phase 4 — Practice & Progress
+    Practice.render('quadratic-equations', 'practice-section');
+    Progress.markVisited('quadratic-equations');
   </script>
 </body>
 </html>

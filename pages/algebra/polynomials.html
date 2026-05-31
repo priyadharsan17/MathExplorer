@@ -220,7 +220,7 @@
             <span>a₄ (x⁴)</span>
             <span class="control-value" id="v-a4">0</span>
           </div>
-          <input type="range" id="s-a4" min="-2" max="2" step="0.5" value="0" />
+          <input type="range" id="s-a4" min="-2" max="2" step="0.5" value="0" aria-label="Coefficient a₄ (x⁴)" />
         </div>
         <!-- Degree 3 -->
         <div class="control-group coeff-row" id="row-a3">
@@ -228,7 +228,7 @@
             <span>a₃ (x³)</span>
             <span class="control-value" id="v-a3">0</span>
           </div>
-          <input type="range" id="s-a3" min="-3" max="3" step="0.5" value="0" />
+          <input type="range" id="s-a3" min="-3" max="3" step="0.5" value="0" aria-label="Coefficient a₃ (x³)" />
         </div>
         <!-- Degree 2 (always shown) -->
         <div class="control-group coeff-row visible" id="row-a2">
@@ -236,7 +236,7 @@
             <span>a₂ (x²)</span>
             <span class="control-value" id="v-a2">1</span>
           </div>
-          <input type="range" id="s-a2" min="-3" max="3" step="0.5" value="1" />
+          <input type="range" id="s-a2" min="-3" max="3" step="0.5" value="1" aria-label="Coefficient a₂ (x²)" />
         </div>
         <!-- Linear term (always shown) -->
         <div class="control-group coeff-row visible" id="row-a1">
@@ -244,7 +244,7 @@
             <span>a₁ (x)</span>
             <span class="control-value" id="v-a1">0</span>
           </div>
-          <input type="range" id="s-a1" min="-5" max="5" step="0.5" value="0" />
+          <input type="range" id="s-a1" min="-5" max="5" step="0.5" value="0" aria-label="Coefficient a₁ (x)" />
         </div>
         <!-- Constant term (always shown) -->
         <div class="control-group coeff-row visible" id="row-a0">
@@ -252,7 +252,7 @@
             <span>a₀ (constant)</span>
             <span class="control-value" id="v-a0">0</span>
           </div>
-          <input type="range" id="s-a0" min="-8" max="8" step="0.5" value="0" />
+          <input type="range" id="s-a0" min="-8" max="8" step="0.5" value="0" aria-label="Constant a₀" />
         </div>
       </div>
 
@@ -300,6 +300,9 @@
     </div>
   </section>
 
+  <!-- Practice Problems -->
+  <section class="content-section" id="practice-section"></section>
+
   <!-- Related Topics -->
   <section class="content-section">
     <h2>Related Topics</h2>
@@ -325,6 +328,8 @@
   </footer>
 
   <script src="../../js/main.js"></script>
+  <script src="../../js/practice.js"></script>
+  <script src="../../js/progress.js"></script>
   <script src="../../js/graph.js"></script>
   <script>
     const canvas = document.getElementById('polyCanvas');
@@ -438,6 +443,10 @@
     }
 
     Graph.init(canvas, draw);
+
+    // Phase 4 — Practice & Progress
+    Practice.render('polynomials', 'practice-section');
+    Progress.markVisited('polynomials');
   </script>
 </body>
 </html>

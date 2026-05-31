@@ -80,7 +80,7 @@ All graphs share a common canvas helper (`js/graph.js`, Phase 2):
 - [x] Inequalities — linear & quadratic modes, region fill, number line, interval notation
 - [x] Matrices — A×B calculator, det(A), A⁻¹, transformation visualiser with presets (rotate/scale/reflect/shear)
 
-### Phase 4 — Polish
-- [ ] Practice problems with answer reveal
-- [ ] Progress tracking (localStorage)
-- [ ] Keyboard accessibility for all sliders
+### Phase 4 — Polish ✅ Complete
+- [x] Practice problems with answer reveal (4 questions per topic, hint + explanation, score panel, "Try again")
+- [x] Progress tracking (localStorage) — visited/practiced badges on algebra index page
+- [x] Keyboard accessibility for all sliders (aria-label on every range input and matrix cell input)
