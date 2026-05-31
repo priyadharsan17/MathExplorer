@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graph Theory &amp; the Birth of Discrete Math | History of Mathematics</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="stylesheet" href="../../css/history.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-page">
+    <div class="topic-hero">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span>›</span>
+        <a href="../history.html">History</a>
+        <span>›</span>
+        <span>Graph Theory</span>
+      </nav>
+      <div class="topic-hero-top">
+        <div class="topic-symbol topic-symbol--history">⬡</div>
+        <div>
+          <span class="era-badge">1736 CE</span>
+          <h1 style="margin-top:8px;">Graph Theory &amp; the Birth of Discrete Math</h1>
+        </div>
+      </div>
+      <p class="subtitle">A leisurely stroll around a Prussian city, an impossible puzzle about seven bridges, and a single letter from Leonhard Euler to the St Petersburg Academy — that is how one of the most powerful branches of modern mathematics was born on a Sunday afternoon in 1736.</p>
+    </div>
+  </div>
+
+  <!-- The Problem -->
+  <section class="content-section">
+    <h2>The Problem</h2>
+    <div class="problem-card">
+      <div class="problem-label">What forced this invention?</div>
+      <p>The city of Königsberg (now Kaliningrad, Russia) was built on two islands in the Pregel River, connected to the mainland and to each other by seven bridges. The citizens of Königsberg had a popular puzzle: <strong>can you walk through the city crossing each of the seven bridges exactly once and return to your starting point?</strong></p>
+      <p>People had tried every route they could think of and always failed — they either skipped a bridge, crossed one twice, or couldn't get back to the start. But could you be certain it was truly impossible? Maybe the right route just hadn't been found yet. No one had a mathematical argument for impossibility — only the experience of repeated failure.</p>
+      <p>The problem reached Leonhard Euler in St Petersburg in 1735. Euler wrote that "this type of solution bears little relationship to mathematics, and I do not understand why you expect a mathematician to produce it, rather than anyone else, for the solution is based on reason alone." But then he solved it — and in doing so invented an entirely new branch of mathematics.</p>
+      <p>Euler's key insight was <strong>abstraction</strong>: ignore the actual geography of Königsberg — the distances, the streets, the islands. Replace each land mass with a point (a <em>vertex</em>) and each bridge with a line connecting two points (an <em>edge</em>). The problem becomes purely about the structure of connections, not the physical layout. This act of abstraction created graph theory.</p>
+    </div>
+  </section>
+
+  <!-- The Person -->
+  <section class="content-section">
+    <h2>The Person</h2>
+    <div class="person-grid">
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">🎯</div>
+        <div class="portrait-name">Leonhard Euler</div>
+        <div class="portrait-dates">1707 – 1783</div>
+        <div class="portrait-title">Mathematician — Basel / St Petersburg / Berlin</div>
+        <p class="portrait-body">The most prolific mathematician in history: his collected works fill over 80 volumes. Euler introduced or standardised most of the notation we use today: \(f(x)\) for functions, \(e\) for the base of natural logarithms, \(i\) for \(\sqrt{-1}\), \(\pi\) for the circle ratio, \(\Sigma\) for summation. He solved the Königsberg Bridge problem in 1736, published topology's Euler characteristic formula, proved Fermat's Little Theorem, and made fundamental contributions to number theory, calculus, mechanics, and optics. He lost sight in his right eye at 28, then went completely blind at 59 — and his mathematical output actually increased. He produced nearly half of all his work blind, calculating in his head.</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">🎨</div>
+        <div class="portrait-name">Francis Guthrie</div>
+        <div class="portrait-dates">1831 – 1899</div>
+        <div class="portrait-title">Mathematician / Botanist — London, England</div>
+        <p class="portrait-body">While colouring a map of England in 1852, Guthrie noticed he needed only four colours to ensure no two adjacent regions shared a colour. He asked his brother Frederick whether <em>any</em> map could be coloured with four colours — and whether this had been proved. This question, passed to Augustus De Morgan and eventually to the mathematics community, became the Four Colour Theorem — one of the most famous unsolved problems in mathematics for 124 years.</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">🔗</div>
+        <div class="portrait-name">Paul Erdős</div>
+        <div class="portrait-dates">1913 – 1996</div>
+        <div class="portrait-title">Mathematician — Stateless (lived from colleague to colleague)</div>
+        <p class="portrait-body">Erdős was the 20th century's most collaborative mathematician — he co-authored papers with 511 different people, giving rise to the concept of the "Erdős number" (how many steps of co-authorship connect you to him). He made major contributions to graph theory, combinatorics, number theory, and probability. Famously homeless by choice, he carried all his possessions in two half-empty suitcases and showed up at colleagues' homes saying "my brain is open."</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- The Breakthrough -->
+  <section class="content-section">
+    <h2>The Breakthrough — Euler's Proof</h2>
+    <p style="color:var(--text-secondary);line-height:1.75;font-size:0.95rem;margin-bottom:20px;">Euler's proof that the Königsberg bridge walk is impossible is a masterpiece of the abstraction-first approach. He reduced a real-world puzzle to a pure structural property — parity of vertex degrees — and proved a general theorem that applies to any network.</p>
+
+    <div class="problem-card">
+      <div class="problem-label">Euler's Key Observation</div>
+      <p>In any Eulerian circuit (a walk crossing every edge exactly once and returning to the start), <strong>every vertex must be entered and exited the same number of times.</strong> This means every vertex must have an even number of edges — an even <em>degree</em>.</p>
+      <p>In the Königsberg graph, the four land masses have edge counts of 3, 3, 5, and 3 — all odd. Since every vertex has an odd number of edges, an Eulerian circuit is impossible. It's not that no one has found the right route — it is logically, provably impossible for any such route to exist.</p>
+    </div>
+
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula-label">Eulerian Circuit Condition</div>
+        <div class="formula-math">\[ \deg(v) \text{ is even for all vertices } v \]</div>
+        <div class="formula-note">A connected graph has an Eulerian circuit (visits every edge exactly once, returns to start) if and only if every vertex has even degree. The Königsberg graph fails this: three vertices have degree 3 and one has degree 5.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">Eulerian Path Condition</div>
+        <div class="formula-math">\[ \text{exactly 0 or 2 vertices have odd degree} \]</div>
+        <div class="formula-note">If exactly two vertices have odd degree, an Eulerian <em>path</em> (not a circuit) exists, starting at one odd-degree vertex and ending at the other. For a circuit (returning to start), all degrees must be even.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">Euler Characteristic</div>
+        <div class="formula-math">\[ V - E + F = 2 \]</div>
+        <div class="formula-note">For any connected planar graph: vertices minus edges plus faces equals 2. For a cube: 8 − 12 + 6 = 2. For a tetrahedron: 4 − 6 + 4 = 2. This topological invariant, also discovered by Euler, links graph theory to the geometry of surfaces.</div>
+      </div>
+    </div>
+
+    <div class="hist-callout" style="margin-top:20px;">
+      <strong>What is a graph?</strong> A graph is an abstract structure consisting of <em>vertices</em> (points) and <em>edges</em> (connections between pairs of vertices). The key feature: only the existence of connections matters, not their length, position, or direction. Euler's Königsberg paper was the first to use this abstraction — and implicitly defined the object that would be studied for the next three centuries.
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="content-section">
+    <h2>Timeline — From Seven Bridges to the Internet</h2>
+    <div class="ht-timeline">
+      <div class="ht-event">
+        <div class="ht-event-year">1736</div>
+        <div class="ht-event-title">Euler — Königsberg Bridge Problem</div>
+        <div class="ht-event-text">Euler publishes "Solutio problematis ad geometriam situs pertinentis" (Solution of a problem relating to the geometry of position) — the founding paper of graph theory and topology. He proves the bridge walk is impossible using the parity argument and introduces the graph abstraction.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1752</div>
+        <div class="ht-event-title">Euler Characteristic: V − E + F = 2</div>
+        <div class="ht-event-text">Euler discovers the formula \(V - E + F = 2\) for connected planar graphs. This connects graph theory to topology — the formula holds regardless of how the graph is drawn, as long as no edges cross. It is the first topological invariant.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1852</div>
+        <div class="ht-event-title">Four Colour Conjecture Posed</div>
+        <div class="ht-event-text">Francis Guthrie, while colouring a map of England, conjectures that four colours suffice to colour any planar map so that no two adjacent regions share a colour. He passes the question to De Morgan, who cannot prove it. The conjecture remains unsolved for 124 years.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1859</div>
+        <div class="ht-event-title">Hamilton — Icosian Game and Hamiltonian Paths</div>
+        <div class="ht-event-text">William Rowan Hamilton invents the Icosian Game: find a cycle visiting all 20 vertices of a dodecahedron exactly once. This introduces the Hamiltonian path/cycle problem — still unsolved in general (it is NP-complete). The contrast with Euler's easily-solved problem highlights how sensitive graph properties are to seemingly small changes.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1936</div>
+        <div class="ht-event-title">König — First Graph Theory Textbook</div>
+        <div class="ht-event-text">Dénes König publishes <em>Theorie der endlichen und unendlichen Graphen</em> — the first book devoted to graph theory. It systematises two centuries of results and launches graph theory as a recognised mathematical discipline.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1959</div>
+        <div class="ht-event-title">Erdős–Rényi — Random Graph Theory</div>
+        <div class="ht-event-text">Erdős and Rényi introduce the random graph \(G(n,p)\) — a graph on n vertices where each edge exists independently with probability p. They discover phase transitions: as p increases past a threshold of \(1/n\), a giant connected component suddenly appears. This models the emergence of connectivity in networks.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1976</div>
+        <div class="ht-event-title">Four Colour Theorem Proved — by Computer</div>
+        <div class="ht-event-text">Kenneth Appel and Wolfgang Haken prove the Four Colour Theorem — but their proof requires checking 1,936 special cases by computer. The first major theorem proved with substantial computer assistance, sparking philosophical debate about whether computer-verified proofs count as mathematical understanding.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1998</div>
+        <div class="ht-event-title">Google PageRank — Graph Theory Meets the Web</div>
+        <div class="ht-event-text">Larry Page and Sergey Brin develop PageRank — an algorithm that ranks web pages by treating the World Wide Web as a directed graph and computing the stationary distribution of a random walk. The mathematical foundation is the Perron-Frobenius theorem for non-negative matrices. Graph theory now drives the world's most important search engine.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">Today</div>
+        <div class="ht-event-title">Graphs Are Everywhere</div>
+        <div class="ht-event-text">Social networks, road networks, the internet, the power grid, protein interaction networks, gene regulatory networks, knowledge graphs, and neural networks are all modelled as graphs. Graph algorithms — shortest path, minimum spanning tree, maximum flow, graph colouring — are the computational backbone of logistics, communications, biology, and AI.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Spread -->
+  <section class="content-section">
+    <h2>Key Graph Theory Concepts</h2>
+    <p style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:20px;">The vocabulary Euler introduced in 1736 has grown into a rich discipline. Here are the ideas that power modern applications:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;">
+      <div class="word-origin">
+        <div class="word">Shortest Path</div>
+        <div class="word-lang">Dijkstra's Algorithm (1956)</div>
+        <div class="word-meaning">Find the minimum-weight path between two vertices. Used in GPS navigation, network routing (OSPF protocol), and logistics optimisation. Powers the route calculation in every mapping app.</div>
+      </div>
+      <div class="word-origin">
+        <div class="word">Spanning Tree</div>
+        <div class="word-lang">Kruskal, Prim (1956–1957)</div>
+        <div class="word-meaning">Connect all vertices with the minimum total edge weight and no cycles. Used to lay out cable networks, design communication backbones, and build efficient electrical grids.</div>
+      </div>
+      <div class="word-origin">
+        <div class="word">Graph Colouring</div>
+        <div class="word-lang">Four Colour Problem (1852)</div>
+        <div class="word-meaning">Assign colours to vertices so no two adjacent vertices share a colour. Used in scheduling (timetabling, register allocation in compilers), frequency assignment in wireless networks, and Sudoku solving.</div>
+      </div>
+      <div class="word-origin">
+        <div class="word">Network Flow</div>
+        <div class="word-lang">Ford–Fulkerson (1956)</div>
+        <div class="word-meaning">Find the maximum flow through a network with capacity constraints. Models traffic, supply chains, internet bandwidth, and was used in Operations Research during WWII. The max-flow min-cut theorem is a central result.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why It Still Matters -->
+  <section class="content-section">
+    <h2>Why It Still Matters</h2>
+    <div class="matters-card">
+      <div class="matters-label">Modern Impact</div>
+      <p>Graph theory is the mathematics of connections — and connections are what the modern world runs on:</p>
+      <ul>
+        <li><strong>The internet and the web</strong> — the physical internet is a graph of routers and cables. Routing protocols (BGP, OSPF) are shortest-path graph algorithms. Google's PageRank, Facebook's friend suggestions, and LinkedIn's "people you may know" are all graph computations.</li>
+        <li><strong>Social network analysis</strong> — modelling the spread of information, diseases, or behaviour through a population requires graph theory. Contact tracing during COVID-19 was graph-theoretic epidemiology.</li>
+        <li><strong>Logistics and transport</strong> — the Travelling Salesman Problem (find the shortest route visiting all cities) is a Hamiltonian cycle problem. Despite being NP-hard, approximation algorithms power UPS, FedEx, and airline route optimisation.</li>
+        <li><strong>Chip design</strong> — VLSI (very-large-scale integration) layout requires placing millions of transistors on a chip with connections that don't cross. Graph planarity testing and colouring algorithms make this possible.</li>
+        <li><strong>AI and knowledge graphs</strong> — knowledge graphs (like Google's Knowledge Graph) represent real-world entities and their relationships as graphs. Graph neural networks (GNNs) learn from graph-structured data — used in drug discovery, chemistry, and recommender systems.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="content-section">
+    <h2>In His Words</h2>
+    <div class="quote-block">
+      <p class="quote-text">The branch of geometry that deals with magnitudes has been zealously studied throughout the past, but there is another branch that has been almost unknown up to now; Leibniz spoke of it first, calling it the geometry of position. This branch is concerned with relations dependent on position alone, and investigates the properties of position; it does not take magnitudes into consideration.</p>
+      <div class="quote-attribution">— Leonhard Euler, opening of the Königsberg bridge paper, 1736 — describing what we now call graph theory and topology</div>
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <ul class="takeaways-list">
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Graph theory was born in <strong>1736</strong> when Euler proved that the Königsberg bridge walk is impossible. His proof introduced the graph abstraction — vertices and edges — and the concept of vertex degree.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>A graph has an <strong>Eulerian circuit</strong> (traversing every edge once and returning to start) if and only if every vertex has even degree. This is Euler's theorem.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>The <strong>Euler characteristic</strong> \(V - E + F = 2\) is a topological invariant for connected planar graphs — unchanged by deformation. The first result connecting graphs to topology.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>The <strong>Four Colour Theorem</strong> (any planar map needs at most 4 colours) was conjectured in 1852 and proved in 1976 — the first major theorem proved using a computer.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Google's PageRank, GPS routing, social networks, chip design, and drug discovery all depend on <strong>graph algorithms</strong> that trace directly to Euler's 1736 paper about a bridge walk.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="probability-history.html" class="related-card">Probability &amp; Statistics <span>→</span></a>
+      <a href="euclidean-geometry.html" class="related-card">Euclidean Geometry <span>→</span></a>
+      <a href="algebra-history.html" class="related-card">History of Algebra <span>→</span></a>
+      <a href="../history.html" class="related-card">All History Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-symbol">∑</span>
+          <span class="logo-text">MathExplorer</span>
+        </div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script src="../../js/progress.js"></script>
+  <script>Progress.markVisited('graph-theory-history');</script>
+</body>
+</html>

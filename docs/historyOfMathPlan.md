@@ -352,11 +352,11 @@ Every topic page follows this narrative structure:
 - [x] Topic 2: Euclidean Geometry (`pages/history/euclidean-geometry.html`)
 - [x] Topic 4: Trigonometry — Mapping the Heavens (`pages/history/trigonometry-history.html`)
 
-### Phase 3 — Modern Branches
-- [ ] Topic 7: Probability & Statistics (`pages/history/probability-history.html`)
-- [ ] Topic 8: Non-Euclidean Geometry (`pages/history/non-euclidean.html`)
-- [ ] Topic 9: Complex Numbers (`pages/history/complex-numbers-history.html`)
-- [ ] Topic 10: Graph Theory (`pages/history/graph-theory-history.html`)
+### Phase 3 — Modern Branches ✅ COMPLETE
+- [x] Topic 7: Probability & Statistics (`pages/history/probability-history.html`)
+- [x] Topic 8: Non-Euclidean Geometry (`pages/history/non-euclidean.html`)
+- [x] Topic 9: Complex Numbers (`pages/history/complex-numbers-history.html`)
+- [x] Topic 10: Graph Theory (`pages/history/graph-theory-history.html`)
 
 ### Phase 4 — Foundations & Computing
 - [ ] Topic 11: The Foundations Crisis (`pages/history/logic-foundations.html`)

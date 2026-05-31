@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Probability &amp; Statistics | History of Mathematics</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="stylesheet" href="../../css/history.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-page">
+    <div class="topic-hero">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span>›</span>
+        <a href="../history.html">History</a>
+        <span>›</span>
+        <span>Probability &amp; Statistics</span>
+      </nav>
+      <div class="topic-hero-top">
+        <div class="topic-symbol topic-symbol--history">🎲</div>
+        <div>
+          <span class="era-badge">1654 CE</span>
+          <h1 style="margin-top:8px;">Probability &amp; Statistics</h1>
+        </div>
+      </div>
+      <p class="subtitle">A French nobleman's losing streak at dice, a letter exchanged between two mathematicians, and a question about dividing a prize that was never claimed — these sparked the formal mathematics of chance that now underlies science, medicine, and artificial intelligence.</p>
+    </div>
+  </div>
+
+  <!-- The Problem -->
+  <section class="content-section">
+    <h2>The Problem</h2>
+    <div class="problem-card">
+      <div class="problem-label">What forced this invention?</div>
+      <p>In the summer of 1654, a French nobleman and compulsive gambler named Antoine Gombaud — known as the Chevalier de Méré — was puzzled. He had been betting on dice for years, and he'd noticed something odd: one bet that had always made him money was starting to lose. He wrote to his friend Blaise Pascal asking why.</p>
+      <p>De Méré's two problems were: (1) <strong>Is it better to bet that you'll roll at least one six in four rolls of one die, or at least one double-six in 24 rolls of two dice?</strong> (2) The "Problem of Points": <strong>if a game of chance is interrupted partway through, how should the prize money be fairly divided between the players?</strong></p>
+      <p>The second problem sounds simple but had stumped mathematicians for 150 years. How do you divide a prize based on a game that was never finished? It requires calculating how likely each player was to win from that point — the probability of a future event that didn't happen. No mathematical framework existed for reasoning about the likelihood of future uncertain events.</p>
+      <p>Pascal corresponded with Pierre de Fermat throughout the summer of 1654, and in a series of letters they solved both problems. <strong>Those letters are the founding document of probability theory.</strong></p>
+    </div>
+  </section>
+
+  <!-- The People -->
+  <section class="content-section">
+    <h2>The People</h2>
+    <div class="person-grid">
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">🔺</div>
+        <div class="portrait-name">Blaise Pascal</div>
+        <div class="portrait-dates">1623 – 1662</div>
+        <div class="portrait-title">Mathematician, Physicist, Philosopher — Paris, France</div>
+        <p class="portrait-body">Pascal was a child prodigy who proved theorems in projective geometry at 16 and built one of the first mechanical calculators at 18. His 1654 correspondence with Fermat launched probability theory. He also invented Pascal's Triangle (known in Asia centuries earlier, but Pascal systematised its combinatorial properties) and formulated the concept of expected value. Plagued by illness, he converted to a severe form of Christianity at 31 and largely abandoned mathematics — dying at 39.</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">⚖️</div>
+        <div class="portrait-name">Pierre de Fermat</div>
+        <div class="portrait-dates">1607 – 1665</div>
+        <div class="portrait-title">Lawyer, Amateur Mathematician — Toulouse, France</div>
+        <p class="portrait-body">Fermat was a judge by profession and a mathematician by passion, working largely in isolation. His contributions to mathematics are extraordinary: co-inventor of probability (with Pascal), founder of modern number theory, independent inventor of analytic geometry, and contributor to the ideas that became calculus. He is best known today for Fermat's Last Theorem — a margin note that took 357 years to prove (Andrew Wiles, 1995).</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">📊</div>
+        <div class="portrait-name">Jacob Bernoulli</div>
+        <div class="portrait-dates">1655 – 1705</div>
+        <div class="portrait-title">Mathematician — Basel, Switzerland</div>
+        <p class="portrait-body">Bernoulli's posthumous <em>Ars Conjectandi</em> (1713) was the first full treatment of probability as a mathematical discipline. He proved the Law of Large Numbers: as the number of trials grows, the observed frequency of an event converges to its true probability. He also introduced Bernoulli trials (independent coin-flip-like experiments) and the binomial distribution.</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">🔔</div>
+        <div class="portrait-name">Carl Friedrich Gauss</div>
+        <div class="portrait-dates">1777 – 1855</div>
+        <div class="portrait-title">Mathematician — Göttingen, Germany</div>
+        <p class="portrait-body">Gauss invented the method of least squares at 18 (to fit orbital data for the asteroid Ceres) and derived the normal distribution as the error distribution for measurement. His work on the Gaussian distribution — the bell curve — underpins virtually all of classical statistics. His least squares method is still the workhorse of regression analysis in every scientific field.</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">🏥</div>
+        <div class="portrait-name">Florence Nightingale</div>
+        <div class="portrait-dates">1820 – 1910</div>
+        <div class="portrait-title">Nurse, Statistician — London, England</div>
+        <p class="portrait-body">Nightingale collected meticulous mortality data from British military hospitals during the Crimean War (1854–56) and invented the polar area chart (sometimes called a "rose diagram" or "coxcomb chart") to communicate her findings. She proved statistically that more soldiers were dying from preventable diseases than from battle wounds, and used this data to force sanitary reform. She is the first person to use data visualisation as a tool of political advocacy.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- The Breakthrough -->
+  <section class="content-section">
+    <h2>The Breakthrough — Expected Value &amp; The Problem of Points</h2>
+    <p style="color:var(--text-secondary);line-height:1.75;font-size:0.95rem;margin-bottom:20px;">Pascal and Fermat's key insight was that you can assign a numerical value to an uncertain outcome by weighting each possible result by its probability. This is <em>expected value</em> — the foundation of all quantitative risk assessment.</p>
+
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula-label">Expected Value</div>
+        <div class="formula-math">\[ E[X] = \sum_{i} x_i \cdot P(x_i) \]</div>
+        <div class="formula-note">The expected value is the probability-weighted average of all possible outcomes. If a game pays £10 with probability 1/3 and £0 with probability 2/3, the expected value is £10 × 1/3 + £0 × 2/3 = £3.33 per play.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">De Méré's Puzzle — Solved</div>
+        <div class="formula-math">\[ P(\text{at least one 6 in 4 rolls}) = 1 - \left(\frac{5}{6}\right)^4 \approx 0.518 \]</div>
+        <div class="formula-note">Slightly better than 50/50 — de Méré was right to bet on it. But \(P(\text{double-six in 24 rolls}) = 1-(35/36)^{24} \approx 0.491\) — slightly worse than 50/50. The two bets are not equivalent, despite de Méré's intuition that they should be.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">The Normal Distribution (Gauss)</div>
+        <div class="formula-math">\[ f(x) = \frac{1}{\sigma\sqrt{2\pi}}\, e^{-\frac{(x-\mu)^2}{2\sigma^2}} \]</div>
+        <div class="formula-note">The bell curve — the most important distribution in statistics. It describes measurement error, heights of people, test scores, and the sum of many independent random variables (Central Limit Theorem). μ is the mean; σ is the standard deviation.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">Law of Large Numbers (Bernoulli)</div>
+        <div class="formula-math">\[ \bar{X}_n \xrightarrow{P} \mu \quad \text{as } n \to \infty \]</div>
+        <div class="formula-note">As the number of trials n grows, the sample mean converges in probability to the true expected value μ. Gambling systems that try to "beat" a negative-expectation game all fail because of this theorem.</div>
+      </div>
+    </div>
+
+    <div class="hist-callout" style="margin-top:20px;">
+      <strong>The Problem of Points — a concrete example:</strong> Pascal and Fermat are playing best-of-five. The score is 2–1 to Pascal when the game is abandoned. The prize is £64. Pascal needs 1 more win; Fermat needs 2. In at most 2 more rounds, the results are HH, HT, TH, TT — each equally likely. Pascal wins in 3 of 4 equally likely scenarios (HH, HT, TH). So Pascal gets \(\frac{3}{4} \times £64 = £48\) and Fermat gets £16. No game needed — pure probability.
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="content-section">
+    <h2>Timeline — From Dice to Data Science</h2>
+    <div class="ht-timeline">
+      <div class="ht-event">
+        <div class="ht-event-year">~3,000 BCE</div>
+        <div class="ht-event-title">Earliest Dice</div>
+        <div class="ht-event-text">Astragali (knuckle bones of sheep) were used as dice in ancient Mesopotamia and Egypt. People clearly had intuitions about likelihood long before any formal theory — they just couldn't calculate it.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1494</div>
+        <div class="ht-event-title">Pacioli's Problem of Points</div>
+        <div class="ht-event-text">Luca Pacioli publishes <em>Summa de Arithmetica</em>, which includes the Problem of Points and admits he cannot solve it. The problem sits unsolved for 160 years, awaiting the right mathematical framework.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1654</div>
+        <div class="ht-event-title">Pascal–Fermat Correspondence</div>
+        <div class="ht-event-text">In a series of letters exchanged over a few months, Pascal and Fermat solve the Problem of Points and lay the foundations of probability theory. The concepts of sample space, equally likely outcomes, and expected value all emerge from this exchange.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1657</div>
+        <div class="ht-event-title">Huygens — First Probability Textbook</div>
+        <div class="ht-event-text">Christiaan Huygens publishes <em>De ratiociniis in ludo aleae</em> (On Reasoning in Games of Chance) — the first printed book on probability theory. He introduces the concept of expected value and solves 14 problems, including all of Pascal and Fermat's.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1713</div>
+        <div class="ht-event-title">Bernoulli — Ars Conjectandi</div>
+        <div class="ht-event-text">Published eight years after Bernoulli's death, <em>Ars Conjectandi</em> extends probability from games to real-world inference. The Law of Large Numbers appears here for the first time. Bernoulli proves that probability is empirically measurable — you can estimate a coin's bias by flipping it many times.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1733</div>
+        <div class="ht-event-title">De Moivre — The Bell Curve Appears</div>
+        <div class="ht-event-text">Abraham de Moivre discovers that the binomial distribution, for large n, approaches a smooth bell-shaped curve. This is the first appearance of the normal distribution — though de Moivre presents it only as an approximation tool, not a distribution in its own right.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1763</div>
+        <div class="ht-event-title">Bayes' Theorem Published (Posthumously)</div>
+        <div class="ht-event-text">Thomas Bayes's "Essay Towards Solving a Problem in the Doctrine of Chances" is published by his friend Richard Price after Bayes's death. Bayes' theorem — \(P(A|B) = P(B|A)P(A)/P(B)\) — provides a method for updating beliefs in the light of new evidence. It becomes the foundation of Bayesian statistics, one of the two great paradigms of modern statistical inference.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1809</div>
+        <div class="ht-event-title">Gauss — Least Squares and the Normal Distribution</div>
+        <div class="ht-event-text">Gauss publishes his theory of orbital determination, including the method of least squares and his derivation of the normal distribution as the natural error distribution. He uses it to predict the position of the asteroid Ceres from limited data — and is proved right when Ceres is relocated months later.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1854 – 1856</div>
+        <div class="ht-event-title">Florence Nightingale — Statistics Saves Lives</div>
+        <div class="ht-event-text">Nightingale collects mortality data from Crimean War hospitals and creates her famous polar area chart showing that 16,000 of 18,000 British military deaths were from preventable disease, not wounds. She presents the data to Parliament and the War Office, directly causing sanitary reforms that halved the death rate. The first major use of statistical data visualisation as a policy tool.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1900s</div>
+        <div class="ht-event-title">Fisher, Pearson — Modern Statistics</div>
+        <div class="ht-event-text">Karl Pearson invents the chi-squared test and formalises correlation and regression. Ronald Fisher develops analysis of variance (ANOVA), the design of experiments, and the p-value framework that dominates 20th-century science. Together they transform statistics into a rigorous discipline for drawing inferences from data.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">Today</div>
+        <div class="ht-event-title">Machine Learning &amp; AI</div>
+        <div class="ht-event-text">Modern AI — from spam filters to image recognition to large language models — is applied probability theory at scale. Bayesian inference, the normal distribution, the law of large numbers, and expected value are all embedded in the algorithms that run on billions of devices daily.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why It Still Matters -->
+  <section class="content-section">
+    <h2>Why It Still Matters</h2>
+    <div class="matters-card">
+      <div class="matters-label">Modern Impact</div>
+      <p>Probability and statistics are the mathematical backbone of almost every modern discipline:</p>
+      <ul>
+        <li><strong>Medicine and clinical trials</strong> — every drug approval is based on statistical testing. The p-value, confidence intervals, and randomised controlled trials (RCTs) are all direct descendants of Fisher's work.</li>
+        <li><strong>Insurance and finance</strong> — actuarial science, options pricing (Black-Scholes), and risk management all rely on probability models. The expected value concept Pascal invented prices every financial derivative.</li>
+        <li><strong>Machine learning and AI</strong> — neural networks are trained by minimising expected loss; Bayesian inference underlies probabilistic models; the normal distribution appears in weight initialisation, noise models, and output distributions.</li>
+        <li><strong>Physics</strong> — quantum mechanics is fundamentally probabilistic. The Schrödinger equation describes a probability amplitude; all measurable predictions are statistical.</li>
+        <li><strong>Public health and epidemiology</strong> — the reproduction number R₀ of a disease, the effectiveness of a vaccine, the likely spread of an epidemic — all computed with probability theory.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="content-section">
+    <h2>In His Words</h2>
+    <div class="quote-block">
+      <p class="quote-text">The eternal silence of these infinite spaces frightens me.</p>
+      <div class="quote-attribution">— Blaise Pascal, <em>Pensées</em>, ~1660 CE — the man who invented probability, contemplating uncertainty of a different kind</div>
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <ul class="takeaways-list">
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Probability theory began in <strong>1654</strong> with Pascal and Fermat's letters about a gambler's losing streak. Their solution to the Problem of Points introduced expected value and the sample space.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>The <strong>Law of Large Numbers</strong> (Bernoulli, 1713) proves that observed frequencies converge to true probabilities over many trials — the mathematical reason why casinos always profit.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>The <strong>normal distribution</strong> (Gauss, 1809) describes the natural spread of measurement error and sums of random variables. It underlies t-tests, regression, and most classical statistics.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p><strong>Florence Nightingale</strong> (1854–56) was the first person to use statistical data visualisation to change public policy — proving that sanitation, not combat wounds, was the main killer in the Crimean War.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Modern AI is applied probability at scale. Every recommendation, translation, and classification is a statistical prediction — rooted in the dice problems of 17th-century France.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="algebra-history.html" class="related-card">History of Algebra <span>→</span></a>
+      <a href="calculus-history.html" class="related-card">History of Calculus <span>→</span></a>
+      <a href="graph-theory-history.html" class="related-card">Graph Theory <span>→</span></a>
+      <a href="../history.html" class="related-card">All History Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-symbol">∑</span>
+          <span class="logo-text">MathExplorer</span>
+        </div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script src="../../js/progress.js"></script>
+  <script>Progress.markVisited('probability-history');</script>
+</body>
+</html>

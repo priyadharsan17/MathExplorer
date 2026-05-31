@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Complex Numbers &amp; Imaginary Roots | History of Mathematics</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="stylesheet" href="../../css/history.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-page">
+    <div class="topic-hero">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span>›</span>
+        <a href="../history.html">History</a>
+        <span>›</span>
+        <span>Complex Numbers</span>
+      </nav>
+      <div class="topic-hero-top">
+        <div class="topic-symbol topic-symbol--history"><em>i</em></div>
+        <div>
+          <span class="era-badge">1545 CE</span>
+          <h1 style="margin-top:8px;">Complex Numbers &amp; Imaginary Roots</h1>
+        </div>
+      </div>
+      <p class="subtitle">Solving cubic equations sometimes forces you to take the square root of a negative number — even when the final answer is a perfectly ordinary real number. Mathematicians who refused to look away from that awkward intermediate step ended up discovering a new dimension of mathematics.</p>
+    </div>
+  </div>
+
+  <!-- The Problem -->
+  <section class="content-section">
+    <h2>The Problem</h2>
+    <div class="problem-card">
+      <div class="problem-label">What forced this invention?</div>
+      <p>The cubic equation \(x^3 = px + q\) had been solved by Italian mathematicians in the early 16th century. Scipione del Ferro solved it secretly around 1515; Niccolò Tartaglia rediscovered the solution; and Gerolamo Cardano published it in <em>Ars Magna</em> (1545) — the most important algebra book of the Renaissance.</p>
+      <p>Cardano's formula for the cubic contains square roots. For some cubics, these square roots involve the square root of a negative number — an expression that seems obviously impossible. A negative number has no real square root: \((-1)^2 = 1\) and \(1^2 = 1\), so no real number squares to \(-1\).</p>
+      <p>The disturbing thing was this: <strong>even when the cubic has three perfectly real solutions, Cardano's formula sometimes passes through square roots of negative numbers on the way to those real answers.</strong> The negatives appear in intermediate steps and then cancel out. You cannot avoid them and still arrive at the correct answer.</p>
+      <p>Cardano himself called these expressions "sophistic" — useless and meaningless — but wrote them down anyway. Rafael Bombelli was the first to take them seriously: he established arithmetic rules for these "impossible" numbers and showed that if you follow the rules consistently, you arrive at correct real answers. The imaginary numbers were useful even if no one understood what they <em>were</em>.</p>
+    </div>
+  </section>
+
+  <!-- The People -->
+  <section class="content-section">
+    <h2>The People</h2>
+    <div class="person-grid">
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">♣️</div>
+        <div class="portrait-name">Gerolamo Cardano</div>
+        <div class="portrait-dates">1501 – 1576</div>
+        <div class="portrait-title">Mathematician, Physician, Gambler — Milan, Italy</div>
+        <p class="portrait-body">One of the most colourful figures in mathematical history: a brilliant physician, astrologer, gambler, and mathematician who published the cubic and quartic formulas in <em>Ars Magna</em> (1545). He called square roots of negatives "sophistic" but included them in his work, writing that they were "as subtle as they are useless." He also wrote the first book on probability (informal gambling calculations). He was arrested for casting the horoscope of Jesus Christ.</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">🔨</div>
+        <div class="portrait-name">Rafael Bombelli</div>
+        <div class="portrait-dates">1526 – 1572</div>
+        <div class="portrait-title">Engineer, Mathematician — Bologna, Italy</div>
+        <p class="portrait-body">Bombelli's <em>Algebra</em> (1572) was the first text to take imaginary numbers seriously as mathematical objects. He established the rules: \(i \times i = -1\), \(i \times (-i) = 1\), and the arithmetic of expressions like \(a + bi\). He demonstrated that Cardano's formula, applied to \(x^3 = 15x + 4\), passes through \(\sqrt{-121}\) and yet correctly yields \(x = 4\). This was the proof of concept that imaginary numbers could produce real, correct answers.</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">🌐</div>
+        <div class="portrait-name">René Descartes</div>
+        <div class="portrait-dates">1596 – 1650</div>
+        <div class="portrait-title">Philosopher, Mathematician — France / Netherlands</div>
+        <p class="portrait-body">Descartes coined the dismissive term <em>imaginary number</em> in his 1637 <em>La Géométrie</em> — intending it as criticism. A number you can only "imagine" having, not one that truly exists. Ironically, the name stuck and lost its pejorative edge. Descartes also introduced the notation \(x^2\), \(x^3\) for powers, and the x, y, z convention for unknowns — the standard algebraic notation we use today.</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">🔢</div>
+        <div class="portrait-name">Leonhard Euler</div>
+        <div class="portrait-dates">1707 – 1783</div>
+        <div class="portrait-title">Mathematician — Basel / Berlin / St Petersburg</div>
+        <p class="portrait-body">Euler introduced the symbol \(i\) for \(\sqrt{-1}\) in 1777 (though it wasn't widely adopted until Gauss popularised it). He discovered Euler's formula \(e^{i\theta} = \cos\theta + i\sin\theta\), one of the deepest results in all of mathematics. Setting \(\theta = \pi\) gives Euler's identity \(e^{i\pi} + 1 = 0\) — connecting the five most fundamental constants in mathematics in a single equation. He also proved that every polynomial of degree n has exactly n roots in the complex numbers (Fundamental Theorem of Algebra, informal version).</p>
+      </div>
+
+      <div class="portrait-card">
+        <div class="portrait-avatar">🗺️</div>
+        <div class="portrait-name">Carl Friedrich Gauss</div>
+        <div class="portrait-dates">1777 – 1855</div>
+        <div class="portrait-title">Mathematician — Göttingen, Germany</div>
+        <p class="portrait-body">Gauss gave the first fully rigorous proof of the Fundamental Theorem of Algebra (his 1799 doctoral thesis): every non-constant polynomial has at least one complex root. He also gave complex numbers their geometric interpretation as points in a two-dimensional plane — the <em>complex plane</em> (also called the Argand plane, after Jean-Robert Argand who published the idea independently in 1806). This geometric view finally made complex numbers intuitively understandable and removed most of the "imaginary" stigma.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- The Breakthrough -->
+  <section class="content-section">
+    <h2>The Breakthrough — The Complex Plane &amp; Euler's Formula</h2>
+    <p style="color:var(--text-secondary);line-height:1.75;font-size:0.95rem;margin-bottom:20px;">Complex numbers became truly understood once Gauss and Argand gave them a geometric home. A complex number \(a + bi\) is simply a point in a two-dimensional plane — with multiplication acting as rotation and scaling.</p>
+
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula-label">Definition</div>
+        <div class="formula-math">\[ i = \sqrt{-1}, \qquad i^2 = -1 \]</div>
+        <div class="formula-note">A complex number is \(z = a + bi\) where \(a\) (real part) and \(b\) (imaginary part) are real numbers. The complex plane plots \(a\) on the horizontal axis and \(b\) on the vertical axis.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">Multiplication = Rotation</div>
+        <div class="formula-math">\[ z \cdot i = (a + bi) \cdot i = ai + bi^2 = -b + ai \]</div>
+        <div class="formula-note">Multiplying by \(i\) rotates a complex number 90° anticlockwise in the complex plane. Multiplying by \(i\) four times returns to the start (\(i^4 = 1\)). Complex multiplication is rotation and scaling combined.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">Euler's Formula</div>
+        <div class="formula-math">\[ e^{i\theta} = \cos\theta + i\sin\theta \]</div>
+        <div class="formula-note">The most profound formula in mathematics — it unifies exponential functions, trigonometry, and complex numbers. As θ increases from 0 to 2π, \(e^{i\theta}\) traces the unit circle in the complex plane.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">Euler's Identity</div>
+        <div class="formula-math">\[ e^{i\pi} + 1 = 0 \]</div>
+        <div class="formula-note">Setting θ = π in Euler's formula gives \(e^{i\pi} = -1\), hence \(e^{i\pi} + 1 = 0\). This single equation relates the five most fundamental constants: <strong>e</strong> (natural base), <strong>i</strong> (imaginary unit), <strong>π</strong> (circle ratio), <strong>1</strong> (multiplicative identity), and <strong>0</strong> (additive identity).</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">Fundamental Theorem of Algebra (Gauss, 1799)</div>
+        <div class="formula-math">\[ p(z) = a_n z^n + \cdots + a_0 \text{ has exactly } n \text{ roots in } \mathbb{C} \]</div>
+        <div class="formula-note">Every polynomial of degree n, with complex coefficients, has exactly n roots counted with multiplicity in the complex numbers. The complex numbers are algebraically closed — you never need to "go beyond" them to solve polynomial equations.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-label">Modulus and Argument</div>
+        <div class="formula-math">\[ |z| = \sqrt{a^2 + b^2}, \qquad \arg(z) = \arctan\!\left(\frac{b}{a}\right) \]</div>
+        <div class="formula-note">The modulus |z| is the distance from the origin in the complex plane; the argument is the angle from the positive real axis. These are the polar coordinates of the complex number, and multiplication combines moduli (multiply) and arguments (add).</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="content-section">
+    <h2>Timeline — From Sophistry to Physics</h2>
+    <div class="ht-timeline">
+      <div class="ht-event">
+        <div class="ht-event-year">~250 CE</div>
+        <div class="ht-event-title">Diophantus — First Recorded Square Root of a Negative</div>
+        <div class="ht-event-text">Diophantus of Alexandria encounters \(\sqrt{-63}\) in a geometry problem and declares the problem "impossible," without pursuing it further. The first known encounter with a negative under a square root.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">~1515</div>
+        <div class="ht-event-title">Del Ferro — Cubic Formula (Secret)</div>
+        <div class="ht-event-text">Scipione del Ferro solves the depressed cubic \(x^3 + px = q\) and keeps it secret for use in mathematical duels (public contests where mathematicians challenged each other with problems). He reveals it on his deathbed.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1545</div>
+        <div class="ht-event-title">Cardano — Ars Magna</div>
+        <div class="ht-event-text">Cardano publishes the general cubic (and quartic, solved by his student Ferrari) in <em>Ars Magna</em>. He includes calculations involving \(\sqrt{-15}\) and calls them "sophistic" — useful computationally but philosophically meaningless. The first published use of imaginary numbers.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1572</div>
+        <div class="ht-event-title">Bombelli — Rules for Imaginary Arithmetic</div>
+        <div class="ht-event-text">Bombelli establishes a complete arithmetic for expressions involving \(\sqrt{-1}\). He shows that \(x^3 = 15x + 4\) has the real solution \(x = 4\), even though Cardano's formula passes through imaginary intermediates. First demonstration that imaginary numbers produce correct real answers.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1637</div>
+        <div class="ht-event-title">Descartes — Coins "Imaginary Number"</div>
+        <div class="ht-event-text">Descartes uses the term <em>nombre imaginaire</em> (imaginary number) disparagingly in <em>La Géométrie</em>. His intent is dismissive, but the name endures and eventually loses its pejorative connotation.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1748</div>
+        <div class="ht-event-title">Euler — Euler's Formula</div>
+        <div class="ht-event-text">Euler publishes \(e^{i\theta} = \cos\theta + i\sin\theta\) in <em>Introductio in analysin infinitorum</em>, connecting exponential and trigonometric functions through complex numbers. The deepest identity in classical mathematics.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1777</div>
+        <div class="ht-event-title">Euler Introduces the Symbol i</div>
+        <div class="ht-event-text">Euler proposes using \(i\) for \(\sqrt{-1}\). The notation takes decades to become standard — Gauss's widespread use of it in the early 19th century is what truly establishes it.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1799</div>
+        <div class="ht-event-title">Gauss — Fundamental Theorem of Algebra</div>
+        <div class="ht-event-text">Gauss's doctoral dissertation gives the first complete proof that every polynomial equation has as many complex roots as its degree. This is only true in the complex numbers — over the reals, \(x^2 + 1 = 0\) has no solution. Complex numbers are the "right" number system for algebra.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1806</div>
+        <div class="ht-event-title">Argand — The Complex Plane</div>
+        <div class="ht-event-text">Jean-Robert Argand publishes his geometric interpretation of complex numbers as points in a plane. Gauss develops the same idea independently and more rigorously. The complex plane (Argand diagram) finally gives imaginary numbers a concrete, visual meaning — a point, not an impossibility.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1893</div>
+        <div class="ht-event-title">Steinmetz — Complex Numbers in Electrical Engineering</div>
+        <div class="ht-event-text">Charles Steinmetz introduces complex number methods (phasors) for analysing alternating current (AC) circuits. Using \(e^{i\omega t}\) to represent oscillating voltages transforms differential equations into algebraic ones. This is why electrical engineers use \(j\) instead of \(i\) (to avoid confusion with current) to this day.</div>
+      </div>
+      <div class="ht-event">
+        <div class="ht-event-year">1925 – 1926</div>
+        <div class="ht-event-title">Quantum Mechanics — Complex Numbers Are Physical</div>
+        <div class="ht-event-text">Schrödinger's wave equation describes quantum states as complex-valued wave functions \(\psi\). The physical content (probabilities) comes from \(|\psi|^2\). Complex numbers are not a mathematical convenience in quantum mechanics — they are physically essential. Removing them breaks the theory.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why It Still Matters -->
+  <section class="content-section">
+    <h2>Why It Still Matters</h2>
+    <div class="matters-card">
+      <div class="matters-label">Modern Impact</div>
+      <p>Complex numbers are one of the most practically powerful ideas in all of mathematics:</p>
+      <ul>
+        <li><strong>Electrical engineering</strong> — AC circuit analysis uses complex impedance \(Z = R + iX\). Every power grid, transformer, and amplifier is designed using complex arithmetic. The engineering symbol \(j\) for \(\sqrt{-1}\) is used billions of times daily in circuit simulations.</li>
+        <li><strong>Signal processing</strong> — the Fourier transform expresses signals as sums of complex exponentials \(e^{i\omega t}\). JPEG compression, MP3 encoding, 5G communication, and MRI scanning all rely on complex Fourier analysis.</li>
+        <li><strong>Quantum mechanics</strong> — quantum states are vectors in a complex Hilbert space. Wave functions, operators, and measurement probabilities are all defined over the complex numbers. The entire theory cannot be formulated over real numbers alone.</li>
+        <li><strong>Fluid dynamics and aerodynamics</strong> — complex potential functions describe 2D fluid flow. Wing shapes (aerofoils) are designed using conformal maps — complex functions that preserve angles — allowing aerodynamicists to transform a complicated wing boundary into a simple circle.</li>
+        <li><strong>Control theory and robotics</strong> — the stability of feedback systems (whether a robot arm will oscillate or converge) is determined by the locations of poles in the complex plane. Every autopilot, industrial robot, and self-driving car uses complex analysis in its control design.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="content-section">
+    <h2>In His Words</h2>
+    <div class="quote-block">
+      <p class="quote-text">Putting aside the mental torment involved, multiply \(5 + \sqrt{-15}\) by \(5 - \sqrt{-15}\), making \(25 - (-15)\) which is \(+15\). Hence this product is 40. … This is truly sophisticated, and to speak candidly, useless.</p>
+      <div class="quote-attribution">— Gerolamo Cardano, <em>Ars Magna</em>, 1545 — the first published calculation with imaginary numbers, and a dismissal of their significance</div>
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <ul class="takeaways-list">
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Complex numbers were <strong>forced</strong> into existence by the cubic formula. Solving \(x^3 = 15x + 4\) requires passing through \(\sqrt{-121}\) to reach the real answer \(x = 4\).</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p><strong>Bombelli (1572)</strong> established the arithmetic rules for imaginary numbers. <strong>Gauss and Argand (1799–1806)</strong> gave them geometric meaning as points in the complex plane.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p><strong>Euler's formula</strong> \(e^{i\theta} = \cos\theta + i\sin\theta\) unifies exponentials, trigonometry, and complex numbers — the most connected identity in mathematics.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>The word <strong>imaginary</strong> is Descartes's insult (1637) that accidentally became a permanent mathematical term.</p>
+      </li>
+      <li class="takeaway">
+        <span class="takeaway-icon">✦</span>
+        <p>Complex numbers are <strong>physically indispensable</strong> in quantum mechanics — not a mathematical convenience but the actual structure of quantum states. They also underpin AC electrical engineering, signal processing, and control theory.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="algebra-history.html" class="related-card">History of Algebra <span>→</span></a>
+      <a href="trigonometry-history.html" class="related-card">History of Trigonometry <span>→</span></a>
+      <a href="non-euclidean.html" class="related-card">Non-Euclidean Geometry <span>→</span></a>
+      <a href="../history.html" class="related-card">All History Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-symbol">∑</span>
+          <span class="logo-text">MathExplorer</span>
+        </div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script src="../../js/progress.js"></script>
+  <script>Progress.markVisited('complex-numbers-history');</script>
+</body>
+</html>
