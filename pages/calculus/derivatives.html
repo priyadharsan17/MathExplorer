@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Derivatives — Calculus | MathExplorer</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    .topic-symbol { background: rgba(155,109,248,0.1); color: var(--calculus-color); border-color: rgba(155,109,248,0.2); }
+    .formula-card .formula-label { color: var(--calculus-color); }
+    .example-card .example-title { color: var(--calculus-color); }
+    .step-num { background: rgba(155,109,248,0.12); color: var(--calculus-color); }
+    .control-value { color: var(--calculus-color); }
+    input[type="range"]::-webkit-slider-thumb { background: var(--calculus-color); box-shadow: 0 0 8px rgba(155,109,248,0.5); }
+    .slope-badge {
+      display:inline-block; padding:10px 22px; border-radius:var(--radius-md);
+      background:rgba(155,109,248,0.1); border:1px solid rgba(155,109,248,0.3);
+      font-family:var(--font-mono); font-size:1.05rem; font-weight:700; color:var(--calculus-color);
+    }
+    .info-row { display:flex; gap:24px; flex-wrap:wrap; padding:0 24px 20px; }
+    .info-badge { display:flex; flex-direction:column; gap:4px; }
+    .info-badge span:first-child { font-size:0.72rem; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--text-muted); font-family:var(--font-mono); }
+    .info-badge span:last-child  { font-size:0.95rem; font-weight:700; color:var(--text-primary); font-family:var(--font-mono); }
+    .func-select-row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; padding:20px 24px 0; }
+    .func-select-row label { font-size:0.82rem; font-weight:600; color:var(--text-secondary); font-family:var(--font-mono); }
+    .func-select-row select {
+      background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-sm);
+      color:var(--text-primary); padding:6px 12px; font-family:var(--font-mono); font-size:0.85rem; outline:none;
+    }
+    .func-select-row select:focus { border-color:rgba(155,109,248,0.4); }
+  </style>
+</head>
+<body class="topic-page">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html" class="active">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a><span>›</span>
+      <a href="../calculus.html">Calculus</a><span>›</span>
+      <span>Derivatives</span>
+    </nav>
+    <div class="topic-hero-top">
+      <div class="topic-symbol">f'</div>
+      <h1>Derivatives</h1>
+    </div>
+    <p class="subtitle">
+      The derivative measures the instantaneous rate of change of a function — the slope of its tangent line
+      at any point. It is defined as the limit of a difference quotient as the interval shrinks to zero.
+    </p>
+  </div>
+
+  <!-- Concept -->
+  <section class="content-section">
+    <h2>The Idea Behind a Derivative</h2>
+    <p>
+      Imagine drawing a straight line (a <em>secant</em>) through two points on a curve.
+      The slope of this secant is the <em>average</em> rate of change between those points.
+      Now slide the second point toward the first. As the gap \(h \to 0\), the secant rotates
+      and approaches a unique limiting position — the <em>tangent</em> line.
+      Its slope is the derivative at that point.
+    </p>
+    <p>
+      Formally, the derivative of \(f\) at \(x\) is defined as:
+      \[\displaystyle f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}\]
+      This is the <strong>difference quotient</strong> definition — all differentiation rules flow from it.
+    </p>
+  </section>
+
+  <!-- Key Formulas -->
+  <section class="content-section">
+    <h2>Key Definitions &amp; Notation</h2>
+    <div class="formula-grid">
+
+      <div class="formula-card">
+        <span class="formula-label">Limit Definition</span>
+        <div>
+          <div class="formula-math">\[ f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \]</div>
+          <div class="formula-note">The foundation — slope of the tangent line at \(x\).</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Leibniz Notation</span>
+        <div>
+          <div class="formula-math">\[ \frac{dy}{dx} = \frac{d}{dx}\bigl[f(x)\bigr] \]</div>
+          <div class="formula-note">Emphasises the derivative as a ratio of infinitesimal changes.</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Power Rule</span>
+        <div>
+          <div class="formula-math">\[ \frac{d}{dx}\bigl[x^n\bigr] = nx^{n-1} \]</div>
+          <div class="formula-note">Valid for all real \(n\). E.g. \(\frac{d}{dx}[x^2] = 2x\).</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Secant Slope</span>
+        <div>
+          <div class="formula-math">\[ m_{\text{sec}} = \frac{f(x_0 + h) - f(x_0)}{h} \]</div>
+          <div class="formula-note">Average rate of change over \([x_0, x_0 + h]\). Approaches \(f'(x_0)\) as \(h \to 0\).</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Worked Examples -->
+  <section class="content-section">
+    <h2>Worked Examples</h2>
+    <div class="example-list">
+
+      <div class="example-card">
+        <div class="example-title">Example 1 — Derivative from the definition</div>
+        <div class="example-problem">Find \(f'(x)\) for \(f(x) = x^2\) using the limit definition.</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">Write the difference quotient: \(\displaystyle\frac{f(x+h)-f(x)}{h} = \frac{(x+h)^2 - x^2}{h}\)</div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">Expand: \(\displaystyle\frac{x^2 + 2xh + h^2 - x^2}{h} = \frac{2xh + h^2}{h} = 2x + h\)</div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-text">Take the limit: \(\displaystyle\lim_{h \to 0}(2x + h) = 2x\)</div>
+          </div>
+          <div class="step">
+            <div class="step-num">✓</div>
+            <div class="step-text">\(f'(x) = 2x\). At \(x = 3\), the tangent slope is \(6\).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 2 — Using the Power Rule</div>
+        <div class="example-problem">Differentiate \(f(x) = 4x^3 - 7x + 2\)</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">Apply the power rule term by term: \(\frac{d}{dx}[4x^3] = 12x^2\)</div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">\(\frac{d}{dx}[-7x] = -7\), and the constant \(2\) differentiates to \(0\).</div>
+          </div>
+          <div class="step">
+            <div class="step-num">✓</div>
+            <div class="step-text">\(f'(x) = 12x^2 - 7\)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 3 — Tangent line equation</div>
+        <div class="example-problem">Find the equation of the tangent to \(f(x) = x^2\) at \(x = 2\)</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">Slope: \(f'(2) = 2(2) = 4\)</div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">Point: \(f(2) = 4\), so the tangent passes through \((2, 4)\).</div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-text">Point-slope form: \(y - 4 = 4(x - 2)\)</div>
+          </div>
+          <div class="step">
+            <div class="step-num">✓</div>
+            <div class="step-text">Tangent line: \(y = 4x - 4\)</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Visualiser -->
+  <section class="visualiser-section">
+    <h2>Interactive — Secant → Tangent (h → 0)</h2>
+    <div class="visualiser-card">
+      <div class="visualiser-canvas-wrap">
+        <canvas id="derivCanvas" width="860" height="420"></canvas>
+        <div class="equation-display" id="eqDisplay">slope = ?</div>
+      </div>
+
+      <div class="func-select-row">
+        <label for="funcSel">Function:</label>
+        <select id="funcSel">
+          <option value="sq" selected>f(x) = x²</option>
+          <option value="cube">f(x) = x³</option>
+          <option value="sin">f(x) = sin(x)</option>
+          <option value="cubic2">f(x) = x³ − 3x</option>
+        </select>
+      </div>
+
+      <div class="visualiser-controls">
+        <div class="control-group">
+          <div class="control-label">
+            <span>x₀ (base point)</span>
+            <span class="control-value" id="x0Val">1</span>
+          </div>
+          <input type="range" id="x0Slider" min="-3" max="3" step="0.25" value="1" aria-label="x₀" />
+        </div>
+        <div class="control-group">
+          <div class="control-label">
+            <span>h (interval)</span>
+            <span class="control-value" id="hVal">1.5</span>
+          </div>
+          <input type="range" id="hSlider" min="0.01" max="3" step="0.01" value="1.5" aria-label="h" />
+        </div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-badge">
+          <span>Secant Slope</span>
+          <span id="infoSecant">—</span>
+        </div>
+        <div class="info-badge">
+          <span>Tangent (h→0)</span>
+          <span id="infoTangent">—</span>
+        </div>
+        <div class="info-badge">
+          <span>Point</span>
+          <span id="infoPoint">—</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <div class="takeaways-list">
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>The derivative is the limit of the difference quotient — the instantaneous rate of change at a point.</p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>Geometrically, \(f'(x_0)\) is the slope of the tangent line to the curve at \(x_0\).</p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>If \(f'(x) > 0\) on an interval, the function is increasing; if \(f'(x) < 0\), decreasing.</p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>Not every function is differentiable everywhere — corners, cusps, and discontinuities prevent it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="limits.html" class="related-card">Limits <span>→</span></a>
+      <a href="diff-rules.html" class="related-card">Differentiation Rules <span>→</span></a>
+      <a href="diff-applications.html" class="related-card">Applications of Derivatives <span>→</span></a>
+      <a href="../calculus.html" class="related-card">All Calculus Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-symbol">∑</span>
+          <span class="logo-text">MathExplorer</span>
+        </div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    // ── Secant → Tangent visualiser ──
+    const canvas    = document.getElementById('derivCanvas');
+    const ctx       = canvas.getContext('2d');
+    const x0Slider  = document.getElementById('x0Slider');
+    const hSlider   = document.getElementById('hSlider');
+    const x0ValEl   = document.getElementById('x0Val');
+    const hValEl    = document.getElementById('hVal');
+    const eqDisplay = document.getElementById('eqDisplay');
+    const infoSecant  = document.getElementById('infoSecant');
+    const infoTangent = document.getElementById('infoTangent');
+    const infoPoint   = document.getElementById('infoPoint');
+    const funcSel   = document.getElementById('funcSel');
+
+    const FUNCS = {
+      sq:     { fn: x => x*x,              deriv: x => 2*x,          label: 'f(x) = x²' },
+      cube:   { fn: x => x*x*x,            deriv: x => 3*x*x,        label: 'f(x) = x³' },
+      sin:    { fn: x => Math.sin(x),       deriv: x => Math.cos(x),  label: 'f(x) = sin(x)' },
+      cubic2: { fn: x => x*x*x - 3*x,      deriv: x => 3*x*x - 3,   label: 'f(x) = x³ − 3x' },
+    };
+
+    const RANGE = 5;
+
+    function resizeCanvas() {
+      const wrap = canvas.parentElement;
+      canvas.width  = wrap.clientWidth;
+      canvas.height = Math.round(wrap.clientWidth * 0.46);
+      draw();
+    }
+
+    function toCanvas(x, y) {
+      const W = canvas.width, H = canvas.height;
+      const cx = W/2 + (x / RANGE) * (W/2);
+      const cy = H/2 - (y / RANGE) * (H/2);
+      return [cx, cy];
+    }
+
+    function draw() {
+      const key = funcSel.value;
+      const { fn, deriv, label } = FUNCS[key];
+      const W = canvas.width, H = canvas.height;
+      const x0 = parseFloat(x0Slider.value);
+      const h  = parseFloat(hSlider.value);
+
+      const y0  = fn(x0);
+      const y1  = fn(x0 + h);
+      const mSec  = (y1 - y0) / h;
+      const mTan  = deriv(x0);
+
+      // Update controls
+      x0ValEl.textContent = x0.toFixed(2);
+      hValEl.textContent  = h.toFixed(2);
+      infoSecant.textContent  = mSec.toFixed(4);
+      infoTangent.textContent = mTan.toFixed(4);
+      infoPoint.textContent   = `(${x0.toFixed(2)}, ${y0.toFixed(3)})`;
+      eqDisplay.textContent   = `secant slope = ${mSec.toFixed(3)}  →  tangent slope = ${mTan.toFixed(3)}`;
+
+      ctx.clearRect(0, 0, W, H);
+      ctx.fillStyle = '#0d0d14';
+      ctx.fillRect(0, 0, W, H);
+
+      // Grid
+      ctx.strokeStyle = 'rgba(255,255,255,0.04)';
+      ctx.lineWidth = 1;
+      for (let i = -RANGE; i <= RANGE; i++) {
+        const [gx] = toCanvas(i, 0);
+        const [, gy] = toCanvas(0, i);
+        ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, H); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(W, gy); ctx.stroke();
+      }
+
+      // Axes
+      const [ax] = toCanvas(0, 0);
+      const [, ay] = toCanvas(0, 0);
+      ctx.strokeStyle = 'rgba(255,255,255,0.18)';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(ax, 0); ctx.lineTo(ax, H); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0, ay); ctx.lineTo(W, ay); ctx.stroke();
+
+      // Axis labels
+      ctx.fillStyle = 'rgba(255,255,255,0.28)';
+      ctx.font = `${Math.max(10, W * 0.012)}px Inter, sans-serif`;
+      ctx.textAlign = 'center';
+      for (let i = -RANGE + 1; i <= RANGE - 1; i++) {
+        if (i === 0) continue;
+        const [lx] = toCanvas(i, 0);
+        ctx.fillText(i, lx, ay + 16);
+        const [, ly] = toCanvas(0, i);
+        ctx.textAlign = 'right';
+        ctx.fillText(i, ax - 6, ly + 4);
+        ctx.textAlign = 'center';
+      }
+
+      // Curve
+      ctx.strokeStyle = '#9b6df8';
+      ctx.lineWidth = 2.5;
+      ctx.shadowColor = 'rgba(155,109,248,0.3)';
+      ctx.shadowBlur = 8;
+      ctx.beginPath();
+      let penDown = false;
+      for (let i = 0; i <= 600; i++) {
+        const x = -RANGE + (i / 600) * (2 * RANGE);
+        const y = fn(x);
+        if (!isFinite(y) || Math.abs(y) > RANGE * 1.5) { penDown = false; continue; }
+        const [px, py] = toCanvas(x, y);
+        if (!penDown) { ctx.moveTo(px, py); penDown = true; } else ctx.lineTo(px, py);
+      }
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      // Secant line (blue)
+      const extend = RANGE * 2;
+      const secY = (xv) => y0 + mSec * (xv - x0);
+      const [sx1, sy1] = toCanvas(x0 - extend, secY(x0 - extend));
+      const [sx2, sy2] = toCanvas(x0 + extend, secY(x0 + extend));
+      ctx.strokeStyle = 'rgba(79,142,247,0.75)';
+      ctx.lineWidth = 1.8;
+      ctx.setLineDash([6, 4]);
+      ctx.beginPath(); ctx.moveTo(sx1, sy1); ctx.lineTo(sx2, sy2); ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Tangent line (orange)
+      const tanY = (xv) => y0 + mTan * (xv - x0);
+      const [tx1, ty1] = toCanvas(x0 - extend, tanY(x0 - extend));
+      const [tx2, ty2] = toCanvas(x0 + extend, tanY(x0 + extend));
+      ctx.strokeStyle = '#f97b40';
+      ctx.lineWidth = 2.2;
+      ctx.shadowColor = 'rgba(249,123,64,0.4)';
+      ctx.shadowBlur = 8;
+      ctx.beginPath(); ctx.moveTo(tx1, ty1); ctx.lineTo(tx2, ty2); ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      // Base point x0
+      const [p0x, p0y] = toCanvas(x0, y0);
+      ctx.fillStyle = '#f97b40';
+      ctx.beginPath(); ctx.arc(p0x, p0y, 6, 0, Math.PI * 2); ctx.fill();
+
+      // Second point x0+h
+      const [p1x, p1y] = toCanvas(x0 + h, y1);
+      ctx.fillStyle = '#4f8ef7';
+      ctx.beginPath(); ctx.arc(p1x, p1y, 5, 0, Math.PI * 2); ctx.fill();
+
+      // Vertical dashed connector
+      ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath(); ctx.moveTo(p1x, p1y); ctx.lineTo(p1x, p0y); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(p0x, p0y); ctx.lineTo(p1x, p0y); ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Legend
+      const lx = 14, ly = 14, lh = 18;
+      ctx.font = `${Math.max(10, W * 0.013)}px Inter, sans-serif`;
+      ctx.textAlign = 'left';
+      [[`Secant (h=${h.toFixed(2)})`, '#4f8ef7'], ['Tangent (h→0)', '#f97b40'], [label, '#9b6df8']].forEach(([txt, col], i) => {
+        ctx.fillStyle = col;
+        ctx.fillRect(lx, ly + i * lh + 2, 14, 3);
+        ctx.fillStyle = 'rgba(255,255,255,0.6)';
+        ctx.fillText(txt, lx + 20, ly + i * lh + 8);
+      });
+    }
+
+    funcSel.addEventListener('change', draw);
+    x0Slider.addEventListener('input', draw);
+    hSlider.addEventListener('input', draw);
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+  </script>
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Series &amp; Sequences — Calculus | MathExplorer</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    .topic-symbol { background: rgba(155,109,248,0.1); color: var(--calculus-color); border-color: rgba(155,109,248,0.2); }
+    .formula-card .formula-label { color: var(--calculus-color); }
+    .example-card .example-title { color: var(--calculus-color); }
+    .step-num { background: rgba(155,109,248,0.12); color: var(--calculus-color); }
+    input[type="range"]::-webkit-slider-thumb { background: var(--calculus-color); box-shadow: 0 0 8px rgba(155,109,248,0.5); }
+    .series-controls { display:flex; gap:12px; align-items:center; flex-wrap:wrap; padding:20px 24px 0; }
+    .series-controls label { font-size:0.82rem; font-weight:600; color:var(--text-secondary); font-family:var(--font-mono); }
+    .series-controls select {
+      background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-sm);
+      color:var(--text-primary); padding:6px 12px; font-family:var(--font-mono); font-size:0.85rem; outline:none;
+    }
+    .series-controls select:focus { border-color:rgba(155,109,248,0.4); }
+    .info-row { display:flex; gap:24px; flex-wrap:wrap; padding:0 24px 16px; }
+    .info-badge { display:flex; flex-direction:column; gap:4px; }
+    .info-badge span:first-child { font-size:0.72rem; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--text-muted); font-family:var(--font-mono); }
+    .info-badge span:last-child  { font-size:0.95rem; font-weight:700; color:var(--text-primary); font-family:var(--font-mono); }
+    .convergence-badge {
+      display:inline-block; padding:2px 10px; border-radius:20px; font-size:0.8rem;
+      font-weight:700; font-family:var(--font-mono); letter-spacing:0.05em;
+    }
+    .converges { background:rgba(52,212,200,0.12); color:#34d4c8; border:1px solid rgba(52,212,200,0.25); }
+    .diverges  { background:rgba(249,123,64,0.12); color:#f97b40; border:1px solid rgba(249,123,64,0.25); }
+  </style>
+</head>
+<body class="topic-page">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html" class="active">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a><span>›</span>
+      <a href="../calculus.html">Calculus</a><span>›</span>
+      <span>Series &amp; Sequences</span>
+    </nav>
+    <div class="topic-hero-top">
+      <div class="topic-symbol">Σ</div>
+      <h1>Series &amp; Sequences</h1>
+    </div>
+    <p class="subtitle">
+      A sequence is an ordered list of numbers. A series is the sum of a sequence's terms.
+      The central question: as you add more terms, does the running total approach a finite limit,
+      or grow without bound?
+    </p>
+  </div>
+
+  <!-- Concept -->
+  <section class="content-section">
+    <h2>Sequences, Partial Sums, and Convergence</h2>
+    <p>
+      Given a sequence \(\{a_n\}\), the <strong>\(n\)-th partial sum</strong> is \(S_n = \sum_{k=1}^n a_k\).
+      The series \(\sum a_n\) <em>converges</em> if \(\lim_{n\to\infty} S_n = L\) for some finite \(L\);
+      otherwise it <em>diverges</em>.
+    </p>
+    <p>
+      The <strong>geometric series</strong> is the archetype of convergence:
+      \(\sum_{n=0}^\infty r^n = \tfrac{1}{1-r}\) when \(|r| < 1\).
+      When \(|r| \ge 1\) the terms do not shrink to zero and the series diverges.
+    </p>
+    <p>
+      The <strong>harmonic series</strong> \(\sum 1/n\) is a famous example of divergence despite its terms
+      going to zero — the terms shrink, but not fast enough.
+      A <strong>p-series</strong> \(\sum 1/n^p\) converges exactly when \(p > 1\).
+    </p>
+    <p>
+      <strong>Taylor series</strong> represent smooth functions as power series, enabling polynomial approximations
+      of \(\sin x\), \(\cos x\), and \(e^x\) that are accurate near the expansion point.
+    </p>
+  </section>
+
+  <!-- Key Formulas -->
+  <section class="content-section">
+    <h2>Key Series</h2>
+    <div class="formula-grid">
+
+      <div class="formula-card">
+        <span class="formula-label">Geometric Series</span>
+        <div>
+          <div class="formula-math">\[ \sum_{n=0}^{\infty} r^n = \frac{1}{1-r}, \quad |r| < 1 \]</div>
+          <div class="formula-note">Converges for \(|r| < 1\); diverges otherwise.</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Harmonic Series</span>
+        <div>
+          <div class="formula-math">\[ \sum_{n=1}^{\infty} \frac{1}{n} = \infty \quad \text{(diverges)} \]</div>
+          <div class="formula-note">Classic example: terms → 0 yet the sum diverges.</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">p-Series</span>
+        <div>
+          <div class="formula-math">\[ \sum_{n=1}^{\infty} \frac{1}{n^p} \begin{cases} \text{converges} & p > 1 \\ \text{diverges} & p \le 1 \end{cases} \]</div>
+          <div class="formula-note">Generalises the harmonic series.</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Taylor Series for sin</span>
+        <div>
+          <div class="formula-math">\[ \sin x = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1}}{(2n+1)!} = x - \frac{x^3}{6} + \frac{x^5}{120} - \cdots \]</div>
+          <div class="formula-note">Converges for all \(x\).</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Worked Examples -->
+  <section class="content-section">
+    <h2>Worked Examples</h2>
+    <div class="example-list">
+
+      <div class="example-card">
+        <div class="example-title">Example 1 — Geometric series sum</div>
+        <div class="example-problem">Find \(\displaystyle\sum_{n=0}^{\infty} \left(\tfrac{1}{2}\right)^n\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">\(r = 1/2\), so \(|r| = 1/2 < 1\): converges.</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Sum \(= \dfrac{1}{1 - 1/2} = \dfrac{1}{1/2} = 2\).</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">\(\displaystyle\sum_{n=0}^{\infty} (1/2)^n = 2\)</div></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 2 — Taylor approximation of sin(0.5)</div>
+        <div class="example-problem">Use the first 3 terms of the Taylor series to approximate \(\sin(0.5)\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">\(\sin x \approx x - x^3/6 + x^5/120\)</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">\(= 0.5 - 0.125/6 + 0.03125/120 = 0.5 - 0.020833 + 0.000260\)</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">\(\approx 0.479427\). Exact: \(\sin(0.5) \approx 0.479426\) ✓</div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Visualiser -->
+  <section class="visualiser-section">
+    <h2>Interactive — Partial Sum Convergence</h2>
+    <div class="visualiser-card">
+      <div class="visualiser-canvas-wrap">
+        <canvas id="seriesCanvas" width="860" height="380"></canvas>
+        <div class="equation-display" id="eqDisplay">Geometric (r = 0.5)</div>
+      </div>
+
+      <div class="series-controls">
+        <label for="seriesSel">Series:</label>
+        <select id="seriesSel">
+          <option value="geo05" selected>Geometric r = 0.5 (converges → 2)</option>
+          <option value="geo09">Geometric r = 0.9 (converges → 10)</option>
+          <option value="harmonic">Harmonic 1/n (diverges)</option>
+          <option value="pseries2">p-Series p=2 (converges → π²/6)</option>
+          <option value="pseries05">p-Series p=0.5 (diverges)</option>
+          <option value="taylorsin">Taylor sin(x) at x=1 (converges)</option>
+        </select>
+      </div>
+
+      <div class="visualiser-controls">
+        <div class="control-group">
+          <div class="control-label">
+            <span>Terms (n)</span>
+            <span class="control-value" id="nVal">20</span>
+          </div>
+          <input type="range" id="nSlider" min="1" max="60" step="1" value="20" aria-label="Number of terms" />
+        </div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-badge"><span>Partial Sum Sₙ</span><span id="infoPsum">—</span></div>
+        <div class="info-badge"><span>Limit</span><span id="infoLimit">—</span></div>
+        <div class="info-badge"><span>Status</span><span id="infoStatus">—</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <div class="takeaways-list">
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>A series converges when its partial sums approach a finite limit; it diverges when they grow without bound.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>For a series to converge, the terms \(a_n\) must approach zero — but that alone is not sufficient (harmonic series).</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Geometric series \(\sum r^n\) converges to \(1/(1-r)\) when \(|r| < 1\).</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Taylor series let us replace complex functions with polynomials of arbitrary degree near a point.</p></div>
+    </div>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="limits.html" class="related-card">Limits <span>→</span></a>
+      <a href="definite-integrals.html" class="related-card">Definite Integrals <span>→</span></a>
+      <a href="../calculus.html" class="related-card">All Calculus Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand"><span class="logo-symbol">∑</span><span class="logo-text">MathExplorer</span></div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    const canvas    = document.getElementById('seriesCanvas');
+    const ctx       = canvas.getContext('2d');
+    const seriesSel = document.getElementById('seriesSel');
+    const nSlider   = document.getElementById('nSlider');
+    const nValEl    = document.getElementById('nVal');
+    const eqDisp    = document.getElementById('eqDisplay');
+    const infoPsum  = document.getElementById('infoPsum');
+    const infoLimit = document.getElementById('infoLimit');
+    const infoStatus= document.getElementById('infoStatus');
+
+    // Series definitions: term(n) where n starts at 1
+    const SERIES = {
+      geo05:     { term: n => Math.pow(0.5, n-1),        limit: 2,          limitStr: '2',       converges: true,  label: 'Geometric r=0.5',  eqLabel: 'Σ (0.5)ⁿ' },
+      geo09:     { term: n => Math.pow(0.9, n-1),        limit: 10,         limitStr: '10',      converges: true,  label: 'Geometric r=0.9',  eqLabel: 'Σ (0.9)ⁿ' },
+      harmonic:  { term: n => 1/n,                       limit: Infinity,   limitStr: '∞',       converges: false, label: 'Harmonic',         eqLabel: 'Σ 1/n' },
+      pseries2:  { term: n => 1/(n*n),                   limit: Math.PI*Math.PI/6, limitStr: 'π²/6 ≈ 1.6449', converges: true, label: 'p-series p=2', eqLabel: 'Σ 1/n²' },
+      pseries05: { term: n => 1/Math.sqrt(n),            limit: Infinity,   limitStr: '∞',       converges: false, label: 'p-series p=0.5',  eqLabel: 'Σ 1/√n' },
+      taylorsin: { term: n => { const k=n-1; return Math.pow(-1,k)*Math.pow(1, 2*k+1)/factorial(2*k+1); }, limit: Math.sin(1), limitStr: 'sin(1) ≈ 0.8415', converges: true, label: 'Taylor sin(1)', eqLabel: 'Σ (-1)ⁿx²ⁿ⁺¹/(2n+1)! at x=1' },
+    };
+
+    function factorial(n) { let r=1; for(let i=2;i<=n;i++) r*=i; return r; }
+
+    function getPartials(key, maxN) {
+      const { term } = SERIES[key];
+      const parts = [];
+      let sum = 0;
+      for (let n = 1; n <= maxN; n++) {
+        sum += term(n);
+        parts.push(sum);
+      }
+      return parts;
+    }
+
+    function draw() {
+      const key  = seriesSel.value;
+      const n    = parseInt(nSlider.value);
+      const seriesDef = SERIES[key];
+      nValEl.textContent = n;
+
+      const partials = getPartials(key, n);
+      const Sn = partials[partials.length - 1];
+
+      eqDisp.textContent = seriesDef.eqLabel;
+      infoPsum.textContent = isFinite(Sn) ? Sn.toFixed(6) : '∞';
+      infoLimit.textContent = seriesDef.limitStr;
+      infoStatus.innerHTML = seriesDef.converges
+        ? `<span class="convergence-badge converges">CONVERGES</span>`
+        : `<span class="convergence-badge diverges">DIVERGES</span>`;
+
+      const W = canvas.width, H = canvas.height;
+      ctx.fillStyle = '#0d0d14'; ctx.fillRect(0,0,W,H);
+
+      // Determine y range
+      const validParts = partials.filter(isFinite);
+      const maxY = Math.max(...validParts) * 1.15;
+      const minY = Math.min(0, Math.min(...validParts) - 0.1);
+      const rangeY = Math.max(maxY - minY, 0.1);
+
+      const PAD = { top: 30, right: 20, bottom: 40, left: 60 };
+      const plotW = W - PAD.left - PAD.right;
+      const plotH = H - PAD.top - PAD.bottom;
+
+      function toX(idx) { return PAD.left + (idx/(n-1||1))*plotW; }
+      function toY(v) {
+        const clamped = Math.min(Math.max(v, minY), maxY*1.5);
+        return PAD.top + plotH - (clamped - minY)/rangeY * plotH;
+      }
+
+      // Grid & axes
+      ctx.strokeStyle = 'rgba(255,255,255,0.05)'; ctx.lineWidth = 1;
+      for (let gy = 0; gy <= 5; gy++) {
+        const y = minY + gy/5*rangeY;
+        const py = toY(y);
+        ctx.beginPath(); ctx.moveTo(PAD.left, py); ctx.lineTo(W-PAD.right, py); ctx.stroke();
+        ctx.fillStyle = 'rgba(255,255,255,0.4)'; ctx.font = `${Math.max(10,W*0.012)}px JetBrains Mono, monospace`;
+        ctx.textAlign = 'right';
+        ctx.fillText(y.toFixed(2), PAD.left - 8, py + 4);
+      }
+
+      // Limit line
+      if (isFinite(seriesDef.limit)) {
+        const ly = toY(seriesDef.limit);
+        ctx.strokeStyle = 'rgba(52,212,200,0.45)'; ctx.lineWidth = 1.5; ctx.setLineDash([6,4]);
+        ctx.beginPath(); ctx.moveTo(PAD.left, ly); ctx.lineTo(W-PAD.right, ly); ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = '#34d4c8'; ctx.textAlign = 'left'; ctx.font = `${Math.max(10,W*0.012)}px JetBrains Mono, monospace`;
+        ctx.fillText('L = ' + seriesDef.limitStr, W - PAD.right - 5 - ctx.measureText('L = ' + seriesDef.limitStr).width, ly - 6);
+      }
+
+      // Axis
+      const ayY = toY(0);
+      ctx.strokeStyle = 'rgba(255,255,255,0.2)'; ctx.lineWidth = 1.5; ctx.setLineDash([]);
+      ctx.beginPath(); ctx.moveTo(PAD.left, ayY); ctx.lineTo(W-PAD.right, ayY); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(PAD.left, PAD.top); ctx.lineTo(PAD.left, H-PAD.bottom); ctx.stroke();
+
+      // Bars (individual terms)
+      const { term } = seriesDef;
+      const barW = Math.max(2, plotW / n - 1);
+      for (let i = 1; i <= n; i++) {
+        const t = term(i);
+        if (!isFinite(t)) continue;
+        const bx = PAD.left + ((i-1)/(n-1||1))*plotW - barW/2;
+        const by = toY(Math.max(0,t));
+        const bh = Math.abs(toY(0) - toY(t));
+        ctx.fillStyle = 'rgba(155,109,248,0.3)';
+        ctx.fillRect(bx, by, barW, bh);
+      }
+
+      // Partial sum line
+      ctx.strokeStyle = '#f97b40'; ctx.lineWidth = 2.5; ctx.shadowColor = 'rgba(249,123,64,0.4)'; ctx.shadowBlur = 6;
+      ctx.beginPath();
+      partials.forEach((s, i) => {
+        if (!isFinite(s)) return;
+        const px = toX(i), py = toY(s);
+        i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+      });
+      ctx.stroke(); ctx.shadowBlur = 0;
+
+      // Dots
+      ctx.fillStyle = '#f97b40';
+      partials.forEach((s, i) => {
+        if (!isFinite(s)) return;
+        ctx.beginPath(); ctx.arc(toX(i), toY(s), 3, 0, Math.PI*2); ctx.fill();
+      });
+
+      // x-axis labels
+      ctx.fillStyle = 'rgba(255,255,255,0.4)'; ctx.textAlign = 'center'; ctx.font = `${Math.max(10,W*0.012)}px JetBrains Mono, monospace`;
+      [1, Math.ceil(n/4), Math.ceil(n/2), Math.ceil(3*n/4), n].forEach(ni => {
+        if (ni < 1 || ni > n) return;
+        ctx.fillText(ni, toX(ni-1), H-PAD.bottom+16);
+      });
+      ctx.fillStyle = 'rgba(255,255,255,0.3)'; ctx.textAlign = 'center';
+      ctx.fillText('n', W/2, H-8);
+
+      // Legend
+      const fs = Math.max(10, W*0.012);
+      ctx.font = `${fs}px Inter, sans-serif`; ctx.textAlign = 'left'; ctx.globalAlpha = 1;
+      [['#9b6df8', 'aₙ (terms)'], ['#f97b40', 'Sₙ (partial sums)'], ['#34d4c8', 'Limit L']].forEach(([col, txt], i) => {
+        ctx.fillStyle = col; ctx.fillRect(PAD.left+8, PAD.top+8+i*18, 16, 3);
+        ctx.fillStyle = 'rgba(255,255,255,0.6)'; ctx.fillText(txt, PAD.left+30, PAD.top+13+i*18);
+      });
+    }
+
+    seriesSel.addEventListener('change', draw);
+    nSlider.addEventListener('input', () => { nValEl.textContent = nSlider.value; draw(); });
+
+    function resizeCanvas() {
+      const wrap = canvas.parentElement;
+      canvas.width  = wrap.clientWidth;
+      canvas.height = Math.round(wrap.clientWidth * 0.42);
+      draw();
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+  </script>
+</body>
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fundamental Theorem of Calculus — MathExplorer</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    .topic-symbol { background: rgba(155,109,248,0.1); color: var(--calculus-color); border-color: rgba(155,109,248,0.2); }
+    .formula-card .formula-label { color: var(--calculus-color); }
+    .example-card .example-title { color: var(--calculus-color); }
+    .step-num { background: rgba(155,109,248,0.12); color: var(--calculus-color); }
+    input[type="range"]::-webkit-slider-thumb { background: var(--calculus-color); box-shadow: 0 0 8px rgba(155,109,248,0.5); }
+    /* Dual canvas layout */
+    .ftc-panels {
+      display:grid; grid-template-columns:1fr 1fr; gap:16px;
+      padding:20px 24px 0;
+    }
+    @media(max-width:640px){ .ftc-panels { grid-template-columns:1fr; } }
+    .ftc-panel { display:flex; flex-direction:column; gap:8px; }
+    .ftc-panel-title {
+      font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.07em;
+      color:var(--text-muted); font-family:var(--font-mono); padding:0 4px;
+    }
+    .ftc-panel canvas { width:100%; height:auto; border-radius:var(--radius-sm); background:#0d0d14; }
+    .ftc-result {
+      font-family:var(--font-mono); font-size:0.88rem; padding:8px 12px;
+      background:rgba(155,109,248,0.07); border-radius:var(--radius-sm);
+      border:1px solid rgba(155,109,248,0.15); color:var(--text-primary); min-height:34px;
+    }
+    .func-select-row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; padding:0 24px 8px; }
+    .func-select-row label { font-size:0.82rem; font-weight:600; color:var(--text-secondary); font-family:var(--font-mono); }
+    .func-select-row select {
+      background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-sm);
+      color:var(--text-primary); padding:6px 12px; font-family:var(--font-mono); font-size:0.85rem; outline:none;
+    }
+    .func-select-row select:focus { border-color:rgba(155,109,248,0.4); }
+  </style>
+</head>
+<body class="topic-page">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html" class="active">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a><span>›</span>
+      <a href="../calculus.html">Calculus</a><span>›</span>
+      <span>Fundamental Theorem</span>
+    </nav>
+    <div class="topic-hero-top">
+      <div class="topic-symbol">FTC</div>
+      <h1>Fundamental Theorem of Calculus</h1>
+    </div>
+    <p class="subtitle">
+      The Fundamental Theorem of Calculus is the bridge connecting differentiation and integration —
+      two operations that appear unrelated until you see that they are exact inverses of each other.
+    </p>
+  </div>
+
+  <!-- Concept -->
+  <section class="content-section">
+    <h2>Two Parts, One Big Idea</h2>
+    <p>
+      <strong>FTC Part 1</strong> says: if you define an accumulation function
+      \(G(x) = \int_a^x f(t)\,dt\), then \(G'(x) = f(x)\).
+      In other words, differentiating an integral returns the original integrand.
+    </p>
+    <p>
+      <strong>FTC Part 2</strong> (the evaluation theorem) says: if \(F\) is any antiderivative of \(f\),
+      then \(\int_a^b f(x)\,dx = F(b) - F(a)\).
+      This turns area calculation into simple subtraction — no need for Riemann sum limits.
+    </p>
+    <p>
+      Together they say: <em>integration and differentiation undo each other</em>,
+      exactly as multiplication and division do in arithmetic.
+    </p>
+  </section>
+
+  <!-- Key Formulas -->
+  <section class="content-section">
+    <h2>The Two Parts</h2>
+    <div class="formula-grid">
+
+      <div class="formula-card">
+        <span class="formula-label">FTC Part 1</span>
+        <div>
+          <div class="formula-math">\[ \frac{d}{dx}\left[\int_a^x f(t)\,dt\right] = f(x) \]</div>
+          <div class="formula-note">Differentiating the area-accumulation function recovers \(f\).</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">FTC Part 2</span>
+        <div>
+          <div class="formula-math">\[ \int_a^b f(x)\,dx = F(b) - F(a) \]</div>
+          <div class="formula-note">Where \(F\) is any antiderivative of \(f\); the \(+C\) cancels out.</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Inverse Relationship</span>
+        <div>
+          <div class="formula-math">\[ \frac{d}{dx}\int_a^x f(t)\,dt = f(x) \quad \text{and} \quad \int_a^b F'(x)\,dx = F(b) - F(a) \]</div>
+          <div class="formula-note">Both parts express that \(\tfrac{d}{dx}\) and \(\int\) are inverses.</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Chain Rule Extension</span>
+        <div>
+          <div class="formula-math">\[ \frac{d}{dx}\int_a^{g(x)} f(t)\,dt = f(g(x))\cdot g'(x) \]</div>
+          <div class="formula-note">When the upper bound is a function of \(x\), apply chain rule.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Worked Examples -->
+  <section class="content-section">
+    <h2>Worked Examples</h2>
+    <div class="example-list">
+
+      <div class="example-card">
+        <div class="example-title">Example 1 — Using FTC Part 2</div>
+        <div class="example-problem">Evaluate \(\displaystyle\int_1^3 (2x)\,dx\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">Antiderivative: \(F(x) = x^2\)</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">\(F(3) - F(1) = 9 - 1 = 8\)</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">\(\int_1^3 2x\,dx = 8\)</div></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 2 — Applying FTC Part 1</div>
+        <div class="example-problem">Find \(\dfrac{d}{dx}\displaystyle\int_0^x \sin(t^2)\,dt\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">FTC Part 1 directly: the derivative of the accumulation integral is the integrand evaluated at the upper bound.</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">\(\dfrac{d}{dx}\displaystyle\int_0^x \sin(t^2)\,dt = \sin(x^2)\)</div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Dual Panel Visualiser -->
+  <section class="visualiser-section">
+    <h2>Interactive — FTC Dual Panel</h2>
+    <p style="padding:0 24px;color:var(--text-muted);font-size:0.85rem;">
+      Left panel: move the upper-bound slider to see the shaded area \(\int_a^x f(t)\,dt\) grow.<br>
+      Right panel: the orange curve plots the accumulated area \(G(x)\) — its derivative at any point equals \(f(x)\).
+    </p>
+    <div class="visualiser-card">
+      <div class="func-select-row">
+        <label for="ftcFuncSel">f(x):</label>
+        <select id="ftcFuncSel">
+          <option value="2x" selected>f(x) = 2x, a = 0</option>
+          <option value="sinx">f(x) = sin(x), a = 0</option>
+          <option value="x2">f(x) = x², a = 0</option>
+          <option value="cosx">f(x) = cos(x), a = 0</option>
+        </select>
+      </div>
+
+      <div class="ftc-panels">
+        <div class="ftc-panel">
+          <div class="ftc-panel-title">f(x) with accumulated area</div>
+          <canvas id="leftCanvas"></canvas>
+          <div class="ftc-result" id="areaResult">Area = 0</div>
+        </div>
+        <div class="ftc-panel">
+          <div class="ftc-panel-title">G(x) = ∫₀ˣ f(t) dt  (accumulation curve)</div>
+          <canvas id="rightCanvas"></canvas>
+          <div class="ftc-result" id="derivResult">G'(x) = f(x) at x = 0 → 0</div>
+        </div>
+      </div>
+
+      <div class="visualiser-controls">
+        <div class="control-group">
+          <div class="control-label">
+            <span>Upper bound x</span>
+            <span class="control-value" id="xVal">0</span>
+          </div>
+          <input type="range" id="xSlider" min="0" max="1" step="0.01" value="0" aria-label="Upper bound x" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <div class="takeaways-list">
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>FTC Part 1: differentiating an integral returns the integrand — \(\tfrac{d}{dx}\int_a^x f(t)\,dt = f(x)\).</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>FTC Part 2: a definite integral equals \(F(b) - F(a)\) — the difference of antiderivative values at the endpoints.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>The \(+C\) always cancels in FTC Part 2, so any antiderivative works.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>FTC is why we compute area by finding antiderivatives rather than taking limits of sums.</p></div>
+    </div>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="indefinite-integrals.html" class="related-card">Indefinite Integrals <span>→</span></a>
+      <a href="definite-integrals.html" class="related-card">Definite Integrals <span>→</span></a>
+      <a href="../calculus.html" class="related-card">All Calculus Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand"><span class="logo-symbol">∑</span><span class="logo-text">MathExplorer</span></div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    const leftCanvas  = document.getElementById('leftCanvas');
+    const rightCanvas = document.getElementById('rightCanvas');
+    const lCtx = leftCanvas.getContext('2d');
+    const rCtx = rightCanvas.getContext('2d');
+    const ftcFuncSel = document.getElementById('ftcFuncSel');
+    const xSlider    = document.getElementById('xSlider');
+    const xValEl     = document.getElementById('xVal');
+    const areaResult = document.getElementById('areaResult');
+    const derivResult= document.getElementById('derivResult');
+
+    const FUNCS = {
+      '2x':  { fn: x => 2*x, antideriv: x => x*x,      a: 0, xMin: 0, xMax: 3, label:'2x' },
+      sinx:  { fn: x => Math.sin(x), antideriv: x => -Math.cos(x), a: 0, xMin: 0, xMax: Math.PI*2, label:'sin(x)' },
+      x2:    { fn: x => x*x, antideriv: x => x*x*x/3,  a: 0, xMin: 0, xMax: 3, label:'x²' },
+      cosx:  { fn: x => Math.cos(x), antideriv: x => Math.sin(x), a: 0, xMin: 0, xMax: Math.PI*2, label:'cos(x)' },
+    };
+
+    function setupSlider() {
+      const key = ftcFuncSel.value;
+      const { xMin, xMax } = FUNCS[key];
+      xSlider.min  = xMin;
+      xSlider.max  = xMax;
+      xSlider.step = (xMax - xMin) / 200;
+      xSlider.value = xMin;
+    }
+
+    function numIntegrate(fn, a, b, n) {
+      // Simpson's rule
+      if (b === a) return 0;
+      const h = (b - a) / n;
+      let sum = fn(a) + fn(b);
+      for (let i = 1; i < n; i++) sum += (i%2===0?2:4)*fn(a + i*h);
+      return sum * h / 3;
+    }
+
+    function drawLeft() {
+      const key = ftcFuncSel.value;
+      const { fn, a, xMin, xMax, label } = FUNCS[key];
+      const b = parseFloat(xSlider.value);
+      const W = leftCanvas.width, H = leftCanvas.height;
+      const YRANGE = 4;
+
+      lCtx.fillStyle = '#0d0d14'; lCtx.fillRect(0,0,W,H);
+
+      function toCv(x, y) {
+        return [(x - xMin)/(xMax - xMin)*W, H/2 - (y/YRANGE)*(H/2)];
+      }
+
+      // Grid
+      lCtx.strokeStyle = 'rgba(255,255,255,0.04)'; lCtx.lineWidth = 1;
+      for (let gx = xMin; gx <= xMax; gx += (xMax-xMin)/6) {
+        const [px] = toCv(gx,0); lCtx.beginPath(); lCtx.moveTo(px,0); lCtx.lineTo(px,H); lCtx.stroke();
+      }
+      const [,ay] = toCv(0,0);
+      lCtx.strokeStyle = 'rgba(255,255,255,0.18)'; lCtx.lineWidth = 1.5;
+      lCtx.beginPath(); lCtx.moveTo(0,ay); lCtx.lineTo(W,ay); lCtx.stroke();
+
+      // Shaded area from a to b
+      lCtx.fillStyle = 'rgba(155,109,248,0.18)';
+      lCtx.beginPath();
+      const [x0, y0] = toCv(a, 0); lCtx.moveTo(x0, y0);
+      const steps = 300;
+      for (let i = 0; i <= steps; i++) {
+        const x = a + (b-a)*(i/steps);
+        const [px,py] = toCv(x, fn(x));
+        lCtx.lineTo(px,py);
+      }
+      const [xb, yb] = toCv(b, 0); lCtx.lineTo(xb, yb);
+      lCtx.closePath(); lCtx.fill();
+
+      // Curve
+      lCtx.strokeStyle = '#9b6df8'; lCtx.lineWidth = 2.5; lCtx.shadowColor = 'rgba(155,109,248,0.4)'; lCtx.shadowBlur = 8;
+      lCtx.beginPath(); let pen = false;
+      for (let i = 0; i <= 600; i++) {
+        const x = xMin + (i/600)*(xMax - xMin);
+        const y = fn(x);
+        if (!isFinite(y) || Math.abs(y) > YRANGE*1.4) { pen = false; continue; }
+        const [px,py] = toCv(x,y);
+        pen ? lCtx.lineTo(px,py) : lCtx.moveTo(px,py); pen = true;
+      }
+      lCtx.stroke(); lCtx.shadowBlur = 0;
+
+      // Upper bound line
+      lCtx.strokeStyle = '#f97b40'; lCtx.lineWidth = 1.5; lCtx.setLineDash([4,3]);
+      const [bx] = toCv(b,0);
+      lCtx.beginPath(); lCtx.moveTo(bx,0); lCtx.lineTo(bx,H); lCtx.stroke();
+      lCtx.setLineDash([]);
+
+      // Dot at (b, f(b))
+      const [dotX, dotY] = toCv(b, fn(b));
+      lCtx.fillStyle = '#f97b40'; lCtx.beginPath(); lCtx.arc(dotX, dotY, 5, 0, Math.PI*2); lCtx.fill();
+
+      const area = numIntegrate(fn, a, b, 400);
+      areaResult.textContent = `∫₀^${b.toFixed(2)} ${label} dt ≈ ${area.toFixed(4)}`;
+    }
+
+    function drawRight() {
+      const key = ftcFuncSel.value;
+      const { fn, antideriv, a, xMin, xMax, label } = FUNCS[key];
+      const b = parseFloat(xSlider.value);
+      const W = rightCanvas.width, H = rightCanvas.height;
+      const YRANGE = 4;
+
+      rCtx.fillStyle = '#0d0d14'; rCtx.fillRect(0,0,W,H);
+
+      function toCv(x, y) {
+        return [(x - xMin)/(xMax - xMin)*W, H/2 - (y/YRANGE)*(H/2)];
+      }
+
+      // Grid
+      rCtx.strokeStyle = 'rgba(255,255,255,0.04)'; rCtx.lineWidth = 1;
+      for (let gx = xMin; gx <= xMax; gx += (xMax-xMin)/6) {
+        const [px] = toCv(gx,0); rCtx.beginPath(); rCtx.moveTo(px,0); rCtx.lineTo(px,H); rCtx.stroke();
+      }
+      const [,ay] = toCv(0,0);
+      rCtx.strokeStyle = 'rgba(255,255,255,0.18)'; rCtx.lineWidth = 1.5;
+      rCtx.beginPath(); rCtx.moveTo(0,ay); rCtx.lineTo(W,ay); rCtx.stroke();
+
+      // G(x) = antideriv(x) - antideriv(a)
+      const fa = antideriv(a);
+      rCtx.strokeStyle = '#f97b40'; rCtx.lineWidth = 2.5; rCtx.shadowColor = 'rgba(249,123,64,0.4)'; rCtx.shadowBlur = 8;
+      rCtx.beginPath(); let pen = false;
+      for (let i = 0; i <= 600; i++) {
+        const x = xMin + (i/600)*(xMax - xMin);
+        const y = antideriv(x) - fa;
+        if (!isFinite(y) || Math.abs(y) > YRANGE*1.4) { pen = false; continue; }
+        const [px,py] = toCv(x,y);
+        pen ? rCtx.lineTo(px,py) : rCtx.moveTo(px,py); pen = true;
+      }
+      rCtx.stroke(); rCtx.shadowBlur = 0;
+
+      // Current point on G
+      const Gb = antideriv(b) - fa;
+      const [dotX, dotY] = toCv(b, Gb);
+      rCtx.fillStyle = '#9b6df8'; rCtx.beginPath(); rCtx.arc(dotX,dotY,6,0,Math.PI*2); rCtx.fill();
+      rCtx.strokeStyle = '#f97b40'; rCtx.lineWidth = 1.5; rCtx.setLineDash([4,3]);
+      rCtx.beginPath(); rCtx.moveTo(dotX,0); rCtx.lineTo(dotX,H); rCtx.stroke();
+      rCtx.setLineDash([]);
+
+      derivResult.textContent = `G'(x) = f(x) at x=${b.toFixed(2)} → f(${b.toFixed(2)}) = ${fn(b).toFixed(4)}`;
+    }
+
+    function draw() {
+      const b = parseFloat(xSlider.value);
+      xValEl.textContent = b.toFixed(2);
+      drawLeft(); drawRight();
+    }
+
+    function resizeCanvases() {
+      const wrap = leftCanvas.parentElement;
+      const w = wrap.clientWidth;
+      const h = Math.round(w * 0.55);
+      leftCanvas.width = w; leftCanvas.height = h;
+      rightCanvas.width = rightCanvas.parentElement.clientWidth;
+      rightCanvas.height = Math.round(rightCanvas.parentElement.clientWidth * 0.55);
+      draw();
+    }
+
+    ftcFuncSel.addEventListener('change', () => { setupSlider(); draw(); });
+    xSlider.addEventListener('input', draw);
+    window.addEventListener('resize', resizeCanvases);
+    setupSlider();
+    resizeCanvases();
+  </script>
+</body>
+</html>

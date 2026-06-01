@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Indefinite Integrals — Calculus | MathExplorer</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    .topic-symbol { background: rgba(155,109,248,0.1); color: var(--calculus-color); border-color: rgba(155,109,248,0.2); }
+    .formula-card .formula-label { color: var(--calculus-color); }
+    .example-card .example-title { color: var(--calculus-color); }
+    .step-num { background: rgba(155,109,248,0.12); color: var(--calculus-color); }
+    .control-value { color: var(--calculus-color); }
+    input[type="range"]::-webkit-slider-thumb { background: var(--calculus-color); box-shadow: 0 0 8px rgba(155,109,248,0.5); }
+    .func-select-row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; padding:20px 24px 0; }
+    .func-select-row label { font-size:0.82rem; font-weight:600; color:var(--text-secondary); font-family:var(--font-mono); }
+    .func-select-row select {
+      background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-sm);
+      color:var(--text-primary); padding:6px 12px; font-family:var(--font-mono); font-size:0.85rem; outline:none;
+    }
+    .func-select-row select:focus { border-color:rgba(155,109,248,0.4); }
+  </style>
+</head>
+<body class="topic-page">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html" class="active">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a><span>›</span>
+      <a href="../calculus.html">Calculus</a><span>›</span>
+      <span>Indefinite Integrals</span>
+    </nav>
+    <div class="topic-hero-top">
+      <div class="topic-symbol">+C</div>
+      <h1>Indefinite Integrals</h1>
+    </div>
+    <p class="subtitle">
+      An indefinite integral finds the family of <em>antiderivatives</em> of a function —
+      all functions whose derivative equals \(f(x)\). The constant \(C\) represents every
+      possible vertical shift, giving an infinite family of parallel curves.
+    </p>
+  </div>
+
+  <!-- Concept -->
+  <section class="content-section">
+    <h2>Antiderivatives and the +C</h2>
+    <p>
+      If \(F'(x) = f(x)\), then \(F\) is an <em>antiderivative</em> of \(f\).
+      Since any constant has derivative zero, \(F(x) + C\) is also an antiderivative for any constant \(C\).
+      We write:
+      \[\int f(x)\,dx = F(x) + C\]
+    </p>
+    <p>
+      The indefinite integral is the inverse operation of differentiation.
+      To "undo" a derivative you integrate; to "undo" an integral you differentiate.
+      This relationship is made precise by the Fundamental Theorem of Calculus.
+    </p>
+    <p>
+      The constant \(C\) is not just a formality — it carries real physical meaning.
+      In motion problems, \(C\) is determined by an initial condition (e.g. starting position or velocity).
+    </p>
+  </section>
+
+  <!-- Key Formulas -->
+  <section class="content-section">
+    <h2>Key Integration Rules</h2>
+    <div class="formula-grid">
+
+      <div class="formula-card">
+        <span class="formula-label">Power Rule for ∫</span>
+        <div>
+          <div class="formula-math">\[ \int x^n\,dx = \frac{x^{n+1}}{n+1} + C \quad (n \ne -1) \]</div>
+          <div class="formula-note">E.g. \(\int x^3\,dx = \tfrac{x^4}{4} + C\).</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Constant &amp; Sum</span>
+        <div>
+          <div class="formula-math">\[ \int c\,f(x)\,dx = c\int f(x)\,dx, \quad \int [f \pm g]\,dx = \int f \pm \int g \]</div>
+          <div class="formula-note">Constants factor out; integrals split across sums.</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Trig Integrals</span>
+        <div>
+          <div class="formula-math">\[ \int \cos x\,dx = \sin x + C, \quad \int \sin x\,dx = -\cos x + C \]</div>
+          <div class="formula-note">These are the reverse of the trig derivative rules.</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Exponential</span>
+        <div>
+          <div class="formula-math">\[ \int e^x\,dx = e^x + C, \quad \int \frac{1}{x}\,dx = \ln|x| + C \]</div>
+          <div class="formula-note">The exponential is its own antiderivative. The \(1/x\) rule handles \(n = -1\).</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Worked Examples -->
+  <section class="content-section">
+    <h2>Worked Examples</h2>
+    <div class="example-list">
+
+      <div class="example-card">
+        <div class="example-title">Example 1 — Polynomial antiderivative</div>
+        <div class="example-problem">Find \(\displaystyle\int (3x^2 - 4x + 1)\,dx\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">Integrate term by term: \(\int 3x^2\,dx = x^3\)</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">\(\int -4x\,dx = -2x^2\), \(\int 1\,dx = x\).</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">\(x^3 - 2x^2 + x + C\)</div></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 2 — Using an initial condition</div>
+        <div class="example-problem">Find \(F(x)\) if \(F'(x) = 2x\) and \(F(0) = 5\).</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">Integrate: \(\int 2x\,dx = x^2 + C\)</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Apply condition: \(F(0) = 0 + C = 5 \Rightarrow C = 5\)</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">\(F(x) = x^2 + 5\)</div></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 3 — Trig antiderivative</div>
+        <div class="example-problem">Find \(\displaystyle\int (2\cos x - 3\sin x)\,dx\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">\(\int 2\cos x\,dx = 2\sin x\)</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">\(\int -3\sin x\,dx = 3\cos x\)</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">\(2\sin x + 3\cos x + C\)</div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Visualiser -->
+  <section class="visualiser-section">
+    <h2>Interactive — Antiderivative Family (+C slider)</h2>
+    <div class="visualiser-card">
+      <div class="visualiser-canvas-wrap">
+        <canvas id="antiCanvas" width="860" height="420"></canvas>
+        <div class="equation-display" id="eqDisplay">F(x) + C</div>
+      </div>
+
+      <div class="func-select-row">
+        <label for="funcSel">f(x):</label>
+        <select id="funcSel">
+          <option value="2x" selected>f(x) = 2x → F(x) = x²</option>
+          <option value="x2">f(x) = x² → F(x) = x³/3</option>
+          <option value="cosx">f(x) = cos(x) → F(x) = sin(x)</option>
+          <option value="3x2">f(x) = 3x² − 4 → F(x) = x³ − 4x</option>
+        </select>
+      </div>
+
+      <div class="visualiser-controls">
+        <div class="control-group">
+          <div class="control-label">
+            <span>Constant C</span>
+            <span class="control-value" id="cVal">0</span>
+          </div>
+          <input type="range" id="cSlider" min="-5" max="5" step="0.5" value="0" aria-label="Constant C" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <div class="takeaways-list">
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>An indefinite integral yields a <em>family</em> of functions — the \(+C\) represents every parallel antiderivative curve.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Always add \(+C\) to an indefinite integral result — omitting it is incorrect.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>An initial condition (a known function value) pins down the exact value of \(C\).</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Integration is differentiation in reverse — verify any antiderivative by differentiating it.</p></div>
+    </div>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="definite-integrals.html" class="related-card">Definite Integrals <span>→</span></a>
+      <a href="ftc.html" class="related-card">Fundamental Theorem <span>→</span></a>
+      <a href="../calculus.html" class="related-card">All Calculus Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand"><span class="logo-symbol">∑</span><span class="logo-text">MathExplorer</span></div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    const canvas  = document.getElementById('antiCanvas');
+    const ctx     = canvas.getContext('2d');
+    const funcSel = document.getElementById('funcSel');
+    const cSlider = document.getElementById('cSlider');
+    const cValEl  = document.getElementById('cVal');
+    const eqDisp  = document.getElementById('eqDisplay');
+
+    const FUNCS = {
+      '2x':  { fn: x => x*x,               label: 'F(x) = x²',      fLabel: 'f(x) = 2x',      deriv: x => 2*x },
+      x2:    { fn: x => x*x*x/3,           label: 'F(x) = x³/3',    fLabel: 'f(x) = x²',      deriv: x => x*x },
+      cosx:  { fn: x => Math.sin(x),       label: 'F(x) = sin(x)',   fLabel: 'f(x) = cos(x)',  deriv: x => Math.cos(x) },
+      '3x2': { fn: x => x*x*x - 4*x,      label: 'F(x) = x³−4x',  fLabel: 'f(x) = 3x²−4',  deriv: x => 3*x*x - 4 },
+    };
+
+    const RANGE = 4;
+    function toCanvas(x, y) {
+      const W = canvas.width, H = canvas.height;
+      return [W/2 + (x/RANGE)*(W/2), H/2 - (y/RANGE)*(H/2)];
+    }
+
+    function draw() {
+      const key = funcSel.value;
+      const { fn, label, fLabel, deriv } = FUNCS[key];
+      const C = parseFloat(cSlider.value);
+      const W = canvas.width, H = canvas.height;
+
+      cValEl.textContent = C;
+      eqDisp.textContent = `${label} + ${C}`;
+
+      ctx.fillStyle = '#0d0d14'; ctx.fillRect(0,0,W,H);
+      ctx.strokeStyle = 'rgba(255,255,255,0.04)'; ctx.lineWidth = 1;
+      for (let i = -RANGE; i <= RANGE; i++) {
+        const [gx] = toCanvas(i,0); ctx.beginPath(); ctx.moveTo(gx,0); ctx.lineTo(gx,H); ctx.stroke();
+        const [,gy] = toCanvas(0,i); ctx.beginPath(); ctx.moveTo(0,gy); ctx.lineTo(W,gy); ctx.stroke();
+      }
+      const [ax] = toCanvas(0,0); const [,ay] = toCanvas(0,0);
+      ctx.strokeStyle = 'rgba(255,255,255,0.18)'; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(ax,0); ctx.lineTo(ax,H); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0,ay); ctx.lineTo(W,ay); ctx.stroke();
+
+      // Ghost family (C ± 1, ± 2)
+      [-2,-1,1,2].forEach(dC => {
+        ctx.strokeStyle = `rgba(155,109,248,0.15)`; ctx.lineWidth = 1.5;
+        ctx.beginPath(); let pen = false;
+        for (let i = 0; i <= 400; i++) {
+          const x = -RANGE + (i/400)*(2*RANGE);
+          const y = fn(x) + C + dC;
+          if (!isFinite(y) || Math.abs(y) > RANGE*1.4) { pen = false; continue; }
+          const [px,py] = toCanvas(x,y);
+          pen ? ctx.lineTo(px,py) : ctx.moveTo(px,py); pen = true;
+        }
+        ctx.stroke();
+      });
+
+      // f(x) (light, dashed)
+      ctx.strokeStyle = '#f97b40'; ctx.lineWidth = 1.8; ctx.setLineDash([5,4]); ctx.globalAlpha = 0.6;
+      ctx.beginPath(); let pen = false;
+      for (let i = 0; i <= 400; i++) {
+        const x = -RANGE + (i/400)*(2*RANGE);
+        const y = deriv(x);
+        if (!isFinite(y) || Math.abs(y) > RANGE*1.4) { pen = false; continue; }
+        const [px,py] = toCanvas(x,y);
+        pen ? ctx.lineTo(px,py) : ctx.moveTo(px,py); pen = true;
+      }
+      ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1;
+
+      // F(x)+C (active)
+      ctx.strokeStyle = '#9b6df8'; ctx.lineWidth = 2.8; ctx.shadowColor = 'rgba(155,109,248,0.4)'; ctx.shadowBlur = 10;
+      ctx.beginPath(); pen = false;
+      for (let i = 0; i <= 600; i++) {
+        const x = -RANGE + (i/600)*(2*RANGE);
+        const y = fn(x) + C;
+        if (!isFinite(y) || Math.abs(y) > RANGE*1.4) { pen = false; continue; }
+        const [px,py] = toCanvas(x,y);
+        pen ? ctx.lineTo(px,py) : ctx.moveTo(px,py); pen = true;
+      }
+      ctx.stroke(); ctx.shadowBlur = 0;
+
+      // Legend
+      const fs = Math.max(10, W * 0.012);
+      ctx.font = `${fs}px Inter, sans-serif`; ctx.textAlign = 'left';
+      [['#9b6df8', `${label} + ${C} (active)`], ['#f97b40', fLabel + ' (derivative)', true], ['#9b6df8', 'Family members', true, 0.3]].forEach(([col, txt, dash, a], i) => {
+        ctx.globalAlpha = a || 1;
+        ctx.fillStyle = col;
+        ctx.fillRect(14, 14 + i*20, 18, 3);
+        ctx.fillStyle = 'rgba(255,255,255,0.6)';
+        ctx.fillText(txt, 38, 20 + i*20);
+        ctx.globalAlpha = 1;
+      });
+    }
+
+    funcSel.addEventListener('change', draw);
+    cSlider.addEventListener('input', draw);
+
+    function resizeCanvas() {
+      const wrap = canvas.parentElement;
+      canvas.width  = wrap.clientWidth;
+      canvas.height = Math.round(wrap.clientWidth * 0.46);
+      draw();
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+  </script>
+</body>
+</html>

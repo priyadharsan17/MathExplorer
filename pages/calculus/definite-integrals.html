@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Definite Integrals — Calculus | MathExplorer</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    .topic-symbol { background: rgba(155,109,248,0.1); color: var(--calculus-color); border-color: rgba(155,109,248,0.2); }
+    .formula-card .formula-label { color: var(--calculus-color); }
+    .example-card .example-title { color: var(--calculus-color); }
+    .step-num { background: rgba(155,109,248,0.12); color: var(--calculus-color); }
+    .control-value { color: var(--calculus-color); }
+    input[type="range"]::-webkit-slider-thumb { background: var(--calculus-color); box-shadow: 0 0 8px rgba(155,109,248,0.5); }
+    .rule-toggle { display:flex; gap:8px; flex-wrap:wrap; padding:16px 24px 0; }
+    .rule-btn {
+      padding: 6px 18px; border-radius: 99px; border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04); color: var(--text-muted);
+      font-size: 0.8rem; font-weight: 600; font-family: var(--font-mono);
+      cursor: pointer; transition: all 0.15s ease;
+    }
+    .rule-btn.active { background: rgba(155,109,248,0.15); color: var(--calculus-color); border-color: rgba(155,109,248,0.4); }
+    .func-select-row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; padding:0 24px 0; }
+    .func-select-row label { font-size:0.82rem; font-weight:600; color:var(--text-secondary); font-family:var(--font-mono); }
+    .func-select-row select {
+      background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-sm);
+      color:var(--text-primary); padding:6px 12px; font-family:var(--font-mono); font-size:0.85rem; outline:none;
+    }
+    .func-select-row select:focus { border-color:rgba(155,109,248,0.4); }
+    .info-row { display:flex; gap:24px; flex-wrap:wrap; padding:0 24px 20px; }
+    .info-badge { display:flex; flex-direction:column; gap:4px; }
+    .info-badge span:first-child { font-size:0.72rem; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--text-muted); font-family:var(--font-mono); }
+    .info-badge span:last-child  { font-size:0.95rem; font-weight:700; color:var(--text-primary); font-family:var(--font-mono); }
+  </style>
+</head>
+<body class="topic-page">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html" class="active">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a><span>›</span>
+      <a href="../calculus.html">Calculus</a><span>›</span>
+      <span>Definite Integrals</span>
+    </nav>
+    <div class="topic-hero-top">
+      <div class="topic-symbol">∫</div>
+      <h1>Definite Integrals</h1>
+    </div>
+    <p class="subtitle">
+      A definite integral computes the signed area between a function and the x-axis over an interval \([a,b]\).
+      It is defined as the limit of Riemann sums — the sum of rectangle areas as their width approaches zero.
+    </p>
+  </div>
+
+  <!-- Concept -->
+  <section class="content-section">
+    <h2>Accumulating Area</h2>
+    <p>
+      Divide the interval \([a,b]\) into \(n\) equal sub-intervals of width \(\Delta x = (b-a)/n\).
+      In each sub-interval pick a representative point \(x_i^*\) and form a rectangle of height \(f(x_i^*)\).
+      The sum of all rectangle areas is the <em>Riemann sum</em>.
+    </p>
+    <p>
+      As \(n \to \infty\) (more, thinner rectangles) the sum converges to the exact area — the
+      <strong>definite integral</strong>:
+      \[\int_a^b f(x)\,dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i^*)\,\Delta x\]
+    </p>
+    <p>
+      Area <em>above</em> the x-axis contributes positively; area <em>below</em> contributes negatively.
+      The definite integral gives the <em>net signed area</em>.
+    </p>
+  </section>
+
+  <!-- Key Formulas -->
+  <section class="content-section">
+    <h2>Key Formulas &amp; Properties</h2>
+    <div class="formula-grid">
+
+      <div class="formula-card">
+        <span class="formula-label">Definition</span>
+        <div>
+          <div class="formula-math">\[ \int_a^b f(x)\,dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i^*)\,\Delta x \]</div>
+          <div class="formula-note">With \(\Delta x = (b-a)/n\) and \(x_i^* \in [x_{i-1}, x_i]\).</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Power Rule for ∫</span>
+        <div>
+          <div class="formula-math">\[ \int_a^b x^n\,dx = \left[\frac{x^{n+1}}{n+1}\right]_a^b \quad (n \ne -1) \]</div>
+          <div class="formula-note">Evaluate the antiderivative at \(b\), subtract its value at \(a\).</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Linearity</span>
+        <div>
+          <div class="formula-math">\[ \int_a^b [cf(x) \pm g(x)]\,dx = c\int_a^b f + \int_a^b g \]</div>
+          <div class="formula-note">Constants factor out; sums split across the integral.</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Reversal</span>
+        <div>
+          <div class="formula-math">\[ \int_a^b f(x)\,dx = -\int_b^a f(x)\,dx \]</div>
+          <div class="formula-note">Swapping limits negates the integral.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Worked Examples -->
+  <section class="content-section">
+    <h2>Worked Examples</h2>
+    <div class="example-list">
+
+      <div class="example-card">
+        <div class="example-title">Example 1 — Basic power integration</div>
+        <div class="example-problem">Compute \(\displaystyle\int_0^3 x^2\,dx\)</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">Antiderivative of \(x^2\) is \(\dfrac{x^3}{3}\).</div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">Evaluate: \(\left[\dfrac{x^3}{3}\right]_0^3 = \dfrac{27}{3} - 0 = 9\)</div>
+          </div>
+          <div class="step">
+            <div class="step-num">✓</div>
+            <div class="step-text">The area under \(x^2\) from 0 to 3 is \(9\) square units.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 2 — Signed area</div>
+        <div class="example-problem">Compute \(\displaystyle\int_{-1}^{1} x^3\,dx\)</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">Antiderivative: \(\dfrac{x^4}{4}\)</div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">\(\left[\dfrac{x^4}{4}\right]_{-1}^{1} = \dfrac{1}{4} - \dfrac{1}{4} = 0\)</div>
+          </div>
+          <div class="step">
+            <div class="step-num">✓</div>
+            <div class="step-text">\(x^3\) is an odd function — area above cancels area below, giving net 0.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 3 — Left Riemann sum approximation</div>
+        <div class="example-problem">Approximate \(\displaystyle\int_0^2 x^2\,dx\) with \(n = 4\) left rectangles.</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">\(\Delta x = 2/4 = 0.5\). Left endpoints: \(0, 0.5, 1.0, 1.5\).</div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">Heights: \(0^2 + 0.5^2 + 1^2 + 1.5^2 = 0 + 0.25 + 1 + 2.25 = 3.5\)</div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-text">Sum × \(\Delta x\) = \(3.5 \times 0.5 = 1.75\).</div>
+          </div>
+          <div class="step">
+            <div class="step-num">✓</div>
+            <div class="step-text">Exact value: \(\frac{8}{3} \approx 2.667\). More rectangles → closer approximation.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Visualiser -->
+  <section class="visualiser-section">
+    <h2>Interactive — Riemann Sum Visualiser</h2>
+    <div class="visualiser-card">
+      <div class="visualiser-canvas-wrap">
+        <canvas id="riemannCanvas" width="860" height="420"></canvas>
+        <div class="equation-display" id="eqDisplay">Area ≈ ?</div>
+      </div>
+
+      <div class="func-select-row" style="padding-top:20px;">
+        <label for="funcSel">Function:</label>
+        <select id="funcSel">
+          <option value="sq" selected>f(x) = x²  on [0, 3]</option>
+          <option value="sin">f(x) = sin(x)  on [0, π]</option>
+          <option value="cubic">f(x) = x³ − 3x + 3  on [0, 3]</option>
+          <option value="sqrt">f(x) = √x  on [0, 4]</option>
+        </select>
+      </div>
+
+      <div class="rule-toggle" id="ruleToggle">
+        <button class="rule-btn active" data-rule="left">Left</button>
+        <button class="rule-btn" data-rule="right">Right</button>
+        <button class="rule-btn" data-rule="mid">Midpoint</button>
+      </div>
+
+      <div class="visualiser-controls">
+        <div class="control-group">
+          <div class="control-label">
+            <span>Rectangles (n)</span>
+            <span class="control-value" id="nVal">8</span>
+          </div>
+          <input type="range" id="nSlider" min="1" max="100" step="1" value="8" aria-label="Number of rectangles" />
+        </div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-badge">
+          <span>Approx. Area</span>
+          <span id="infoApprox">—</span>
+        </div>
+        <div class="info-badge">
+          <span>Exact Area</span>
+          <span id="infoExact">—</span>
+        </div>
+        <div class="info-badge">
+          <span>Error</span>
+          <span id="infoError">—</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <div class="takeaways-list">
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>The definite integral is the limit of Riemann sums — the total signed area between \(f\) and the x-axis.</p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>More rectangles (\(n \to \infty\)) always improves the approximation toward the exact answer.</p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>Midpoint rule generally outperforms left/right rules for the same \(n\).</p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>The Fundamental Theorem of Calculus connects this area to antiderivatives — making exact computation easy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="indefinite-integrals.html" class="related-card">Indefinite Integrals <span>→</span></a>
+      <a href="ftc.html" class="related-card">Fundamental Theorem <span>→</span></a>
+      <a href="derivatives.html" class="related-card">Derivatives <span>→</span></a>
+      <a href="../calculus.html" class="related-card">All Calculus Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-symbol">∑</span>
+          <span class="logo-text">MathExplorer</span>
+        </div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    // ── Riemann Sum visualiser ──
+    const canvas     = document.getElementById('riemannCanvas');
+    const ctx        = canvas.getContext('2d');
+    const nSlider    = document.getElementById('nSlider');
+    const nValEl     = document.getElementById('nVal');
+    const eqDisplay  = document.getElementById('eqDisplay');
+    const funcSel    = document.getElementById('funcSel');
+    const infoApprox = document.getElementById('infoApprox');
+    const infoExact  = document.getElementById('infoExact');
+    const infoError  = document.getElementById('infoError');
+
+    const FUNCS = {
+      sq:    { fn: x => x*x,              a:0, b:3, exact: 9,                    label:'x²' },
+      sin:   { fn: x => Math.sin(x),      a:0, b:Math.PI, exact: 2,              label:'sin(x)' },
+      cubic: { fn: x => x*x*x - 3*x + 3, a:0, b:3, exact: 3*3*3*3/4 - 3*9/2 + 9, label:'x³−3x+3' },
+      sqrt:  { fn: x => Math.sqrt(x),     a:0, b:4, exact: 16/3,                label:'√x' },
+    };
+    // Correct cubic exact: ∫₀³ (x³ - 3x + 3) dx = [x⁴/4 - 3x²/2 + 3x]₀³ = 81/4 - 27/2 + 9 = 20.25 - 13.5 + 9 = 15.75
+    FUNCS.cubic.exact = 81/4 - 27/2 + 9;
+
+    let rule = 'left';
+
+    document.getElementById('ruleToggle').addEventListener('click', e => {
+      const btn = e.target.closest('.rule-btn');
+      if (!btn) return;
+      document.querySelectorAll('.rule-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      rule = btn.dataset.rule;
+      draw();
+    });
+
+    function resizeCanvas() {
+      const wrap = canvas.parentElement;
+      canvas.width  = wrap.clientWidth;
+      canvas.height = Math.round(wrap.clientWidth * 0.46);
+      draw();
+    }
+
+    function toCanvas(x, y, xMin, xMax, yMin, yMax) {
+      const W = canvas.width, H = canvas.height;
+      const cx = (x - xMin) / (xMax - xMin) * W;
+      const cy = H - (y - yMin) / (yMax - yMin) * H;
+      return [cx, cy];
+    }
+
+    function draw() {
+      const key = funcSel.value;
+      const { fn, a, b, exact, label } = FUNCS[key];
+      const n  = parseInt(nSlider.value);
+      const W  = canvas.width, H = canvas.height;
+      const dx = (b - a) / n;
+
+      // Y range
+      const samples = [];
+      for (let i = 0; i <= 200; i++) samples.push(fn(a + (i/200)*(b-a)));
+      const yMin = Math.min(0, Math.min(...samples) - 0.3);
+      const yMax = Math.max(...samples) + 0.5;
+      const xPad = (b - a) * 0.1;
+      const xMin = a - xPad, xMax = b + xPad;
+
+      ctx.clearRect(0, 0, W, H);
+      ctx.fillStyle = '#0d0d14';
+      ctx.fillRect(0, 0, W, H);
+
+      // Grid
+      ctx.strokeStyle = 'rgba(255,255,255,0.04)';
+      ctx.lineWidth = 1;
+      for (let gx = Math.floor(xMin); gx <= xMax; gx++) {
+        const [px] = toCanvas(gx, 0, xMin, xMax, yMin, yMax);
+        ctx.beginPath(); ctx.moveTo(px, 0); ctx.lineTo(px, H); ctx.stroke();
+      }
+      for (let gy = Math.floor(yMin); gy <= Math.ceil(yMax); gy++) {
+        const [, py] = toCanvas(0, gy, xMin, xMax, yMin, yMax);
+        ctx.beginPath(); ctx.moveTo(0, py); ctx.lineTo(W, py); ctx.stroke();
+      }
+
+      // Axes
+      const [axX] = toCanvas(0, 0, xMin, xMax, yMin, yMax);
+      const [, axY] = toCanvas(0, 0, xMin, xMax, yMin, yMax);
+      ctx.strokeStyle = 'rgba(255,255,255,0.18)';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(axX, 0); ctx.lineTo(axX, H); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0, axY); ctx.lineTo(W, axY); ctx.stroke();
+
+      // Rectangles
+      let approxArea = 0;
+      for (let i = 0; i < n; i++) {
+        const x_left = a + i * dx;
+        let x_sample;
+        if (rule === 'left')  x_sample = x_left;
+        else if (rule === 'right') x_sample = x_left + dx;
+        else x_sample = x_left + dx / 2;
+
+        const height = fn(x_sample);
+        approxArea += height * dx;
+
+        const [rx1] = toCanvas(x_left, 0, xMin, xMax, yMin, yMax);
+        const [rx2] = toCanvas(x_left + dx, 0, xMin, xMax, yMin, yMax);
+        const [, ry0] = toCanvas(0, 0, xMin, xMax, yMin, yMax);
+        const [, ry1] = toCanvas(0, height, xMin, xMax, yMin, yMax);
+
+        const rectH = ry0 - ry1;
+        const rectY = height >= 0 ? ry1 : ry0;
+
+        ctx.fillStyle = height >= 0
+          ? 'rgba(155,109,248,0.22)'
+          : 'rgba(249,123,64,0.18)';
+        ctx.fillRect(rx1, rectY, rx2 - rx1, Math.abs(rectH));
+        ctx.strokeStyle = height >= 0
+          ? 'rgba(155,109,248,0.55)'
+          : 'rgba(249,123,64,0.45)';
+        ctx.lineWidth = 0.8;
+        ctx.strokeRect(rx1, rectY, rx2 - rx1, Math.abs(rectH));
+      }
+
+      // Curve (on top)
+      ctx.strokeStyle = '#9b6df8';
+      ctx.lineWidth = 2.5;
+      ctx.shadowColor = 'rgba(155,109,248,0.35)';
+      ctx.shadowBlur = 8;
+      ctx.beginPath();
+      let penDown = false;
+      for (let i = 0; i <= 500; i++) {
+        const x = a + (i/500) * (b - a);
+        const y = fn(x);
+        const [px, py] = toCanvas(x, y, xMin, xMax, yMin, yMax);
+        if (!penDown) { ctx.moveTo(px, py); penDown = true; } else ctx.lineTo(px, py);
+      }
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      // Axis labels
+      ctx.fillStyle = 'rgba(255,255,255,0.28)';
+      ctx.font = `${Math.max(10, W * 0.012)}px Inter, sans-serif`;
+      ctx.textAlign = 'center';
+      for (let gx = Math.ceil(xMin); gx <= Math.floor(xMax); gx++) {
+        const [px] = toCanvas(gx, 0, xMin, xMax, yMin, yMax);
+        const yLabel = Math.min(H - 6, Math.max(14, axY + 16));
+        ctx.fillText(gx, px, yLabel);
+      }
+
+      const error = approxArea - exact;
+      nValEl.textContent = n;
+      eqDisplay.textContent = `∫[${a},${b.toFixed(2)}] ${label} dx ≈ ${approxArea.toFixed(4)}`;
+      infoApprox.textContent = approxArea.toFixed(5);
+      infoExact.textContent  = exact.toFixed(5);
+      infoError.textContent  = (error >= 0 ? '+' : '') + error.toFixed(5);
+    }
+
+    funcSel.addEventListener('change', draw);
+    nSlider.addEventListener('input', draw);
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+  </script>
+</body>
+</html>

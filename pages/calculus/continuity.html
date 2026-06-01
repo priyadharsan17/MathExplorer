@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Continuity — Calculus | MathExplorer</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    .topic-symbol { background: rgba(155,109,248,0.1); color: var(--calculus-color); border-color: rgba(155,109,248,0.2); }
+    .formula-card .formula-label { color: var(--calculus-color); }
+    .example-card .example-title { color: var(--calculus-color); }
+    .step-num { background: rgba(155,109,248,0.12); color: var(--calculus-color); }
+    .control-value { color: var(--calculus-color); }
+    input[type="range"]::-webkit-slider-thumb { background: var(--calculus-color); box-shadow: 0 0 8px rgba(155,109,248,0.5); }
+    .disc-toggle { display:flex; gap:8px; flex-wrap:wrap; padding:20px 24px 0; }
+    .disc-btn {
+      padding: 7px 20px; border-radius: 99px; border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04); color: var(--text-muted);
+      font-size: 0.8rem; font-weight: 600; font-family: var(--font-mono);
+      cursor: pointer; transition: all 0.15s ease;
+    }
+    .disc-btn.active { background: rgba(155,109,248,0.15); color: var(--calculus-color); border-color: rgba(155,109,248,0.4); }
+    .disc-label {
+      padding: 8px 24px 16px; font-size: 0.82rem; color: var(--text-secondary);
+      font-family: var(--font-mono);
+    }
+  </style>
+</head>
+<body class="topic-page">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html" class="active">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a><span>›</span>
+      <a href="../calculus.html">Calculus</a><span>›</span>
+      <span>Continuity</span>
+    </nav>
+    <div class="topic-hero-top">
+      <div class="topic-symbol">~</div>
+      <h1>Continuity</h1>
+    </div>
+    <p class="subtitle">
+      A function is continuous if you can draw its graph without lifting your pencil.
+      Formally, it requires three conditions: the function must be defined, its limit must exist, and the
+      two must agree — at every point in its domain.
+    </p>
+  </div>
+
+  <!-- Concept -->
+  <section class="content-section">
+    <h2>The Three Conditions</h2>
+    <p>
+      A function \(f\) is <strong>continuous at \(x = a\)</strong> if and only if all three hold:
+    </p>
+    <p>
+      <strong>1.</strong> \(f(a)\) is defined. &nbsp;
+      <strong>2.</strong> \(\displaystyle\lim_{x \to a} f(x)\) exists. &nbsp;
+      <strong>3.</strong> \(\displaystyle\lim_{x \to a} f(x) = f(a)\).
+    </p>
+    <p>
+      Violating any one of these produces a <em>discontinuity</em>.
+      There are three classic types: <strong>removable</strong> (a single hole),
+      <strong>jump</strong> (left and right limits differ), and
+      <strong>infinite</strong> (the function grows without bound).
+    </p>
+  </section>
+
+  <!-- Key Formulas -->
+  <section class="content-section">
+    <h2>Types of Discontinuity</h2>
+    <div class="formula-grid">
+
+      <div class="formula-card">
+        <span class="formula-label">Removable</span>
+        <div>
+          <div class="formula-math">\[ \lim_{x \to a} f(x) = L \text{ but } f(a) \ne L \]</div>
+          <div class="formula-note">A single "hole" — the limit exists but the function value is wrong or missing. Fixable by redefining \(f(a) = L\).</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Jump</span>
+        <div>
+          <div class="formula-math">\[ \lim_{x \to a^-} f(x) \ne \lim_{x \to a^+} f(x) \]</div>
+          <div class="formula-note">The function "jumps" to a different value. The two-sided limit does not exist.</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Infinite</span>
+        <div>
+          <div class="formula-math">\[ \lim_{x \to a} f(x) = \pm\infty \]</div>
+          <div class="formula-note">A vertical asymptote — common in rational functions where the denominator is zero.</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">IVT</span>
+        <div>
+          <div class="formula-math">\[ f \text{ cont. on } [a,b],\ f(a) \ne f(b) \Rightarrow \exists\,c: f(c)=k \]</div>
+          <div class="formula-note">Intermediate Value Theorem — a continuous function hits every value between \(f(a)\) and \(f(b)\).</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Worked Examples -->
+  <section class="content-section">
+    <h2>Worked Examples</h2>
+    <div class="example-list">
+
+      <div class="example-card">
+        <div class="example-title">Example 1 — Checking continuity</div>
+        <div class="example-problem">Is \(f(x) = \dfrac{x^2-1}{x-1}\) continuous at \(x = 1\)?</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">Check condition 1: \(f(1)\) is undefined (division by zero). Already fails.</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">The limit exists: factor to \((x+1)\) → \(\lim_{x\to1}(x+1) = 2\).</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text"><strong>Removable discontinuity</strong> at \(x=1\). Redefine \(f(1)=2\) to make it continuous.</div></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 2 — Jump discontinuity</div>
+        <div class="example-problem">Analyse \(f(x) = \begin{cases} x+1 & x < 0 \\ x-1 & x \ge 0 \end{cases}\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">\(\lim_{x\to 0^-}f(x) = 0 + 1 = 1\)</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">\(\lim_{x\to 0^+}f(x) = 0 - 1 = -1\)</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">Left ≠ Right → <strong>Jump discontinuity</strong> at \(x=0\). Not fixable.</div></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 3 — Applying the IVT</div>
+        <div class="example-problem">Show that \(f(x) = x^3 - x - 1\) has a root in \([1, 2]\).</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">\(f\) is a polynomial — continuous everywhere.</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">\(f(1) = 1 - 1 - 1 = -1 < 0\) and \(f(2) = 8 - 2 - 1 = 5 > 0\).</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">By IVT, there exists \(c \in (1,2)\) where \(f(c) = 0\).</div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Visualiser -->
+  <section class="visualiser-section">
+    <h2>Interactive — Toggle Discontinuity Types</h2>
+    <div class="visualiser-card">
+      <div class="visualiser-canvas-wrap">
+        <canvas id="contCanvas" width="860" height="420"></canvas>
+        <div class="equation-display" id="eqDisplay">Continuous</div>
+      </div>
+
+      <div class="disc-toggle" id="discToggle">
+        <button class="disc-btn active" data-type="continuous">Continuous</button>
+        <button class="disc-btn" data-type="removable">Removable</button>
+        <button class="disc-btn" data-type="jump">Jump</button>
+        <button class="disc-btn" data-type="infinite">Infinite</button>
+      </div>
+      <div class="disc-label" id="discLabel">f(x) = x² + 1 — continuous everywhere on this view.</div>
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <div class="takeaways-list">
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Continuity requires the function to be defined, the limit to exist, and both to agree at every point.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Removable discontinuities are "fixable" — jump and infinite ones are not.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Differentiability implies continuity — but continuity does not imply differentiability.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>The Intermediate Value Theorem only applies to continuous functions — a powerful existence tool.</p></div>
+    </div>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="limits.html" class="related-card">Limits <span>→</span></a>
+      <a href="derivatives.html" class="related-card">Derivatives <span>→</span></a>
+      <a href="../calculus.html" class="related-card">All Calculus Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand"><span class="logo-symbol">∑</span><span class="logo-text">MathExplorer</span></div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    const canvas   = document.getElementById('contCanvas');
+    const ctx      = canvas.getContext('2d');
+    const eqDisp   = document.getElementById('eqDisplay');
+    const discLabel = document.getElementById('discLabel');
+
+    const TYPES = {
+      continuous: {
+        label: 'Continuous',
+        desc:  'f(x) = x² + 1 — continuous everywhere on this view.',
+        draw: drawContinuous,
+      },
+      removable: {
+        label: 'Removable Discontinuity',
+        desc:  'f(x) = (x²−4)/(x−2) — hole at x = 2. Limit exists (=4) but f(2) is undefined.',
+        draw: drawRemovable,
+      },
+      jump: {
+        label: 'Jump Discontinuity',
+        desc:  'f(x) = {x+1 if x < 0; x−1 if x ≥ 0} — left-limit ≠ right-limit at x = 0.',
+        draw: drawJump,
+      },
+      infinite: {
+        label: 'Infinite Discontinuity',
+        desc:  'f(x) = 1/x — vertical asymptote at x = 0, function → ±∞.',
+        draw: drawInfinite,
+      },
+    };
+
+    let currentType = 'continuous';
+
+    const RANGE = 5;
+    function toCanvas(x, y) {
+      const W = canvas.width, H = canvas.height;
+      return [W/2 + (x/RANGE)*(W/2), H/2 - (y/RANGE)*(H/2)];
+    }
+    function drawBase() {
+      const W = canvas.width, H = canvas.height;
+      ctx.fillStyle = '#0d0d14'; ctx.fillRect(0,0,W,H);
+      ctx.strokeStyle = 'rgba(255,255,255,0.04)'; ctx.lineWidth = 1;
+      for (let i = -RANGE; i <= RANGE; i++) {
+        const [gx] = toCanvas(i,0); ctx.beginPath(); ctx.moveTo(gx,0); ctx.lineTo(gx,H); ctx.stroke();
+        const [,gy] = toCanvas(0,i); ctx.beginPath(); ctx.moveTo(0,gy); ctx.lineTo(W,gy); ctx.stroke();
+      }
+      const [ax] = toCanvas(0,0); const [,ay] = toCanvas(0,0);
+      ctx.strokeStyle = 'rgba(255,255,255,0.18)'; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(ax,0); ctx.lineTo(ax,H); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0,ay); ctx.lineTo(W,ay); ctx.stroke();
+    }
+    function plotCurve(fn, color) {
+      ctx.strokeStyle = color; ctx.lineWidth = 2.5;
+      ctx.shadowColor = color.replace(')',',0.35)').replace('rgb','rgba'); ctx.shadowBlur = 8;
+      ctx.beginPath(); let pen = false;
+      for (let i = 0; i <= 600; i++) {
+        const x = -RANGE + (i/600)*(2*RANGE);
+        const y = fn(x);
+        if (!isFinite(y) || Math.abs(y) > RANGE * 1.4) { pen = false; continue; }
+        const [px,py] = toCanvas(x,y);
+        pen ? ctx.lineTo(px,py) : ctx.moveTo(px,py); pen = true;
+      }
+      ctx.stroke(); ctx.shadowBlur = 0;
+    }
+    function openCircle(x, y, color) {
+      const [px,py] = toCanvas(x,y);
+      ctx.strokeStyle = color; ctx.lineWidth = 2;
+      ctx.fillStyle = '#0d0d14';
+      ctx.beginPath(); ctx.arc(px,py,6,0,Math.PI*2); ctx.fill(); ctx.stroke();
+    }
+    function closedCircle(x, y, color) {
+      const [px,py] = toCanvas(x,y);
+      ctx.fillStyle = color;
+      ctx.beginPath(); ctx.arc(px,py,6,0,Math.PI*2); ctx.fill();
+    }
+
+    function drawContinuous() { drawBase(); plotCurve(x => x*x+1, '#9b6df8'); }
+
+    function drawRemovable() {
+      drawBase();
+      plotCurve(x => { if (Math.abs(x-2) < 0.02) return NaN; return (x*x-4)/(x-2); }, '#9b6df8');
+      openCircle(2, 4, '#9b6df8');
+    }
+
+    function drawJump() {
+      drawBase();
+      plotCurve(x => { if (x >= 0) return NaN; return x+1; }, '#9b6df8');
+      plotCurve(x => { if (x < 0) return NaN; return x-1; }, '#9b6df8');
+      openCircle(0, 1, '#9b6df8');
+      closedCircle(0, -1, '#9b6df8');
+    }
+
+    function drawInfinite() {
+      drawBase();
+      plotCurve(x => { if (Math.abs(x) < 0.05) return NaN; return 1/x; }, '#9b6df8');
+      // Asymptote
+      const [ax] = toCanvas(0,0);
+      ctx.strokeStyle = 'rgba(249,123,64,0.5)'; ctx.lineWidth = 1.5; ctx.setLineDash([5,4]);
+      ctx.beginPath(); ctx.moveTo(ax,0); ctx.lineTo(ax,canvas.height); ctx.stroke();
+      ctx.setLineDash([]);
+    }
+
+    function render() {
+      const { label, desc, draw } = TYPES[currentType];
+      resizeCanvasNoDraw();
+      draw();
+      eqDisp.textContent = label;
+      discLabel.textContent = desc;
+    }
+
+    function resizeCanvasNoDraw() {
+      const wrap = canvas.parentElement;
+      canvas.width  = wrap.clientWidth;
+      canvas.height = Math.round(wrap.clientWidth * 0.46);
+    }
+    function resizeCanvas() { render(); }
+
+    document.getElementById('discToggle').addEventListener('click', e => {
+      const btn = e.target.closest('.disc-btn');
+      if (!btn) return;
+      document.querySelectorAll('.disc-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentType = btn.dataset.type;
+      render();
+    });
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvasNoDraw(); render();
+  </script>
+</body>
+</html>

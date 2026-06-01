@@ -21,15 +21,15 @@ The Calculus section explores the mathematics of change and accumulation — fro
 
 | # | Topic | Page | Status | Interactive Feature |
 |---|---|---|---|---|
-| 1 | Limits | `pages/calculus/limits.html` | 🔲 Planned | Table of values + graph zooming toward a point |
-| 2 | Continuity | `pages/calculus/continuity.html` | 🔲 Planned | Toggle discontinuity types on a graph |
-| 3 | Derivatives (Concept) | `pages/calculus/derivatives.html` | 🔲 Planned | Secant → tangent animation (h → 0 slider) |
-| 4 | Differentiation Rules | `pages/calculus/diff-rules.html` | 🔲 Planned | Rule selector with formula + worked example |
-| 5 | Applications of Derivatives | `pages/calculus/diff-applications.html` | 🔲 Planned | Max/min finder on a curve |
-| 6 | Definite Integrals | `pages/calculus/definite-integrals.html` | 🔲 Planned | Riemann sum visualiser (n-rectangles slider) |
-| 7 | Indefinite Integrals | `pages/calculus/indefinite-integrals.html` | 🔲 Planned | Antiderivative formula builder |
-| 8 | Fundamental Theorem | `pages/calculus/ftc.html` | 🔲 Planned | Dual panel: derivative ↔ integral of same function |
-| 9 | Series & Sequences | `pages/calculus/series.html` | 🔲 Planned | Partial sum convergence animation |
+| 1 | Limits | `pages/calculus/limits.html` | ✅ Complete | Table of values + graph zooming toward a point |
+| 2 | Continuity | `pages/calculus/continuity.html` | ✅ Complete | Toggle discontinuity types on a graph |
+| 3 | Derivatives (Concept) | `pages/calculus/derivatives.html` | ✅ Complete | Secant → tangent animation (h → 0 slider) |
+| 4 | Differentiation Rules | `pages/calculus/diff-rules.html` | ✅ Complete | Rule selector with formula + worked example |
+| 5 | Applications of Derivatives | `pages/calculus/diff-applications.html` | ✅ Complete | Max/min finder on a curve |
+| 6 | Definite Integrals | `pages/calculus/definite-integrals.html` | ✅ Complete | Riemann sum visualiser (n-rectangles slider) |
+| 7 | Indefinite Integrals | `pages/calculus/indefinite-integrals.html` | ✅ Complete | Antiderivative formula builder |
+| 8 | Fundamental Theorem | `pages/calculus/ftc.html` | ✅ Complete | Dual panel: derivative ↔ integral of same function |
+| 9 | Series & Sequences | `pages/calculus/series.html` | ✅ Complete | Partial sum convergence animation |
 
 ---
 
@@ -76,17 +76,17 @@ The Calculus section explores the mathematics of change and accumulation — fro
 ## Implementation Phases
 
 ### Phase 1 — Foundation
-- [ ] Topic index page (`pages/calculus.html`) with all 9 topic cards
-- [ ] Limits page — table of values + graph approach
+- [x] Topic index page (`pages/calculus.html`) with all 9 topic cards
+- [x] Limits page — table of values + graph approach
 
 ### Phase 2 — Core Visualisations
-- [ ] Derivatives page — secant → tangent animation
-- [ ] Definite Integrals page — Riemann sum slider
+- [x] Derivatives page — secant → tangent animation
+- [x] Definite Integrals page — Riemann sum slider
 
 ### Phase 3 — Complete Coverage
-- [ ] Remaining topic pages (Continuity, Diff Rules, Applications, Indefinite Integrals, FTC)
+- [x] Remaining topic pages (Continuity, Diff Rules, Applications, Indefinite Integrals, FTC)
 
 ### Phase 4 — Advanced
-- [ ] Series convergence animation
+- [x] Series convergence animation
 - [ ] Custom function input for all visualisers
 - [ ] Side-by-side derivative / integral view

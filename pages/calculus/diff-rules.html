@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Differentiation Rules — Calculus | MathExplorer</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    .topic-symbol { background: rgba(155,109,248,0.1); color: var(--calculus-color); border-color: rgba(155,109,248,0.2); }
+    .formula-card .formula-label { color: var(--calculus-color); }
+    .example-card .example-title { color: var(--calculus-color); }
+    .step-num { background: rgba(155,109,248,0.12); color: var(--calculus-color); }
+    .control-value { color: var(--calculus-color); }
+    input[type="range"]::-webkit-slider-thumb { background: var(--calculus-color); box-shadow: 0 0 8px rgba(155,109,248,0.5); }
+    .rule-selector { display:flex; gap:8px; flex-wrap:wrap; padding:20px 24px 16px; }
+    .rule-sel-btn {
+      padding:7px 18px; border-radius:99px; border:1px solid var(--border);
+      background:rgba(255,255,255,0.04); color:var(--text-muted);
+      font-size:0.8rem; font-weight:600; font-family:var(--font-mono);
+      cursor:pointer; transition:all 0.15s;
+    }
+    .rule-sel-btn.active { background:rgba(155,109,248,0.15); color:var(--calculus-color); border-color:rgba(155,109,248,0.4); }
+    .rule-display {
+      margin:0 24px 24px; padding:20px 24px;
+      background:var(--bg-card); border:1px solid rgba(155,109,248,0.25); border-radius:var(--radius-md);
+    }
+    .rule-display h3 { font-size:1rem; font-weight:700; color:var(--calculus-color); margin-bottom:10px; font-family:var(--font-mono); }
+    .rule-display .rule-formula { font-size:1rem; margin-bottom:12px; }
+    .rule-display .rule-example { font-size:0.875rem; color:var(--text-secondary); }
+    .rule-display .rule-example strong { color:var(--text-primary); }
+  </style>
+</head>
+<body class="topic-page">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html" class="active">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a><span>›</span>
+      <a href="../calculus.html">Calculus</a><span>›</span>
+      <span>Differentiation Rules</span>
+    </nav>
+    <div class="topic-hero-top">
+      <div class="topic-symbol">d/dx</div>
+      <h1>Differentiation Rules</h1>
+    </div>
+    <p class="subtitle">
+      Rather than computing every derivative from the limit definition, a set of algebraic rules
+      — power, product, quotient, and chain — let you differentiate any combination of functions quickly and systematically.
+    </p>
+  </div>
+
+  <!-- Concept -->
+  <section class="content-section">
+    <h2>Why We Need Rules</h2>
+    <p>
+      Applying the limit definition every time would be tedious for complex functions.
+      The differentiation rules are proved once from the definition and then applied forever —
+      turning differentiation into an algebraic procedure rather than a limit calculation.
+    </p>
+    <p>
+      The rules compose: once you know the power, product, quotient, and chain rules,
+      you can differentiate any elementary function — polynomials, trigonometric, exponential, and logarithmic — and any combination thereof.
+    </p>
+  </section>
+
+  <!-- Key Formulas -->
+  <section class="content-section">
+    <h2>The Core Rules</h2>
+    <div class="formula-grid">
+
+      <div class="formula-card">
+        <span class="formula-label">Power Rule</span>
+        <div>
+          <div class="formula-math">\[ \frac{d}{dx}[x^n] = nx^{n-1} \]</div>
+          <div class="formula-note">Works for all real \(n\). E.g. \(\frac{d}{dx}[x^5] = 5x^4\).</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Constant &amp; Sum</span>
+        <div>
+          <div class="formula-math">\[ \frac{d}{dx}[c] = 0, \quad \frac{d}{dx}[f \pm g] = f' \pm g' \]</div>
+          <div class="formula-note">Constants vanish; derivatives distribute across sums and differences.</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Product Rule</span>
+        <div>
+          <div class="formula-math">\[ \frac{d}{dx}[fg] = f'g + fg' \]</div>
+          <div class="formula-note">"First times derivative of second, plus second times derivative of first."</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Quotient Rule</span>
+        <div>
+          <div class="formula-math">\[ \frac{d}{dx}\!\left[\frac{f}{g}\right] = \frac{f'g - fg'}{g^2} \]</div>
+          <div class="formula-note">"Low d-high minus high d-low over low squared."</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Chain Rule</span>
+        <div>
+          <div class="formula-math">\[ \frac{d}{dx}[f(g(x))] = f'(g(x)) \cdot g'(x) \]</div>
+          <div class="formula-note">Derivative of outer (evaluated at inner) times derivative of inner.</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Trig Derivatives</span>
+        <div>
+          <div class="formula-math">\[ \frac{d}{dx}[\sin x] = \cos x, \quad \frac{d}{dx}[\cos x] = -\sin x \]</div>
+          <div class="formula-note">Also: \(\frac{d}{dx}[\tan x] = \sec^2 x\).</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Worked Examples -->
+  <section class="content-section">
+    <h2>Worked Examples</h2>
+    <div class="example-list">
+
+      <div class="example-card">
+        <div class="example-title">Example 1 — Product Rule</div>
+        <div class="example-problem">Differentiate \(f(x) = x^3 \sin x\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">Identify: \(u = x^3\), \(v = \sin x\). So \(u' = 3x^2\), \(v' = \cos x\).</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Apply product rule: \(f'(x) = u'v + uv' = 3x^2 \sin x + x^3 \cos x\)</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">\(f'(x) = x^2(3\sin x + x\cos x)\)</div></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 2 — Quotient Rule</div>
+        <div class="example-problem">Differentiate \(\displaystyle f(x) = \frac{x^2 + 1}{x - 3}\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">\(f' = \dfrac{(2x)(x-3) - (x^2+1)(1)}{(x-3)^2}\)</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Expand numerator: \(2x^2 - 6x - x^2 - 1 = x^2 - 6x - 1\)</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">\(f'(x) = \dfrac{x^2 - 6x - 1}{(x-3)^2}\)</div></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 3 — Chain Rule</div>
+        <div class="example-problem">Differentiate \(f(x) = \sin(3x^2)\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">Outer: \(\sin(\cdot)\), inner: \(3x^2\). So \(f'_{\text{outer}} = \cos(\cdot)\), \(g'(x) = 6x\).</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Chain rule: \(f'(x) = \cos(3x^2) \cdot 6x\)</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">\(f'(x) = 6x\cos(3x^2)\)</div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive — Rule Selector -->
+  <section class="visualiser-section">
+    <h2>Interactive — Rule Explorer</h2>
+    <div class="visualiser-card">
+      <div class="visualiser-canvas-wrap">
+        <canvas id="ruleCanvas" width="860" height="360"></canvas>
+        <div class="equation-display" id="eqDisplay">Select a rule below</div>
+      </div>
+
+      <div class="rule-selector" id="ruleSel">
+        <button class="rule-sel-btn active" data-rule="power">Power</button>
+        <button class="rule-sel-btn" data-rule="product">Product</button>
+        <button class="rule-sel-btn" data-rule="quotient">Quotient</button>
+        <button class="rule-sel-btn" data-rule="chain">Chain</button>
+        <button class="rule-sel-btn" data-rule="trig">Trig</button>
+      </div>
+
+      <div class="rule-display" id="ruleDisplay">
+        <h3 id="ruleTitle">Power Rule</h3>
+        <div class="rule-formula" id="ruleFormula"></div>
+        <div class="rule-example" id="ruleExampleText"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <div class="takeaways-list">
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>The power rule is the workhorse — it applies to every term in a polynomial instantly.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>The product and quotient rules let you differentiate combinations without expanding first.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>The chain rule handles composition — always identify the outer and inner functions first.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Memorise sin, cos, and tan derivatives — they appear everywhere in physics and engineering.</p></div>
+    </div>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="derivatives.html" class="related-card">Derivatives <span>→</span></a>
+      <a href="diff-applications.html" class="related-card">Applications of Derivatives <span>→</span></a>
+      <a href="../calculus.html" class="related-card">All Calculus Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand"><span class="logo-symbol">∑</span><span class="logo-text">MathExplorer</span></div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    // ── Rule Explorer ──
+    const canvas   = document.getElementById('ruleCanvas');
+    const ctx      = canvas.getContext('2d');
+    const eqDisp   = document.getElementById('eqDisplay');
+    const ruleTitle = document.getElementById('ruleTitle');
+    const ruleFormula = document.getElementById('ruleFormula');
+    const ruleExText  = document.getElementById('ruleExampleText');
+
+    const RULES = {
+      power: {
+        title: 'Power Rule',
+        formula: '\\( \\frac{d}{dx}[x^n] = nx^{n-1} \\)',
+        example: '<strong>Example:</strong> \\( \\frac{d}{dx}[x^4] = 4x^3 \\)',
+        fn:     x => x*x*x,
+        deriv:  x => 3*x*x,
+        label:  'f(x) = x³',
+        dlabel: "f'(x) = 3x²",
+      },
+      product: {
+        title: 'Product Rule',
+        formula: '\\( (fg)\\' = f\\' g + fg\\' \\)',
+        example: '<strong>Example:</strong> \\( \\frac{d}{dx}[x^2 \\sin x] = 2x\\sin x + x^2\\cos x \\)',
+        fn:     x => x*x * Math.sin(x),
+        deriv:  x => 2*x*Math.sin(x) + x*x*Math.cos(x),
+        label:  'f(x) = x²sin(x)',
+        dlabel: "f'(x) = 2x sin(x) + x²cos(x)",
+      },
+      quotient: {
+        title: 'Quotient Rule',
+        formula: '\\( \\left(\\frac{f}{g}\\right)\\' = \\frac{f\\'g - fg\\'}{g^2} \\)',
+        example: '<strong>Example:</strong> \\( \\frac{d}{dx}\\!\\left[\\frac{x^2}{x+1}\\right] = \\frac{x^2+2x}{(x+1)^2} \\)',
+        fn:     x => (Math.abs(x+1) < 0.05) ? NaN : x*x/(x+1),
+        deriv:  x => (Math.abs(x+1) < 0.05) ? NaN : (x*x+2*x)/((x+1)*(x+1)),
+        label:  'f(x) = x²/(x+1)',
+        dlabel: "f'(x) = (x²+2x)/(x+1)²",
+      },
+      chain: {
+        title: 'Chain Rule',
+        formula: '\\( \\frac{d}{dx}[f(g(x))] = f\\'(g(x)) \\cdot g\\'(x) \\)',
+        example: '<strong>Example:</strong> \\( \\frac{d}{dx}[\\sin(x^2)] = 2x\\cos(x^2) \\)',
+        fn:     x => Math.sin(x*x),
+        deriv:  x => 2*x*Math.cos(x*x),
+        label:  'f(x) = sin(x²)',
+        dlabel: "f'(x) = 2x cos(x²)",
+      },
+      trig: {
+        title: 'Trig Derivatives',
+        formula: '\\( \\frac{d}{dx}[\\sin x] = \\cos x, \\quad \\frac{d}{dx}[\\cos x] = -\\sin x \\)',
+        example: '<strong>Example:</strong> \\( \\frac{d}{dx}[3\\sin x - \\cos x] = 3\\cos x + \\sin x \\)',
+        fn:     x => Math.sin(x),
+        deriv:  x => Math.cos(x),
+        label:  'f(x) = sin(x)',
+        dlabel: "f'(x) = cos(x)",
+      },
+    };
+
+    let currentRule = 'power';
+
+    const RANGE = 4;
+    function toCanvas(x, y) {
+      const W = canvas.width, H = canvas.height;
+      return [W/2 + (x/RANGE)*(W/2), H/2 - (y/RANGE)*(H/2)];
+    }
+
+    function draw() {
+      const { fn, deriv, label, dlabel } = RULES[currentRule];
+      const W = canvas.width, H = canvas.height;
+      ctx.fillStyle = '#0d0d14'; ctx.fillRect(0,0,W,H);
+
+      ctx.strokeStyle = 'rgba(255,255,255,0.04)'; ctx.lineWidth = 1;
+      for (let i = -RANGE; i <= RANGE; i++) {
+        const [gx] = toCanvas(i,0); ctx.beginPath(); ctx.moveTo(gx,0); ctx.lineTo(gx,H); ctx.stroke();
+        const [,gy] = toCanvas(0,i); ctx.beginPath(); ctx.moveTo(0,gy); ctx.lineTo(W,gy); ctx.stroke();
+      }
+      const [ax] = toCanvas(0,0); const [,ay] = toCanvas(0,0);
+      ctx.strokeStyle = 'rgba(255,255,255,0.18)'; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(ax,0); ctx.lineTo(ax,H); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0,ay); ctx.lineTo(W,ay); ctx.stroke();
+
+      // f(x)
+      ctx.strokeStyle = '#9b6df8'; ctx.lineWidth = 2.5; ctx.shadowColor = 'rgba(155,109,248,0.3)'; ctx.shadowBlur = 8;
+      ctx.beginPath(); let pen = false;
+      for (let i = 0; i <= 600; i++) {
+        const x = -RANGE + (i/600)*(2*RANGE);
+        const y = fn(x);
+        if (!isFinite(y) || Math.abs(y) > RANGE*1.4) { pen = false; continue; }
+        const [px,py] = toCanvas(x,y);
+        pen ? ctx.lineTo(px,py) : ctx.moveTo(px,py); pen = true;
+      }
+      ctx.stroke(); ctx.shadowBlur = 0;
+
+      // f'(x)
+      ctx.strokeStyle = '#f97b40'; ctx.lineWidth = 2.2; ctx.shadowColor = 'rgba(249,123,64,0.3)'; ctx.shadowBlur = 8;
+      ctx.setLineDash([6,4]);
+      ctx.beginPath(); pen = false;
+      for (let i = 0; i <= 600; i++) {
+        const x = -RANGE + (i/600)*(2*RANGE);
+        const y = deriv(x);
+        if (!isFinite(y) || Math.abs(y) > RANGE*1.4) { pen = false; continue; }
+        const [px,py] = toCanvas(x,y);
+        pen ? ctx.lineTo(px,py) : ctx.moveTo(px,py); pen = true;
+      }
+      ctx.stroke(); ctx.setLineDash([]); ctx.shadowBlur = 0;
+
+      // Legend
+      const fs = Math.max(10, W * 0.013);
+      ctx.font = `${fs}px Inter, sans-serif`; ctx.textAlign = 'left';
+      [['#9b6df8', label], ['#f97b40', dlabel]].forEach(([col, txt], i) => {
+        ctx.fillStyle = col;
+        ctx.fillRect(14, 14 + i*20, 18, 3);
+        ctx.fillStyle = 'rgba(255,255,255,0.6)';
+        ctx.fillText(txt, 38, 20 + i*20);
+      });
+    }
+
+    function setRule(key) {
+      const r = RULES[key];
+      ruleTitle.textContent = r.title;
+      ruleFormula.innerHTML = r.formula;
+      ruleExText.innerHTML  = r.example;
+      if (window.MathJax) MathJax.typesetPromise([document.getElementById('ruleDisplay')]);
+      eqDisp.textContent = r.title;
+      draw();
+    }
+
+    document.getElementById('ruleSel').addEventListener('click', e => {
+      const btn = e.target.closest('.rule-sel-btn');
+      if (!btn) return;
+      document.querySelectorAll('.rule-sel-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentRule = btn.dataset.rule;
+      setRule(currentRule);
+    });
+
+    function resizeCanvas() {
+      const wrap = canvas.parentElement;
+      canvas.width  = wrap.clientWidth;
+      canvas.height = Math.round(wrap.clientWidth * 0.42);
+      draw();
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    setRule('power');
+  </script>
+</body>
+</html>

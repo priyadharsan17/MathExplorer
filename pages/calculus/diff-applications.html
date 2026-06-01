@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Applications of Derivatives — Calculus | MathExplorer</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    .topic-symbol { background: rgba(155,109,248,0.1); color: var(--calculus-color); border-color: rgba(155,109,248,0.2); }
+    .formula-card .formula-label { color: var(--calculus-color); }
+    .example-card .example-title { color: var(--calculus-color); }
+    .step-num { background: rgba(155,109,248,0.12); color: var(--calculus-color); }
+    .control-value { color: var(--calculus-color); }
+    input[type="range"]::-webkit-slider-thumb { background: var(--calculus-color); box-shadow: 0 0 8px rgba(155,109,248,0.5); }
+    .func-select-row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; padding:20px 24px 0; }
+    .func-select-row label { font-size:0.82rem; font-weight:600; color:var(--text-secondary); font-family:var(--font-mono); }
+    .func-select-row select {
+      background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-sm);
+      color:var(--text-primary); padding:6px 12px; font-family:var(--font-mono); font-size:0.85rem; outline:none;
+    }
+    .func-select-row select:focus { border-color:rgba(155,109,248,0.4); }
+    .info-row { display:flex; gap:24px; flex-wrap:wrap; padding:0 24px 20px; }
+    .info-badge { display:flex; flex-direction:column; gap:4px; }
+    .info-badge span:first-child { font-size:0.72rem; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--text-muted); font-family:var(--font-mono); }
+    .info-badge span:last-child  { font-size:0.95rem; font-weight:700; color:var(--text-primary); font-family:var(--font-mono); }
+    .legend-row { display:flex; gap:20px; flex-wrap:wrap; padding:4px 24px 16px; font-size:0.78rem; color:var(--text-muted); font-family:var(--font-mono); }
+    .leg-item { display:flex; align-items:center; gap:7px; }
+    .leg-swatch { width:18px; height:3px; border-radius:2px; }
+  </style>
+</head>
+<body class="topic-page">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html" class="active">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a><span>›</span>
+      <a href="../calculus.html">Calculus</a><span>›</span>
+      <span>Applications of Derivatives</span>
+    </nav>
+    <div class="topic-hero-top">
+      <div class="topic-symbol">max</div>
+      <h1>Applications of Derivatives</h1>
+    </div>
+    <p class="subtitle">
+      Derivatives tell you where a function is increasing, decreasing, and curving.
+      That information locates maxima, minima, and inflection points — powering optimisation in
+      science, engineering, and economics.
+    </p>
+  </div>
+
+  <!-- Concept -->
+  <section class="content-section">
+    <h2>Using f' and f'' to Analyse Curves</h2>
+    <p>
+      The <strong>first derivative test</strong>: if \(f'(c) = 0\) (a <em>critical point</em>),
+      check the sign of \(f'\) around \(c\).
+      If it changes from \(+\) to \(-\), there's a local maximum; from \(-\) to \(+\), a local minimum.
+    </p>
+    <p>
+      The <strong>second derivative test</strong>: at a critical point, if \(f''(c) > 0\) the curve is
+      concave up (local min); if \(f''(c) < 0\) concave down (local max); if \(f''(c) = 0\) the test is inconclusive.
+    </p>
+    <p>
+      An <strong>inflection point</strong> is where concavity changes — i.e. \(f''\) changes sign.
+    </p>
+  </section>
+
+  <!-- Key Formulas -->
+  <section class="content-section">
+    <h2>Key Results</h2>
+    <div class="formula-grid">
+
+      <div class="formula-card">
+        <span class="formula-label">Critical Points</span>
+        <div>
+          <div class="formula-math">\[ f'(c) = 0 \text{ or } f'(c) \text{ undefined} \]</div>
+          <div class="formula-note">Every local extremum occurs at a critical point (but not every critical point is an extremum).</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Increasing / Decreasing</span>
+        <div>
+          <div class="formula-math">\[ f' > 0 \Rightarrow \text{increasing}, \quad f' < 0 \Rightarrow \text{decreasing} \]</div>
+          <div class="formula-note">Sign of the derivative determines direction of the function.</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Concavity</span>
+        <div>
+          <div class="formula-math">\[ f'' > 0 \Rightarrow \text{concave up}, \quad f'' < 0 \Rightarrow \text{concave down} \]</div>
+          <div class="formula-note">Concave up looks like a cup; concave down like a cap.</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Mean Value Theorem</span>
+        <div>
+          <div class="formula-math">\[ \exists\, c \in (a,b) : f'(c) = \frac{f(b)-f(a)}{b-a} \]</div>
+          <div class="formula-note">There is always a point where the instantaneous rate equals the average rate over \([a,b]\).</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Worked Examples -->
+  <section class="content-section">
+    <h2>Worked Examples</h2>
+    <div class="example-list">
+
+      <div class="example-card">
+        <div class="example-title">Example 1 — Finding critical points and extrema</div>
+        <div class="example-problem">Analyse \(f(x) = x^3 - 3x\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">\(f'(x) = 3x^2 - 3 = 3(x^2 - 1)\). Set to zero: \(x = \pm 1\).</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Sign test: \(f' > 0\) on \((-\infty,-1)\), \(f' < 0\) on \((-1,1)\), \(f' > 0\) on \((1,\infty)\).</div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">Local max at \(x = -1\): \(f(-1) = 2\). Local min at \(x = 1\): \(f(1) = -2\).</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">\(f''(x) = 6x\). \(f''(-1) = -6 < 0\) (max) ✓. \(f''(1) = 6 > 0\) (min) ✓.</div></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 2 — Inflection point</div>
+        <div class="example-problem">Find the inflection point of \(f(x) = x^3\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">\(f''(x) = 6x\). Set to zero: \(x = 0\).</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">\(f'' < 0\) for \(x < 0\) (concave down) and \(f'' > 0\) for \(x > 0\) (concave up).</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">Inflection point at \((0, 0)\) — concavity changes here.</div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Visualiser -->
+  <section class="visualiser-section">
+    <h2>Interactive — Max / Min &amp; Concavity Finder</h2>
+    <div class="visualiser-card">
+      <div class="visualiser-canvas-wrap">
+        <canvas id="appCanvas" width="860" height="420"></canvas>
+        <div class="equation-display" id="eqDisplay">f(x) = x³ − 3x</div>
+      </div>
+
+      <div class="func-select-row">
+        <label for="funcSel">Function:</label>
+        <select id="funcSel">
+          <option value="cubic" selected>f(x) = x³ − 3x</option>
+          <option value="quartic">f(x) = x⁴ − 4x²</option>
+          <option value="sincos">f(x) = sin(x) + cos(x)</option>
+          <option value="poly">f(x) = x⁵ − 5x³</option>
+        </select>
+      </div>
+
+      <div class="legend-row">
+        <div class="leg-item"><div class="leg-swatch" style="background:#9b6df8"></div> f(x)</div>
+        <div class="leg-item"><div class="leg-swatch" style="background:#f97b40;opacity:.8"></div> f'(x)</div>
+        <div class="leg-item"><div class="leg-swatch" style="background:#34d4c8;opacity:.7"></div> f''(x)</div>
+        <div class="leg-item"><div class="leg-swatch" style="background:#f97b40;width:10px;height:10px;border-radius:50%"></div> Local max</div>
+        <div class="leg-item"><div class="leg-swatch" style="background:#4f8ef7;width:10px;height:10px;border-radius:50%"></div> Local min</div>
+        <div class="leg-item"><div class="leg-swatch" style="background:#34d4c8;width:10px;height:10px;border-radius:50%"></div> Inflection</div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-badge"><span>Critical Points</span><span id="infoCrit">—</span></div>
+        <div class="info-badge"><span>Inflection Pts</span><span id="infoInfl">—</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <div class="takeaways-list">
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Set \(f'(x) = 0\) to find critical points — then use sign changes or \(f''\) to classify them.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>\(f'' > 0\) means concave up (holds water); \(f'' < 0\) means concave down (spills water).</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Inflection points are where concavity switches — \(f''\) changes sign there.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Optimisation problems reduce to: find critical points, evaluate at endpoints, pick the winner.</p></div>
+    </div>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="diff-rules.html" class="related-card">Differentiation Rules <span>→</span></a>
+      <a href="derivatives.html" class="related-card">Derivatives <span>→</span></a>
+      <a href="../calculus.html" class="related-card">All Calculus Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand"><span class="logo-symbol">∑</span><span class="logo-text">MathExplorer</span></div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    // ── Applications visualiser ──
+    const canvas   = document.getElementById('appCanvas');
+    const ctx      = canvas.getContext('2d');
+    const funcSel  = document.getElementById('funcSel');
+    const eqDisp   = document.getElementById('eqDisplay');
+    const infoCrit = document.getElementById('infoCrit');
+    const infoInfl = document.getElementById('infoInfl');
+
+    const FUNCS = {
+      cubic:   { fn: x => x*x*x - 3*x,         dp: x => 3*x*x - 3,         d2: x => 6*x,          label:'f(x) = x³ − 3x' },
+      quartic: { fn: x => x*x*x*x - 4*x*x,     dp: x => 4*x*x*x - 8*x,     d2: x => 12*x*x - 8,   label:'f(x) = x⁴ − 4x²' },
+      sincos:  { fn: x => Math.sin(x)+Math.cos(x), dp: x => Math.cos(x)-Math.sin(x), d2: x => -Math.sin(x)-Math.cos(x), label:'f(x) = sin(x)+cos(x)' },
+      poly:    { fn: x => x*x*x*x*x - 5*x*x*x, dp: x => 5*x*x*x*x - 15*x*x, d2: x => 20*x*x*x - 30*x, label:'f(x) = x⁵ − 5x³' },
+    };
+
+    const RANGE = 3.5, H_RANGE = 4;
+
+    function resizeCanvas() {
+      const wrap = canvas.parentElement;
+      canvas.width  = wrap.clientWidth;
+      canvas.height = Math.round(wrap.clientWidth * 0.46);
+      draw();
+    }
+
+    function toCanvas(x, y) {
+      const W = canvas.width, H = canvas.height;
+      return [W/2 + (x/RANGE)*(W/2), H/2 - (y/H_RANGE)*(H/2)];
+    }
+
+    function numericalRoots(f, min, max, steps) {
+      const roots = [];
+      const dx = (max - min) / steps;
+      for (let i = 0; i < steps; i++) {
+        const x0 = min + i*dx, x1 = x0 + dx;
+        const y0 = f(x0), y1 = f(x1);
+        if (y0 * y1 < 0) {
+          // Bisect
+          let lo = x0, hi = x1;
+          for (let j = 0; j < 30; j++) {
+            const m = (lo+hi)/2;
+            f(m)*f(lo) < 0 ? hi=m : lo=m;
+          }
+          roots.push((lo+hi)/2);
+        }
+      }
+      return roots;
+    }
+
+    function draw() {
+      const key = funcSel.value;
+      const { fn, dp, d2, label } = FUNCS[key];
+      const W = canvas.width, H = canvas.height;
+
+      ctx.fillStyle = '#0d0d14'; ctx.fillRect(0,0,W,H);
+      ctx.strokeStyle = 'rgba(255,255,255,0.04)'; ctx.lineWidth = 1;
+      for (let i = -Math.ceil(RANGE); i <= Math.ceil(RANGE); i++) {
+        const [gx] = toCanvas(i,0); ctx.beginPath(); ctx.moveTo(gx,0); ctx.lineTo(gx,H); ctx.stroke();
+        const [,gy] = toCanvas(0,i); ctx.beginPath(); ctx.moveTo(0,gy); ctx.lineTo(W,gy); ctx.stroke();
+      }
+      const [ax] = toCanvas(0,0); const [,ay] = toCanvas(0,0);
+      ctx.strokeStyle = 'rgba(255,255,255,0.18)'; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(ax,0); ctx.lineTo(ax,H); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0,ay); ctx.lineTo(W,ay); ctx.stroke();
+
+      function plotFn(f, color, alpha, dash) {
+        ctx.strokeStyle = color; ctx.lineWidth = 2.2; ctx.globalAlpha = alpha;
+        ctx.shadowColor = color; ctx.shadowBlur = 6;
+        if (dash) ctx.setLineDash(dash);
+        ctx.beginPath(); let pen = false;
+        for (let i = 0; i <= 600; i++) {
+          const x = -RANGE + (i/600)*(2*RANGE);
+          const y = f(x);
+          if (!isFinite(y) || Math.abs(y) > H_RANGE*1.4) { pen = false; continue; }
+          const [px,py] = toCanvas(x,y);
+          pen ? ctx.lineTo(px,py) : ctx.moveTo(px,py); pen = true;
+        }
+        ctx.stroke(); ctx.setLineDash([]); ctx.shadowBlur=0; ctx.globalAlpha=1;
+      }
+
+      // f''
+      plotFn(d2, '#34d4c8', 0.55, [5,4]);
+      // f'
+      plotFn(dp, '#f97b40', 0.8, [8,4]);
+      // f
+      plotFn(fn, '#9b6df8', 1, []);
+
+      // Critical points (f' = 0)
+      const crits = numericalRoots(dp, -RANGE, RANGE, 200);
+      const critLabels = [];
+      crits.forEach(c => {
+        const y = fn(c);
+        const [px,py] = toCanvas(c, y);
+        const d2v = d2(c);
+        const color = d2v < 0 ? '#f97b40' : d2v > 0 ? '#4f8ef7' : '#aaa';
+        ctx.fillStyle = color; ctx.shadowColor = color; ctx.shadowBlur = 10;
+        ctx.beginPath(); ctx.arc(px,py,7,0,Math.PI*2); ctx.fill();
+        ctx.shadowBlur = 0;
+        critLabels.push(`x=${c.toFixed(2)}`);
+      });
+
+      // Inflection points (f'' = 0)
+      const infls = numericalRoots(d2, -RANGE, RANGE, 200);
+      const inflLabels = [];
+      infls.forEach(ip => {
+        const y = fn(ip);
+        const [px,py] = toCanvas(ip, y);
+        ctx.strokeStyle = '#34d4c8'; ctx.lineWidth = 2;
+        ctx.fillStyle = '#0d0d14';
+        ctx.beginPath(); ctx.arc(px,py,6,0,Math.PI*2); ctx.fill(); ctx.stroke();
+        inflLabels.push(`x=${ip.toFixed(2)}`);
+      });
+
+      eqDisp.textContent = label;
+      infoCrit.textContent = critLabels.length ? critLabels.join(', ') : 'none in view';
+      infoInfl.textContent = inflLabels.length ? inflLabels.join(', ') : 'none in view';
+    }
+
+    funcSel.addEventListener('change', draw);
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+  </script>
+</body>
+</html>

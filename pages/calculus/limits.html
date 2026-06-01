@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Limits — Calculus | MathExplorer</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    .topic-symbol { background: rgba(155,109,248,0.1); color: var(--calculus-color); border-color: rgba(155,109,248,0.2); }
+    .formula-card .formula-label { color: var(--calculus-color); }
+    .example-card .example-title { color: var(--calculus-color); }
+    .step-num { background: rgba(155,109,248,0.12); color: var(--calculus-color); }
+    .control-value { color: var(--calculus-color); }
+    input[type="range"]::-webkit-slider-thumb { background: var(--calculus-color); box-shadow: 0 0 8px rgba(155,109,248,0.5); }
+    .limit-table { width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: 0.85rem; }
+    .limit-table th { padding: 8px 14px; background: rgba(155,109,248,0.1); color: var(--calculus-color); border: 1px solid var(--border); text-align: center; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; }
+    .limit-table td { padding: 7px 14px; border: 1px solid var(--border); text-align: center; color: var(--text-secondary); }
+    .limit-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+    .limit-table td.highlight { color: var(--calculus-color); font-weight: 600; }
+    .limit-result { margin-top: 14px; padding: 14px 20px; background: rgba(155,109,248,0.08); border: 1px solid rgba(155,109,248,0.25); border-radius: var(--radius-md); font-family: var(--font-mono); font-size: 0.95rem; color: var(--text-primary); text-align: center; }
+    .func-select-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 18px; }
+    .func-select-row label { font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); font-family: var(--font-mono); }
+    .func-select-row select, .func-select-row input[type="number"] {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm);
+      color: var(--text-primary); padding: 6px 12px; font-family: var(--font-mono); font-size: 0.85rem; outline: none;
+    }
+    .func-select-row select:focus, .func-select-row input:focus { border-color: rgba(155,109,248,0.4); }
+    .table-wrap { overflow-x: auto; }
+  </style>
+</head>
+<body class="topic-page">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span>
+        <span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html" class="active">Calculus</a></li>
+        <li><a href="../trigonometry.html">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <div class="topic-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a><span>›</span>
+      <a href="../calculus.html">Calculus</a><span>›</span>
+      <span>Limits</span>
+    </nav>
+    <div class="topic-hero-top">
+      <div class="topic-symbol">lim</div>
+      <h1>Limits</h1>
+    </div>
+    <p class="subtitle">
+      A limit describes the value a function approaches as the input gets closer and closer to some value —
+      even if the function never actually reaches it. Limits are the foundation of all of calculus.
+    </p>
+  </div>
+
+  <!-- Concept -->
+  <section class="content-section">
+    <h2>What is a Limit?</h2>
+    <p>
+      We write \(\displaystyle\lim_{x \to a} f(x) = L\) to mean: as \(x\) gets arbitrarily close to \(a\)
+      (from either side), the output \(f(x)\) gets arbitrarily close to \(L\).
+    </p>
+    <p>
+      Crucially, the limit is about the <em>approach</em>, not the value at \(a\). The function may be
+      undefined at \(x = a\) or may have a different value there — the limit doesn't care.
+      This lets us handle holes, cusps, and the very foundations of derivatives and integrals.
+    </p>
+    <p>
+      A limit exists only when the left-hand limit and right-hand limit both exist <em>and</em> are equal:
+      \(\displaystyle\lim_{x \to a^-} f(x) = \lim_{x \to a^+} f(x) = L\).
+    </p>
+  </section>
+
+  <!-- Key Formulas -->
+  <section class="content-section">
+    <h2>Key Definitions &amp; Rules</h2>
+    <div class="formula-grid">
+
+      <div class="formula-card">
+        <span class="formula-label">Definition</span>
+        <div>
+          <div class="formula-math">\[ \lim_{x \to a} f(x) = L \]</div>
+          <div class="formula-note">For every \(\varepsilon > 0\) there exists \(\delta > 0\) such that \(0 < |x-a| < \delta \Rightarrow |f(x)-L| < \varepsilon\)</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">One-Sided Limits</span>
+        <div>
+          <div class="formula-math">\[ \lim_{x \to a^-} f(x) \quad \text{and} \quad \lim_{x \to a^+} f(x) \]</div>
+          <div class="formula-note">Left-hand (\(x \to a^-\)) and right-hand (\(x \to a^+\)) limits. Both must agree for the two-sided limit to exist.</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Limit Laws</span>
+        <div>
+          <div class="formula-math">\[ \lim[f \pm g] = \lim f \pm \lim g \]</div>
+          <div class="formula-note">Also: \(\lim[f \cdot g] = \lim f \cdot \lim g\) and \(\lim[f/g] = \lim f / \lim g\) (provided \(\lim g \ne 0\))</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-label">Special Limit</span>
+        <div>
+          <div class="formula-math">\[ \lim_{x \to 0} \frac{\sin x}{x} = 1 \]</div>
+          <div class="formula-note">A foundational result — proves the derivative of \(\sin x\) is \(\cos x\).</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Worked Examples -->
+  <section class="content-section">
+    <h2>Worked Examples</h2>
+    <div class="example-list">
+
+      <div class="example-card">
+        <div class="example-title">Example 1 — Direct substitution</div>
+        <div class="example-problem">Find \(\displaystyle\lim_{x \to 3}(2x + 1)\)</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">The function is continuous everywhere. Substitute \(x = 3\) directly.</div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">\(2(3) + 1 = 7\)</div>
+          </div>
+          <div class="step">
+            <div class="step-num">✓</div>
+            <div class="step-text">\(\displaystyle\lim_{x \to 3}(2x+1) = 7\)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 2 — Removable discontinuity (0/0 form)</div>
+        <div class="example-problem">Find \(\displaystyle\lim_{x \to 2} \frac{x^2 - 4}{x - 2}\)</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">Direct substitution gives \(0/0\) — indeterminate. Factor the numerator.</div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">\(\displaystyle\frac{x^2-4}{x-2} = \frac{(x-2)(x+2)}{x-2} = x + 2\) (for \(x \ne 2\))</div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-text">Now substitute: \(\lim_{x \to 2}(x+2) = 4\)</div>
+          </div>
+          <div class="step">
+            <div class="step-num">✓</div>
+            <div class="step-text">The limit is \(4\) even though the function is undefined at \(x = 2\).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 3 — One-sided limits (non-existent limit)</div>
+        <div class="example-problem">Does \(\displaystyle\lim_{x \to 0} \frac{|x|}{x}\) exist?</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">For \(x > 0\): \(|x|/x = x/x = 1\), so \(\lim_{x\to 0^+} = 1\).</div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">For \(x < 0\): \(|x|/x = -x/x = -1\), so \(\lim_{x\to 0^-} = -1\).</div>
+          </div>
+          <div class="step">
+            <div class="step-num">✓</div>
+            <div class="step-text">Left ≠ Right, so the two-sided limit does <strong>not</strong> exist.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Visualiser -->
+  <section class="visualiser-section">
+    <h2>Interactive — Table of Values &amp; Graph</h2>
+    <div class="visualiser-card">
+      <div class="visualiser-canvas-wrap">
+        <canvas id="limitCanvas" width="860" height="420"></canvas>
+        <div class="equation-display" id="eqDisplay">lim f(x) = ?</div>
+      </div>
+
+      <div style="padding:20px 24px 0;">
+        <div class="func-select-row">
+          <label for="funcSelect">Function:</label>
+          <select id="funcSelect">
+            <option value="linear">(2x + 1) as x → 3</option>
+            <option value="hole" selected>(x²−4)/(x−2) as x → 2</option>
+            <option value="sinc">sin(x)/x as x → 0</option>
+            <option value="onesided">|x|/x as x → 0</option>
+            <option value="cubic">x³ − x as x → 1</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="padding:0 24px 20px;">
+        <div class="table-wrap">
+          <table class="limit-table" id="limitTable">
+            <thead>
+              <tr>
+                <th>x (from left)</th><th>f(x)</th>
+                <th style="background:rgba(255,255,255,0.04);color:var(--text-muted)">→ a ←</th>
+                <th>x (from right)</th><th>f(x)</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+        <div class="limit-result" id="limitResult">Select a function above to see the limit.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Takeaways -->
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <div class="takeaways-list">
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>A limit is about <em>approach</em>, not arrival — the function need not be defined at \(a\).</p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>Both one-sided limits must exist and agree for the two-sided limit to exist.</p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>Indeterminate forms like \(0/0\) require algebraic manipulation (factoring, rationalising) or L'Hôpital's rule.</p>
+      </div>
+      <div class="takeaway">
+        <span class="takeaway-icon">◈</span>
+        <p>Every derivative and every integral is defined in terms of a limit — they are the backbone of calculus.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Topics -->
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="continuity.html" class="related-card">Continuity <span>→</span></a>
+      <a href="derivatives.html" class="related-card">Derivatives <span>→</span></a>
+      <a href="../calculus.html" class="related-card">All Calculus Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-symbol">∑</span>
+          <span class="logo-text">MathExplorer</span>
+        </div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    // ── Limit visualiser ──
+    const canvas  = document.getElementById('limitCanvas');
+    const ctx     = canvas.getContext('2d');
+    const funcSel = document.getElementById('funcSelect');
+    const tableBody = document.getElementById('tableBody');
+    const limitResult = document.getElementById('limitResult');
+    const eqDisplay   = document.getElementById('eqDisplay');
+
+    const FUNCS = {
+      linear:   { fn: x => 2*x + 1,           a: 3, label: 'f(x) = 2x + 1',        limitStr: '7',   exists: true },
+      hole:     { fn: x => (x*x - 4) / (x-2), a: 2, label: 'f(x) = (x²−4)/(x−2)', limitStr: '4',   exists: true },
+      sinc:     { fn: x => Math.sin(x) / x,    a: 0, label: 'f(x) = sin(x)/x',      limitStr: '1',   exists: true },
+      onesided: { fn: x => Math.abs(x) / x,    a: 0, label: 'f(x) = |x|/x',         limitStr: 'DNE', exists: false },
+      cubic:    { fn: x => x*x*x - x,          a: 1, label: 'f(x) = x³ − x',        limitStr: '0',   exists: true },
+    };
+
+    const OFFSETS = [1, 0.5, 0.1, 0.01, 0.001];
+    const RANGE = 5;
+
+    function resizeCanvas() {
+      const wrap = canvas.parentElement;
+      canvas.width  = wrap.clientWidth;
+      canvas.height = Math.round(wrap.clientWidth * 0.46);
+      render();
+    }
+
+    function toCanvas(x, y, xMin, xMax, yMin, yMax) {
+      const W = canvas.width, H = canvas.height;
+      const cx = (x - xMin) / (xMax - xMin) * W;
+      const cy = H - (y - yMin) / (yMax - yMin) * H;
+      return [cx, cy];
+    }
+
+    function render() {
+      const key  = funcSel.value;
+      const { fn, a, label, limitStr, exists } = FUNCS[key];
+      const W = canvas.width, H = canvas.height;
+
+      // Dynamic range centred on a
+      const xMin = a - RANGE, xMax = a + RANGE;
+
+      // Sample to estimate yRange
+      let samples = [];
+      for (let i = 0; i <= 200; i++) {
+        const x = xMin + (i / 200) * (xMax - xMin);
+        if (Math.abs(x - a) < 1e-9) continue;
+        const y = fn(x);
+        if (isFinite(y)) samples.push(y);
+      }
+      const yPad = 1.5;
+      const yMin = Math.max(-20, Math.min(...samples) - yPad);
+      const yMax = Math.min(20,  Math.max(...samples) + yPad);
+
+      ctx.clearRect(0, 0, W, H);
+      ctx.fillStyle = '#0d0d14';
+      ctx.fillRect(0, 0, W, H);
+
+      // Grid
+      ctx.strokeStyle = 'rgba(255,255,255,0.04)';
+      ctx.lineWidth = 1;
+      const xStep = 1, yStep = Math.ceil((yMax - yMin) / 8);
+      for (let gx = Math.ceil(xMin); gx <= xMax; gx += xStep) {
+        const [px] = toCanvas(gx, 0, xMin, xMax, yMin, yMax);
+        ctx.beginPath(); ctx.moveTo(px, 0); ctx.lineTo(px, H); ctx.stroke();
+      }
+      for (let gy = Math.ceil(yMin); gy <= yMax; gy += yStep) {
+        const [, py] = toCanvas(0, gy, xMin, xMax, yMin, yMax);
+        ctx.beginPath(); ctx.moveTo(0, py); ctx.lineTo(W, py); ctx.stroke();
+      }
+
+      // Axes
+      ctx.strokeStyle = 'rgba(255,255,255,0.18)';
+      ctx.lineWidth = 1.5;
+      const [axX] = toCanvas(0, 0, xMin, xMax, yMin, yMax);
+      const [, axY] = toCanvas(0, 0, xMin, xMax, yMin, yMax);
+      ctx.beginPath(); ctx.moveTo(axX, 0); ctx.lineTo(axX, H); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0, axY); ctx.lineTo(W, axY); ctx.stroke();
+
+      // Axis labels
+      ctx.fillStyle = 'rgba(255,255,255,0.28)';
+      ctx.font = `${Math.max(10, W * 0.012)}px Inter, sans-serif`;
+      ctx.textAlign = 'center';
+      for (let gx = Math.ceil(xMin); gx <= xMax; gx += xStep) {
+        const [px] = toCanvas(gx, 0, xMin, xMax, yMin, yMax);
+        const clampY = Math.min(H - 6, Math.max(14, axY + 16));
+        ctx.fillText(gx, px, clampY);
+      }
+
+      // Plot curve
+      ctx.strokeStyle = '#9b6df8';
+      ctx.lineWidth = 2.5;
+      ctx.shadowColor = 'rgba(155,109,248,0.35)';
+      ctx.shadowBlur = 8;
+      ctx.beginPath();
+      let penDown = false;
+      for (let i = 0; i <= 600; i++) {
+        const x = xMin + (i / 600) * (xMax - xMin);
+        if (Math.abs(x - a) < 1e-6) { penDown = false; continue; }
+        const y = fn(x);
+        if (!isFinite(y) || y < yMin - 5 || y > yMax + 5) { penDown = false; continue; }
+        const [px, py] = toCanvas(x, y, xMin, xMax, yMin, yMax);
+        if (!penDown) { ctx.moveTo(px, py); penDown = true; } else { ctx.lineTo(px, py); }
+      }
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      // Approach indicator — vertical dashed line at x = a
+      const [aX] = toCanvas(a, 0, xMin, xMax, yMin, yMax);
+      ctx.strokeStyle = 'rgba(155,109,248,0.45)';
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([5, 4]);
+      ctx.beginPath(); ctx.moveTo(aX, 0); ctx.lineTo(aX, H); ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Limit point dot (or open circles for DNE)
+      if (exists) {
+        const L = parseFloat(limitStr);
+        const [lpx, lpy] = toCanvas(a, L, xMin, xMax, yMin, yMax);
+        ctx.fillStyle = '#9b6df8';
+        ctx.shadowColor = 'rgba(155,109,248,0.6)';
+        ctx.shadowBlur = 12;
+        ctx.beginPath(); ctx.arc(lpx, lpy, 6, 0, Math.PI * 2); ctx.fill();
+        ctx.shadowBlur = 0;
+        // Open circle (actual value may be different / undefined)
+        ctx.strokeStyle = '#9b6df8';
+        ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.arc(lpx, lpy, 8, 0, Math.PI * 2); ctx.stroke();
+      } else {
+        // Two open circles for DNE
+        [-1, 1].forEach(side => {
+          const y = fn(a + side * 0.0001);
+          if (!isFinite(y)) return;
+          const [px, py] = toCanvas(a, y, xMin, xMax, yMin, yMax);
+          ctx.strokeStyle = side === 1 ? '#f97b40' : '#4f8ef7';
+          ctx.lineWidth = 2;
+          ctx.beginPath(); ctx.arc(px, py, 6, 0, Math.PI * 2); ctx.stroke();
+        });
+      }
+
+      // Update display
+      eqDisplay.textContent = `lim (x→${a}) ${label.replace('f(x) = ','')} = ${limitStr}`;
+
+      // Build table
+      tableBody.innerHTML = '';
+      OFFSETS.forEach(h => {
+        const xL = a - h, xR = a + h;
+        const yL = fn(xL), yR = fn(xR);
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${xL.toPrecision(5)}</td><td class="highlight">${isFinite(yL) ? yL.toPrecision(6) : 'undef'}</td>
+                        <td style="color:var(--text-muted);font-size:0.75rem">x → ${a}</td>
+                        <td>${xR.toPrecision(5)}</td><td class="highlight">${isFinite(yR) ? yR.toPrecision(6) : 'undef'}</td>`;
+        tableBody.appendChild(tr);
+      });
+
+      // Limit result
+      if (exists) {
+        limitResult.innerHTML = `<strong>lim<sub>x→${a}</sub> f(x) = ${limitStr}</strong> — both sides agree ✓`;
+        limitResult.style.borderColor = 'rgba(155,109,248,0.4)';
+        limitResult.style.background  = 'rgba(155,109,248,0.08)';
+      } else {
+        limitResult.innerHTML = `<strong>Limit does not exist (DNE)</strong> — left-hand and right-hand limits differ`;
+        limitResult.style.borderColor = 'rgba(249,123,64,0.4)';
+        limitResult.style.background  = 'rgba(249,123,64,0.07)';
+      }
+    }
+
+    funcSel.addEventListener('change', render);
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+  </script>
+</body>
+</html>

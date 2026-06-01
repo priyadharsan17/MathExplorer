@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calculus — MathExplorer</title>
   <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/category.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -40,31 +41,175 @@
     </ul>
   </div>
 
-  <section class="category-hero">
-    <div class="category-hero-icon card-calculus" style="border:1px solid rgba(155,109,248,0.2);">∫</div>
-    <h1>Calculus</h1>
-    <p>Explore the mathematics of change — understand limits, derivatives, integrals, and infinite series.</p>
+  <section class="cat-hero cat-hero--calculus">
+    <div class="cat-hero-bg"></div>
+    <div class="cat-hero-content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>›</span>
+        <span>Calculus</span>
+      </nav>
+      <div class="cat-hero-icon">∫</div>
+      <h1>Calculus</h1>
+      <p>Explore the mathematics of change — limits, derivatives, integrals, and infinite series brought to life with interactive visualisations.</p>
+      <div class="cat-meta">
+        <span class="cat-meta-pill">9 Topics</span>
+        <span class="cat-meta-pill">9 Interactive</span>
+        <span class="cat-meta-pill available">Available Now</span>
+      </div>
+    </div>
   </section>
 
-  <section class="coming-soon-section">
-    <div class="coming-soon-card" style="border-color: rgba(155, 109, 248, 0.2);">
-      <div class="coming-soon-icon">🔧</div>
-      <h2>Content Coming Soon</h2>
-      <p>
-        We're working on interactive visualisations for derivatives, integrals, and limits.
-        Check back once we're past the roadmap phase!
-      </p>
-      <ul class="topic-list">
-        <li>Limits</li>
-        <li>Continuity</li>
-        <li>Derivatives</li>
-        <li>Differentiation Rules</li>
-        <li>Applications of Derivatives</li>
-        <li>Definite Integrals</li>
-        <li>Indefinite Integrals</li>
-        <li>Series & Sequences</li>
-      </ul>
-      <a href="../index.html#roadmap" class="btn btn-ghost">View Roadmap</a>
+  <!-- Topics Grid -->
+  <section class="topics-section">
+    <div class="container">
+      <div class="topics-grid">
+
+        <!-- Limits -->
+        <a href="calculus/limits.html" class="topic-card topic-available" data-topic="limits">
+          <div class="topic-number">01</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Limits</h3>
+              <span class="topic-badge available">Interactive</span>
+            </div>
+            <p>Understand what a function approaches as x nears a value. Explore via tables and a zoomable graph.</p>
+            <div class="topic-tags">
+              <span>lim f(x)</span><span>One-sided</span><span>Table of Values</span>
+            </div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <!-- Continuity -->
+        <a href="calculus/continuity.html" class="topic-card topic-available" data-topic="continuity">
+          <div class="topic-number">02</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Continuity</h3>
+              <span class="topic-badge available">Interactive</span>
+            </div>
+            <p>Learn the three conditions for continuity and toggle between removable, jump, and infinite discontinuities.</p>
+            <div class="topic-tags">
+              <span>Removable</span><span>Jump</span><span>Infinite</span>
+            </div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <!-- Derivatives -->
+        <a href="calculus/derivatives.html" class="topic-card topic-available" data-topic="derivatives">
+          <div class="topic-number">03</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Derivatives</h3>
+              <span class="topic-badge available">Interactive</span>
+            </div>
+            <p>Watch a secant line become a tangent as h → 0. See the instantaneous rate of change animate in real time.</p>
+            <div class="topic-tags">
+              <span>f'(x)</span><span>Secant → Tangent</span><span>h → 0</span>
+            </div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <!-- Differentiation Rules -->
+        <a href="calculus/diff-rules.html" class="topic-card topic-available" data-topic="diff-rules">
+          <div class="topic-number">04</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Differentiation Rules</h3>
+              <span class="topic-badge available">Interactive</span>
+            </div>
+            <p>Power, product, quotient, and chain rules with formula cards and step-by-step worked examples.</p>
+            <div class="topic-tags">
+              <span>Power Rule</span><span>Chain Rule</span><span>Product Rule</span>
+            </div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <!-- Applications of Derivatives -->
+        <a href="calculus/diff-applications.html" class="topic-card topic-available" data-topic="diff-applications">
+          <div class="topic-number">05</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Applications of Derivatives</h3>
+              <span class="topic-badge available">Interactive</span>
+            </div>
+            <p>Find maxima, minima, and inflection points on a live curve. Explore increasing/decreasing intervals.</p>
+            <div class="topic-tags">
+              <span>Max / Min</span><span>Concavity</span><span>Optimisation</span>
+            </div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <!-- Definite Integrals -->
+        <a href="calculus/definite-integrals.html" class="topic-card topic-available" data-topic="definite-integrals">
+          <div class="topic-number">06</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Definite Integrals</h3>
+              <span class="topic-badge available">Interactive</span>
+            </div>
+            <p>Visualise area under a curve with a Riemann sum slider. Choose left, right, or midpoint rectangles.</p>
+            <div class="topic-tags">
+              <span>∫ₐᵇ f(x) dx</span><span>Riemann Sum</span><span>Area</span>
+            </div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <!-- Indefinite Integrals -->
+        <a href="calculus/indefinite-integrals.html" class="topic-card topic-available" data-topic="indefinite-integrals">
+          <div class="topic-number">07</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Indefinite Integrals</h3>
+              <span class="topic-badge available">Interactive</span>
+            </div>
+            <p>Explore antiderivatives and the family of curves they produce. Adjust the constant C and watch curves shift.</p>
+            <div class="topic-tags">
+              <span>∫ f(x) dx</span><span>Antiderivative</span><span>+C</span>
+            </div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <!-- Fundamental Theorem -->
+        <a href="calculus/ftc.html" class="topic-card topic-available" data-topic="ftc">
+          <div class="topic-number">08</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Fundamental Theorem</h3>
+              <span class="topic-badge available">Interactive</span>
+            </div>
+            <p>See the two parts of the FTC side by side — differentiation and integration as inverse operations.</p>
+            <div class="topic-tags">
+              <span>FTC Part 1</span><span>FTC Part 2</span><span>Dual Panel</span>
+            </div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <!-- Series & Sequences -->
+        <a href="calculus/series.html" class="topic-card topic-available" data-topic="series">
+          <div class="topic-number">09</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Series &amp; Sequences</h3>
+              <span class="topic-badge available">Interactive</span>
+            </div>
+            <p>Watch partial sums converge (or diverge). Animate geometric, harmonic, and power series step by step.</p>
+            <div class="topic-tags">
+              <span>Σ aₙ</span><span>Convergence</span><span>Partial Sums</span>
+            </div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+      </div>
     </div>
   </section>
 
