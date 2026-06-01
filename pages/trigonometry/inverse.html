@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inverse Trig Functions — Trigonometry | MathExplorer</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    .topic-symbol { background: rgba(52,212,200,0.1); color: var(--trig-color); border-color: rgba(52,212,200,0.2); }
+    .formula-card .formula-label { color: var(--trig-color); }
+    .example-card .example-title { color: var(--trig-color); }
+    .step-num { background: rgba(52,212,200,0.12); color: var(--trig-color); }
+    .func-btns { display:flex; gap:8px; padding:16px 24px 4px; flex-wrap:wrap; }
+    .func-btn {
+      padding:6px 18px; border-radius:20px; border:1.5px solid rgba(52,212,200,0.25);
+      background:transparent; color:var(--text-secondary); font-family:var(--font-mono); font-size:0.85rem; cursor:pointer; transition:all 0.15s;
+    }
+    .func-btn.active { background:rgba(52,212,200,0.15); border-color:var(--trig-color); color:var(--trig-color); font-weight:700; }
+    .info-row { display:flex; gap:24px; flex-wrap:wrap; padding:0 24px 16px; }
+    .info-badge { display:flex; flex-direction:column; gap:4px; }
+    .info-badge span:first-child { font-size:0.72rem; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--text-muted); font-family:var(--font-mono); }
+    .info-badge span:last-child  { font-size:0.95rem; font-weight:700; color:var(--trig-color); font-family:var(--font-mono); }
+    input[type="range"]::-webkit-slider-thumb { background: var(--trig-color); box-shadow: 0 0 8px rgba(52,212,200,0.5); }
+    .control-value { color: var(--trig-color); }
+  </style>
+</head>
+<body class="topic-page">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span><span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html">Calculus</a></li>
+        <li><a href="../trigonometry.html" class="active">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <div class="topic-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a><span>›</span>
+      <a href="../trigonometry.html">Trigonometry</a><span>›</span>
+      <span>Inverse Functions</span>
+    </nav>
+    <div class="topic-hero-top">
+      <div class="topic-symbol">arc</div>
+      <h1>Inverse Trig Functions</h1>
+    </div>
+    <p class="subtitle">
+      Inverse trig functions answer "which angle has this sine/cosine/tangent?"
+      They require restricted domains to be well-defined, and their graphs are
+      reflections of the original functions across \(y = x\).
+    </p>
+  </div>
+
+  <section class="content-section">
+    <h2>Restricted Domains and Inverses</h2>
+    <p>
+      Because \(\sin x\) is not one-to-one over all reals, we restrict its domain to \([-\pi/2, \pi/2]\)
+      before defining \(\arcsin\). Similarly \(\arccos\) uses \([0, \pi]\) and \(\arctan\) uses \((-\pi/2, \pi/2)\).
+    </p>
+    <p>
+      The graph of \(y = \arcsin x\) is the reflection of the restricted \(y = \sin x\) graph across the
+      line \(y = x\) — input and output swap roles.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Key Formulas</h2>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <span class="formula-label">arcsin</span>
+        <div>
+          <div class="formula-math">\[ y = \arcsin x \iff \sin y = x, \quad x\in[-1,1],\; y\in\left[-\tfrac{\pi}{2},\tfrac{\pi}{2}\right] \]</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">arccos</span>
+        <div>
+          <div class="formula-math">\[ y = \arccos x \iff \cos y = x, \quad x\in[-1,1],\; y\in[0,\pi] \]</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">arctan</span>
+        <div>
+          <div class="formula-math">\[ y = \arctan x \iff \tan y = x, \quad x\in\mathbb{R},\; y\in\left(-\tfrac{\pi}{2},\tfrac{\pi}{2}\right) \]</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Derivatives</span>
+        <div>
+          <div class="formula-math">\[ \frac{d}{dx}\arcsin x = \frac{1}{\sqrt{1-x^2}}, \quad \frac{d}{dx}\arctan x = \frac{1}{1+x^2} \]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Worked Examples</h2>
+    <div class="example-list">
+      <div class="example-card">
+        <div class="example-title">Example 1 — Evaluating arcsin</div>
+        <div class="example-problem">Find \(\arcsin(1/2)\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">We need angle \(y\) in \([-\pi/2,\pi/2]\) with \(\sin y = 1/2\).</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">\(\arcsin(1/2) = \pi/6 = 30°\)</div></div>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="example-title">Example 2 — Evaluating arctan</div>
+        <div class="example-problem">Find \(\arctan(-1)\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">We need \(y\) in \((-\pi/2,\pi/2)\) with \(\tan y = -1\).</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">\(\arctan(-1) = -\pi/4 = -45°\)</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visualiser-section">
+    <h2>Interactive — arcsin / arccos / arctan Graphs</h2>
+    <div class="visualiser-card">
+      <div class="func-btns" id="funcBtns">
+        <button class="func-btn active" data-fn="arcsin">arcsin</button>
+        <button class="func-btn" data-fn="arccos">arccos</button>
+        <button class="func-btn" data-fn="arctan">arctan</button>
+      </div>
+      <div class="visualiser-canvas-wrap">
+        <canvas id="invCanvas" width="700" height="420"></canvas>
+        <div class="equation-display" id="invEqDisp">y = arcsin(x)</div>
+      </div>
+      <div class="visualiser-controls">
+        <div class="control-group">
+          <div class="control-label">
+            <span>Input x</span>
+            <span class="control-value" id="xVal">0.00</span>
+          </div>
+          <input type="range" id="xSlider" min="-100" max="100" step="1" value="0" aria-label="Input x" />
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-badge"><span>x</span><span id="infoX">0.00</span></div>
+        <div class="info-badge"><span>Result (rad)</span><span id="infoRad">0.000</span></div>
+        <div class="info-badge"><span>Result (deg)</span><span id="infoDeg">0.00°</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <div class="takeaways-list">
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Inverse trig functions need restricted domains to be well-defined (pass the horizontal line test).</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>\(\arcsin\) and \(\arccos\) are only defined for inputs in \([-1,1]\); \(\arctan\) accepts all reals.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>The graph of each inverse is the mirror image of the restricted original across \(y = x\).</p></div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="trig-functions.html" class="related-card">All Six Functions <span>→</span></a>
+      <a href="identities.html" class="related-card">Trig Identities <span>→</span></a>
+      <a href="../trigonometry.html" class="related-card">All Trig Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand"><span class="logo-symbol">∑</span><span class="logo-text">MathExplorer</span></div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    const canvas   = document.getElementById('invCanvas');
+    const ctx      = canvas.getContext('2d');
+    const eqDisp   = document.getElementById('invEqDisp');
+    const xSlider  = document.getElementById('xSlider');
+    const xValEl   = document.getElementById('xVal');
+    const infoX    = document.getElementById('infoX');
+    const infoRad  = document.getElementById('infoRad');
+    const infoDeg  = document.getElementById('infoDeg');
+
+    let activeFn = 'arcsin';
+
+    const FNS = {
+      arcsin: { fn: x=>Math.asin(x),  xMin:-1, xMax:1, yMin:-Math.PI/2, yMax:Math.PI/2, label:'y = arcsin(x)' },
+      arccos: { fn: x=>Math.acos(x),  xMin:-1, xMax:1, yMin:0,          yMax:Math.PI,   label:'y = arccos(x)' },
+      arctan: { fn: x=>Math.atan(x),  xMin:-5, xMax:5, yMin:-Math.PI/2, yMax:Math.PI/2, label:'y = arctan(x)' },
+    };
+
+    document.getElementById('funcBtns').querySelectorAll('.func-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.func-btn').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFn = btn.dataset.fn;
+        // adjust slider range
+        const { xMin, xMax } = FNS[activeFn];
+        xSlider.min  = Math.round(xMin*100);
+        xSlider.max  = Math.round(xMax*100);
+        xSlider.value = 0;
+        draw();
+      });
+    });
+
+    function toCanvas(x, y, xMin, xMax, yMin, yMax) {
+      const W = canvas.width, H = canvas.height;
+      const PAD = 40;
+      return [
+        PAD + (x - xMin)/(xMax - xMin) * (W - 2*PAD),
+        H - PAD - (y - yMin)/(yMax - yMin) * (H - 2*PAD)
+      ];
+    }
+
+    function draw() {
+      const { fn, xMin, xMax, yMin, yMax, label } = FNS[activeFn];
+      const xVal = parseFloat(xSlider.value) / 100;
+      const W = canvas.width, H = canvas.height;
+      const PAD = 40;
+
+      xValEl.textContent = xVal.toFixed(2);
+      eqDisp.textContent = label;
+
+      ctx.fillStyle = '#0d0d14'; ctx.fillRect(0,0,W,H);
+
+      // Grid
+      ctx.strokeStyle = 'rgba(255,255,255,0.04)'; ctx.lineWidth = 1;
+      const xStep = (xMax-xMin)/6, yStep = (yMax-yMin)/6;
+      for (let i=0; i<=6; i++) {
+        const x = xMin + i*xStep, y = yMin + i*yStep;
+        const [gx] = toCanvas(x,0,xMin,xMax,yMin,yMax);
+        const [,gy] = toCanvas(0,y,xMin,xMax,yMin,yMax);
+        ctx.beginPath(); ctx.moveTo(gx,PAD); ctx.lineTo(gx,H-PAD); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(PAD,gy); ctx.lineTo(W-PAD,gy); ctx.stroke();
+      }
+
+      // Axes
+      const [ax] = toCanvas(0,0,xMin,xMax,yMin,yMax);
+      const [,ay] = toCanvas(0,0,xMin,xMax,yMin,yMax);
+      ctx.strokeStyle = 'rgba(255,255,255,0.2)'; ctx.lineWidth = 1.5;
+      if (ax>=PAD && ax<=W-PAD) { ctx.beginPath(); ctx.moveTo(ax,PAD); ctx.lineTo(ax,H-PAD); ctx.stroke(); }
+      if (ay>=PAD && ay<=H-PAD) { ctx.beginPath(); ctx.moveTo(PAD,ay); ctx.lineTo(W-PAD,ay); ctx.stroke(); }
+
+      // y=x reference line (dashed)
+      ctx.strokeStyle = 'rgba(255,255,255,0.08)'; ctx.setLineDash([4,4]);
+      const [rx1,ry1] = toCanvas(xMin,xMin,xMin,xMax,yMin,yMax);
+      const [rx2,ry2] = toCanvas(xMax,xMax,xMin,xMax,yMin,yMax);
+      ctx.beginPath(); ctx.moveTo(rx1,ry1); ctx.lineTo(rx2,ry2); ctx.stroke(); ctx.setLineDash([]);
+
+      // Curve
+      ctx.strokeStyle = '#34d4c8'; ctx.lineWidth = 2.5; ctx.shadowColor='rgba(52,212,200,0.4)'; ctx.shadowBlur=8;
+      ctx.beginPath(); let pen = false;
+      for (let i=0; i<=600; i++) {
+        const x = xMin + (i/600)*(xMax-xMin);
+        const y = fn(x);
+        if (!isFinite(y)) { pen=false; continue; }
+        const [px,py] = toCanvas(x,y,xMin,xMax,yMin,yMax);
+        pen ? ctx.lineTo(px,py) : ctx.moveTo(px,py); pen=true;
+      }
+      ctx.stroke(); ctx.shadowBlur=0;
+
+      // Current point
+      const yVal = fn(xVal);
+      if (isFinite(yVal)) {
+        const [px,py] = toCanvas(xVal,yVal,xMin,xMax,yMin,yMax);
+        // dashed drop lines
+        const [,ay2] = toCanvas(0,0,xMin,xMax,yMin,yMax);
+        const [ax2] = toCanvas(0,0,xMin,xMax,yMin,yMax);
+        ctx.strokeStyle='rgba(255,255,255,0.2)'; ctx.setLineDash([4,3]);
+        ctx.beginPath(); ctx.moveTo(px, ay2>=PAD && ay2<=H-PAD ? ay2 : H-PAD); ctx.lineTo(px,py); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(ax2>=PAD && ax2<=W-PAD ? ax2 : PAD, py); ctx.lineTo(px,py); ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle='#f97b40'; ctx.shadowColor='rgba(249,123,64,0.7)'; ctx.shadowBlur=10;
+        ctx.beginPath(); ctx.arc(px,py,7,0,Math.PI*2); ctx.fill(); ctx.shadowBlur=0;
+        infoX.textContent   = xVal.toFixed(2);
+        infoRad.textContent = yVal.toFixed(4);
+        infoDeg.textContent = (yVal*180/Math.PI).toFixed(2) + '°';
+      } else {
+        infoX.textContent='out of domain'; infoRad.textContent='—'; infoDeg.textContent='—';
+      }
+    }
+
+    xSlider.addEventListener('input', draw);
+
+    function resize() {
+      canvas.width  = canvas.parentElement.clientWidth;
+      canvas.height = Math.round(canvas.parentElement.clientWidth * 0.55);
+      draw();
+    }
+    window.addEventListener('resize', resize);
+    resize();
+  </script>
+</body>
+</html>

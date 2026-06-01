@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unit Circle — Trigonometry | MathExplorer</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    .topic-symbol { background: rgba(52,212,200,0.1); color: var(--trig-color); border-color: rgba(52,212,200,0.2); }
+    .formula-card .formula-label { color: var(--trig-color); }
+    .example-card .example-title { color: var(--trig-color); }
+    .step-num { background: rgba(52,212,200,0.12); color: var(--trig-color); }
+    input[type="range"]::-webkit-slider-thumb { background: var(--trig-color); box-shadow: 0 0 8px rgba(52,212,200,0.5); }
+    .control-value { color: var(--trig-color); }
+    /* readout panel */
+    .uc-readout {
+      display:grid; grid-template-columns: repeat(3, 1fr); gap:10px;
+      padding:12px 24px 20px;
+    }
+    .uc-val {
+      background: rgba(52,212,200,0.05); border:1px solid rgba(52,212,200,0.12);
+      border-radius:var(--radius-sm); padding:10px 14px; display:flex; flex-direction:column; gap:4px;
+    }
+    .uc-val-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.07em; color:var(--text-muted); font-family:var(--font-mono); }
+    .uc-val-num   { font-size:1.05rem; font-weight:700; color:var(--trig-color); font-family:var(--font-mono); }
+    canvas { cursor: crosshair; }
+  </style>
+</head>
+<body class="topic-page">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span><span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html">Calculus</a></li>
+        <li><a href="../trigonometry.html" class="active">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <div class="topic-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a><span>›</span>
+      <a href="../trigonometry.html">Trigonometry</a><span>›</span>
+      <span>Unit Circle</span>
+    </nav>
+    <div class="topic-hero-top">
+      <div class="topic-symbol">○</div>
+      <h1>Unit Circle</h1>
+    </div>
+    <p class="subtitle">
+      The unit circle — radius 1, centred at the origin — is the foundation of trigonometry.
+      Every point on it is \((\cos\theta, \sin\theta)\), directly linking angle to coordinate.
+    </p>
+  </div>
+
+  <section class="content-section">
+    <h2>The Unit Circle Defined</h2>
+    <p>
+      For any angle \(\theta\), draw a ray from the origin. Where it intersects the unit circle
+      gives the point \((\cos\theta, \sin\theta)\). All six trig functions follow:
+    </p>
+    <p>
+      \[\sin\theta = y, \quad \cos\theta = x, \quad \tan\theta = \frac{y}{x} \quad (x \ne 0)\]
+      \[\csc\theta = \frac{1}{y}, \quad \sec\theta = \frac{1}{x}, \quad \cot\theta = \frac{x}{y}\]
+    </p>
+    <p>
+      The four quadrants determine signs: ASTC — <strong>A</strong>ll positive (Q1),
+      <strong>S</strong>ine positive (Q2), <strong>T</strong>angent positive (Q3), <strong>C</strong>osine positive (Q4).
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Key Formulas</h2>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <span class="formula-label">Unit Circle Equation</span>
+        <div><div class="formula-math">\[ x^2 + y^2 = 1 \]</div></div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Pythagorean Identity</span>
+        <div>
+          <div class="formula-math">\[ \sin^2\theta + \cos^2\theta = 1 \]</div>
+          <div class="formula-note">The Pythagorean theorem on the unit circle.</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Special Values</span>
+        <div>
+          <div class="formula-math">\[ \sin 30° = \tfrac{1}{2},\; \sin 45° = \tfrac{\sqrt{2}}{2},\; \sin 60° = \tfrac{\sqrt{3}}{2} \]</div>
+          <div class="formula-note">Cosines are the same list reversed.</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Periodicity</span>
+        <div>
+          <div class="formula-math">\[ \sin(\theta + 2\pi) = \sin\theta, \quad \cos(\theta + 2\pi) = \cos\theta \]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Worked Examples</h2>
+    <div class="example-list">
+      <div class="example-card">
+        <div class="example-title">Example 1 — Reading the unit circle</div>
+        <div class="example-problem">Find \(\sin 135°\) and \(\cos 135°\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">135° is in Quadrant II (reference angle 45°).</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">In Q2: sin positive, cos negative.</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">\(\sin 135° = \tfrac{\sqrt{2}}{2}\), \(\cos 135° = -\tfrac{\sqrt{2}}{2}\)</div></div>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="example-title">Example 2 — Using the Pythagorean identity</div>
+        <div class="example-problem">If \(\cos\theta = 3/5\) and \(\theta\) is in Q4, find \(\sin\theta\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">\(\sin^2\theta = 1 - \cos^2\theta = 1 - 9/25 = 16/25\)</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Q4 ⟹ sin is negative.</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">\(\sin\theta = -4/5\)</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visualiser-section">
+    <h2>Interactive — Draggable Unit Circle</h2>
+    <p style="padding:0 24px 8px;color:var(--text-muted);font-size:0.85rem;">Click or drag anywhere on the canvas to set the angle.</p>
+    <div class="visualiser-card">
+      <div class="visualiser-canvas-wrap">
+        <canvas id="ucCanvas" width="520" height="520"></canvas>
+        <div class="equation-display" id="ucEqDisp">θ = 0° = 0.000 rad</div>
+      </div>
+      <div class="uc-readout">
+        <div class="uc-val"><span class="uc-val-label">sin θ</span><span class="uc-val-num" id="ucSin">0.000</span></div>
+        <div class="uc-val"><span class="uc-val-label">cos θ</span><span class="uc-val-num" id="ucCos">1.000</span></div>
+        <div class="uc-val"><span class="uc-val-label">tan θ</span><span class="uc-val-num" id="ucTan">0.000</span></div>
+        <div class="uc-val"><span class="uc-val-label">csc θ</span><span class="uc-val-num" id="ucCsc">—</span></div>
+        <div class="uc-val"><span class="uc-val-label">sec θ</span><span class="uc-val-num" id="ucSec">1.000</span></div>
+        <div class="uc-val"><span class="uc-val-label">cot θ</span><span class="uc-val-num" id="ucCot">—</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <div class="takeaways-list">
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Every point on the unit circle is \((\cos\theta, \sin\theta)\) for some angle \(\theta\).</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>ASTC reminds you which functions are positive in each quadrant.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>The Pythagorean identity \(\sin^2\theta + \cos^2\theta = 1\) is just the unit-circle equation.</p></div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="angles.html" class="related-card">Angles &amp; Radians <span>→</span></a>
+      <a href="sin-cos.html" class="related-card">Sine &amp; Cosine <span>→</span></a>
+      <a href="trig-functions.html" class="related-card">All Six Functions <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand"><span class="logo-symbol">∑</span><span class="logo-text">MathExplorer</span></div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    const canvas  = document.getElementById('ucCanvas');
+    const ctx     = canvas.getContext('2d');
+    const eqDisp  = document.getElementById('ucEqDisp');
+    const sinEl   = document.getElementById('ucSin');
+    const cosEl   = document.getElementById('ucCos');
+    const tanEl   = document.getElementById('ucTan');
+    const cscEl   = document.getElementById('ucCsc');
+    const secEl   = document.getElementById('ucSec');
+    const cotEl   = document.getElementById('ucCot');
+
+    let theta = 0; // radians, measured CCW from positive x-axis
+
+    // Common angles to snap to (within ~4°)
+    const SNAPS = [0, Math.PI/6, Math.PI/4, Math.PI/3, Math.PI/2,
+                   2*Math.PI/3, 3*Math.PI/4, 5*Math.PI/6, Math.PI,
+                   7*Math.PI/6, 5*Math.PI/4, 4*Math.PI/3, 3*Math.PI/2,
+                   5*Math.PI/3, 7*Math.PI/4, 11*Math.PI/6, 2*Math.PI];
+
+    function fmt(v, d=3) {
+      if (!isFinite(v)) return 'undef';
+      return v.toFixed(d);
+    }
+
+    function draw() {
+      const W = canvas.width, H = canvas.height;
+      const cx = W/2, cy = H/2;
+      const R  = Math.min(W,H)*0.4;
+
+      const s = Math.sin(theta), c = Math.cos(theta);
+      const px = cx + R*c, py = cy - R*s;
+
+      ctx.fillStyle = '#0d0d14'; ctx.fillRect(0,0,W,H);
+
+      // Quadrant labels
+      const qs = Math.max(11, W*0.025);
+      ctx.font = `${qs}px JetBrains Mono, monospace`; ctx.fillStyle = 'rgba(255,255,255,0.12)';
+      ctx.textAlign='center';
+      ctx.fillText('Q I',  cx+R*0.6, cy-R*0.6);
+      ctx.fillText('Q II', cx-R*0.6, cy-R*0.6);
+      ctx.fillText('Q III',cx-R*0.6, cy+R*0.7);
+      ctx.fillText('Q IV', cx+R*0.6, cy+R*0.7);
+
+      // Axes
+      ctx.strokeStyle = 'rgba(255,255,255,0.15)'; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(cx-R-20,cy); ctx.lineTo(cx+R+20,cy); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(cx,cy-R-20); ctx.lineTo(cx,cy+R+20); ctx.stroke();
+
+      // Tick marks
+      ctx.fillStyle = 'rgba(255,255,255,0.4)';
+      const ts = Math.max(10, W*0.022);
+      ctx.font = `${ts}px JetBrains Mono, monospace`; ctx.textAlign='center';
+      ctx.fillText('1', cx+R+4, cy-8); ctx.fillText('-1', cx-R-8, cy-8);
+      ctx.textAlign='left';
+      ctx.fillText('1', cx+6, cy-R+4); ctx.fillText('-1', cx+6, cy+R+10);
+
+      // Circle
+      ctx.strokeStyle = 'rgba(52,212,200,0.3)'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(cx,cy,R,0,Math.PI*2); ctx.stroke();
+
+      // Right triangle inside
+      ctx.strokeStyle = 'rgba(255,255,255,0.2)'; ctx.lineWidth = 1.5; ctx.setLineDash([4,3]);
+      ctx.beginPath(); ctx.moveTo(px,cy); ctx.lineTo(px,py); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(cx,cy); ctx.lineTo(px,cy); ctx.stroke();
+      ctx.setLineDash([]);
+
+      // cos projection line (x-axis)
+      ctx.strokeStyle = '#f97b40'; ctx.lineWidth = 2.5;
+      ctx.beginPath(); ctx.moveTo(cx,cy); ctx.lineTo(px,cy); ctx.stroke();
+      // sin projection line (y-axis)
+      ctx.strokeStyle = '#9b6df8'; ctx.lineWidth = 2.5;
+      ctx.beginPath(); ctx.moveTo(px,cy); ctx.lineTo(px,py); ctx.stroke();
+
+      // Radius
+      ctx.strokeStyle = '#34d4c8'; ctx.lineWidth = 2.5; ctx.shadowColor='rgba(52,212,200,0.5)'; ctx.shadowBlur=8;
+      ctx.beginPath(); ctx.moveTo(cx,cy); ctx.lineTo(px,py); ctx.stroke(); ctx.shadowBlur=0;
+
+      // Arc for angle
+      ctx.strokeStyle = 'rgba(52,212,200,0.5)'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(cx,cy,R*0.2, 0, -theta, s<0); ctx.stroke();
+
+      // Dot
+      ctx.fillStyle = '#34d4c8'; ctx.shadowColor='rgba(52,212,200,0.7)'; ctx.shadowBlur=12;
+      ctx.beginPath(); ctx.arc(px,py,8,0,Math.PI*2); ctx.fill(); ctx.shadowBlur=0;
+
+      // Labels
+      const fs2 = Math.max(11, W*0.022);
+      ctx.font = `bold ${fs2}px JetBrains Mono, monospace`; ctx.textAlign='left';
+      ctx.fillStyle = '#f97b40'; ctx.fillText(`cos θ = ${fmt(c)}`, 10, H-36);
+      ctx.fillStyle = '#9b6df8'; ctx.fillText(`sin θ = ${fmt(s)}`, 10, H-18);
+      ctx.fillStyle = 'rgba(255,255,255,0.5)';
+      ctx.textAlign='right';
+      ctx.fillText(`(${fmt(c,3)}, ${fmt(s,3)})`, W-10, H-18);
+
+      // Update readout
+      const deg = ((theta * 180 / Math.PI) % 360 + 360) % 360;
+      eqDisp.textContent = `θ = ${deg.toFixed(1)}° = ${theta.toFixed(3)} rad`;
+      sinEl.textContent = fmt(s); cosEl.textContent = fmt(c);
+      tanEl.textContent = Math.abs(c) < 1e-9 ? 'undef' : fmt(s/c);
+      cscEl.textContent = Math.abs(s) < 1e-9 ? 'undef' : fmt(1/s);
+      secEl.textContent = Math.abs(c) < 1e-9 ? 'undef' : fmt(1/c);
+      cotEl.textContent = Math.abs(s) < 1e-9 ? 'undef' : fmt(c/s);
+    }
+
+    function pointerToAngle(e) {
+      const rect = canvas.getBoundingClientRect();
+      const scaleX = canvas.width / rect.width;
+      const scaleY = canvas.height / rect.height;
+      const mx = (e.clientX - rect.left) * scaleX - canvas.width/2;
+      const my = -((e.clientY - rect.top) * scaleY - canvas.height/2);
+      let a = Math.atan2(my, mx);
+      if (a < 0) a += 2*Math.PI;
+      // Snap to common angles
+      for (const snap of SNAPS) {
+        if (Math.abs(a - snap) < 0.07) return snap;
+        if (Math.abs(a - (snap - 2*Math.PI)) < 0.07) return snap;
+      }
+      return a;
+    }
+
+    let dragging = false;
+    canvas.addEventListener('pointerdown', e => { dragging = true; theta = pointerToAngle(e); draw(); });
+    canvas.addEventListener('pointermove', e => { if (dragging) { theta = pointerToAngle(e); draw(); } });
+    canvas.addEventListener('pointerup',   () => { dragging = false; });
+    canvas.addEventListener('pointerleave',() => { dragging = false; });
+
+    function resize() {
+      const s = Math.min(canvas.parentElement.clientWidth, 520);
+      canvas.width = s; canvas.height = s; draw();
+    }
+    window.addEventListener('resize', resize);
+    resize();
+  </script>
+</body>
+</html>

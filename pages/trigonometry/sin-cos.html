@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sine &amp; Cosine — Trigonometry | MathExplorer</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    .topic-symbol { background: rgba(52,212,200,0.1); color: var(--trig-color); border-color: rgba(52,212,200,0.2); }
+    .formula-card .formula-label { color: var(--trig-color); }
+    .example-card .example-title { color: var(--trig-color); }
+    .step-num { background: rgba(52,212,200,0.12); color: var(--trig-color); }
+    input[type="range"]::-webkit-slider-thumb { background: var(--trig-color); box-shadow: 0 0 8px rgba(52,212,200,0.5); }
+    .control-value { color: var(--trig-color); }
+    .dual-canvas-wrap {
+      display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:16px 24px 0;
+    }
+    @media(max-width:600px){ .dual-canvas-wrap { grid-template-columns:1fr; } }
+    .canvas-panel { display:flex; flex-direction:column; gap:6px; }
+    .canvas-label { font-size:0.76rem; font-weight:700; text-transform:uppercase; letter-spacing:0.07em; color:var(--text-muted); font-family:var(--font-mono); }
+    .anim-btn {
+      margin:0 24px 4px; padding:8px 20px; background:rgba(52,212,200,0.1);
+      border:1px solid rgba(52,212,200,0.25); border-radius:var(--radius-sm);
+      color:var(--trig-color); font-family:var(--font-mono); font-size:0.85rem; cursor:pointer;
+    }
+    .anim-btn:hover { background:rgba(52,212,200,0.18); }
+  </style>
+</head>
+<body class="topic-page">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span><span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html">Calculus</a></li>
+        <li><a href="../trigonometry.html" class="active">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <div class="topic-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a><span>›</span>
+      <a href="../trigonometry.html">Trigonometry</a><span>›</span>
+      <span>Sine &amp; Cosine</span>
+    </nav>
+    <div class="topic-hero-top">
+      <div class="topic-symbol">sin</div>
+      <h1>Sine &amp; Cosine</h1>
+    </div>
+    <p class="subtitle">
+      Sine and cosine describe the vertical and horizontal positions of a point spinning around the unit circle.
+      Their graphs are the archetypal periodic waves found everywhere in physics, engineering, and music.
+    </p>
+  </div>
+
+  <section class="content-section">
+    <h2>From Circle to Wave</h2>
+    <p>
+      As an angle \(\theta\) increases from 0 to \(2\pi\), the point \((\cos\theta, \sin\theta)\) sweeps once
+      around the unit circle. Plotting \(\sin\theta\) against \(\theta\) produces a smooth wave that starts at 0,
+      rises to 1 at \(\pi/2\), returns to 0 at \(\pi\), falls to −1 at \(3\pi/2\), and repeats. Cosine is the same
+      wave shifted left by \(\pi/2\).
+    </p>
+    <p>
+      Key properties: <strong>period</strong> \(= 2\pi\), <strong>amplitude</strong> \(= 1\),
+      range \([-1, 1]\). Both functions are continuous and differentiable everywhere.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Key Formulas</h2>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <span class="formula-label">Relationship</span>
+        <div><div class="formula-math">\[ \cos\theta = \sin\!\left(\tfrac{\pi}{2} - \theta\right),\quad \sin\theta = \cos\!\left(\tfrac{\pi}{2} - \theta\right) \]</div></div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Even / Odd</span>
+        <div>
+          <div class="formula-math">\[ \cos(-\theta) = \cos\theta \quad \text{(even)}, \quad \sin(-\theta) = -\sin\theta \quad \text{(odd)} \]</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Derivatives</span>
+        <div><div class="formula-math">\[ \frac{d}{d\theta}\sin\theta = \cos\theta, \quad \frac{d}{d\theta}\cos\theta = -\sin\theta \]</div></div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Pythagorean Identity</span>
+        <div><div class="formula-math">\[ \sin^2\theta + \cos^2\theta = 1 \]</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Worked Examples</h2>
+    <div class="example-list">
+      <div class="example-card">
+        <div class="example-title">Example 1 — Evaluating with the unit circle</div>
+        <div class="example-problem">Find \(\cos(5\pi/3)\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">\(5\pi/3 = 300°\) → Q4, reference angle \(60°\)</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">In Q4, cosine is positive. \(\cos 60° = 1/2\)</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">\(\cos(5\pi/3) = 1/2\)</div></div>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="example-title">Example 2 — Using odd/even properties</div>
+        <div class="example-problem">Simplify \(\sin(-\pi/6)\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">sin is odd: \(\sin(-\pi/6) = -\sin(\pi/6)\)</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">\(= -1/2\)</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visualiser-section">
+    <h2>Interactive — Wave Unrolled from the Unit Circle</h2>
+    <p style="padding:0 24px 8px;color:var(--text-muted);font-size:0.85rem;">
+      Watch how the sine (teal) and cosine (orange) waves are traced out as the angle sweeps around the circle.
+    </p>
+    <div class="visualiser-card">
+      <button class="anim-btn" id="playBtn">▶ Play Animation</button>
+      <div class="dual-canvas-wrap">
+        <div class="canvas-panel">
+          <div class="canvas-label">Unit Circle</div>
+          <canvas id="circleCanvas"></canvas>
+        </div>
+        <div class="canvas-panel">
+          <div class="canvas-label">Waves (sin &amp; cos)</div>
+          <canvas id="waveCanvas"></canvas>
+        </div>
+      </div>
+      <div class="visualiser-controls" style="margin-top:8px;">
+        <div class="control-group">
+          <div class="control-label">
+            <span>Angle θ</span>
+            <span class="control-value" id="thetaVal">0°</span>
+          </div>
+          <input type="range" id="thetaSlider" min="0" max="628" step="1" value="0" aria-label="Angle theta" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <div class="takeaways-list">
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Sine and cosine both have period \(2\pi\) and range \([-1,1]\).</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Cosine is sine shifted left by \(\pi/2\) — they are the same wave, out of phase.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>The derivative of sine is cosine, and vice versa (with a sign flip for cosine).</p></div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="unit-circle.html" class="related-card">Unit Circle <span>→</span></a>
+      <a href="graphs.html" class="related-card">Graphs of Trig Functions <span>→</span></a>
+      <a href="trig-functions.html" class="related-card">All Six Functions <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand"><span class="logo-symbol">∑</span><span class="logo-text">MathExplorer</span></div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    const circleCanvas = document.getElementById('circleCanvas');
+    const waveCanvas   = document.getElementById('waveCanvas');
+    const cCtx = circleCanvas.getContext('2d');
+    const wCtx = waveCanvas.getContext('2d');
+    const slider   = document.getElementById('thetaSlider');
+    const thetaVal = document.getElementById('thetaVal');
+    const playBtn  = document.getElementById('playBtn');
+
+    let animId = null, playing = false, animTheta = 0;
+
+    function getTheta() { return parseFloat(slider.value) / 100; }
+
+    function drawCircle(theta) {
+      const W = circleCanvas.width, H = circleCanvas.height;
+      const cx = W/2, cy = H/2, R = Math.min(W,H)*0.38;
+      cCtx.fillStyle = '#0d0d14'; cCtx.fillRect(0,0,W,H);
+      cCtx.strokeStyle = 'rgba(255,255,255,0.1)'; cCtx.lineWidth = 1;
+      cCtx.beginPath(); cCtx.moveTo(cx-R-15,cy); cCtx.lineTo(cx+R+15,cy); cCtx.stroke();
+      cCtx.beginPath(); cCtx.moveTo(cx,cy-R-15); cCtx.lineTo(cx,cy+R+15); cCtx.stroke();
+      cCtx.strokeStyle = 'rgba(52,212,200,0.25)'; cCtx.lineWidth = 2;
+      cCtx.beginPath(); cCtx.arc(cx,cy,R,0,Math.PI*2); cCtx.stroke();
+
+      const s = Math.sin(theta), c = Math.cos(theta);
+      const px = cx + R*c, py = cy - R*s;
+
+      // sin vertical (teal)
+      cCtx.strokeStyle = '#34d4c8'; cCtx.lineWidth = 2.5; cCtx.setLineDash([4,3]);
+      cCtx.beginPath(); cCtx.moveTo(px,cy); cCtx.lineTo(px,py); cCtx.stroke();
+      // cos horizontal (orange)
+      cCtx.strokeStyle = '#f97b40'; cCtx.lineWidth = 2.5;
+      cCtx.beginPath(); cCtx.moveTo(cx,cy); cCtx.lineTo(px,cy); cCtx.stroke();
+      cCtx.setLineDash([]);
+      // radius
+      cCtx.strokeStyle = 'rgba(255,255,255,0.5)'; cCtx.lineWidth = 2;
+      cCtx.beginPath(); cCtx.moveTo(cx,cy); cCtx.lineTo(px,py); cCtx.stroke();
+      // dot
+      cCtx.fillStyle = '#34d4c8'; cCtx.shadowColor='rgba(52,212,200,0.7)'; cCtx.shadowBlur=10;
+      cCtx.beginPath(); cCtx.arc(px,py,6,0,Math.PI*2); cCtx.fill(); cCtx.shadowBlur=0;
+    }
+
+    function drawWave(theta) {
+      const W = waveCanvas.width, H = waveCanvas.height;
+      const cy = H/2, amp = H*0.38, steps = W;
+      wCtx.fillStyle = '#0d0d14'; wCtx.fillRect(0,0,W,H);
+      wCtx.strokeStyle = 'rgba(255,255,255,0.07)'; wCtx.lineWidth = 1;
+      wCtx.beginPath(); wCtx.moveTo(0,cy); wCtx.lineTo(W,cy); wCtx.stroke();
+
+      // Full sine wave
+      wCtx.strokeStyle = 'rgba(52,212,200,0.3)'; wCtx.lineWidth = 1.5;
+      wCtx.beginPath();
+      for (let i=0;i<=steps;i++) {
+        const t = (i/steps)*2*Math.PI;
+        const px = (i/steps)*W, py = cy - Math.sin(t)*amp;
+        i===0 ? wCtx.moveTo(px,py) : wCtx.lineTo(px,py);
+      }
+      wCtx.stroke();
+      // Full cosine wave
+      wCtx.strokeStyle = 'rgba(249,123,64,0.3)'; wCtx.lineWidth = 1.5;
+      wCtx.beginPath();
+      for (let i=0;i<=steps;i++) {
+        const t = (i/steps)*2*Math.PI;
+        const px = (i/steps)*W, py = cy - Math.cos(t)*amp;
+        i===0 ? wCtx.moveTo(px,py) : wCtx.lineTo(px,py);
+      }
+      wCtx.stroke();
+
+      // Current point on waves
+      const normTheta = ((theta % (2*Math.PI)) + 2*Math.PI) % (2*Math.PI);
+      const waveX = (normTheta/(2*Math.PI))*W;
+      const sinY  = cy - Math.sin(normTheta)*amp;
+      const cosY  = cy - Math.cos(normTheta)*amp;
+
+      // vertical marker
+      wCtx.strokeStyle = 'rgba(255,255,255,0.15)'; wCtx.lineWidth = 1; wCtx.setLineDash([4,3]);
+      wCtx.beginPath(); wCtx.moveTo(waveX,0); wCtx.lineTo(waveX,H); wCtx.stroke(); wCtx.setLineDash([]);
+
+      wCtx.fillStyle = '#34d4c8'; wCtx.shadowColor='rgba(52,212,200,0.7)'; wCtx.shadowBlur=10;
+      wCtx.beginPath(); wCtx.arc(waveX,sinY,6,0,Math.PI*2); wCtx.fill(); wCtx.shadowBlur=0;
+      wCtx.fillStyle = '#f97b40'; wCtx.shadowColor='rgba(249,123,64,0.7)'; wCtx.shadowBlur=10;
+      wCtx.beginPath(); wCtx.arc(waveX,cosY,6,0,Math.PI*2); wCtx.fill(); wCtx.shadowBlur=0;
+
+      // Legend
+      const fs = Math.max(10, W*0.038);
+      wCtx.font = `bold ${fs}px JetBrains Mono, monospace`; wCtx.textAlign='left';
+      wCtx.fillStyle='#34d4c8'; wCtx.fillText('sin θ', 8, 18);
+      wCtx.fillStyle='#f97b40'; wCtx.fillText('cos θ', 8, 18+fs+4);
+    }
+
+    function render() {
+      const theta = getTheta();
+      drawCircle(theta); drawWave(theta);
+      const deg = (theta * 180 / Math.PI).toFixed(1);
+      thetaVal.textContent = deg + '°';
+    }
+
+    function animate() {
+      animTheta += 0.012;
+      if (animTheta > 2*Math.PI) animTheta = 0;
+      slider.value = Math.round(animTheta * 100);
+      render();
+      animId = requestAnimationFrame(animate);
+    }
+
+    playBtn.addEventListener('click', () => {
+      if (playing) {
+        cancelAnimationFrame(animId); animId=null; playing=false; playBtn.textContent='▶ Play Animation';
+      } else {
+        animTheta = getTheta(); playing=true; playBtn.textContent='⏸ Pause'; animate();
+      }
+    });
+    slider.addEventListener('input', () => { if (!playing) render(); });
+
+    function resize() {
+      const wrap = circleCanvas.parentElement;
+      const s = wrap.clientWidth;
+      circleCanvas.width = s; circleCanvas.height = s;
+      waveCanvas.width   = waveCanvas.parentElement.clientWidth;
+      waveCanvas.height  = s;
+      render();
+    }
+    window.addEventListener('resize', resize);
+    resize();
+  </script>
+</body>
+</html>

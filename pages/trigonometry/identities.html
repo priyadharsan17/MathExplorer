@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trig Identities — Trigonometry | MathExplorer</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    .topic-symbol { background: rgba(52,212,200,0.1); color: var(--trig-color); border-color: rgba(52,212,200,0.2); }
+    .formula-card .formula-label { color: var(--trig-color); }
+    .example-card .example-title { color: var(--trig-color); }
+    .step-num { background: rgba(52,212,200,0.12); color: var(--trig-color); }
+    .identity-tabs { display:flex; gap:8px; flex-wrap:wrap; padding:16px 24px 4px; }
+    .id-tab {
+      padding:7px 16px; border-radius:20px; font-family:var(--font-mono); font-size:0.82rem; font-weight:600;
+      border:1.5px solid rgba(52,212,200,0.25); background:transparent; color:var(--text-secondary); cursor:pointer;
+      transition:all 0.15s;
+    }
+    .id-tab.active { background:rgba(52,212,200,0.15); border-color:var(--trig-color); color:var(--trig-color); }
+    .identity-panel { padding:12px 24px 20px; }
+    .identity-list { display:flex; flex-direction:column; gap:10px; }
+    .identity-row {
+      display:flex; align-items:flex-start; gap:16px; padding:12px 16px;
+      background:rgba(52,212,200,0.04); border:1px solid rgba(52,212,200,0.1); border-radius:var(--radius-sm);
+    }
+    .identity-formula { flex:1; font-size:0.95rem; }
+    .identity-note { font-size:0.78rem; color:var(--text-muted); font-family:var(--font-mono); min-width:120px; }
+    .verify-row { padding:4px 24px 16px; }
+    .verify-result {
+      font-family:var(--font-mono); font-size:0.88rem; padding:10px 14px;
+      border-radius:var(--radius-sm); border:1px solid rgba(52,212,200,0.15);
+      background:rgba(52,212,200,0.05); color:var(--text-primary);
+    }
+    input[type="range"]::-webkit-slider-thumb { background: var(--trig-color); box-shadow: 0 0 8px rgba(52,212,200,0.5); }
+    .control-value { color: var(--trig-color); }
+  </style>
+</head>
+<body class="topic-page">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span><span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html">Calculus</a></li>
+        <li><a href="../trigonometry.html" class="active">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <div class="topic-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a><span>›</span>
+      <a href="../trigonometry.html">Trigonometry</a><span>›</span>
+      <span>Trig Identities</span>
+    </nav>
+    <div class="topic-hero-top">
+      <div class="topic-symbol">≡</div>
+      <h1>Trig Identities</h1>
+    </div>
+    <p class="subtitle">
+      A trigonometric identity is an equation that holds for <em>all</em> values of the variable.
+      Mastering the key families — Pythagorean, reciprocal, sum/difference, and double-angle — unlocks
+      simplification, integration, and equation solving.
+    </p>
+  </div>
+
+  <section class="content-section">
+    <h2>Why Identities Matter</h2>
+    <p>
+      Identities let you rewrite an expression in a different form — one that may be easier to evaluate,
+      integrate, or factor. For example, integrating \(\sin^2 x\) directly is hard;
+      replacing it with \((1 - \cos 2x)/2\) makes it straightforward.
+    </p>
+    <p>
+      The Pythagorean identity \(\sin^2\theta + \cos^2\theta = 1\) and its variants underpin most proofs.
+      The angle-addition formulas are the workhorse of derivation.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Key Formulas</h2>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <span class="formula-label">Pythagorean</span>
+        <div><div class="formula-math">\[\sin^2\theta+\cos^2\theta=1,\quad 1+\tan^2\theta=\sec^2\theta,\quad 1+\cot^2\theta=\csc^2\theta\]</div></div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Angle Addition</span>
+        <div><div class="formula-math">\[\sin(A\pm B)=\sin A\cos B\pm\cos A\sin B\]
+        \[\cos(A\pm B)=\cos A\cos B\mp\sin A\sin B\]</div></div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Double Angle</span>
+        <div><div class="formula-math">\[\sin 2A = 2\sin A\cos A,\quad \cos 2A = \cos^2 A - \sin^2 A\]</div></div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Half Angle</span>
+        <div><div class="formula-math">\[\sin^2 A = \frac{1-\cos 2A}{2},\qquad \cos^2 A = \frac{1+\cos 2A}{2}\]</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Worked Examples</h2>
+    <div class="example-list">
+      <div class="example-card">
+        <div class="example-title">Example 1 — Proving a simple identity</div>
+        <div class="example-problem">Show that \(\tan\theta\cdot\cos\theta = \sin\theta\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">Replace \(\tan\theta = \sin\theta/\cos\theta\)</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">\(\dfrac{\sin\theta}{\cos\theta}\cdot\cos\theta = \sin\theta \cdot\dfrac{\cos\theta}{\cos\theta} = \sin\theta\) ✓</div></div>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="example-title">Example 2 — Using double angle to integrate</div>
+        <div class="example-problem">Simplify \(\displaystyle\int \sin^2 x\,dx\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">Use half-angle: \(\sin^2 x = (1-\cos 2x)/2\)</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">\(\displaystyle\int \tfrac{1-\cos 2x}{2}\,dx = \tfrac{x}{2} - \tfrac{\sin 2x}{4} + C\)</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visualiser-section">
+    <h2>Interactive — Identity Explorer</h2>
+    <p style="padding:0 24px 8px;color:var(--text-muted);font-size:0.85rem;">
+      Choose an identity family and verify it numerically at any angle θ.
+    </p>
+    <div class="visualiser-card">
+      <div class="identity-tabs" id="idTabs"></div>
+      <div class="identity-panel" id="idPanel"></div>
+
+      <div class="visualiser-controls">
+        <div class="control-group">
+          <div class="control-label">
+            <span>Angle θ (degrees)</span>
+            <span class="control-value" id="idDegVal">45°</span>
+          </div>
+          <input type="range" id="idSlider" min="0" max="360" step="1" value="45" aria-label="Angle theta" />
+        </div>
+      </div>
+      <div class="verify-row">
+        <div class="verify-result" id="verifyResult"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <div class="takeaways-list">
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Always work on one side of an identity — never move terms across the equals sign.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>The Pythagorean identity \(\sin^2+\cos^2=1\) and reciprocal identities are the most-used tools.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Double-angle formulas come directly from the angle-addition formulas with \(A=B\).</p></div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="trig-functions.html" class="related-card">All Six Functions <span>→</span></a>
+      <a href="inverse.html" class="related-card">Inverse Functions <span>→</span></a>
+      <a href="../trigonometry.html" class="related-card">All Trig Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand"><span class="logo-symbol">∑</span><span class="logo-text">MathExplorer</span></div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    const CATEGORIES = [
+      {
+        key: 'pythagorean', label: 'Pythagorean',
+        identities: [
+          { lhs: (t,s,c) => s*s+c*c, rhs: ()=>1, note:'sin²θ + cos²θ = 1' },
+          { lhs: (t,s,c) => 1+(s/c)*(s/c), rhs: (t,s,c) => 1/(c*c), note:'1 + tan²θ = sec²θ' },
+          { lhs: (t,s,c) => 1+(c/s)*(c/s), rhs: (t,s,c) => 1/(s*s), note:'1 + cot²θ = csc²θ' },
+        ]
+      },
+      {
+        key: 'double', label: 'Double Angle',
+        identities: [
+          { lhs: (t,s,c) => Math.sin(2*t), rhs: (t,s,c) => 2*s*c, note:'sin 2θ = 2 sin θ cos θ' },
+          { lhs: (t,s,c) => Math.cos(2*t), rhs: (t,s,c) => c*c-s*s, note:'cos 2θ = cos²θ − sin²θ' },
+          { lhs: (t,s,c) => Math.cos(2*t), rhs: (t,s,c) => 1-2*s*s, note:'cos 2θ = 1 − 2 sin²θ' },
+        ]
+      },
+      {
+        key: 'halfangle', label: 'Half Angle',
+        identities: [
+          { lhs: (t,s,c) => s*s, rhs: (t,s,c) => (1-Math.cos(2*t))/2, note:'sin²θ = (1−cos 2θ)/2' },
+          { lhs: (t,s,c) => c*c, rhs: (t,s,c) => (1+Math.cos(2*t))/2, note:'cos²θ = (1+cos 2θ)/2' },
+        ]
+      },
+      {
+        key: 'sum', label: 'Sum / Diff',
+        identities: [
+          { lhs: (t,s,c) => Math.sin(t+Math.PI/4), rhs: (t,s,c) => s*Math.cos(Math.PI/4)+c*Math.sin(Math.PI/4), note:'sin(θ+π/4) expanded' },
+          { lhs: (t,s,c) => Math.cos(t+Math.PI/4), rhs: (t,s,c) => c*Math.cos(Math.PI/4)-s*Math.sin(Math.PI/4), note:'cos(θ+π/4) expanded' },
+        ]
+      },
+    ];
+
+    let activeKey = 'pythagorean';
+    const tabsEl   = document.getElementById('idTabs');
+    const panelEl  = document.getElementById('idPanel');
+    const slider   = document.getElementById('idSlider');
+    const degValEl = document.getElementById('idDegVal');
+    const verifyEl = document.getElementById('verifyResult');
+
+    function buildTabs() {
+      tabsEl.innerHTML = '';
+      CATEGORIES.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.className = 'id-tab ' + (cat.key===activeKey?'active':'');
+        btn.textContent = cat.label;
+        btn.addEventListener('click', () => { activeKey=cat.key; buildTabs(); buildPanel(); verify(); });
+        tabsEl.appendChild(btn);
+      });
+    }
+
+    function buildPanel() {
+      const cat = CATEGORIES.find(c=>c.key===activeKey);
+      panelEl.innerHTML = '<div class="identity-list" id="idList"></div>';
+      const list = document.getElementById('idList');
+      cat.identities.forEach(id => {
+        const row = document.createElement('div'); row.className = 'identity-row';
+        row.innerHTML = `<div class="identity-formula">\$\$${id.note}\$\$</div>`;
+        list.appendChild(row);
+      });
+      if (window.MathJax) MathJax.typesetPromise([panelEl]).catch(()=>{});
+    }
+
+    function verify() {
+      const cat = CATEGORIES.find(c=>c.key===activeKey);
+      const deg = parseFloat(slider.value);
+      const t   = deg * Math.PI / 180;
+      const s   = Math.sin(t), c = Math.cos(t);
+      degValEl.textContent = deg + '°';
+      const lines = cat.identities.map(id => {
+        const L = id.lhs(t,s,c), R = id.rhs(t,s,c);
+        const ok = Math.abs(L-R) < 1e-9;
+        return `${id.note}: LHS=${isFinite(L)?L.toFixed(6):'undef'}, RHS=${isFinite(R)?R.toFixed(6):'undef'}  ${ok?'✓':'✗'}`;
+      });
+      verifyEl.textContent = lines.join('\n');
+    }
+
+    slider.addEventListener('input', verify);
+    buildTabs(); buildPanel(); verify();
+  </script>
+</body>
+</html>

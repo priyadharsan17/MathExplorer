@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Angles &amp; Radians — Trigonometry | MathExplorer</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    .topic-symbol { background: rgba(52,212,200,0.1); color: var(--trig-color); border-color: rgba(52,212,200,0.2); }
+    .formula-card .formula-label { color: var(--trig-color); }
+    .example-card .example-title { color: var(--trig-color); }
+    .step-num { background: rgba(52,212,200,0.12); color: var(--trig-color); }
+    input[type="range"]::-webkit-slider-thumb { background: var(--trig-color); box-shadow: 0 0 8px rgba(52,212,200,0.5); }
+    .control-value { color: var(--trig-color); }
+    .info-row { display:flex; gap:24px; flex-wrap:wrap; padding:0 24px 20px; }
+    .info-badge { display:flex; flex-direction:column; gap:4px; }
+    .info-badge span:first-child { font-size:0.72rem; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--text-muted); font-family:var(--font-mono); }
+    .info-badge span:last-child  { font-size:0.95rem; font-weight:700; color:var(--text-primary); font-family:var(--font-mono); }
+  </style>
+</head>
+<body class="topic-page">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span><span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html">Calculus</a></li>
+        <li><a href="../trigonometry.html" class="active">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <div class="topic-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a><span>›</span>
+      <a href="../trigonometry.html">Trigonometry</a><span>›</span>
+      <span>Angles &amp; Radians</span>
+    </nav>
+    <div class="topic-hero-top">
+      <div class="topic-symbol">rad</div>
+      <h1>Angles &amp; Radians</h1>
+    </div>
+    <p class="subtitle">
+      Angles can be measured in degrees or radians. Radians are the natural unit in mathematics
+      because arc length = radius × angle in radians — no conversion factor needed.
+    </p>
+  </div>
+
+  <section class="content-section">
+    <h2>What Is a Radian?</h2>
+    <p>
+      One <strong>radian</strong> is the angle subtended at the centre of a circle by an arc equal in length
+      to the radius. Since the full circumference is \(2\pi r\), a full turn is \(2\pi\) radians = 360°.
+    </p>
+    <p>
+      To convert: multiply degrees by \(\pi/180\) to get radians;
+      multiply radians by \(180/\pi\) to get degrees.
+    </p>
+    <p>
+      Common angles to memorise: \(30° = \pi/6\), \(45° = \pi/4\), \(60° = \pi/3\), \(90° = \pi/2\), \(180° = \pi\).
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Key Formulas</h2>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <span class="formula-label">Conversion</span>
+        <div>
+          <div class="formula-math">\[ \text{rad} = \text{deg} \times \frac{\pi}{180}, \qquad \text{deg} = \text{rad} \times \frac{180}{\pi} \]</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Arc Length</span>
+        <div>
+          <div class="formula-math">\[ s = r\theta \quad (\theta \text{ in radians}) \]</div>
+          <div class="formula-note">Arc length equals radius times the central angle in radians.</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Sector Area</span>
+        <div>
+          <div class="formula-math">\[ A = \tfrac{1}{2}r^2\theta \]</div>
+          <div class="formula-note">Area of a circular sector with central angle \(\theta\) radians.</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Full Circle</span>
+        <div>
+          <div class="formula-math">\[ 360° = 2\pi \text{ rad}, \quad 180° = \pi \text{ rad} \]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Worked Examples</h2>
+    <div class="example-list">
+      <div class="example-card">
+        <div class="example-title">Example 1 — Degrees to radians</div>
+        <div class="example-problem">Convert 150° to radians</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">Multiply by \(\pi/180\): \(150 \times \pi/180\)</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">\(= 5\pi/6 \approx 2.618\) rad</div></div>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="example-title">Example 2 — Arc length</div>
+        <div class="example-problem">Find the arc length for a radius of 5 and central angle 60°</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">Convert: \(60° = \pi/3\) rad</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">\(s = r\theta = 5 \times \pi/3\)</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">\(= 5\pi/3 \approx 5.236\)</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visualiser-section">
+    <h2>Interactive — Angle &amp; Arc Visualiser</h2>
+    <div class="visualiser-card">
+      <div class="visualiser-canvas-wrap">
+        <canvas id="angleCanvas" width="600" height="400"></canvas>
+        <div class="equation-display" id="eqDisplay">0° = 0.000 rad</div>
+      </div>
+      <div class="visualiser-controls">
+        <div class="control-group">
+          <div class="control-label">
+            <span>Angle (degrees)</span>
+            <span class="control-value" id="degVal">0°</span>
+          </div>
+          <input type="range" id="degSlider" min="0" max="360" step="1" value="0" aria-label="Angle in degrees" />
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-badge"><span>Degrees</span><span id="infoDeg">0°</span></div>
+        <div class="info-badge"><span>Radians</span><span id="infoRad">0.000</span></div>
+        <div class="info-badge"><span>Arc Length (r=1)</span><span id="infoArc">0.000</span></div>
+        <div class="info-badge"><span>Sector Area (r=1)</span><span id="infoArea">0.000</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <div class="takeaways-list">
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Radians are the natural unit: arc length \(= r\theta\) with no extra factor.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>One full revolution \(= 360° = 2\pi\) rad; a right angle \(= 90° = \pi/2\) rad.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Memorise: 30°=π/6, 45°=π/4, 60°=π/3, 90°=π/2, 180°=π.</p></div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="unit-circle.html" class="related-card">Unit Circle <span>→</span></a>
+      <a href="sin-cos.html" class="related-card">Sine &amp; Cosine <span>→</span></a>
+      <a href="../trigonometry.html" class="related-card">All Trig Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand"><span class="logo-symbol">∑</span><span class="logo-text">MathExplorer</span></div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    const canvas   = document.getElementById('angleCanvas');
+    const ctx      = canvas.getContext('2d');
+    const slider   = document.getElementById('degSlider');
+    const degValEl = document.getElementById('degVal');
+    const eqDisp   = document.getElementById('eqDisplay');
+    const infoDeg  = document.getElementById('infoDeg');
+    const infoRad  = document.getElementById('infoRad');
+    const infoArc  = document.getElementById('infoArc');
+    const infoArea = document.getElementById('infoArea');
+
+    function draw() {
+      const deg = parseFloat(slider.value);
+      const rad = deg * Math.PI / 180;
+      const W = canvas.width, H = canvas.height;
+      const cx = W/2, cy = H/2;
+      const R = Math.min(W,H)*0.38;
+
+      degValEl.textContent = deg + '°';
+      eqDisp.textContent = `${deg}° = ${rad.toFixed(4)} rad`;
+      infoDeg.textContent  = deg + '°';
+      infoRad.textContent  = rad.toFixed(4);
+      infoArc.textContent  = rad.toFixed(4);
+      infoArea.textContent = (0.5*rad).toFixed(4);
+
+      ctx.fillStyle = '#0d0d14'; ctx.fillRect(0,0,W,H);
+
+      // Circle
+      ctx.strokeStyle = 'rgba(255,255,255,0.1)'; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.arc(cx,cy,R,0,Math.PI*2); ctx.stroke();
+
+      // Axes
+      ctx.strokeStyle = 'rgba(255,255,255,0.15)'; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(cx-R-20,cy); ctx.lineTo(cx+R+20,cy); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(cx,cy-R-20); ctx.lineTo(cx,cy+R+20); ctx.stroke();
+
+      // Sector fill
+      if (deg > 0) {
+        ctx.fillStyle = 'rgba(52,212,200,0.12)';
+        ctx.beginPath(); ctx.moveTo(cx,cy);
+        ctx.arc(cx,cy,R,-0,-(rad),true);
+        ctx.closePath(); ctx.fill();
+      }
+
+      // Arc (teal)
+      ctx.strokeStyle = '#34d4c8'; ctx.lineWidth = 3; ctx.shadowColor = 'rgba(52,212,200,0.4)'; ctx.shadowBlur = 8;
+      ctx.beginPath(); ctx.arc(cx,cy,R, 0, -rad, true); ctx.stroke(); ctx.shadowBlur = 0;
+
+      // Radius line
+      const ex = cx + R*Math.cos(-rad), ey = cy + R*Math.sin(-rad);
+      ctx.strokeStyle = '#34d4c8'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(cx,cy); ctx.lineTo(ex,ey); ctx.stroke();
+      ctx.strokeStyle = 'rgba(255,255,255,0.4)'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(cx,cy); ctx.lineTo(cx+R,cy); ctx.stroke();
+
+      // Dot at end
+      ctx.fillStyle = '#f97b40'; ctx.beginPath(); ctx.arc(ex,ey,6,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle = 'rgba(52,212,200,0.6)'; ctx.beginPath(); ctx.arc(cx+R,cy,5,0,Math.PI*2); ctx.fill();
+
+      // Label angle
+      ctx.fillStyle = 'rgba(255,255,255,0.7)'; ctx.font = `${Math.max(13,W*0.022)}px Inter, sans-serif`;
+      ctx.textAlign = 'center';
+      const labelR = R*0.35;
+      const labelAngle = -rad/2;
+      ctx.fillText(`${deg}°`, cx + labelR*Math.cos(labelAngle), cy + labelR*Math.sin(labelAngle) + 5);
+    }
+
+    slider.addEventListener('input', draw);
+    window.addEventListener('resize', () => {
+      const w = canvas.parentElement.clientWidth;
+      canvas.width = w; canvas.height = Math.round(w*0.65); draw();
+    });
+    (function init() {
+      const w = canvas.parentElement.clientWidth;
+      canvas.width = w; canvas.height = Math.round(w*0.65); draw();
+    })();
+  </script>
+</body>
+</html>

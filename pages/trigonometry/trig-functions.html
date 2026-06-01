@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Six Trig Functions — Trigonometry | MathExplorer</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    .topic-symbol { background: rgba(52,212,200,0.1); color: var(--trig-color); border-color: rgba(52,212,200,0.2); }
+    .formula-card .formula-label { color: var(--trig-color); }
+    .example-card .example-title { color: var(--trig-color); }
+    .step-num { background: rgba(52,212,200,0.12); color: var(--trig-color); }
+    .toggle-row { display:flex; gap:8px; flex-wrap:wrap; padding:16px 24px 4px; }
+    .fn-toggle {
+      padding:6px 14px; border-radius:20px; font-family:var(--font-mono); font-size:0.82rem; font-weight:700;
+      border:1.5px solid; cursor:pointer; transition:all 0.15s;
+    }
+    .fn-toggle.active  { opacity:1; }
+    .fn-toggle.inactive{ opacity:0.3; }
+    .legend-row { display:flex; gap:16px; flex-wrap:wrap; padding:4px 24px 16px; font-size:0.78rem; color:var(--text-muted); font-family:var(--font-mono); }
+    .leg-item { display:flex; align-items:center; gap:7px; }
+    .leg-swatch { width:18px; height:3px; border-radius:2px; }
+  </style>
+</head>
+<body class="topic-page">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span><span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html">Calculus</a></li>
+        <li><a href="../trigonometry.html" class="active">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <div class="topic-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a><span>›</span>
+      <a href="../trigonometry.html">Trigonometry</a><span>›</span>
+      <span>All Six Functions</span>
+    </nav>
+    <div class="topic-hero-top">
+      <div class="topic-symbol">6f</div>
+      <h1>All Six Trig Functions</h1>
+    </div>
+    <p class="subtitle">
+      Beyond sine and cosine, four more functions complete the picture.
+      Each is the reciprocal of one of the primary three, with its own domain restrictions and asymptotes.
+    </p>
+  </div>
+
+  <section class="content-section">
+    <h2>The Six Functions</h2>
+    <p>
+      Starting from a right triangle with opposite \(o\), adjacent \(a\), hypotenuse \(h\):
+      \[\sin\theta = \frac{o}{h},\; \cos\theta = \frac{a}{h},\; \tan\theta = \frac{o}{a}\]
+      \[\csc\theta = \frac{h}{o},\; \sec\theta = \frac{h}{a},\; \cot\theta = \frac{a}{o}\]
+    </p>
+    <p>
+      <strong>Tangent</strong> has vertical asymptotes wherever \(\cos\theta = 0\) (i.e. \(\theta = \pi/2 + k\pi\)).
+      <strong>Secant</strong> is the reciprocal of cosine and shares those asymptotes.
+      <strong>Cosecant</strong> has asymptotes where \(\sin\theta = 0\).
+      <strong>Cotangent</strong> has asymptotes where \(\sin\theta = 0\).
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Key Formulas</h2>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <span class="formula-label">Reciprocal Identities</span>
+        <div><div class="formula-math">\[ \csc\theta = \frac{1}{\sin\theta}, \quad \sec\theta = \frac{1}{\cos\theta}, \quad \cot\theta = \frac{1}{\tan\theta} \]</div></div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Quotient Identities</span>
+        <div><div class="formula-math">\[ \tan\theta = \frac{\sin\theta}{\cos\theta}, \qquad \cot\theta = \frac{\cos\theta}{\sin\theta} \]</div></div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Pythagorean Forms</span>
+        <div><div class="formula-math">\[ 1 + \tan^2\theta = \sec^2\theta, \quad 1 + \cot^2\theta = \csc^2\theta \]</div></div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Periods</span>
+        <div>
+          <div class="formula-math">\[ \sin, \cos, \csc, \sec \text{ have period } 2\pi; \quad \tan, \cot \text{ have period } \pi \]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Worked Examples</h2>
+    <div class="example-list">
+      <div class="example-card">
+        <div class="example-title">Example 1 — Finding all six from one value</div>
+        <div class="example-problem">Given \(\sin\theta = 3/5\) and \(\cos\theta = 4/5\), find all six trig values</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">\(\tan\theta = (3/5)/(4/5) = 3/4\)</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">\(\csc\theta = 5/3,\; \sec\theta = 5/4,\; \cot\theta = 4/3\)</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">All six: \(\sin=3/5,\,\cos=4/5,\,\tan=3/4,\,\csc=5/3,\,\sec=5/4,\,\cot=4/3\)</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visualiser-section">
+    <h2>Interactive — Toggle Each Function</h2>
+    <div class="visualiser-card">
+      <div class="toggle-row" id="toggleRow"></div>
+      <div class="visualiser-canvas-wrap">
+        <canvas id="sixCanvas" width="860" height="380"></canvas>
+      </div>
+      <div class="legend-row" id="legendRow"></div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <div class="takeaways-list">
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Cosecant, secant, and cotangent are simply reciprocals — no new information, just new notation.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Tangent and cotangent have period \(\pi\); the other four have period \(2\pi\).</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Vertical asymptotes occur where the denominator (sin or cos) equals zero.</p></div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="sin-cos.html" class="related-card">Sine &amp; Cosine <span>→</span></a>
+      <a href="identities.html" class="related-card">Trig Identities <span>→</span></a>
+      <a href="graphs.html" class="related-card">Graphs of Trig Functions <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand"><span class="logo-symbol">∑</span><span class="logo-text">MathExplorer</span></div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    const canvas = document.getElementById('sixCanvas');
+    const ctx    = canvas.getContext('2d');
+    const XMIN   = -2*Math.PI, XMAX = 2*Math.PI, YMIN = -4, YMAX = 4;
+
+    const FNS = [
+      { key:'sin', label:'sin θ', color:'#34d4c8', fn: x => Math.sin(x) },
+      { key:'cos', label:'cos θ', color:'#f97b40', fn: x => Math.cos(x) },
+      { key:'tan', label:'tan θ', color:'#9b6df8', fn: x => Math.tan(x) },
+      { key:'csc', label:'csc θ', color:'#4f8ef7', fn: x => 1/Math.sin(x) },
+      { key:'sec', label:'sec θ', color:'#f7c04f', fn: x => 1/Math.cos(x) },
+      { key:'cot', label:'cot θ', color:'#f45c8a', fn: x => Math.cos(x)/Math.sin(x) },
+    ];
+    const active = { sin:true, cos:true, tan:false, csc:false, sec:false, cot:false };
+
+    // Build toggles
+    const toggleRow = document.getElementById('toggleRow');
+    const legendRow = document.getElementById('legendRow');
+    FNS.forEach(f => {
+      const btn = document.createElement('button');
+      btn.className = 'fn-toggle ' + (active[f.key]?'active':'inactive');
+      btn.textContent = f.label;
+      btn.style.color = f.color; btn.style.borderColor = f.color;
+      btn.addEventListener('click', () => {
+        active[f.key] = !active[f.key];
+        btn.className = 'fn-toggle ' + (active[f.key]?'active':'inactive');
+        draw();
+      });
+      toggleRow.appendChild(btn);
+
+      const item = document.createElement('div'); item.className = 'leg-item';
+      item.innerHTML = `<div class="leg-swatch" style="background:${f.color}"></div> ${f.label}`;
+      legendRow.appendChild(item);
+    });
+
+    function toCanvas(x, y) {
+      const W = canvas.width, H = canvas.height;
+      return [
+        (x - XMIN)/(XMAX-XMIN)*W,
+        H - (y - YMIN)/(YMAX-YMIN)*H
+      ];
+    }
+
+    function draw() {
+      const W = canvas.width, H = canvas.height;
+      ctx.fillStyle = '#0d0d14'; ctx.fillRect(0,0,W,H);
+
+      // Grid
+      ctx.strokeStyle = 'rgba(255,255,255,0.04)'; ctx.lineWidth = 1;
+      for (let k = -2; k <= 2; k++) {
+        const [gx] = toCanvas(k*Math.PI, 0); ctx.beginPath(); ctx.moveTo(gx,0); ctx.lineTo(gx,H); ctx.stroke();
+      }
+      for (let y = -4; y <= 4; y++) {
+        const [,gy] = toCanvas(0, y); ctx.beginPath(); ctx.moveTo(0,gy); ctx.lineTo(W,gy); ctx.stroke();
+      }
+      // Axes
+      const [ax] = toCanvas(0,0); const [,ay] = toCanvas(0,0);
+      ctx.strokeStyle = 'rgba(255,255,255,0.2)'; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(ax,0); ctx.lineTo(ax,H); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0,ay); ctx.lineTo(W,ay); ctx.stroke();
+
+      // π labels
+      ctx.fillStyle = 'rgba(255,255,255,0.3)'; ctx.font = `${Math.max(10,W*0.012)}px JetBrains Mono, monospace`; ctx.textAlign='center';
+      [[-2,'−2π'],[-1,'−π'],[0,'0'],[1,'π'],[2,'2π']].forEach(([k,l]) => {
+        const [gx] = toCanvas(k*Math.PI,0); ctx.fillText(l, gx, ay+16);
+      });
+
+      // Each function
+      FNS.forEach(f => {
+        if (!active[f.key]) return;
+        ctx.strokeStyle = f.color; ctx.lineWidth = 2; ctx.globalAlpha = 0.9;
+        ctx.shadowColor = f.color; ctx.shadowBlur = 5;
+        ctx.beginPath(); let pen = false;
+        for (let i = 0; i <= 1200; i++) {
+          const x = XMIN + (i/1200)*(XMAX-XMIN);
+          const y = f.fn(x);
+          if (!isFinite(y) || Math.abs(y) > YMAX*1.2) { pen = false; continue; }
+          const [px,py] = toCanvas(x,y);
+          pen ? ctx.lineTo(px,py) : ctx.moveTo(px,py); pen = true;
+        }
+        ctx.stroke(); ctx.shadowBlur=0; ctx.globalAlpha=1;
+      });
+    }
+
+    window.addEventListener('resize', () => {
+      canvas.width = canvas.parentElement.clientWidth;
+      canvas.height = Math.round(canvas.parentElement.clientWidth * 0.42);
+      draw();
+    });
+    canvas.width = canvas.parentElement.clientWidth;
+    canvas.height = Math.round(canvas.parentElement.clientWidth * 0.42);
+    draw();
+  </script>
+</body>
+</html>

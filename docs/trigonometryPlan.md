@@ -21,14 +21,14 @@ The Trigonometry section maps the relationships between angles, triangles, and p
 
 | # | Topic | Page | Status | Interactive Feature |
 |---|---|---|---|---|
-| 1 | Angles & Radians | `pages/trigonometry/angles.html` | 🔲 Planned | Degree ↔ radian converter with arc visualiser |
-| 2 | Unit Circle | `pages/trigonometry/unit-circle.html` | 🔲 Planned | **Draggable point** on circle — shows sin, cos, tan live |
-| 3 | Sine & Cosine | `pages/trigonometry/sin-cos.html` | 🔲 Planned | Animated wave unrolled from unit circle |
-| 4 | All Six Functions | `pages/trigonometry/trig-functions.html` | 🔲 Planned | Toggle each function's graph on/off |
-| 5 | Trig Identities | `pages/trigonometry/identities.html` | 🔲 Planned | Identity proof explorer (geometric + algebraic) |
-| 6 | Inverse Functions | `pages/trigonometry/inverse.html` | 🔲 Planned | Graph of arcsin / arccos / arctan with domain restriction |
-| 7 | Graphs of Trig Functions | `pages/trigonometry/graphs.html` | 🔲 Planned | Amplitude, period, phase shift sliders (A sin(Bx + C) + D) |
-| 8 | Law of Sines & Cosines | `pages/trigonometry/laws.html` | 🔲 Planned | Interactive triangle — drag vertices, see law applied |
+| 1 | Angles & Radians | `pages/trigonometry/angles.html` | ✅ Complete | Degree ↔ radian converter with arc visualiser |
+| 2 | Unit Circle | `pages/trigonometry/unit-circle.html` | ✅ Complete | **Draggable point** on circle — shows sin, cos, tan live |
+| 3 | Sine & Cosine | `pages/trigonometry/sin-cos.html` | ✅ Complete | Animated wave unrolled from unit circle |
+| 4 | All Six Functions | `pages/trigonometry/trig-functions.html` | ✅ Complete | Toggle each function's graph on/off |
+| 5 | Trig Identities | `pages/trigonometry/identities.html` | ✅ Complete | Identity proof explorer (geometric + algebraic) |
+| 6 | Inverse Functions | `pages/trigonometry/inverse.html` | ✅ Complete | Graph of arcsin / arccos / arctan with domain restriction |
+| 7 | Graphs of Trig Functions | `pages/trigonometry/graphs.html` | ✅ Complete | Amplitude, period, phase shift sliders (A sin(Bx + C) + D) |
+| 8 | Law of Sines & Cosines | `pages/trigonometry/laws.html` | ✅ Complete | Interactive triangle — drag vertices, see law applied |
 
 ---
 
@@ -75,17 +75,17 @@ The Trigonometry section maps the relationships between angles, triangles, and p
 ## Implementation Phases
 
 ### Phase 1 — Foundation
-- [ ] Topic index page (`pages/trigonometry.html`) with all 8 topic cards
-- [ ] Angles & Radians page — converter + arc visualiser
+- [x] Topic index page (`pages/trigonometry.html`) with all 8 topic cards
+- [x] Angles & Radians page — converter + arc visualiser
 
 ### Phase 2 — Core Visualisations (Priority)
-- [ ] Unit Circle page — full interactive draggable explorer
-- [ ] Sine & Cosine page — animated wave unrolled from circle
+- [x] Unit Circle page — full interactive draggable explorer
+- [x] Sine & Cosine page — animated wave unrolled from circle
 
 ### Phase 3 — Complete Coverage
-- [ ] All Six Functions, Trig Identities, Inverse Functions pages
+- [x] All Six Functions, Trig Identities, Inverse Functions pages
 
 ### Phase 4 — Advanced
-- [ ] A·sin(Bx + C) + D graph explorer
-- [ ] Draggable triangle for Law of Sines & Cosines
-- [ ] 3D unit sphere visualisation
+- [x] A·sin(Bx + C) + D graph explorer
+- [x] Draggable triangle for Law of Sines & Cosines
+- [ ] 3D unit sphere visualisation (stretch goal)

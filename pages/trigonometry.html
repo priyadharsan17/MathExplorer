@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trigonometry — MathExplorer</title>
   <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/category.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -40,31 +41,135 @@
     </ul>
   </div>
 
-  <section class="category-hero">
-    <div class="category-hero-icon card-trig" style="border:1px solid rgba(52,212,200,0.2);">sin θ</div>
-    <h1>Trigonometry</h1>
-    <p>Unravel the relationships between angles, sides, and periodic waves — from the unit circle to complex identities.</p>
+  <section class="cat-hero cat-hero--trig">
+    <div class="cat-hero-bg"></div>
+    <div class="cat-hero-content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>›</span>
+        <span>Trigonometry</span>
+      </nav>
+      <div class="cat-hero-icon">sin θ</div>
+      <h1>Trigonometry</h1>
+      <p>Unravel the relationships between angles, sides, and periodic waves — from the unit circle to complex identities.</p>
+      <div class="cat-meta">
+        <span class="cat-meta-pill">8 Topics</span>
+        <span class="cat-meta-pill">8 Interactive</span>
+        <span class="cat-meta-pill available">Available Now</span>
+      </div>
+    </div>
   </section>
 
-  <section class="coming-soon-section">
-    <div class="coming-soon-card" style="border-color: rgba(52, 212, 200, 0.2);">
-      <div class="coming-soon-icon">🔧</div>
-      <h2>Content Coming Soon</h2>
-      <p>
-        We're designing an interactive unit circle, wave visualisations, and identity explorers for Trigonometry.
-        Check back once we're past the roadmap phase!
-      </p>
-      <ul class="topic-list">
-        <li>Angles & Radians</li>
-        <li>Unit Circle</li>
-        <li>Sine & Cosine</li>
-        <li>Tangent & Cotangent</li>
-        <li>Trig Identities</li>
-        <li>Inverse Functions</li>
-        <li>Graphs of Trig Functions</li>
-        <li>Law of Sines & Cosines</li>
-      </ul>
-      <a href="../index.html#roadmap" class="btn btn-ghost">View Roadmap</a>
+  <!-- Topics Grid -->
+  <section class="topics-section">
+    <div class="container">
+      <div class="topics-grid">
+
+        <a href="trigonometry/angles.html" class="topic-card topic-available">
+          <div class="topic-number">01</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Angles &amp; Radians</h3>
+              <span class="topic-badge available">Interactive</span>
+            </div>
+            <p>Convert between degrees and radians and see the arc length drawn live on a circle.</p>
+            <div class="topic-tags"><span>Degrees</span><span>Radians</span><span>Arc Length</span></div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <a href="trigonometry/unit-circle.html" class="topic-card topic-available">
+          <div class="topic-number">02</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Unit Circle</h3>
+              <span class="topic-badge available">Interactive</span>
+            </div>
+            <p>Drag a point around the unit circle and watch sin θ, cos θ, and tan θ update live.</p>
+            <div class="topic-tags"><span>sin θ</span><span>cos θ</span><span>tan θ</span></div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <a href="trigonometry/sin-cos.html" class="topic-card topic-available">
+          <div class="topic-number">03</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Sine &amp; Cosine</h3>
+              <span class="topic-badge available">Interactive</span>
+            </div>
+            <p>Watch the sine wave unroll from a rotating unit circle in a split-panel animation.</p>
+            <div class="topic-tags"><span>Waveform</span><span>Period</span><span>Amplitude</span></div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <a href="trigonometry/trig-functions.html" class="topic-card topic-available">
+          <div class="topic-number">04</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>All Six Functions</h3>
+              <span class="topic-badge available">Interactive</span>
+            </div>
+            <p>Toggle each trig function on/off and compare their graphs side by side.</p>
+            <div class="topic-tags"><span>csc</span><span>sec</span><span>cot</span></div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <a href="trigonometry/identities.html" class="topic-card topic-available">
+          <div class="topic-number">05</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Trig Identities</h3>
+              <span class="topic-badge available">Interactive</span>
+            </div>
+            <p>Explore Pythagorean, angle-addition, and double-angle identities with step-by-step proofs.</p>
+            <div class="topic-tags"><span>Pythagorean</span><span>Sum/Difference</span><span>Double Angle</span></div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <a href="trigonometry/inverse.html" class="topic-card topic-available">
+          <div class="topic-number">06</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Inverse Functions</h3>
+              <span class="topic-badge available">Interactive</span>
+            </div>
+            <p>Visualise arcsin, arccos, and arctan with their restricted domains and mirror reflections.</p>
+            <div class="topic-tags"><span>arcsin</span><span>arccos</span><span>arctan</span></div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <a href="trigonometry/graphs.html" class="topic-card topic-available">
+          <div class="topic-number">07</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Graphs of Trig Functions</h3>
+              <span class="topic-badge available">Interactive</span>
+            </div>
+            <p>Use sliders for A, B, C, D in A·sin(Bx + C) + D and see period, amplitude, phase shift update instantly.</p>
+            <div class="topic-tags"><span>Amplitude</span><span>Period</span><span>Phase Shift</span></div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+        <a href="trigonometry/laws.html" class="topic-card topic-available">
+          <div class="topic-number">08</div>
+          <div class="topic-body">
+            <div class="topic-header">
+              <h3>Law of Sines &amp; Cosines</h3>
+              <span class="topic-badge available">Interactive</span>
+            </div>
+            <p>Drag triangle vertices and watch the Law of Sines and Cosines update in real time.</p>
+            <div class="topic-tags"><span>Law of Sines</span><span>Law of Cosines</span><span>Triangle</span></div>
+          </div>
+          <div class="topic-arrow">→</div>
+        </a>
+
+      </div>
     </div>
   </section>
 

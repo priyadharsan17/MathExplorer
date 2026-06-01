@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trig Graphs Explorer — Trigonometry | MathExplorer</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/category.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    .topic-symbol { background: rgba(52,212,200,0.1); color: var(--trig-color); border-color: rgba(52,212,200,0.2); }
+    .formula-card .formula-label { color: var(--trig-color); }
+    .example-card .example-title { color: var(--trig-color); }
+    .step-num { background: rgba(52,212,200,0.12); color: var(--trig-color); }
+    input[type="range"]::-webkit-slider-thumb { background: var(--trig-color); box-shadow: 0 0 8px rgba(52,212,200,0.5); }
+    .control-value { color: var(--trig-color); }
+    .base-btns { display:flex; gap:8px; padding:16px 24px 4px; }
+    .base-btn {
+      padding:6px 18px; border-radius:20px; border:1.5px solid rgba(52,212,200,0.25);
+      background:transparent; color:var(--text-secondary); font-family:var(--font-mono); font-size:0.85rem; cursor:pointer; transition:all 0.15s;
+    }
+    .base-btn.active { background:rgba(52,212,200,0.15); border-color:var(--trig-color); color:var(--trig-color); font-weight:700; }
+    .props-row { display:flex; gap:20px; flex-wrap:wrap; padding:8px 24px 16px; }
+    .prop-badge { display:flex; flex-direction:column; gap:3px; }
+    .prop-badge span:first-child { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--text-muted); font-family:var(--font-mono); }
+    .prop-badge span:last-child  { font-size:0.92rem; font-weight:700; color:var(--trig-color); font-family:var(--font-mono); }
+  </style>
+</head>
+<body class="topic-page">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">
+        <span class="logo-symbol">∑</span><span class="logo-text">MathExplorer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../algebra.html">Algebra</a></li>
+        <li><a href="../calculus.html">Calculus</a></li>
+        <li><a href="../trigonometry.html" class="active">Trigonometry</a></li>
+        <li><a href="../history.html">History</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../../index.html" onclick="closeMobileMenu()">Home</a></li>
+      <li><a href="../algebra.html" onclick="closeMobileMenu()">Algebra</a></li>
+      <li><a href="../calculus.html" onclick="closeMobileMenu()">Calculus</a></li>
+      <li><a href="../trigonometry.html" onclick="closeMobileMenu()">Trigonometry</a></li>
+      <li><a href="../history.html" onclick="closeMobileMenu()">History</a></li>
+    </ul>
+  </div>
+
+  <div class="topic-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a><span>›</span>
+      <a href="../trigonometry.html">Trigonometry</a><span>›</span>
+      <span>Graphs of Trig Functions</span>
+    </nav>
+    <div class="topic-hero-top">
+      <div class="topic-symbol">~</div>
+      <h1>Graphs of Trig Functions</h1>
+    </div>
+    <p class="subtitle">
+      Explore how amplitude, period, phase shift, and vertical shift transform
+      the graph of \(y = A\sin(Bx + C) + D\). Every parameter has a precise
+      geometric meaning you can see in action.
+    </p>
+  </div>
+
+  <section class="content-section">
+    <h2>The Four Parameters</h2>
+    <p>
+      The general form \(y = A\sin(Bx + C) + D\) (or with cosine) has four parameters:
+    </p>
+    <ul style="margin:0 0 12px 24px; line-height:2; color:var(--text-secondary);">
+      <li><strong>A — Amplitude</strong>: vertical stretch/compression. Peak-to-midline distance is \(|A|\).</li>
+      <li><strong>B — Frequency factor</strong>: the period becomes \(2\pi/|B|\).</li>
+      <li><strong>C — Phase shift</strong>: horizontal shift of \(-C/B\) units.</li>
+      <li><strong>D — Vertical shift</strong>: moves the midline from \(y=0\) to \(y=D\).</li>
+    </ul>
+    <p>Changing the sign of \(A\) reflects the graph vertically; changing the sign of \(B\) reflects horizontally.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>Key Formulas</h2>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <span class="formula-label">General Form</span>
+        <div><div class="formula-math">\[ y = A\sin(Bx+C)+D \]</div></div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Period</span>
+        <div><div class="formula-math">\[ T = \frac{2\pi}{|B|} \]</div></div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Phase Shift</span>
+        <div><div class="formula-math">\[ \phi = -\frac{C}{B} \quad \text{(horizontal shift)} \]</div></div>
+      </div>
+      <div class="formula-card">
+        <span class="formula-label">Range</span>
+        <div><div class="formula-math">\[ y \in [D-|A|,\; D+|A|] \]</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Worked Examples</h2>
+    <div class="example-list">
+      <div class="example-card">
+        <div class="example-title">Example 1 — Reading parameters</div>
+        <div class="example-problem">Identify \(A,B,C,D\) for \(y = 3\sin(2x - \pi) + 1\)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">\(A=3\): amplitude is 3.</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">\(B=2\): period = \(2\pi/2 = \pi\).</div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">\(C=-\pi\): phase shift = \(-(-\pi)/2 = \pi/2\) right.</div></div>
+          <div class="step"><div class="step-num">✓</div><div class="step-text">\(D=1\): midline at \(y=1\). Range: \([-2, 4]\).</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visualiser-section">
+    <h2>Interactive — Adjust A · B · C · D</h2>
+    <div class="visualiser-card">
+      <div class="base-btns" id="baseBtns">
+        <button class="base-btn active" data-base="sin">sin</button>
+        <button class="base-btn" data-base="cos">cos</button>
+      </div>
+      <div class="visualiser-canvas-wrap">
+        <canvas id="graphCanvas" width="800" height="340"></canvas>
+        <div class="equation-display" id="eqDisp"></div>
+      </div>
+      <div class="visualiser-controls">
+        <div class="control-group">
+          <div class="control-label"><span>A — Amplitude</span><span class="control-value" id="valA">1.0</span></div>
+          <input type="range" id="slA" min="-30" max="30" step="1" value="10" aria-label="Amplitude A" />
+        </div>
+        <div class="control-group">
+          <div class="control-label"><span>B — Frequency</span><span class="control-value" id="valB">1.0</span></div>
+          <input type="range" id="slB" min="1" max="30" step="1" value="10" aria-label="Frequency B" />
+        </div>
+        <div class="control-group">
+          <div class="control-label"><span>C — Phase (rad)</span><span class="control-value" id="valC">0.00</span></div>
+          <input type="range" id="slC" min="-314" max="314" step="1" value="0" aria-label="Phase C" />
+        </div>
+        <div class="control-group">
+          <div class="control-label"><span>D — Vertical Shift</span><span class="control-value" id="valD">0.0</span></div>
+          <input type="range" id="slD" min="-30" max="30" step="1" value="0" aria-label="Vertical shift D" />
+        </div>
+      </div>
+      <div class="props-row">
+        <div class="prop-badge"><span>Amplitude</span><span id="propAmp">1.0</span></div>
+        <div class="prop-badge"><span>Period</span><span id="propPer">2π</span></div>
+        <div class="prop-badge"><span>Phase Shift</span><span id="propPS">0.00</span></div>
+        <div class="prop-badge"><span>Midline</span><span id="propMid">y = 0.0</span></div>
+        <div class="prop-badge"><span>Range</span><span id="propRange">[−1, 1]</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Key Takeaways</h2>
+    <div class="takeaways-list">
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Amplitude \(|A|\) sets the height; period \(2\pi/|B|\) sets the width of one full cycle.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Phase shift \(-C/B\) slides the graph left or right without changing its shape.</p></div>
+      <div class="takeaway"><span class="takeaway-icon">◈</span><p>Vertical shift \(D\) moves the midline up or down.</p></div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Related Topics</h2>
+    <div class="related-grid">
+      <a href="sin-cos.html" class="related-card">Sine &amp; Cosine Waves <span>→</span></a>
+      <a href="trig-functions.html" class="related-card">All Six Functions <span>→</span></a>
+      <a href="../trigonometry.html" class="related-card">All Trig Topics <span>→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand"><span class="logo-symbol">∑</span><span class="logo-text">MathExplorer</span></div>
+        <p class="footer-note">An open math learning project — hosted on GitHub Pages.</p>
+        <a href="https://github.com/priyadharsan17/MathExplorer" class="footer-link" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    const canvas = document.getElementById('graphCanvas');
+    const ctx    = canvas.getContext('2d');
+    const eqDisp = document.getElementById('eqDisp');
+    let base = 'sin';
+
+    const slA = document.getElementById('slA');
+    const slB = document.getElementById('slB');
+    const slC = document.getElementById('slC');
+    const slD = document.getElementById('slD');
+
+    document.getElementById('baseBtns').querySelectorAll('.base-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.base-btn').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active'); base=btn.dataset.base; draw();
+      });
+    });
+    [slA,slB,slC,slD].forEach(s => s.addEventListener('input', draw));
+
+    const XMIN = -2*Math.PI, XMAX = 2*Math.PI;
+    function toCanvas(x,y,yMin,yMax) {
+      const W=canvas.width, H=canvas.height, PAD=36;
+      return [
+        PAD + (x-XMIN)/(XMAX-XMIN)*(W-2*PAD),
+        H - PAD - (y-yMin)/(yMax-yMin)*(H-2*PAD)
+      ];
+    }
+
+    function draw() {
+      const A = parseFloat(slA.value)/10;
+      const B = parseFloat(slB.value)/10;
+      const C = parseFloat(slC.value)/100;
+      const D = parseFloat(slD.value)/10;
+
+      document.getElementById('valA').textContent = A.toFixed(1);
+      document.getElementById('valB').textContent = B.toFixed(1);
+      document.getElementById('valC').textContent = C.toFixed(2);
+      document.getElementById('valD').textContent = D.toFixed(1);
+
+      const amp    = Math.abs(A);
+      const period = B !== 0 ? (2*Math.PI/Math.abs(B)) : Infinity;
+      const pshift = B !== 0 ? (-C/B) : 0;
+
+      document.getElementById('propAmp').textContent  = amp.toFixed(2);
+      document.getElementById('propPer').textContent  = isFinite(period) ? period.toFixed(3) : '∞';
+      document.getElementById('propPS').textContent   = pshift.toFixed(3);
+      document.getElementById('propMid').textContent  = 'y = '+D.toFixed(1);
+      document.getElementById('propRange').textContent= `[${(D-amp).toFixed(1)}, ${(D+amp).toFixed(1)}]`;
+
+      const Cfmt = C>=0 ? `+${C.toFixed(2)}` : C.toFixed(2);
+      const Dfmt = D>=0 ? `+${D.toFixed(1)}` : D.toFixed(1);
+      eqDisp.textContent = `y = ${A.toFixed(1)}·${base}(${B.toFixed(1)}x ${Cfmt}) ${Dfmt}`;
+
+      const yMax = Math.max(4, Math.abs(A)+Math.abs(D)+0.5);
+      const yMin = -yMax;
+      const W = canvas.width, H = canvas.height, PAD=36;
+
+      ctx.fillStyle='#0d0d14'; ctx.fillRect(0,0,W,H);
+
+      // Grid
+      ctx.strokeStyle='rgba(255,255,255,0.04)'; ctx.lineWidth=1;
+      for (let k=-2;k<=2;k++) {
+        const [gx]=toCanvas(k*Math.PI,0,yMin,yMax); ctx.beginPath();ctx.moveTo(gx,0);ctx.lineTo(gx,H);ctx.stroke();
+      }
+      for (let y=Math.ceil(yMin);y<=Math.floor(yMax);y++) {
+        const [,gy]=toCanvas(0,y,yMin,yMax); ctx.beginPath();ctx.moveTo(0,gy);ctx.lineTo(W,gy);ctx.stroke();
+      }
+      // Axes
+      const [ax]=toCanvas(0,0,yMin,yMax); const [,ay]=toCanvas(0,0,yMin,yMax);
+      ctx.strokeStyle='rgba(255,255,255,0.2)'; ctx.lineWidth=1.5;
+      ctx.beginPath();ctx.moveTo(ax,0);ctx.lineTo(ax,H);ctx.stroke();
+      ctx.beginPath();ctx.moveTo(0,ay);ctx.lineTo(W,ay);ctx.stroke();
+
+      // π labels
+      ctx.fillStyle='rgba(255,255,255,0.3)'; ctx.font=`${Math.max(9,W*0.012)}px JetBrains Mono,monospace`; ctx.textAlign='center';
+      [[-2,'−2π'],[-1,'−π'],[0,'0'],[1,'π'],[2,'2π']].forEach(([k,l])=>{
+        const [gx]=toCanvas(k*Math.PI,0,yMin,yMax); ctx.fillText(l,gx,ay+14);
+      });
+
+      // Curve
+      const baseFn = base==='sin' ? Math.sin : Math.cos;
+      ctx.strokeStyle='#34d4c8'; ctx.lineWidth=2.5; ctx.shadowColor='rgba(52,212,200,0.4)'; ctx.shadowBlur=8;
+      ctx.beginPath(); let pen=false;
+      for (let i=0;i<=800;i++) {
+        const x = XMIN+(i/800)*(XMAX-XMIN);
+        const y = A*baseFn(B*x+C)+D;
+        if (!isFinite(y)||Math.abs(y)>yMax*1.5){pen=false;continue;}
+        const [px,py]=toCanvas(x,y,yMin,yMax);
+        pen?ctx.lineTo(px,py):ctx.moveTo(px,py); pen=true;
+      }
+      ctx.stroke(); ctx.shadowBlur=0;
+
+      // Midline
+      if (D>=yMin && D<=yMax) {
+        ctx.strokeStyle='rgba(249,123,64,0.4)'; ctx.setLineDash([5,4]); ctx.lineWidth=1.2;
+        const [,my]=toCanvas(0,D,yMin,yMax); ctx.beginPath();ctx.moveTo(PAD,my);ctx.lineTo(W-PAD,my);ctx.stroke();
+        ctx.setLineDash([]);
+      }
+    }
+
+    function resize() {
+      canvas.width  = canvas.parentElement.clientWidth;
+      canvas.height = Math.round(canvas.parentElement.clientWidth*0.38);
+      draw();
+    }
+    window.addEventListener('resize', resize);
+    resize();
+  </script>
+</body>
+</html>
